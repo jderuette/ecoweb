@@ -18,6 +18,7 @@
 		<!-- to produce webSite in "maven build directory" : ${jbake.inputDirectory}/output, 
 			to use the "default Jbake Folder" : ${project.basedir}/${src.dir}/output -->
 		<jbake.outputDirectory>${project.basedir}/website</jbake.outputDirectory>
+		<jbake_maven_plugin.version>0.3.1</jbake_maven_plugin.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -39,6 +40,7 @@
 			<!-- Clean and (re) create output folder -->
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
 				<executions>
 					<execution>
 						<id>clean-output-folder</id>
@@ -86,7 +88,7 @@
 			<plugin>
 				<groupId>org.jbake</groupId>
 				<artifactId>jbake-maven-plugin</artifactId>
-				<version>0.3.1</version>
+				<version>${jbake_maven_plugin.version}</version>
 				<configuration>
 					<inputDirectory>${jbake.inputDirectory}</inputDirectory>
 					<outputDirectory>${jbake.outputDirectory}</outputDirectory>
