@@ -21,9 +21,9 @@
     <meta name="keywords" content="${ecoWeb.displayConfigText(config.site_header_keyword)}">
     <meta name="generator" content="JBake">
     <#-- Le styles -->
-    <link href="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/css/bootstrap.min.css")}" rel="stylesheet">
-    <link href="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/css/base.css")}" rel="stylesheet">
-    <link href="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/css/style.css")}" rel="stylesheet">
+    <link href="${ecoWeb.buildRootPathAwareURL(config.site_template+"/css/bootstrap.min.css")}" rel="stylesheet">
+    <link href="${ecoWeb.buildRootPathAwareURL(config.site_template+"/css/base.css")}" rel="stylesheet">
+    <link href="${ecoWeb.buildRootPathAwareURL(config.site_template+"/css/style.css")}" rel="stylesheet">
     <link href="${ecoWeb.buildRootPathAwareURL("css/style-ext.css")}" rel="stylesheet">
 	
 	<#-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
