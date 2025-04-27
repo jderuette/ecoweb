@@ -50,6 +50,8 @@
 							<tasks>
 								<delete dir="${jbake.inputDirectory}" />
 								<mkdir dir="${jbake.inputDirectory}" />
+								<delete dir="${jbake.outputDirectory}" />
+								<mkdir dir="${jbake.outputDirectory}" />
 							</tasks>
 						</configuration>
 						<goals>
