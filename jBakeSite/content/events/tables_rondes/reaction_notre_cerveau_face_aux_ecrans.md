@@ -1,5 +1,5 @@
 title=Réaction de notre cerveau face aux écrans
-date=2019.10.10 17:00
+date=2019-10-10 17:00
 type=org_openCiLife_post
 category=table_ronde
 tags=comportement humains

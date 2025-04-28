@@ -1,5 +1,5 @@
 title=Intégration du cycle de vie au numérique
-date=2018.10.10 18:30
+date=2018-10-10 18:30
 type=org_openCiLife_post
 category=table_ronde
 tags=comportement humains
