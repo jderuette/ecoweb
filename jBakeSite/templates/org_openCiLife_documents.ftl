@@ -10,8 +10,9 @@
 		${content.body}
 	</div>
 	
-	<div class="document_list">
-		<#list documents as document>
+	<#if myOptionalVar??>
+	<div class="mosaic_list">
+		<#list org_openCiLife_documents as document>
 			<#if (document.status == "published")>
 				<div class="document">
 					<div class="document_header">
@@ -31,8 +32,6 @@
 						</div>
 					</#if>
 					
-					
-					
 					<div class="document_content" style="display:none">
 						${document.body}
 					</div>
@@ -41,5 +40,8 @@
 			</#if>
 		</#list>
 	</div>
+	<#else>
+	
+	</#if>
 
 <#include "footer.ftl">
