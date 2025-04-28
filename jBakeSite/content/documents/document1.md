@@ -2,9 +2,10 @@ title=Un super document
 date=2019-03-016
 type=org_openCiLife_document
 tags=
-status=published
+status=draft
 exerpt=Ce document va vous aider à ..... 
 download_link=http://www.google.fr
+order=010
 ~~~~~~
 
 Le contenu du document. [Avec un lien] (http://www.google.fr) de téléchargement ? 

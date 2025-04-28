@@ -1,8 +1,9 @@
 title=Base documentaire
 date=2019-03-16
-type=org_webleger_withSubContent
+type=org_openCiLife_post
 category=global
-includeContent={"type":"org_openCiLife_document", "specificClass":"documents", "display":{"type":"table", "content":"link", "additionalData":{"resumé":"exerpt", "lien":"download_link"}}}
+includeContent={"type":"org_openCiLife_document", "specificClass":"documents", "display":{"type":"table", "content":"link", "additionalData":{ "lien":"download_link"}}}
 status=published
+order=040
 ~~~~~~
 Notre **base documentaires** est là pour vous aider !
