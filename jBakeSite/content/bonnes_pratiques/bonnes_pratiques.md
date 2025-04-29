@@ -1,6 +1,6 @@
 title=Nos bonnes pratiques
 date=2019-10-15
-type=org_webleger_withSubContent
+type=org_openCiLife_post
 tags=économie energie
 includeContent={"type":"org_openCiLife_post", "category":"bonne_pratique", "specificClass":"bonnes_pratiques", "display":{"type":"card", "content":"modal"}}
 category=r&d, main
