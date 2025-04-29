@@ -189,11 +189,10 @@ param : content : content to search for incluide content
 -->
 <#macro buildsubContent content>
 	<#if (content.includeContent)??>
-		<@debug "Found content ton include"/>
-		<#if ((content.includeContent.display??) && (content.includeContent.display.type??))>
-			<#assign subContents = db.getAllContent(content.includeContent.type)>
-			<@debug "Included Type " + content.includeContent.type/>
-			<#if (subContents?size >0)>
+		<@debug "(sub)Content should be included"/>
+			<#assign subContents = db.getPublishedContent(content.includeContent.type)>
+			<@debug "Included Type " + content.includeContent.type, "Number of subContent to display " + subContents?size/>
+			<#if (subContents?size > 0)>
 				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
 				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
 				<#assign specificClass = (content.includeContent.specificClass)!"">
@@ -316,7 +315,6 @@ param : content : content to search for incluide content
 			<#else>
 				pas de contenus (pour le moment).
 			</#if>
-		</#if>
 	<#else>
 		<@debug "No SubContent for this content"/>
 	</#if>
