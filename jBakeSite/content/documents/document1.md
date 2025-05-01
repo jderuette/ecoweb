@@ -5,6 +5,7 @@ tags=
 status=published
 exerpt=Ce document va vous aider à ..... 
 download_link=http://www.google.fr
+order=010
 ~~~~~~
 
 Le contenu du document. [Avec un lien] (http://www.google.fr) de téléchargement ? 

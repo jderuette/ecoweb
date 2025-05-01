@@ -1,17 +1,12 @@
-title=Nos principes
-date=2019-01-29
+title=A quoi ca sert ? 
+date=2025-04-30
 type=org_openCiLife_block
 category=homepage
 tags=
 status=published
-specificClass=hpWhite
+specificClass=hpColor
 contentImage=images/principe.svg
-anchorId=principes
-order=3
+anchorId=a_quoi_ca_sert
+order=010
 ~~~~~~
-Nous évaluons pour chacune de nos action, d’une part son cycle de vie complet (conception, fabrication, utilisation, transformation) et d’autre part son impact sur l’écosystème concerné. Nous privilégions le temps long : concertation large, formulation précise de la problématique et application d’une solution par itération (Boucle experimentation-rectification).
-
-Nous valorisons chaque ressource : Limiter la production en réadaptant l’existant, traiter les “déchets” comme du potentiel et générer de multiples bénéfices à partir d’un seul processus.
-
-Nous nous connectons aux “périphéries" et contextes à risque, puisqu’ils sont source d’innovation. 
-Nous défendons la diversité et la modularité des réponses apportées
+WebLeger permet de construire des sites web lègé. Les modèles vous incite a rester sobres. Une fois votre site imaginé Weblèger construit un site web nécéssitant que très peu de ressorue serveur. WebLègé vous aident à optimiser le temps d'affichage pour vos visteurs.
