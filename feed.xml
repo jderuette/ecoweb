@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JBake</title>
+    <link>file:///D:/git/CitoyenBlog/website</link>
+    <atom:link href="file:///D:/git/CitoyenBlog/website/feed.xml" rel="self" type="application/rss+xml" />
+    <description>C'est du lourds !</description>
+    <language>FR-fr</language>
+    <pubDate>jeu., 1 mai 2025 11:24:23 +0200</pubDate>
+    <lastBuildDate>jeu., 1 mai 2025 11:24:23 +0200</lastBuildDate>
+
+
+  </channel> 
+</rss>
