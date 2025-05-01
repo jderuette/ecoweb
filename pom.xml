@@ -30,8 +30,29 @@
 			<version>0.40.8</version>
 		</dependency>
 	</dependencies>
-
+	
+	<distributionManagement>
+    <site>
+      <id>github</id>
+      <url>scm:git:git@github.com:jderuette/ecoweb.git</url>
+    </site>
+  </distributionManagement>
+  
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-publish-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration>
+						<scmBranch>gh-pages</scmBranch>
+						<content>${jbake.outputDirectory}</content>
+					</configuration>
+				</plugin>
+			</plugins>
+			
+		</pluginManagement>
 		<filters>
 			<filter>ecoWeb-build.properties</filter>
 		</filters>
