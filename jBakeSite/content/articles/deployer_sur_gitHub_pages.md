@@ -5,7 +5,7 @@ category=main
 tags=autonomie IT
 status=published
 exerpt=Comment herbger un site sur gitHub Pages (pour démo our partage avec relecteurs) ?
-contentImage=images/articles/rpi_cloud/Raspi-PGB001.webp
+contentImage=images/articles/deploy_github/gitHub-logo.svg
 order=110
 ~~~~~~
 ## Pour quel contenus ? 
