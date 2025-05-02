@@ -45,7 +45,7 @@ img {
 }
 .navbar-nav>li>a:hover {
     background-color: #f7e6ff;
-    font-weight: bold;
+    text-decoration: underline
 }
 
 .blockContent {
