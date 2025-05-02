@@ -36,7 +36,7 @@ img {
 }
 
 .navbar-toggle {
-	background-image: url(/org_openCiLife_ecoWeb/images/burger.svg);
+	background-image: url(file:///D:/git/CitoyenBlog/website/org_openCiLife_ecoWeb/images/burger.svg);
 	width: 32px;
 }
 
