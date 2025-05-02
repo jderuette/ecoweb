@@ -3,22 +3,25 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.opencilife.ecoweb</groupId>
+	<groupId>org.webleger</groupId>
 	<artifactId>website</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>MarkDownEditor</name>
+	<name>SiteBuilder</name>
 
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<src.dir>jBakeSite</src.dir>
-		<!-- JBake build using Maven **filtered** files produced by build::plugins::plugin[maven-resources-plugin]::configuration::outputDirectory -->
+		<!-- JBake build using Maven **filtered** files produced by
+		build::plugins::plugin[maven-resources-plugin]::configuration::outputDirectory -->
 		<jbake.inputDirectory>jBakeMavenData</jbake.inputDirectory>
-		<!-- to produce webSite in "maven build directory" : ${jbake.inputDirectory}/output, 
+		<!-- to produce webSite in "maven build directory" :
+		${jbake.inputDirectory}/output, 
 			to use the "default Jbake Folder" : ${project.basedir}/${src.dir}/output -->
 		<jbake.outputDirectory>${project.basedir}/website</jbake.outputDirectory>
 		<jbake_maven_plugin.version>0.3.1</jbake_maven_plugin.version>
+		<publish.url>scm:git:git@github.com:jderuette/ecoweb.git</publish.url>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -30,14 +33,14 @@
 			<version>0.40.8</version>
 		</dependency>
 	</dependencies>
-	
+
 	<distributionManagement>
-    <site>
-      <id>github</id>
-      <url>scm:git:git@github.com:jderuette/ecoweb.git</url>
-    </site>
-  </distributionManagement>
-  
+		<site>
+			<id>github</id>
+			<url>${publish.url}</url>
+		</site>
+	</distributionManagement>
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -51,7 +54,7 @@
 					</configuration>
 				</plugin>
 			</plugins>
-			
+
 		</pluginManagement>
 		<filters>
 			<filter>ecoWeb-build.properties</filter>
@@ -99,7 +102,8 @@
 				<executions>
 					<execution>
 						<id>copy-filtered-ressources-before-jbake-build</id>
-						<!-- enable "resources:resources" to be launch before "install" phase -->
+						<!-- enable "resources:resources" to be launch before
+						"install" phase -->
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>resources</goal>
@@ -107,7 +111,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.jbake</groupId>
 				<artifactId>jbake-maven-plugin</artifactId>
