@@ -1,19 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documents/document1.html</loc>
-        <lastmod>2019-03-16</lastmod>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/mutualisation_des_savoirs.html</loc>
+        <lastmod>2020-02-10</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/articles/deployer_sur_gitHub_pages.html</loc>
-        <lastmod>2025-05-02</lastmod>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/collectif_com.html</loc>
+        <lastmod>2020-02-10</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/aireCarto.html</loc>
+        <lastmod>2020-02-10</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/tara.html</loc>
+        <lastmod>2020-02-10</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/radio_pluriel.html</loc>
+        <lastmod>2020-02-10</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/ecoWeb.html</loc>
+        <lastmod>2019-03-01</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/articles/effet_rebond.html</loc>
+        <lastmod>2020-02-10</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/articles/terres_rares.html</loc>
+        <lastmod>2020-02-06</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/bonnes_pratiques_mail.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/besoin_d_acheter.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/temps_sur_mon_smartphonne.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/revoir_son_image.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/raspberry_serveur.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/privilegier_des_systemes_libres.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/nettoyer_regulierement_ses_donnees.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/limiter_video.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/faites_un_break.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/desactiver_notifications.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/calmer_son_navigateur.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/bonnes_pratiques.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/acheter_reconditionne.html</loc>
+        <lastmod>2019-10-15</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/site_eco_concu.html</loc>
         <lastmod>2019-10-15</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documents/documents.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/recycler_ses_appareils.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/privilegier_la_TNT.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/on_favorise_les_favoris.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/mises_a_jour_manuels.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/formez_vous.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/eteindre_pc_la_nuit.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/couper_box_la_nuit.html</loc>
+        <lastmod>2019-10-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/articles/raspberry_serveur_cloud.html</loc>
+        <lastmod>2019-08-15</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/projects.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
@@ -21,35 +129,55 @@
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/projects/projects.html</loc>
-        <lastmod>2019-03-16</lastmod>
-    </url>
-    <url>
         <loc>file:///D:/git/CitoyenBlog/website/events/events.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
+        <loc>file:///D:/git/CitoyenBlog/website/documents/documents.html</loc>
+        <lastmod>2019-03-16</lastmod>
+    </url>
+    <url>
         <loc>file:///D:/git/CitoyenBlog/website/footer/donation.html</loc>
-        <lastmod>2025-05-02</lastmod>
+        <lastmod>2025-05-04</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/footer/contact.html</loc>
-        <lastmod>2025-05-02</lastmod>
+        <lastmod>2025-05-04</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/home_page/040_Pourquoi.html</loc>
-        <lastmod>2025-04-30</lastmod>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/missions.html</loc>
+        <lastmod>2019-01-31</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/home_page/030_Quel_herbergement.html</loc>
-        <lastmod>2025-04-30</lastmod>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/principes.html</loc>
+        <lastmod>2019-01-29</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/home_page/020_Comment.html</loc>
-        <lastmod>2025-04-30</lastmod>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/actions.html</loc>
+        <lastmod>2019-01-27</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/home_page/010_A_quoi_ca_sert.html</loc>
-        <lastmod>2025-04-30</lastmod>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/ecosysteme.html</loc>
+        <lastmod>2019-01-25</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/partenaires.html</loc>
+        <lastmod>2019-01-23</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/rejoindre.html</loc>
+        <lastmod>2019-01-21</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/poles.html</loc>
+        <lastmod>2019-01-21</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/poles/sensibilisation.html</loc>
+        <lastmod>2019-02-27</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/poles/rd.html</loc>
+        <lastmod>2019-02-23</lastmod>
     </url>
 </urlset>

@@ -4,11 +4,68 @@
     <title>JBake</title>
     <link>file:///D:/git/CitoyenBlog/website</link>
     <atom:link href="file:///D:/git/CitoyenBlog/website/feed.xml" rel="self" type="application/rss+xml" />
-    <description>C'est du lourds !</description>
-    <language>fr_FR</language>
-    <pubDate>ven., 2 mai 2025 16:59:05 +0200</pubDate>
-    <lastBuildDate>ven., 2 mai 2025 16:59:05 +0200</lastBuildDate>
+    <description>Open CY Life</description>
+    <language>FreeMarker template error (DEBUG mode; use RETHROW in production!):
+The following has evaluated to null or missing:
+==> config.site_header_lang  [in template "feed.ftl" at line 8, column 17]
 
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-  </channel> 
-</rss>
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${config.site_header_lang}  [in template "feed.ftl" at line 8, column 15]
+----
+
+Java stack trace (for programmers):
+----
+freemarker.core.InvalidReferenceException: [... Exception message was already printed; see it above ...]
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:479)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:401)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:370)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:100)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:63)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.visit(Environment.java:337)
+	at freemarker.core.Environment.process(Environment.java:310)
+	at freemarker.template.Template.process(Template.java:383)
+	at org.jbake.template.FreemarkerTemplateEngine.renderDocument(FreemarkerTemplateEngine.java:47)
+	at org.jbake.template.DelegatingTemplateEngine.renderDocument(DelegatingTemplateEngine.java:61)
+	at org.jbake.app.Renderer.render(Renderer.java:234)
+	at org.jbake.app.Renderer.renderFeed(Renderer.java:319)
+	at org.jbake.render.FeedRenderer.render(FeedRenderer.java:18)
+	at org.jbake.app.Oven.bake(Oven.java:155)
+	at org.jbake.maven.GenerateMojo.reRender(GenerateMojo.java:95)
+	at org.jbake.maven.GenerateMojo.executeInternal(GenerateMojo.java:82)
+	at org.jbake.maven.GenerateMojo.execute(GenerateMojo.java:67)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:126)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:328)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:316)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:174)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.access$000(MojoExecutor.java:75)
+	at org.apache.maven.lifecycle.internal.MojoExecutor$1.run(MojoExecutor.java:162)
+	at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute(DefaultMojosExecutionStrategy.java:39)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:159)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:105)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:73)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:53)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:118)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:261)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:173)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:101)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:906)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:283)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:206)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:283)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:226)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:407)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:348)

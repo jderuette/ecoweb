@@ -12,7 +12,7 @@ Tip: If the failing expression is known to legally refer to something that's som
 ----
 FTL stack trace ("~" means nesting-related):
 	- Failed at: ${config.site_header_lang}  [in template "header.ftl" at line 14, column 13]
-	- Reached through: #include "header.ftl"  [in template "archive.ftl" at line 1, column 1]
+	- Reached through: #include "header.ftl"  [in template "org_openCiLife_project.ftl" at line 1, column 1]
 ----
 
 Java stack trace (for programmers):
@@ -34,9 +34,8 @@ freemarker.core.InvalidReferenceException: [... Exception message was already pr
 	at freemarker.template.Template.process(Template.java:383)
 	at org.jbake.template.FreemarkerTemplateEngine.renderDocument(FreemarkerTemplateEngine.java:47)
 	at org.jbake.template.DelegatingTemplateEngine.renderDocument(DelegatingTemplateEngine.java:61)
-	at org.jbake.app.Renderer.render(Renderer.java:234)
-	at org.jbake.app.Renderer.renderArchive(Renderer.java:329)
-	at org.jbake.render.ArchiveRenderer.render(ArchiveRenderer.java:18)
+	at org.jbake.app.Renderer.render(Renderer.java:212)
+	at org.jbake.render.DocumentsRenderer.render(DocumentsRenderer.java:50)
 	at org.jbake.app.Oven.bake(Oven.java:155)
 	at org.jbake.maven.GenerateMojo.reRender(GenerateMojo.java:95)
 	at org.jbake.maven.GenerateMojo.executeInternal(GenerateMojo.java:82)
