@@ -1,69 +1,121 @@
 <!DOCTYPE html>
-<html lang="FreeMarker template error (DEBUG mode; use RETHROW in production!):
-The following has evaluated to null or missing:
-==> config.site_header_lang  [in template "header.ftl" at line 14, column 15]
+<html lang="fr_FR">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Tara</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Open CY Life">
+    <meta name="author" content="">
+    <meta name="keywords" content="Web Eco-conception">
+    <meta name="generator" content="JBake">
+    <link href="../org_openCiLife_ecoWeb/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../org_openCiLife_ecoWeb/css/base.css" rel="stylesheet">
+    <link href="../org_openCiLife_ecoWeb/css/style.css" rel="stylesheet">
+    <link href="../css/style-ext.css" rel="stylesheet">
+	
+    <!--[if lt IE 9]>
+      <script src="../org_openCiLife_ecoWeb/js/html5shiv.min.js"></script>
+    <![endif]-->
 
-----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
+    <link rel="shortcut icon" href="../images/common/logo-small.png">
+  </head>
+  <body class="org_openCiLife_project">
+    <div id="wrap">
+    	<div id="up" class="header">
+			<div id="pageTitle">
+				<img src="../images/common/logo_left.png" alt="Logo Open CI Life" id="logoLeft"/>
+				<h1 id="headerTitle">Et toi, tu veux quel futur ?</h1>
+				<img src="../images/common/logo_right.png" alt="Site Eco ConÃ§u" id="logoRight"/>
+			</div>
+		</div>
+	<!-- Fixed navbar -->
+    <div class="container">
+    <div class="navbar navbar-light bg-white" role="navigation">
+              <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+										<li><a href="../index.html#actions">Missions</a></li>
+							<li><a href="../index.html#principes">Nos principes</a></li>
+							<li><a href="../index.html#actions">Nos Actions</a></li>
+							<li><a href="../index.html#ecosystem">Notre écosystème</a></li>
+							<li><a href="../index.html#partenaires">Nos partenaires</a></li>
+							<li><a href="../index.html#poles">Nos Pôles</a></li>
+							<li><a href="../index.html#rejoindre">Rejoignez-nous</a></li>
+							<li><a href="../blogs.html">Articles</a></li>
+							<li><a href="../projects/projects.html">Nos projets</a></li>
+							<li><a href="../events/events.html">Evènements</a></li>
+							<li><a href="../documents/documents.html">Base documentaire</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+	<div class="page-header">
+		<h1>Tara</h1>
+	</div>
+	
+	<div class="projectInfos">
+			<div class="projectStatus">
+				<span class="label">Status : </span><span class="value">prototypage</span>
+			</div>
+		
+			<div class="projectOwner">
+				<span class="label">Porteur : </span><span class="value">Romain</span>
+			</div>
+		
+			<div class="projectMembers">
+				<span class="label">Membres principaux : </span>
+					<span class="value">Romain</span>
+			</div>
+	</div>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${config.site_header_lang}  [in template "header.ftl" at line 14, column 13]
-	- Reached through: #include "header.ftl"  [in template "org_openCiLife_project.ftl" at line 1, column 1]
-----
+	<p><h2>Objectif</h2> 
+<p>La plateforme TARA pour démultiplier les talents sur le la conduite de projets dans différents territoires. Elle permettrait de mettre en contact des besoins et des expertises, de mutualiser pour la suite et de gérer les projets eux-même</p> 
+<h2>Pourquoi</h2> 
+<p>A définir</p> 
+<h2>Comment</h2> 
+<p>Voir le site web : <a href="http://agir.t-a-r-a.com/">http://agir.t-a-r-a.com/</a></p> 
+<h2>Réalisation(s</h2> 
+<p>Voir le site web : <a href="http://agir.t-a-r-a.com/">http://agir.t-a-r-a.com/</a></p> 
+<h2>Source</h2> 
+<p>A définir</p></p>
 
-Java stack trace (for programmers):
-----
-freemarker.core.InvalidReferenceException: [... Exception message was already printed; see it above ...]
-	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
-	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:479)
-	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:401)
-	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:370)
-	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:100)
-	at freemarker.core.DollarVariable.accept(DollarVariable.java:63)
-	at freemarker.core.Environment.visit(Environment.java:331)
-	at freemarker.core.Environment.visit(Environment.java:337)
-	at freemarker.core.Environment.include(Environment.java:2694)
-	at freemarker.core.Include.accept(Include.java:171)
-	at freemarker.core.Environment.visit(Environment.java:331)
-	at freemarker.core.Environment.visit(Environment.java:337)
-	at freemarker.core.Environment.process(Environment.java:310)
-	at freemarker.template.Template.process(Template.java:383)
-	at org.jbake.template.FreemarkerTemplateEngine.renderDocument(FreemarkerTemplateEngine.java:47)
-	at org.jbake.template.DelegatingTemplateEngine.renderDocument(DelegatingTemplateEngine.java:61)
-	at org.jbake.app.Renderer.render(Renderer.java:212)
-	at org.jbake.render.DocumentsRenderer.render(DocumentsRenderer.java:50)
-	at org.jbake.app.Oven.bake(Oven.java:155)
-	at org.jbake.maven.GenerateMojo.reRender(GenerateMojo.java:95)
-	at org.jbake.maven.GenerateMojo.executeInternal(GenerateMojo.java:82)
-	at org.jbake.maven.GenerateMojo.execute(GenerateMojo.java:67)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:126)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:328)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:316)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:174)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.access$000(MojoExecutor.java:75)
-	at org.apache.maven.lifecycle.internal.MojoExecutor$1.run(MojoExecutor.java:162)
-	at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute(DefaultMojosExecutionStrategy.java:39)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:159)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:105)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:73)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:53)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:118)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:261)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:173)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:101)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:906)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:283)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:206)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:283)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:226)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:407)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:348)
+		</div>
+		<img src="../org_openCiLife_ecoWeb/images/pageup.svg" id="go_to_top" OnClick='window.location.href="#up"'>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+     <div class="container">
+	     <div class="footer_blocks">
+					<div class="footer_block">
+			            <img src="../images/donation.svg">
+			            <div class="footer_block_text">
+			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p> 
+<p><a href="https://www.helloasso.com/associations/open-cylife/formulaires/1">Pour faire un don, c'est par ici</a></p>
+			            </div>
+			        </div>
+					<div class="footer_block">
+			            <img src="../images/contact.svg">
+			            <div class="footer_block_text">
+			            	<p><a href="https://www.open-cy.life/">Contact</a></p>
+			            </div>
+			        </div>
+	     </div>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake 0.3.1</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
+      </div>
+    </div>
+    
+    <!-- Javascript here load faster -->
+    <script src="../org_openCiLife_ecoWeb/js/jquery-1.11.1.min.js"></script>
+    <script src="../org_openCiLife_ecoWeb/js/bootstrap.min.js"></script>
+    <script src="../org_openCiLife_ecoWeb/js/org_openCiLife_ecoWeb.js"></script>
+  </body>
+</html>
