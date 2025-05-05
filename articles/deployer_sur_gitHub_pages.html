@@ -2,7 +2,7 @@
 <html lang="fr_FR">
   <head>
     <meta charset="utf-8"/>
-    <title>Nos projets</title>
+    <title>Tutoriel héberger sur gitHub Pages (gh-pages)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="C'est du lourds !">
     <meta name="author" content="jDeruette">
@@ -55,10 +55,35 @@
     </div>
     <div class="container">	
 		<div class="page-header">
-			<h1>Nos projets</h1>
+			<h1>Tutoriel héberger sur gitHub Pages (gh-pages)</h1>
 		</div>
-	<p>Open Cy Life aide les porteurs de projets partageant nos objectifs.</p>
-				pas de contenus (pour le moment).
+	<h2>Pour quel contenus ?</h2> 
+<p>GitHub Pages ne peut héberger que des site web statiques, sans php ni java ni autre technologie "serveur" qui serait nécéssaire pour afficher les pages.</p> 
+<h2>Principe général</h2> 
+<p>Cette articles vous donnera plus d'information sur comment héberger un site sur gitHubPage indépendanment de l'outils que vous utiliser <a href="https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/">https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/</a>.</p> 
+<h2>Avec Webleger ?</h2> 
+<p>Avec WebLeger cela est encore plus simple car intégré.<br> 1-Changez l'URL de publication dans le fichier <em>pom.xml</em> en changeant <strong>jderuette/ecoweb.git</strong> par l'URL de votre repository.</p> 
+<pre><code>&lt;properties&gt;
+  ...
+  &lt;publish.url&gt;scm:git:git@github.com:jderuette/ecoweb.git&lt;/publish.url&gt;
+  ...
+&lt;/properties&gt;
+</code></pre> 
+<p>2- créez une clef SSH pour acceder à vore rerpository <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh</a>.<br> 3- Créez la branche gh-pages. <strong>Attention</strong> cette action va vous perdre tout contenus *<em>non commité</em> sur votre branches acutel.</p> 
+<pre><code>git checkout --orphan gh-pages
+rm .git/index ; git clean -fdx
+echo "It works" &gt; index.html
+git add . &amp;&amp; git commit -m "initial site content" &amp;&amp; git push origin gh-pages
+</code></pre> 
+<p>4- Construisez le site comme d'habitude</p> 
+<pre><code>mvn clean initialize resources:resources jbake:generate
+</code></pre> 
+<p>5- Lancez le déploiement</p> 
+<pre><code>scm-publish:publish-scm
+</code></pre> 
+<p>6- Attendez quelques minutes puis aller visualiser le résultat</p> 
+<h2>Limites</h2> 
+<p>La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démo ou pour partager ocasionnellement le site avec les relecteurs.</p>
 	
 		</div>
 		<img src="../org_openCiLife_ecoWeb/images/pageup.svg" id="go_to_top" OnClick='window.location.href="#up"'>

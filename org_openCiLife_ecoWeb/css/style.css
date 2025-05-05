@@ -4,6 +4,7 @@ html {
 
 body {
 	font: 100% trebuchet, helvetica, sans-serif;
+	background-color:#eeeeee;
 }
 
 img {
@@ -17,11 +18,11 @@ img {
 }
 
 #headerTitle {
-	color: #282825;
+	color: #6900cc;
 }
 
 #logoLeft {
-	width: 300px;
+	width: 200px;
 	height: auto;
 }
 
@@ -41,6 +42,10 @@ img {
 
 .navbar-nav>li>a {
 	color: black;
+}
+.navbar-nav>li>a:hover {
+    background-color: #f7e6ff;
+    text-decoration: underline
 }
 
 .blockContent {
@@ -136,7 +141,7 @@ img {
 	border-color: #282825;
 	width: 100%;
 	height: auto;
-	background-color: #f7f7f7;
+	background-color: #f7e6ff;
 	vertical-align: middle;
 	margin: auto;
 	padding-bottom: 3%;
@@ -150,6 +155,7 @@ img {
 	border-top: 1px solid #282825;
 	width: 100%;
 	height: auto;
+	background-color: #ffffff;
 	vertical-align: middle;
 	margin: auto;
 	padding-bottom: 3%;
@@ -159,6 +165,7 @@ img {
 .blockTitle {
 	font-size: 200%;
 	text-align: center;
+	color:#6900cc;
 }
 
 .blockBody {
