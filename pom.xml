@@ -7,7 +7,7 @@
 	<artifactId>website</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>MarkDownEditor</name>
+	<name>SiteBuilder</name>
 
 	<url>http://maven.apache.org</url>
 
@@ -19,6 +19,7 @@
 			to use the "default Jbake Folder" : ${project.basedir}/${src.dir}/output -->
 		<jbake.outputDirectory>${project.basedir}/website</jbake.outputDirectory>
 		<jbake_maven_plugin.version>0.3.1</jbake_maven_plugin.version>
+		<publish.url>scm:git:git@github.com:jderuette/ecoweb.git</publish.url>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -31,7 +32,28 @@
 		</dependency>
 	</dependencies>
 
+	<distributionManagement>
+		<site>
+			<id>github</id>
+			<url>${publish.url}</url>
+		</site>
+	</distributionManagement>
+
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-publish-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration>
+						<scmBranch>gh-pages</scmBranch>
+						<content>${jbake.outputDirectory}</content>
+					</configuration>
+				</plugin>
+			</plugins>
+
+		</pluginManagement>
 		<filters>
 			<filter>ecoWeb-build.properties</filter>
 		</filters>
@@ -50,6 +72,8 @@
 							<tasks>
 								<delete dir="${jbake.inputDirectory}" />
 								<mkdir dir="${jbake.inputDirectory}" />
+								<delete dir="${jbake.outputDirectory}" />
+								<mkdir dir="${jbake.outputDirectory}" />
 							</tasks>
 						</configuration>
 						<goals>

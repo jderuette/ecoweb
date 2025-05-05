@@ -11,7 +11,7 @@
 </#if>
 <#import "tools/org_openCiLife_ecoweb-marcos.ftl" as ecoWeb>
 <!DOCTYPE html>
-<html lang="${config.site_header_lang}">
+<html lang="${config.site_locale}">
   <head>
     <meta charset="utf-8"/>
     <title><#if (content.title)??><#escape x as x?xml>${content.title}</#escape><#else>${ecoWeb.displayConfigText(config.site_header_title)}</#if></title>
