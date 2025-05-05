@@ -10,5 +10,5 @@ anchorId=quel_herbergement
 order=020
 ~~~~~~
 Pour l'hébergement il suffit d'un serveur Web (Apache, NGix) accessible sur internet.
-Il n'y a pas besoin de base de données ni de language de pogramation (Java, Php,...) sur le serveur.
+Il n'y a pas besoin de base de données ni de language de pogramation (Java, Php, Python...) sur le serveur.
 Java est requis uniquement sur votre ordinateur pour construire le site Web.
