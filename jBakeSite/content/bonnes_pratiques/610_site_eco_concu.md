@@ -6,7 +6,7 @@ tags=économie datas
 status=published
 exerpt=La lourdeur des pages web a augmenté considérablement en quelques années
 contentImage=images/bonnes_pratiques/bio.svg
-order=006
+order=610
 ~~~~~~
 Le poids moyen des pages web a augmenté de (entre 2015 et 2018)
 

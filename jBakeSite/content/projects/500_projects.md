@@ -5,7 +5,7 @@ includeContent={"type":"org_openCiLife_project", "specificClass":"project", "dis
 category=global
 status=published
 displayDate=false
-order=05
+order=500
 ~~~~~~
 
 Open Cy Life aide les porteurs de projets partageant nos objectifs.
