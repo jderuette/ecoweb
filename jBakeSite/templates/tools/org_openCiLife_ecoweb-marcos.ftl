@@ -184,14 +184,17 @@ param : closeButtonlabel : *default* : close : lable of the botom close button
 	</div>
 </#macro>
 
-<#-- build an modal block (using Boostrap)
+<#-- build an modal block or table listing (using Boostrap)
 param : content : content to search for incluide content
 -->
 <#macro buildsubContent content>
 	<#if (content.includeContent)??>
 		<@debug "(sub)Content should be included"/>
-			<#assign subContents = db.getPublishedContent(content.includeContent.type)>
+			<#assign allSubContents = db.getPublishedContent(content.includeContent.type)>
+			<#--  -- remove self if presents -->
+			<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
 			<@debug "Included Type " + content.includeContent.type, "Number of subContent to display " + subContents?size/>
+			
 			<#if (subContents?size > 0)>
 				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
 				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
