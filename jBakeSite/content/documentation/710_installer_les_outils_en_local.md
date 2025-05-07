@@ -1,11 +1,13 @@
 title=Installer les outils en local
-date=2025-05-02
+date=2025-07-04
 type=org_openCiLife_post
+includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
 category=main, documentation, V0.0.1
 tags=installer WebLeger
 status=published
 exerpt=Outils à installer en local pour créer un site WebLègé
 contentImage=images/common/logo_left.png
+displayDate=true
 order=710
 ~~~~~~
 # Java
