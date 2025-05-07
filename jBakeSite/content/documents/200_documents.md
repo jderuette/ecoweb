@@ -4,6 +4,6 @@ type=org_openCiLife_post
 category=global
 includeContent={"type":"org_openCiLife_document", "specificClass":"documents", "display":{"type":"table", "content":"link", "additionalData":{"resumé":"exerpt", "lien":"download_link"}}}
 status=published
-order=020
+order=200
 ~~~~~~
 Notre **base documentaires** est là pour vous aider !

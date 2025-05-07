@@ -5,6 +5,6 @@ includeContent={"type":"org_openCiLife_post", "category":"events", "specificClas
 category=global
 status=published
 displayDate=false
-order=02
+order=400
 ~~~~~~
 Les évènnements (co-)organiser par WebLeger
