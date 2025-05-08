@@ -22,7 +22,11 @@ a:hover {
 }
 a:active {
   color: ${webleger.site.style.link.text-color.active};
-} 
+}
+
+b, strong {
+	color: ${webleger.site.style.strong.text-color};
+}
 
 #pageTitle {
 	display: flex;
