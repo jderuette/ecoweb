@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documents/document1.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/documents/210_document1.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/articles/deployer_sur_gitHub_pages.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/710_installer_les_outils_en_local.html</loc>
+        <lastmod>2025-07-04</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/720_deployer_sur_gitHub_pages.html</loc>
         <lastmod>2025-05-02</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/site_eco_concu.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/bonnes_pratiques/610_site_eco_concu.html</loc>
         <lastmod>2019-10-15</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documents/documents.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/700_documentation.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/blogs.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/100_blogs.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/projects/projects.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/projects/500_projects.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/events/events.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/events/400_events.html</loc>
+        <lastmod>2019-03-16</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/documents/200_documents.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/footer/donation.html</loc>
-        <lastmod>2025-05-05</lastmod>
+        <lastmod>2025-05-08</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/footer/contact.html</loc>
-        <lastmod>2025-05-05</lastmod>
+        <lastmod>2025-05-08</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/home_page/040_Pourquoi.html</loc>

@@ -4,11 +4,28 @@ html {
 
 body {
 	font: 100% trebuchet, helvetica, sans-serif;
-	background-color:#eeeeee;
+	background-color: #eeeeee;
 }
 
 img {
 	max-width: 100%;
+}
+
+a:link {
+  color: #6900cc;
+}
+a:visited {
+  color: blue;
+}
+a:hover {
+  color: #690055;
+}
+a:active {
+  color: green;
+}
+
+b, strong {
+	color: #6900cc;
 }
 
 #pageTitle {
@@ -41,11 +58,11 @@ img {
 }
 
 .navbar-nav>li>a {
-	color: black;
+	color:black;
 }
 .navbar-nav>li>a:hover {
     background-color: #f7e6ff;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .blockContent {
@@ -133,39 +150,33 @@ img {
 	margin-left: -50px;
 }
 
-.hpColor {
+.mainBlock {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	border-top: 1px solid;
-	border-color: #282825;
 	width: 100%;
 	height: auto;
-	background-color: #f7e6ff;
 	vertical-align: middle;
 	margin: auto;
 	padding-bottom: 3%;
 	line-height: 170%;
 }
 
-.hpWhite {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
+.style1 {
 	border-top: 1px solid #282825;
-	width: 100%;
-	height: auto;
+	background-color: #f7e6ff;
+	
+}
+
+.style2 {
+	border-top: 1px solid #282825;
 	background-color: #ffffff;
-	vertical-align: middle;
-	margin: auto;
-	padding-bottom: 3%;
-	line-height: 170%;
 }
 
 .blockTitle {
 	font-size: 200%;
 	text-align: center;
-	color:#6900cc;
+	color: #6900cc;
 }
 
 .blockBody {
@@ -245,7 +256,6 @@ img {
 }
 
 .titleDescription {
-	font-family: trebuchet, helvetica, sans-serif;
 	color: #282825;
 	font-size: 25px;
 	font-weight: lighter;
@@ -327,12 +337,12 @@ table th, table td {
 }
 
 .card>a.widget_link:hover {
-	color: #2a6496;
+	color: #690055;
 }
 
 .card>a.widget_link_modal:hover {
 	cursor: zoom-in;
-	color: #2a6496;
+	color: #690055;
 }
 
 .card>a.widget_link:active, .card>a.widget_link_modal:active {
