@@ -30,7 +30,7 @@ Avec WebLeger  cela est encore plus simple car intégré.
     </properties>
     
 2- créez une clef SSH pour acceder à vore rerpository [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh).
-3- Créez la branche gh-pages. **Attention** cette action va vous perdre tout contenus **non commité* sur votre branches acutel.
+3- Créez la branche gh-pages. **Attention** cette action va vous faire perdre tout contenus **non commité** sur votre branches acutel.
 
     git checkout --orphan gh-pages
     rm .git/index ; git clean -fdx
@@ -46,6 +46,6 @@ Avec WebLeger  cela est encore plus simple car intégré.
 6- Attendez quelques minutes puis aller visualiser le résultat
 
 ## Limites
-La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démo ou pour partager ocasionnellement le site avec les relecteurs.
+La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démo ou pour partager occasionnellement le site avec les relecteurs.
 
 
