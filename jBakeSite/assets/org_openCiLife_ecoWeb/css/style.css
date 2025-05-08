@@ -333,12 +333,12 @@ table th, table td {
 }
 
 .card>a.widget_link:hover {
-	color: #2a6496;
+	color: ${webleger.site.style.link.text-color.hover};
 }
 
 .card>a.widget_link_modal:hover {
 	cursor: zoom-in;
-	color: #2a6496;
+	color: ${webleger.site.style.link.text-color.hover};
 }
 
 .card>a.widget_link:active, .card>a.widget_link_modal:active {
