@@ -7,4 +7,4 @@ status=published
 displayDate=false
 order=01
 ~~~~~~
-Notre R&D vous livre ses tutos et bonnes pratiques.
+Ici bientot des articles.
