@@ -4,6 +4,7 @@ html {
 
 body {
 	font: 100% trebuchet, helvetica, sans-serif;
+	background-color: ${webleger.site.style.background_color};
 }
 
 img {
