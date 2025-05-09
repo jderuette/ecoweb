@@ -1,5 +1,5 @@
 title=Installer les outils en local
-date=2025-07-04
+date=2025-04-07
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
 category=documentation, V0.0.1
