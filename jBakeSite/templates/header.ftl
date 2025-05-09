@@ -1,13 +1,5 @@
 <#if (config.site_locale)??>
 	<#setting locale=config.site_locale>
-<#else>
-	<#if (site.header.lang)??>
-		<#if (site.header.lang == "fr")>
-			<#setting locale="fr_FR">
-		<#else>
-			<#setting locale="en_EN">
-		</#if>
-	</#if>
 </#if>
 <#import "tools/org_openCiLife_ecoweb-marcos.ftl" as ecoWeb>
 <!DOCTYPE html>

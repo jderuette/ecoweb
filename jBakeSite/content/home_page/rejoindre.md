@@ -5,7 +5,7 @@ type=org_openCiLife_block
 category=homepage
 tags=
 status=published
-specificClass=hpWhite join
+specificClass=mainBlock style2 join
 anchorId=rejoindre
 order=7
 ~~~~~~

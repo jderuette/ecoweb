@@ -10,6 +10,27 @@ img {
 	max-width: 100%;
 }
 
+a:link {
+  color: ${webleger.site.style.link.text-color};
+}
+a:visited {
+  color: ${webleger.site.style.link.text-color.visited};
+}
+a:hover {
+  color: ${webleger.site.style.link.text-color.hover};
+}
+a:active {
+  color: ${webleger.site.style.link.text-color.active};
+}
+
+b, strong {
+	color: ${webleger.site.style.strong.text-color};
+}
+
+h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
+	color:${webleger.site.style.header.title.color};
+}
+
 #pageTitle {
 	display: flex;
 	align-items: center;
@@ -17,7 +38,7 @@ img {
 }
 
 #headerTitle {
-	color: #282825;
+	color: ${webleger.site.style.header.title.color};
 }
 
 #logoLeft {
@@ -40,7 +61,11 @@ img {
 }
 
 .navbar-nav>li>a {
-	color: black;
+	color:${webleger.site.style.menu.text_color};
+}
+.navbar-nav>li>a:hover {
+    background-color: ${webleger.site.style.menu.background.color.hover};
+    text-decoration: ${webleger.site.style.menu.text_decoration.hover};
 }
 
 .blockContent {
@@ -128,37 +153,33 @@ img {
 	margin-left: -50px;
 }
 
-.hpColor {
+.mainBlock {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	border-top: 1px solid;
-	border-color: #282825;
 	width: 100%;
 	height: auto;
-	background-color: #f7f7f7;
 	vertical-align: middle;
 	margin: auto;
 	padding-bottom: 3%;
 	line-height: 170%;
 }
 
-.hpWhite {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
+.style1 {
 	border-top: 1px solid #282825;
-	width: 100%;
-	height: auto;
-	vertical-align: middle;
-	margin: auto;
-	padding-bottom: 3%;
-	line-height: 170%;
+	background-color: ${webleger.site.style.style1.background-color};
+	
+}
+
+.style2 {
+	border-top: 1px solid #282825;
+	background-color: ${webleger.site.style.style2.background-color};
 }
 
 .blockTitle {
 	font-size: 200%;
 	text-align: center;
+	color: ${webleger.site.style.block.title.text-color};
 }
 
 .blockBody {
@@ -238,7 +259,6 @@ img {
 }
 
 .titleDescription {
-	font-family: trebuchet, helvetica, sans-serif;
 	color: #282825;
 	font-size: 25px;
 	font-weight: lighter;
@@ -320,12 +340,12 @@ table th, table td {
 }
 
 .card>a.widget_link:hover {
-	color: #2a6496;
+	color: ${webleger.site.style.link.text-color.hover};
 }
 
 .card>a.widget_link_modal:hover {
 	cursor: zoom-in;
-	color: #2a6496;
+	color: ${webleger.site.style.link.text-color.hover};
 }
 
 .card>a.widget_link:active, .card>a.widget_link_modal:active {
