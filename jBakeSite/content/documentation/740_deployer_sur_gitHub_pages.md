@@ -8,7 +8,7 @@ status=published
 exerpt=Comment herbger un site sur gitHub Pages (pour démo our partage avec relecteurs) ?
 contentImage=images/articles/deploy_github/gitHub-logo.svg
 displayDate=true
-order=720
+order=740
 ~~~~~~
 ## Pour quel contenus ? 
 
