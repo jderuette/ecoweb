@@ -9,8 +9,8 @@ contentImage=images/contact.svg
 order=210
 ~~~~~~
 ##un Titre
-Un paragraphe avec du **gras** et de l'*italic* et un texte __souligné__. Voici un lien vers [google](https://www.google.com).
+Un paragraphe avec du **gras** et de l'*italic* et un texte. Voici un lien vers [google](https://www.google.com).
 
 Une petite image juste en dessous : 
-![image contact](images/contact.svg)
+![Description de l'image](images/common/logo_left.png)
 

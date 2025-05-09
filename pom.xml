@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.opencilife.ecoweb</groupId>
+	<groupId>org.mon.entreprise</groupId>
 	<artifactId>website</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>SiteBuilder</name>
+	<name>MonSite</name>
 
 	<url>http://maven.apache.org</url>
 
@@ -19,7 +19,7 @@
 			to use the "default Jbake Folder" : ${project.basedir}/${src.dir}/output -->
 		<jbake.outputDirectory>${project.basedir}/website</jbake.outputDirectory>
 		<jbake_maven_plugin.version>0.3.1</jbake_maven_plugin.version>
-		<publish.url>scm:git:git@github.com:jderuette/ecoweb.git</publish.url>
+		<publish.url>scm:git:git@github.com:monCompte/monRepo.git</publish.url>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

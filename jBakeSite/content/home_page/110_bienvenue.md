@@ -5,7 +5,7 @@ category=homepage
 tags=
 status=published
 specificClass=mainBlock style1
-contentImage=images/action.svg
+contentImage=images/contact.svg
 anchorId=bienvenu
 order=4
 ~~~~~~
