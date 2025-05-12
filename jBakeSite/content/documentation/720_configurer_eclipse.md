@@ -17,14 +17,14 @@ Eclipse gère les actions sous forme de **configuration**. Pour construire votre
 
 ## Ajouter une configuration Build
 
-1. Une fois Elcipse IDE démaré il faut cliquer sur la petite flèche vers le bas à coté de l'icone de lancement d'une configuration ![Ajouter une configuration étape 1](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_1) 
-1. puis cliquer sur *Run Configuration...* ![Ajouter une configuration étape 2](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_2)
-1. faire un clique droit sur le groupe *Maven Build* ![Ajouter une configuration étape 3](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_3)
+1. Une fois Elcipse IDE démaré il faut cliquer sur la petite flèche vers le bas à coté de l'icone de lancement d'une configuration ![Ajouter une configuration étape 1](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_1.png) 
+1. puis cliquer sur *Run Configuration...* ![Ajouter une configuration étape 2](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_2.png)
+1. faire un clique droit sur le groupe *Maven Build* ![Ajouter une configuration étape 3](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_3.png)
     1. Choisir un nom pour la configuration, par exemple "WebLeger install"
     2. Choisir la dossier de base de lancement de l'action
         1. En cliquant sur Workspace puis en selectionnant votre projet
     3. Dans Goals saisir ``clean initialize resources:resources jbake:generate``
-    4. Dans l'onglet **JRE** choisir la JRE 1.8 téléchargée précédement. ![Ajouter une configuration étape 4](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_4)
+    4. Dans l'onglet **JRE** choisir la JRE 1.8 téléchargée précédement. ![Ajouter une configuration étape 4](images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_4.png)
     Elle ne sera pas listé par défaut il faut l'ajouter dans Elcipse IDE ! En cliquant sur le bouton *installed JRE...* puis *add* puis en sélectionnant le dossier contenant le JDK télécharger précédement.
 1. Enfin cliquer sur le bouton *apply* puis *Run* tout en bas
 
