@@ -2,7 +2,7 @@
 <html lang="fr_FR">
   <head>
     <meta charset="utf-8"/>
-    <title>Documentation</title>
+    <title>Configurer Eclipse IDE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="C'est du lourds !">
     <meta name="author" content="jDeruette">
@@ -55,14 +55,50 @@
       </div>
     </div>
     <div class="container">	
+		<p>Publié le : <em>09 avril 2025</em></p>
+		<span>Tags : </span>
+		<ul class="content_tags">
+			<li>installer-WebLeger</li>
+		</ul>
 	
 		<div class="page-header">
-			<h1>Documentation</h1>
+			<h1>Configurer Eclipse IDE</h1>
 		</div>
-	<p>La documentation de WebLègé pour mieux utiliser l'outils de création de site qui vous aide à l'éco-conveption.</p>
+	<h1>Lancer le build du site Web</h1> 
+<p>Eclipse gère les actions sous forme de <strong>configuration</strong>. Pour construire votre SiteWeb Maven est utilisé. Une version est intégré à Eclipse IDE il n'est pas nécéssaire d'installer Maven sur votre ordinateur.</p> 
+<h2>Ajouter une configuration Build</h2> 
+<ol> 
+ <li>Une fois Elcipse IDE démaré il faut cliquer sur la petite flèche vers le bas à coté de l'icone de lancement d'une configuration <img src="file:///D:/git/CitoyenBlog/website/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_1.png" alt="Ajouter une configuration étape 1"></li> 
+ <li>puis cliquer sur <em>Run Configuration...</em> <img src="file:///D:/git/CitoyenBlog/website/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_2.png" alt="Ajouter une configuration étape 2"></li> 
+ <li>faire un clique droit sur le groupe <em>Maven Build</em> <img src="file:///D:/git/CitoyenBlog/website/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_3.png" alt="Ajouter une configuration étape 3"> 
+  <ol> 
+   <li>Choisir un nom pour la configuration, par exemple "WebLeger install"</li> 
+   <li>Choisir la dossier de base de lancement de l'action 
+    <ol> 
+     <li>En cliquant sur Workspace puis en selectionnant votre projet</li> 
+    </ol> </li> 
+   <li>Dans Goals saisir <code>clean initialize resources:resources jbake:generate</code></li> 
+   <li>Dans l'onglet <strong>JRE</strong> choisir la JRE 1.8 téléchargée précédement. <img src="file:///D:/git/CitoyenBlog/website/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_4.png" alt="Ajouter une configuration étape 4"><br> Elle ne sera pas listé par défaut il faut l'ajouter dans Elcipse IDE ! En cliquant sur le bouton <em>installed JRE...</em> puis <em>add</em> puis en sélectionnant le dossier contenant le JDK télécharger précédement.</li> 
+  </ol> </li> 
+ <li>Enfin cliquer sur le bouton <em>apply</em> puis <em>Run</em> tout en bas</li> 
+</ol> 
+<p>La vue "Console" devrait apraitre avec des texte qui défile. Si tous se passe bien cela se terminra par le texte</p> 
+<pre><code>[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.861 s
+[INFO] Finished at: 2025-05-09T11:35:25+02:00
+[INFO] ------------------------------------------------------------------------
+</code></pre> 
+<p>Faire un clique droit sur le dosser <em>website</em> puis selectionner <strong>refresh</strong>.<br> Vous pouvez alors consulter le site en faisant un clique droit sur le fichier <em>website/index.html</em> puis en choisissant <strong>Open With</strong> puis <strong>System Editor</strong>.</p> 
+<h2>Ajouter une configuration pour publier le site sur votre gitHub</h2> 
+<p>Pour publier sur gitHub Pages suivez le tutoriel <a href="/articles/">Tutoriel héberger sur gitHub Pages (gh-pages)</a>.</p> 
+<p>Ensuite créez une nouvelle configuration identiqueà la précédente en changeant :<br> 1. le nom par exmple "WebLeger Deploy"<br> 2. en utilisant le goal suivant <code>scm-publish:publish-scm</code></p> 
+<p><strong>/!\ important</strong> Cette configuration publie sur gitHub Pages la version <strong>actuel</strong> du dossier <strong>website</strong> sans reconstruire le projet. Cela vous permet de vérifier votre site en local et s'il est satisfaisant de le publier tel quel. Toutes modifcations effectuées depuis le dernier <strong>build</strong> du projet ne sera pas envoyé sur gitHub Pages.</p>
 			
 				
-					<div class="card_list ">
+					<div class="card_list documentation">
+					 
 					 
 					 
 					 
@@ -76,19 +112,6 @@
 								<h3 class="card_title widget_title">Installer les outils en local</h3>
 								<div class="card_exerpt widget_exerpt">
 									Outils à installer en local pour créer un site WebLègé
-								</div>
-									</a>
-							</div>
-						 
- 
-							<div class="card content_type_link ">
-									<a href="../documentation/720_configurer_eclipse.html" class="widget_link">
-									<div class="card_image">
-										<img src="../images/documentation/configurer_eclipse/Eclipse IDE.svg" class="widget_image"/>
-									</div>
-								<h3 class="card_title widget_title">Configurer Eclipse IDE</h3>
-								<div class="card_exerpt widget_exerpt">
-									Configurer Eclipse IDE pour votre projet
 								</div>
 									</a>
 							</div>

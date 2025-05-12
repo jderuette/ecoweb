@@ -15,7 +15,7 @@ a:link {
   color: #6900cc;
 }
 a:visited {
-  color: blue;
+  color: purple;
 }
 a:hover {
   color: #690055;
@@ -26,6 +26,10 @@ a:active {
 
 b, strong {
 	color: #6900cc;
+}
+
+h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
+	color:#6900cc;
 }
 
 #pageTitle {
