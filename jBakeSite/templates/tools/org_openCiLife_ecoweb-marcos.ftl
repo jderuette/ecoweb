@@ -161,7 +161,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 
 <#-- build an modal block (using Boostrap)
 param : modalId : *default* : basicModal : (html) ID of the modal (to be ued in link to target this modal)
-param : closeButtonlabel : *default* : close : lable of the botom close button
+param : closeButtonlabel : *default* : close : label of the botom close button
 -->
 <#macro buildModal modalId="basicModal" closeButtonlabel = "close">
 	<div class="modal fade" id="${modalId}" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -184,6 +184,15 @@ param : closeButtonlabel : *default* : close : lable of the botom close button
 	</div>
 </#macro>
 
+<#function randomNumber salt = 7>
+    <#local str= .now?long />
+    <#assign str = (str * salt)/3 />
+    <#assign random = str[(str?string?length-13)..] />
+    <#assign returnVal = random?replace("\\D+", "_", "r") />
+    <#return returnVal/>	
+</#function>
+
+
 <#-- build an modal block or table listing (using Boostrap)
 param : content : content to search for incluide content
 -->
@@ -198,11 +207,16 @@ param : content : content to search for incluide content
 			<#if (subContents?size > 0)>
 				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
 				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
+				<#assign subContentBeforeTitleImage = (content.includeContent.display.beforeTitleImage)!"">
 				<#assign specificClass = (content.includeContent.specificClass)!"">
 				
 				<#assign theModalId = "basicModal">
 				<#if (subContentDisplayContentMode == "modal")>
 					<@buildModal modalId= theModalId/>
+				</#if>
+				
+				<#if (subContentDisplayContentMode == "collapse_block")>
+					<@buildCollapseBlock modalId= theModalId/>
 				</#if>
 				
 				<@debug subContentDisplayMode = subContentDisplayMode subContentDisplayContentMode = subContentDisplayContentMode/>
@@ -230,6 +244,9 @@ param : content : content to search for incluide content
 					<#assign subContentCategory = (subContent.category)!"__none__">
 					<#assign includeContentFilter = content.includeContent.category!"all">
 					<#assign specificContentClass = (content.includeContent.display.specificClass)!"">
+					<#assign collapseClass = "">
+					<#assign collapseId = "">
+					
 					<#if ((subContent.status == "published") && (includeContentFilter == "all" || seq_containsOne(includeContentFilter, subContentCategory)))>
 						<@debug "ACEPTED : SubContent : " + (subContent.title)!"not_set", includeContentFilter  + " IN " + subContentCategory/>
 						<#if (subContentDisplayMode == "table")>
@@ -247,6 +264,9 @@ param : content : content to search for incluide content
 											</#if>
 										</td>
 										<td class="${subContentDisplayMode}_title widget_title">
+											<#if (subContentBeforeTitleImage??)>
+												<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+											</#if>
 											${subContent.title!""}
 										</td>
 										<td class="${subContentDisplayMode}_exerpt widget_exerpt">
@@ -274,11 +294,19 @@ param : content : content to search for incluide content
 									</tr>
 						<#else>
 							<div class="${subContentDisplayMode} content_type_${subContentDisplayContentMode} ${specificContentClass}">
-								<#if (subContentDisplayContentMode == "link")>
+								<#switch subContentDisplayMode>
+								<#case  "link">
 									<a href="${ecoWeb.buildRootPathAwareURL(subContent.uri)}" class="widget_link">
-								<#elseif (subContentDisplayContentMode == "modal")>
+								<#break>
+								<#case "modal">
 									<a href="#" role="button" class="widget_link_modal" data-toggle="modal" data-target="#${theModalId}">
-								</#if>
+								<#break>
+								<#case "collapse_block">
+									<#assign collapseClass = "collapse">
+									<#assign collapseId = randomNumber(2)>
+    								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+								<#break>
+								</#switch>
 								<#if (subContent.contentImage??)>
 									<div class="${subContentDisplayMode}_image">
 										<#if (subContent.contentImage)??>
@@ -287,19 +315,29 @@ param : content : content to search for incluide content
 									</div>
 								</#if>
 								<h3 class="${subContentDisplayMode}_title widget_title"><#rt>
+								<#if (subContentBeforeTitleImage??)>
+									<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+								</#if>
 									<#t>${subContent.title!""}
 								<#lt></h3>
-								<div class="${subContentDisplayMode}_exerpt widget_exerpt">
-									${subContent.exerpt!""}
-								</div>
-								<#if (subContentDisplayContentMode == "link" || subContentDisplayContentMode == "modal")>
+								
+								<#if (subContent.exerpt??)>
+									<div class="${subContentDisplayMode}_exerpt widget_exerpt">
+										${subContent.exerpt!""}
+									</div>
+								</#if>
+								<#if (subContentDisplayMode == "link" || subContentDisplayMode == "modal" || subContentDisplayMode == "collapse_block")>
 									</a>
 								</#if>
-								<#if (subContentDisplayContentMode == "modal")>
+								<#if (subContentDisplayMode == "modal")>
 									<button type="button" class="btn btn-primary btn-block ${subContentDisplayMode}_showMore showMore" data-toggle="modal" data-target="#${theModalId}">Détails</button>
 								</#if>
 								<#if (subContentDisplayContentMode == "modal" || subContentDisplayContentMode == "visible")>
-									<div class="${subContentDisplayMode}_content widget_content">
+									<div class="${subContentDisplayMode}_content widget_content ${collapseClass}" 
+									<#if (collapseId??)>
+										id="${collapseId}"
+									</#if>
+									>
 										${subContent.body!""}
 									</div>
 								</#if>
