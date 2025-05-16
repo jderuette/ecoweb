@@ -21,6 +21,6 @@
 	</#if>
 	${content.body}
 	<@ecoWeb.buildsubContent content />
-	<@ecoWeb.buildForm block />
+	<@ecoWeb.buildForm content />
 	
 <#include "footer.ftl">
