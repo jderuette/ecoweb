@@ -1,5 +1,5 @@
-title=Pourquoi ? 
-date=2025-04-30
+title=Pourquoi ?
+date=2025-05-15
 type=org_openCiLife_block
 category=homepage
 tags=
