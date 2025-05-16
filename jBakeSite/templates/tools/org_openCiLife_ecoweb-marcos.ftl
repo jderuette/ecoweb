@@ -360,3 +360,53 @@ param : content : content to search for incluide content
 		<@debug "No SubContent for this content"/>
 	</#if>
 </#macro>
+
+<#-- build a form
+param : content : content to search for form data
+-->
+<#macro buildForm content>
+	<#if (content.formData)??>
+		<#assign to=content.formData.to />
+		<#assign method=(content.formData.method)!"get" />
+		<#assign enctype=(content.formData.enctype)!"application/x-www-form-urlencoded" />
+		<#assign sendLabel=(content.formData.sendLabel)!"Contactez" />
+		
+		
+		<#assign fields=(content.formData.fields)! />
+		
+		<form action="mailto:<#escape x as x?xml>${to}</#escape>" method="<#escape x as x?xml>${method}</#escape>" enctype="<#escape x as x?xml>${enctype}</#escape>" class="contact_form">
+		<div class="form-group">
+		
+		<#list fields as field>
+			<label for="<#escape x as x?xml>${field.id}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
+			<#if field.type == "textarea">
+				<#assign endTag = "textarea" />
+				<textarea 
+			<#else>
+				<#assign endTag = "input" />
+				<input type="<#escape x as x?xml>${field.type!"text"}</#escape>" 
+			</#if>
+			class="<#escape x as x?xml>${fieldspecificClass!"form-control"}</#escape>" id="<#escape x as x?xml>${field.id}</#escape>" 
+			<#if (field.name)??>
+				name="<#escape x as x?xml>${field.name}</#escape>"
+			</#if>
+			<#if (field.value)??>
+				value="<#escape x as x?xml>${field.value}</#escape>"
+			</#if>
+			<#if (field.readOnly)?? && field.readOnly=="true">
+				 readOnly
+			</#if>
+			<#if (field.rows)??>
+				rows="<#escape x as x?xml>${field.rows}</#escape>"
+			</#if>
+			></${endTag}>
+		</#list>
+		
+		<input type="submit" value="<#escape x as x?xml>${sendLabel}</#escape>"/>
+		</div>
+		</form>
+		
+	<#else>
+		<@debug "No form Data for this content"/>
+	</#if>
+</#macro>
