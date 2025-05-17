@@ -22,5 +22,6 @@
 	${content.body}
 	<@ecoWeb.buildsubContent content />
 	<@ecoWeb.buildForm content />
+	<@ecoWeb.buildCarousel content />
 	
 <#include "footer.ftl">

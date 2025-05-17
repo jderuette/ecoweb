@@ -22,7 +22,7 @@
 
     <#-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/js/html5shiv.min.js")}"></script>
+      <script src="${ecoWeb.buildRootPathAwareURL(config.site_template+"/js/html5shiv.min.js")}"></script>
     <![endif]-->
 
     <#-- Fav and touch icons -->

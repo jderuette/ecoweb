@@ -19,6 +19,7 @@
 						${block.body}
 						<@ecoWeb.buildsubContent block />
 						<@ecoWeb.buildForm block />
+						<@ecoWeb.buildCarousel block />
 					</div>	
 					<#if (block.contentImage)??>
 						<img src=${block.contentImage} class="blockIcon"/>
