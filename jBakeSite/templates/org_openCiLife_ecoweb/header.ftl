@@ -1,7 +1,7 @@
 <#if (config.site_locale)??>
 	<#setting locale=config.site_locale>
 </#if>
-<#import "tools/org_openCiLife_ecoweb-marcos.ftl" as ecoWeb>
+<#import "tools/marcos.ftl" as ecoWeb>
 <!DOCTYPE html>
 <html lang="${config.site_locale}">
   <head>
