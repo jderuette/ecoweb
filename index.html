@@ -45,11 +45,14 @@
 							<li><a href="index.html#comment">Comment ca marche ?</a></li>
 							<li><a href="index.html#quel_herbergement">Quel hébergement ?</a></li>
 							<li><a href="index.html#pourquoi">Pourquoi ?</a></li>
+							<li><a href="index.html#Contact">Contact</a></li>
+							<li><a href="index.html#Carousel">Carousel</a></li>
 							<li><a href="100_blogs.html">Articles</a></li>
 							<li><a href="documents/200_documents.html">Base documentaire</a></li>
 							<li><a href="events/400_events.html">Evènements</a></li>
 							<li><a href="projects/500_projects.html">Nos projets</a></li>
 							<li><a href="documentation/700_documentation.html">Documentation</a></li>
+							<li><a href="faq/800_faq.html">Foires aux Questions</a></li>
           </ul>
         </div>
       </div>
@@ -93,6 +96,91 @@
 						<p>Notre planète se réchauffe notament à cause du web qui nécéssite de nombreux serveurs. Des site de plus en plus lourds forcent les utilisateurs à changer régulièrement d'oridnateur ou de smartphone. De gros sites nécéssitent une grosse connexion réseaux (4G voir 5G) nécéssitant le déploiment d'équipements de plus en plus nombreux.<br> Produire un site web lègé limite certains de ces impacts négatifs.<br> Ce n'est pas une révolution mais un petit pas dans une des bonnes directions.</p>
 					</div>	
 						<img src=images/arrow-top-right-on-square.svg class="blockIcon"/>
+				</div>
+			</div>
+		
+		<div id="Contact" class="mainBlock style1">
+			<h2	class="blockTitle">Contact</h2>
+				<div class="blockBody">
+					<div class="blockContent">
+						<p>Contactez-moi en remplissant le formulaire ci-dessous.</p> 
+<p>Pour eviter de stocker votre message dans une Base De Données le formulaire va pré-remplir un e-mail. Vous n'aurez plus qu'a cliquer sur "envoyer". Si vous n'avez pas de client e-mail de configuré vous pouvez envoyer votre e-mail directement à l'adresse indiquée dans le formulaire.</p>
+		
+		<form action="mailto:djer13@gmail.com" method="get" enctype="application/x-www-form-urlencoded" class="contact_form">
+		<div class="form-group">
+		
+			<label for="destinataire">Destinataire</label>
+				<input type="text" 
+			class="form-control" id="destinataire" 
+				value="djer13@gmail.com"
+				 readOnly
+			></input>
+			<label for="motif">Motif</label>
+				<input type="text" 
+			class="form-control" id="motif" 
+				name="subject"
+			></input>
+			<label for="email">Votre e-mail</label>
+				<input type="text" 
+			class="form-control" id="email" 
+				name="from"
+			></input>
+			<label for="message">Votre message</label>
+				<textarea 
+			class="form-control" id="message" 
+				name="body"
+				rows="6"
+			></textarea>
+		
+		<input type="submit" value="Contactez-moi"/>
+		</div>
+		</form>
+		
+					</div>	
+						<img src=images/contact.svg class="blockIcon"/>
+				</div>
+			</div>
+		
+		<div id="Carousel" class="mainBlock style2">
+			<h2	class="blockTitle">Carousel</h2>
+				<div class="blockBody">
+					<div class="blockContent">
+						<p>Un test de carousel</p>
+		
+		<div id="HomePageCarousel" class="carousel slide" data-ride="carousel" style="margin:auto">
+		
+			<ol class="carousel-indicators">
+				<li data-target="#HomePageCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#HomePageCarousel" data-slide-to="1" ></li>
+			</ol>
+		
+		<div class="carousel-inner" role="listbox">
+		
+			<div class="item carousel-item active">
+	      			<img class="d-block w-100" src="images/common/logo_left.png"  style="margin:auto;height:60%" alt="Une image">
+					<div class="carousel-caption d-none d-md-block"  style="color:black">
+					<h5>bob</h5><p>un texte</p>
+					</div>
+			</div>
+			<div class="item carousel-item ">
+					<div class="carousel-caption d-none d-md-block"  style="color:black">
+					<h3>Juste un texte sans images</h3><p>Et un peu de texte en plus qui prend un maximum de place pour voire ce que ca donne</p><p>avec un deuxième paragraphe</p>
+					</div>
+			</div>
+		</div>
+		
+		
+			<a class="left carousel-control" href="#HomePageCarousel" role="button" data-slide="prev">
+			<span class="icon-prev" aria-hidden="true"></span>
+			<span class="sr-only">précédent</span>
+			</a>
+			
+			<a class="right carousel-control" href="#HomePageCarousel" role="button" data-slide="next">
+			<span class="icon-next" aria-hidden="true"></span>
+			<span class="sr-only">suivant</span>
+			</a>
+		</div>
+					</div>	
 				</div>
 			</div>
 
