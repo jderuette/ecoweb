@@ -23,8 +23,6 @@
     </div>
     
     <!-- Javascript here load faster -->
-    <script src="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/js/jquery-1.11.1.min.js")}"></script>
-    <script src="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/js/bootstrap.min.js")}"></script>
-    <script src="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/js/org_openCiLife_ecoWeb.js")}"></script>
+    <@ecoWeb.buildExternalInjection config.site_script_footer />
   </body>
 </html>

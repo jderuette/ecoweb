@@ -192,6 +192,36 @@ param : closeButtonlabel : *default* : close : label of the botom close button
     <#return returnVal/>	
 </#function>
 
+<#-- To create "link" header line or footer scripts injection.
+param : content : JSON content describing inclusions.
+-->
+<#macro buildExternalInjection content>
+	<#if (content)??>
+		<#assign fullContent = content>
+		<#if content?is_sequence>
+			<#assign fullContent = "">
+			<#assign separator = "">
+			<#list content as fakeItem>
+				<#assign fullContent = fullContent + separator + fakeItem>
+				<#assign separator = ",">
+			</#list>
+		</#if>
+		
+		<#assign jsonContent = fullContent?eval_json>
+		
+		<#list jsonContent.data as injection>
+			<#assign tagType = injection.tagType!"link">
+			<#if ((injection.constraint)??)>
+				<!--[${injection.constraint}]>
+			</#if>
+		<${tagType}<#if (injection.href??)> href="${injection.href}"</#if><#if (injection.src??)> src="${injection.src}"</#if><#if (injection.rel??)> rel="${injection.rel}"</#if>><#if (injection.tagType=="script")></script></#if>
+			<#if ((injection.constraint)??)>
+				<![endif]-->
+			</#if>
+		</#list>
+	</#if>
+</#macro>
+
 
 <#-- build an modal block or table listing (using Boostrap)
 param : content : content to search for incluide content

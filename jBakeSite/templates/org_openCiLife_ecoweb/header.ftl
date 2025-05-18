@@ -12,18 +12,10 @@
     <meta name="author" content="${ecoWeb.displayConfigText(config.site_header_author)}">
     <meta name="keywords" content="${ecoWeb.displayConfigText(config.site_header_keyword)}">
     <meta name="generator" content="JBake">
-    <#-- Le styles -->
-    <link href="${ecoWeb.buildRootPathAwareURL(config.site_template+"/css/bootstrap.min.css")}" rel="stylesheet">
-    <link href="${ecoWeb.buildRootPathAwareURL(config.site_template+"/css/base.css")}" rel="stylesheet">
-    <link href="${ecoWeb.buildRootPathAwareURL(config.site_template+"/css/style.css")}" rel="stylesheet">
-    <link href="${ecoWeb.buildRootPathAwareURL("css/style-ext.css")}" rel="stylesheet">
+    
+    <@ecoWeb.buildExternalInjection config.site_script_header />
 	
 	<#-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
-
-    <#-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="${ecoWeb.buildRootPathAwareURL(config.site_template+"/js/html5shiv.min.js")}"></script>
-    <![endif]-->
 
     <#-- Fav and touch icons -->
     <#--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
