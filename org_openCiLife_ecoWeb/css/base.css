@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 #logoLeft {
-	width: 200px;
+	width: 50px;
 	height: auto;
 }
 
@@ -71,7 +71,6 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .navbar-toggle {
-	background-image: url(file:///D:/git/CitoyenBlog/website/${site.template}/images/burger.svg);
 	width: 32px;
 }
 
@@ -158,8 +157,8 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .blockIcon {
-	width: 25px;
-	height: 25px;
+	width: 75px;
+	height: 75px;
 	margin-right: 1%;
 }
 
@@ -426,6 +425,9 @@ div.debug {
 		flex-direction: row;
 	}
 	#logoRight {
+		width: 150px;
+	}
+	#logoLeft {
 		width: 150px;
 	}
 	.blockIcon {
