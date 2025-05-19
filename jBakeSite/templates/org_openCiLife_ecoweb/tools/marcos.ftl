@@ -294,7 +294,7 @@ param : content : content to search for incluide content
 											</#if>
 										</td>
 										<td class="${subContentDisplayMode}_title widget_title">
-											<#if (subContentBeforeTitleImage??)>
+											<#if (subContentBeforeTitleImage?has_content)>
 												<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
 											</#if>
 											${subContent.title!""}
@@ -345,7 +345,7 @@ param : content : content to search for incluide content
 									</div>
 								</#if>
 								<h3 class="${subContentDisplayMode}_title widget_title"><#rt>
-								<#if (subContentBeforeTitleImage??)>
+								<#if (subContentBeforeTitleImage?has_content)>
 									<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
 								</#if>
 									<#t>${subContent.title!""}
