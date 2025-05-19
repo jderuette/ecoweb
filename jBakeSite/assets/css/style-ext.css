@@ -3,22 +3,6 @@
     list-style-type: none;
 }
 
-.carousel {
-	margin:auto;
-}
-
-.carousel-inner {
-	height:100%;
-	width:auto;
-}
-
-.carousel-inner>.item{
-	height:100%;
-}
-.carousel-indicators > li {
-	border:1px solid ${webleger.site.style.header.title.color};
-}
-
 #HomePageCarousel {
 	width:300px;
 	height:300px;
