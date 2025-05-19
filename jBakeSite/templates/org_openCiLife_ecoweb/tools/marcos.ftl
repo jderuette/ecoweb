@@ -214,7 +214,7 @@ param : content : JSON content describing inclusions.
 			<#if ((injection.constraint)??)>
 				<!--[${injection.constraint}]>
 			</#if>
-		<${tagType}<#if (injection.href??)> href="${injection.href}"</#if><#if (injection.src??)> src="${injection.src}"</#if><#if (injection.rel??)> rel="${injection.rel}"</#if>><#if (injection.tagType=="script")></script></#if>
+		<${tagType}<#if (injection.href??)> href="${buildRootPathAwareURL(injection.href)}"</#if><#if (injection.src??)> src="${buildRootPathAwareURL(injection.src)}"</#if><#if (injection.rel??)> rel="${injection.rel}"</#if>><#if (injection.tagType=="script")></script></#if>
 			<#if ((injection.constraint)??)>
 				<![endif]-->
 			</#if>
