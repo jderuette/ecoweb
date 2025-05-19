@@ -336,6 +336,11 @@ param : content : content to search for incluide content
 									<#assign collapseId = randomNumber(2)>
     								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
 								<#break>
+								<#case "card">
+									<#if (subContentDisplayContentMode == "link")>
+										<a href="${ecoWeb.buildRootPathAwareURL(subContent.uri)}">
+									</#if>
+								<#break>
 								</#switch>
 								<#if (subContent.contentImage??)>
 									<div class="${subContentDisplayMode}_image">
@@ -356,7 +361,7 @@ param : content : content to search for incluide content
 										${subContent.exerpt!""}
 									</div>
 								</#if>
-								<#if (subContentDisplayMode == "link" || subContentDisplayMode == "modal" || subContentDisplayMode == "collapse_block")>
+								<#if (subContentDisplayMode == "link" || subContentDisplayMode == "modal" || subContentDisplayMode == "collapse_block") || subContentDisplayContentMode == "link">
 									</a>
 								</#if>
 								<#if (subContentDisplayMode == "modal")>
