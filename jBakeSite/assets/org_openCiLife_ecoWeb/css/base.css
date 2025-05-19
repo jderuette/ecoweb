@@ -83,6 +83,10 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
     text-decoration: ${webleger.site.style.menu.text_decoration.hover};
 }
 
+.navbar-toggle .icon-bar {
+	background-color:${webleger.site.style.menu.text_color};
+}
+
 .icon {
       width: 1em;
       height: 1em;
