@@ -161,7 +161,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 
 <#-- build an modal block (using Boostrap)
 param : modalId : *default* : basicModal : (html) ID of the modal (to be ued in link to target this modal)
-param : closeButtonlabel : *default* : close : lable of the botom close button
+param : closeButtonlabel : *default* : close : label of the botom close button
 -->
 <#macro buildModal modalId="basicModal" closeButtonlabel = "close">
 	<div class="modal fade" id="${modalId}" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -184,22 +184,69 @@ param : closeButtonlabel : *default* : close : lable of the botom close button
 	</div>
 </#macro>
 
-<#-- build an modal block (using Boostrap)
+<#function randomNumber salt = 7>
+    <#local str= .now?long />
+    <#assign str = (str * salt)/3 />
+    <#assign random = str[(str?string?length-13)..] />
+    <#assign returnVal = random?replace("\\D+", "_", "r") />
+    <#return returnVal/>	
+</#function>
+
+<#-- To create "link" header line or footer scripts injection.
+param : content : JSON content describing inclusions.
+-->
+<#macro buildExternalInjection content>
+	<#if (content)??>
+		<#assign fullContent = content>
+		<#if content?is_sequence>
+			<#assign fullContent = "">
+			<#assign separator = "">
+			<#list content as fakeItem>
+				<#assign fullContent = fullContent + separator + fakeItem>
+				<#assign separator = ",">
+			</#list>
+		</#if>
+		
+		<#assign jsonContent = fullContent?eval_json>
+		
+		<#list jsonContent.data as injection>
+			<#assign tagType = injection.tagType!"link">
+			<#if ((injection.constraint)??)>
+				<!--[${injection.constraint}]>
+			</#if>
+		<${tagType}<#if (injection.href??)> href="${injection.href}"</#if><#if (injection.src??)> src="${injection.src}"</#if><#if (injection.rel??)> rel="${injection.rel}"</#if>><#if (injection.tagType=="script")></script></#if>
+			<#if ((injection.constraint)??)>
+				<![endif]-->
+			</#if>
+		</#list>
+	</#if>
+</#macro>
+
+
+<#-- build an modal block or table listing (using Boostrap)
 param : content : content to search for incluide content
 -->
 <#macro buildsubContent content>
 	<#if (content.includeContent)??>
 		<@debug "(sub)Content should be included"/>
-			<#assign subContents = db.getPublishedContent(content.includeContent.type)>
+			<#assign allSubContents = db.getPublishedContent(content.includeContent.type)>
+			<#--  -- remove self if presents -->
+			<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
 			<@debug "Included Type " + content.includeContent.type, "Number of subContent to display " + subContents?size/>
+			
 			<#if (subContents?size > 0)>
 				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
 				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
+				<#assign subContentBeforeTitleImage = (content.includeContent.display.beforeTitleImage)!"">
 				<#assign specificClass = (content.includeContent.specificClass)!"">
 				
 				<#assign theModalId = "basicModal">
 				<#if (subContentDisplayContentMode == "modal")>
 					<@buildModal modalId= theModalId/>
+				</#if>
+				
+				<#if (subContentDisplayContentMode == "collapse_block")>
+					<@buildCollapseBlock modalId= theModalId/>
 				</#if>
 				
 				<@debug subContentDisplayMode = subContentDisplayMode subContentDisplayContentMode = subContentDisplayContentMode/>
@@ -227,6 +274,9 @@ param : content : content to search for incluide content
 					<#assign subContentCategory = (subContent.category)!"__none__">
 					<#assign includeContentFilter = content.includeContent.category!"all">
 					<#assign specificContentClass = (content.includeContent.display.specificClass)!"">
+					<#assign collapseClass = "">
+					<#assign collapseId = "">
+					
 					<#if ((subContent.status == "published") && (includeContentFilter == "all" || seq_containsOne(includeContentFilter, subContentCategory)))>
 						<@debug "ACEPTED : SubContent : " + (subContent.title)!"not_set", includeContentFilter  + " IN " + subContentCategory/>
 						<#if (subContentDisplayMode == "table")>
@@ -244,6 +294,9 @@ param : content : content to search for incluide content
 											</#if>
 										</td>
 										<td class="${subContentDisplayMode}_title widget_title">
+											<#if (subContentBeforeTitleImage??)>
+												<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+											</#if>
 											${subContent.title!""}
 										</td>
 										<td class="${subContentDisplayMode}_exerpt widget_exerpt">
@@ -271,11 +324,19 @@ param : content : content to search for incluide content
 									</tr>
 						<#else>
 							<div class="${subContentDisplayMode} content_type_${subContentDisplayContentMode} ${specificContentClass}">
-								<#if (subContentDisplayContentMode == "link")>
+								<#switch subContentDisplayMode>
+								<#case  "link">
 									<a href="${ecoWeb.buildRootPathAwareURL(subContent.uri)}" class="widget_link">
-								<#elseif (subContentDisplayContentMode == "modal")>
+								<#break>
+								<#case "modal">
 									<a href="#" role="button" class="widget_link_modal" data-toggle="modal" data-target="#${theModalId}">
-								</#if>
+								<#break>
+								<#case "collapse_block">
+									<#assign collapseClass = "collapse">
+									<#assign collapseId = randomNumber(2)>
+    								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+								<#break>
+								</#switch>
 								<#if (subContent.contentImage??)>
 									<div class="${subContentDisplayMode}_image">
 										<#if (subContent.contentImage)??>
@@ -284,19 +345,29 @@ param : content : content to search for incluide content
 									</div>
 								</#if>
 								<h3 class="${subContentDisplayMode}_title widget_title"><#rt>
+								<#if (subContentBeforeTitleImage??)>
+									<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+								</#if>
 									<#t>${subContent.title!""}
 								<#lt></h3>
-								<div class="${subContentDisplayMode}_exerpt widget_exerpt">
-									${subContent.exerpt!""}
-								</div>
-								<#if (subContentDisplayContentMode == "link" || subContentDisplayContentMode == "modal")>
+								
+								<#if (subContent.exerpt??)>
+									<div class="${subContentDisplayMode}_exerpt widget_exerpt">
+										${subContent.exerpt!""}
+									</div>
+								</#if>
+								<#if (subContentDisplayMode == "link" || subContentDisplayMode == "modal" || subContentDisplayMode == "collapse_block")>
 									</a>
 								</#if>
-								<#if (subContentDisplayContentMode == "modal")>
+								<#if (subContentDisplayMode == "modal")>
 									<button type="button" class="btn btn-primary btn-block ${subContentDisplayMode}_showMore showMore" data-toggle="modal" data-target="#${theModalId}">Détails</button>
 								</#if>
 								<#if (subContentDisplayContentMode == "modal" || subContentDisplayContentMode == "visible")>
-									<div class="${subContentDisplayMode}_content widget_content">
+									<div class="${subContentDisplayMode}_content widget_content ${collapseClass}" 
+									<#if (collapseId??)>
+										id="${collapseId}"
+									</#if>
+									>
 										${subContent.body!""}
 									</div>
 								</#if>
@@ -317,5 +388,116 @@ param : content : content to search for incluide content
 			</#if>
 	<#else>
 		<@debug "No SubContent for this content"/>
+	</#if>
+</#macro>
+
+<#-- build a form
+param : content : content to search for form data
+-->
+<#macro buildForm content>
+	<#if (content.formData)??>
+		<#assign to=content.formData.to />
+		<#assign method=(content.formData.method)!"get" />
+		<#assign enctype=(content.formData.enctype)!"application/x-www-form-urlencoded" />
+		<#assign sendLabel=(content.formData.sendLabel)!"Contactez" />
+		
+		
+		<#assign fields=(content.formData.fields)! />
+		
+		<form action="mailto:<#escape x as x?xml>${to}</#escape>" method="<#escape x as x?xml>${method}</#escape>" enctype="<#escape x as x?xml>${enctype}</#escape>" class="contact_form">
+		<div class="form-group">
+		
+		<#list fields as field>
+			<label for="<#escape x as x?xml>${field.id}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
+			<#if field.type == "textarea">
+				<#assign endTag = "textarea" />
+				<textarea 
+			<#else>
+				<#assign endTag = "input" />
+				<input type="<#escape x as x?xml>${field.type!"text"}</#escape>" 
+			</#if>
+			class="<#escape x as x?xml>${fieldspecificClass!"form-control"}</#escape>" id="<#escape x as x?xml>${field.id}</#escape>" 
+			<#if (field.name)??>
+				name="<#escape x as x?xml>${field.name}</#escape>"
+			</#if>
+			<#if (field.value)??>
+				value="<#escape x as x?xml>${field.value}</#escape>"
+			</#if>
+			<#if (field.readOnly)?? && field.readOnly=="true">
+				 readOnly
+			</#if>
+			<#if (field.rows)??>
+				rows="<#escape x as x?xml>${field.rows}</#escape>"
+			</#if>
+			></${endTag}>
+		</#list>
+		
+		<input type="submit" value="<#escape x as x?xml>${sendLabel}</#escape>"/>
+		</div>
+		</form>
+		
+	<#else>
+		<@debug "No form Data for this content"/>
+	</#if>
+</#macro>
+
+
+<#-- build a carousel
+param : content : content to search for carousel data
+-->
+<#macro buildCarousel content>
+	<#if (content.carouselData)??>
+		<#assign slides=(content.carouselData.slides)! />
+		<#assign carouselId=(content.carouselData.id)!randomNumber(4) />
+		<#assign controls=(content.carouselData.controls)! />
+		<#assign displayIndicator=(content.carouselData.displayIndicator)!false />
+		<#assign carouselStyle=(content.carouselData.style)! />
+		
+		<div id="<#escape x as x?xml>${carouselId}</#escape>" class="carousel slide" data-ride="carousel" <#if (carouselStyle??)>style="${carouselStyle}"</#if>>
+		
+		<#if (displayIndicator)>
+			<#assign isFirst=true />
+			<#assign slideIndex=0 />
+			<ol class="carousel-indicators">
+			<#list slides as slide>
+				<li data-target="#<#escape x as x?xml>${carouselId}</#escape>" data-slide-to="${slideIndex}" <#if (isFirst)>class="active"</#if>></li>
+				<#assign slideIndex=slideIndex+1 />
+				<#assign isFirst=false/>
+			</#list>
+			</ol>
+		</#if>
+		
+		<div class="carousel-inner" role="listbox">
+		<#--  ReInit isF	irst for real slide (may be altered by indicator loop) -->
+		<#assign isFirst=true/>
+		
+		<#list slides as slide>
+			<div class="item carousel-item <#if (isFirst)>active</#if>">
+			<#assign isFirst=false/>
+				<#if (slide.type)="img">
+	      			<img class="d-block w-100" src="<#escape x as x?xml>${ecoWeb.buildRootPathAwareURL(slide.data)}</#escape>" <#if (slide.style)??> style="<#escape x as x?xml>${slide.style}</#escape>"</#if><#if (slide.alt)??> alt="<#escape x as x?xml>${slide.alt}</#escape>"</#if>>
+				</#if>
+				<#if (slide.caption)??>
+					<div class="carousel-caption d-none d-md-block" <#if (slide.captionStyle)??> style="<#escape x as x?xml>${slide.captionStyle}</#escape>"</#if>>
+					${slide.caption}
+					</div>
+				</#if>
+			</div>
+		</#list>
+		</div>
+		
+		
+		<#if (controls??)>
+			<a class="left carousel-control" href="#<#escape x as x?xml>${carouselId}</#escape>" role="button" data-slide="prev">
+			<span class="icon-prev" aria-hidden="true"></span>
+			<span class="sr-only">${controls.previousLabel!"précédent"}</span>
+			</a>
+			
+			<a class="right carousel-control" href="#<#escape x as x?xml>${carouselId}</#escape>" role="button" data-slide="next">
+			<span class="icon-next" aria-hidden="true"></span>
+			<span class="sr-only">${controls.nextLabel!"suivant"}</span>
+			</a>
+		</#if>
+		</div>
 	</#if>
 </#macro>
