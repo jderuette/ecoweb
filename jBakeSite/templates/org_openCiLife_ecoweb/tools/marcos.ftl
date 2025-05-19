@@ -472,18 +472,18 @@ param : content : content to search for carousel data
 			</ol>
 		</#if>
 		
-		<div class="carousel-inner" role="listbox">
-		<#--  ReInit isF	irst for real slide (may be altered by indicator loop) -->
+		<div class="carousel-inner" role="listbox" aria-roledescription="caroussel" aria-readonly="true">
+		<#--  ReInit isFirst for real slide (may be altered by indicator loop) -->
 		<#assign isFirst=true/>
 		
 		<#list slides as slide>
-			<div class="item carousel-item <#if (isFirst)>active</#if>">
+			<div class="item carousel-item <#if (isFirst)>active" aria-selected="true"<#else>"</#if> role="option">
 			<#assign isFirst=false/>
 				<#if (slide.type)="img">
 	      			<img class="d-block w-100" src="<#escape x as x?xml>${ecoWeb.buildRootPathAwareURL(slide.data)}</#escape>" <#if (slide.style)??> style="<#escape x as x?xml>${slide.style}</#escape>"</#if><#if (slide.alt)??> alt="<#escape x as x?xml>${slide.alt}</#escape>"</#if>>
 				</#if>
 				<#if (slide.caption)??>
-					<div class="carousel-caption d-none d-md-block" <#if (slide.captionStyle)??> style="<#escape x as x?xml>${slide.captionStyle}</#escape>"</#if>>
+					<div class="carousel-caption d-none d-md-block" <#if (slide.captionStyle)??> style="<#escape x as x?xml>${slide.captionStyle}</#escape>" role="presentation"</#if>>
 					${slide.caption}
 					</div>
 				</#if>

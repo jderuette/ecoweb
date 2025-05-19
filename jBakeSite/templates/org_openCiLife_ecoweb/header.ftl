@@ -26,7 +26,7 @@
   </head>
   <body class="${content.type}">
     <div id="wrap">
-    	<div id="up" class="header">
+    	<div id="up" class="header" role="banner">
 			<div id="pageTitle">
 				<img src="${ecoWeb.buildRootPathAwareURL(config.site_logoLeft_file)}" alt="${ecoWeb.displayConfigText(config.site_logoLeft_description)}" id="logoLeft"/>
 				<h1 id="headerTitle">${ecoWeb.displayConfigText(config.site_headline)}</h1>

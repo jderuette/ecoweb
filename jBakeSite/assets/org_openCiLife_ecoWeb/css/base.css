@@ -57,12 +57,12 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 #logoLeft {
-	width: 200px;
+	width: ${webleger.site.logoRight.size.width.mobile};
 	height: auto;
 }
 
 #logoRight {
-	width: 50px;
+	width: ${webleger.site.logoLeft.size.width.mobile};
 	height: auto;
 }
 
@@ -71,7 +71,6 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .navbar-toggle {
-	background-image: url(${webleger.build.host}/${site.template}/images/burger.svg);
 	width: 32px;
 }
 
@@ -158,8 +157,8 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .blockIcon {
-	width: 25px;
-	height: 25px;
+	width: 75px;
+	height: 75px;
 	margin-right: 1%;
 }
 
@@ -426,7 +425,10 @@ div.debug {
 		flex-direction: row;
 	}
 	#logoRight {
-		width: 150px;
+		width: ${webleger.site.logoRight.size.width.desktop};
+	}
+	#logoLeft {
+		width: ${webleger.site.logoRight.size.width.desktop};
 	}
 	.blockIcon {
 		width: 130px;
