@@ -214,7 +214,7 @@ param : content : JSON content describing inclusions.
 			<#if ((injection.constraint)??)>
 				<!--[${injection.constraint}]>
 			</#if>
-		<${tagType}<#if (injection.href??)> href="${injection.href}"</#if><#if (injection.src??)> src="${injection.src}"</#if><#if (injection.rel??)> rel="${injection.rel}"</#if>><#if (injection.tagType=="script")></script></#if>
+		<${tagType}<#if (injection.href??)> href="${buildRootPathAwareURL(injection.href)}"</#if><#if (injection.src??)> src="${buildRootPathAwareURL(injection.src)}"</#if><#if (injection.rel??)> rel="${injection.rel}"</#if>><#if (injection.tagType=="script")></script></#if>
 			<#if ((injection.constraint)??)>
 				<![endif]-->
 			</#if>
@@ -294,7 +294,7 @@ param : content : content to search for incluide content
 											</#if>
 										</td>
 										<td class="${subContentDisplayMode}_title widget_title">
-											<#if (subContentBeforeTitleImage??)>
+											<#if (subContentBeforeTitleImage?has_content)>
 												<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
 											</#if>
 											${subContent.title!""}
@@ -345,7 +345,7 @@ param : content : content to search for incluide content
 									</div>
 								</#if>
 								<h3 class="${subContentDisplayMode}_title widget_title"><#rt>
-								<#if (subContentBeforeTitleImage??)>
+								<#if (subContentBeforeTitleImage?has_content)>
 									<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
 								</#if>
 									<#t>${subContent.title!""}
