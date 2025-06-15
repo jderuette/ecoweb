@@ -48,4 +48,4 @@
         </div><#--/.nav-collapse -->
       </div>
     </div>
-    <div class="container" role="main">
+    <div id="mainContent" class="container" role="main">
