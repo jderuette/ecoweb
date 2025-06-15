@@ -26,7 +26,7 @@
 			<div id="pageTitle">
 				<img src="images/common/logo_left.svg" alt="Logo WebLeger" id="logoLeft"/>
 				<h1 id="headerTitle">Web Leger, c'est du lourd</h1>
-				<img src="images/common/logo_right.png" alt="Site Eco ConÃÂ§u" id="logoRight"/>
+				<img src="images/common/logo_right.png" alt="Site Eco ConÃ§u" id="logoRight"/>
 			</div>
 		</div>	
 	<!-- Fixed navbar -->
@@ -43,11 +43,12 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav" role="menubar">
 										<li><a href="index.html#a_quoi_ca_sert"  role="menuitem">A quoi ca sert ?</a></li>
-							<li><a href="index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
 							<li><a href="index.html#quel_herbergement"  role="menuitem">Quel hébergement ?</a></li>
+							<li><a href="index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
 							<li><a href="index.html#pourquoi"  role="menuitem">Pourquoi ?</a></li>
 							<li><a href="index.html#Contact"  role="menuitem">Contact</a></li>
 							<li><a href="index.html#Carousel"  role="menuitem">Carousel</a></li>
+							<li><a href="index.html#Tarifs"  role="menuitem">Tarifs</a></li>
 							<li><a href="100_blogs.html" role="menuitem">Articles</a></li>
 							<li><a href="documents/200_documents.html" role="menuitem">Base documentaire</a></li>
 							<li><a href="events/400_events.html" role="menuitem">Evènements</a></li>
@@ -58,25 +59,16 @@
         </div>
       </div>
     </div>
-    <div class="container" role="main">
+    <div id="mainContent" class="container" role="main">
 		
 		<div id="a_quoi_ca_sert" class="mainBlock style1">
 			<h2	class="blockTitle">A quoi ca sert ?</h2>
 				<div class="blockBody">
 					<div class="blockContent">
 						<p>WebLeger permet de <strong>construire des sites web</strong> lègé. Les modèles vous incite à rester sobres. Une fois votre site imaginé : Weblèger construit un site web nécéssitant que très peu de ressources serveur. WebLègé vous aident à optimiser le temps d'affichage pour vos visteurs.</p>
+
 					</div>	
 						<img src=images/principe.svg class="blockIcon"/>
-				</div>
-			</div>
-		
-		<div id="comment" class="mainBlock style2">
-			<h2	class="blockTitle">Comment ca marche ?</h2>
-				<div class="blockBody">
-					<div class="blockContent">
-						<p>Il faut télécharger l'outils de developpement.<br> Un dossier modèle vous ai fourni. Vous y ajoutez votre contenus (textes, images). Le contenu textuel doit être rédigé en respectant certaines règles (<strong>MarkDown</strong>). Une fois pret : vous générez le site. <strong>JBake</strong> est utilisé pour produire un <strong>site HTML</strong> à partir de vos contenus.<br> Il ne vous reste plus qu'a <strong>héberger</strong> le contenu.</p>
-					</div>	
-						<img src=images/jbake_75x75.png class="blockIcon"/>
 				</div>
 			</div>
 		
@@ -84,9 +76,25 @@
 			<h2	class="blockTitle">Quel hébergement ?</h2>
 				<div class="blockBody">
 					<div class="blockContent">
-						<p>Pour l'hébergement il suffit d'un <strong>serveur Web</strong> (Apache, NGix) accessible sur internet.<br> Il n'y a pas besoin de base de données ni de language de pogramation (Java, Php, Python...) sur le serveur.<br> Java est requis uniquement sur votre ordinateur pour construire le site Web.</p>
+						<p>Pour l'hébergement il suffit d'un <strong>serveur Web</strong> (Apache, NGix) accessible sur internet.<br />
+Il n'y a pas besoin de base de données ni de language de pogramation (Java, Php, Python...) sur le serveur.<br />
+Java est requis uniquement sur votre ordinateur pour construire le site Web.</p>
+
 					</div>	
 						<img src=images/servers.svg class="blockIcon"/>
+				</div>
+			</div>
+		
+		<div id="comment" class="mainBlock style2">
+			<h2	class="blockTitle">Comment ca marche ?</h2>
+				<div class="blockBody">
+					<div class="blockContent">
+						<p>Il faut télécharger l'outils de developpement.<br />
+Un dossier modèle vous ai fourni. Vous y ajoutez votre contenus (textes, images). Le contenu textuel doit être rédigé en respectant certaines règles (<strong>MarkDown</strong>). Une fois pret : vous générez le site. <strong>JBake</strong> est utilisé pour produire un <strong>site HTML</strong> à partir de vos contenus.<br />
+Il ne vous reste plus qu'a <strong>héberger</strong> le contenu.</p>
+
+					</div>	
+						<img src=images/jbake_75x75.png class="blockIcon"/>
 				</div>
 			</div>
 		
@@ -94,7 +102,10 @@
 			<h2	class="blockTitle">Pourquoi ?</h2>
 				<div class="blockBody">
 					<div class="blockContent">
-						<p>Notre planète se réchauffe notament à cause du web qui nécéssite de nombreux serveurs. Des site de plus en plus lourds forcent les utilisateurs à changer régulièrement d'oridnateur ou de smartphone. De gros sites nécéssitent une grosse connexion réseaux (4G voir 5G) nécéssitant le déploiment d'équipements de plus en plus nombreux.<br> Produire un site web lègé limite certains de ces impacts négatifs.<br> Ce n'est pas une révolution mais un petit pas dans une des bonnes directions.</p>
+						<p>Notre planète se réchauffe notament à cause du web qui nécéssite de nombreux serveurs. Des site de plus en plus lourds forcent les utilisateurs à changer régulièrement d'oridnateur ou de smartphone. De gros sites nécéssitent une grosse connexion réseaux (4G voir 5G) nécéssitant le déploiment d'équipements de plus en plus nombreux.<br />
+Produire un site web lègé limite certains de ces impacts négatifs.<br />
+Ce n'est pas une révolution mais un petit pas dans une des bonnes directions.</p>
+
 					</div>	
 						<img src=images/arrow-top-right-on-square.svg class="blockIcon"/>
 				</div>
@@ -104,8 +115,9 @@
 			<h2	class="blockTitle">Contact</h2>
 				<div class="blockBody">
 					<div class="blockContent">
-						<p>Contactez-moi en remplissant le formulaire ci-dessous.</p> 
-<p>Pour eviter de stocker votre message dans une Base De Données le formulaire va pré-remplir un e-mail. Vous n'aurez plus qu'a cliquer sur "envoyer". Si vous n'avez pas de client e-mail de configuré vous pouvez envoyer votre e-mail directement à l'adresse indiquée dans le formulaire.</p>
+						<p>Contactez-moi en remplissant le formulaire ci-dessous.</p>
+<p>Pour eviter de stocker votre message dans une Base De Données le formulaire va pré-remplir un e-mail. Vous n'aurez plus qu'a cliquer sur &quot;envoyer&quot;. Si vous n'avez pas de client e-mail de configuré vous pouvez envoyer votre e-mail directement à l'adresse indiquée dans le formulaire.</p>
+
 		
 		<form action="mailto:djer13@gmail.com" method="get" enctype="application/x-www-form-urlencoded" class="contact_form">
 		<div class="form-group">
@@ -147,6 +159,7 @@
 				<div class="blockBody">
 					<div class="blockContent">
 						<p>Un test de carousel</p>
+
 		
 		<div id="HomePageCarousel" class="carousel slide" data-ride="carousel" style="margin:auto">
 		
@@ -184,6 +197,68 @@
 					</div>	
 				</div>
 			</div>
+		
+		<div id="Tarifs" class="mainBlock style1">
+			<h2	class="blockTitle">Tarifs</h2>
+				<div class="blockBody">
+					<div class="blockContent">
+						<h3>Création du site</h3>
+<p>Chaque site est différents. Vos besoins peuvent évoluer. Votre implication est variable. Il est aussi souvent compliqué de bien identifier tous les besoins dès le début.<br />
+Afin d'éviter des prises de décisions complexes de votre part au début du projet, ou d'enchainer les devis je pratique un <strong>tarif à l'heur</strong>.<br />
+Je pratique 2 tarif :<br />
+- tarif standard (réalition de votre projet à la suite des autres) : 40 € HT.<br />
+- Tarif en Urgence (réalisation de votre projet en priorité) : 80 € HT.</p>
+<p>Une <em>estimation</em> de la charge de travail vous sera fourni à chaque fois.<br />
+Pour limiter les factures et transactions financières (qui génèrent de la polution) vous payez à l'avance un volume d'heur puis il est consommé au fur et à mesure de l'avancement du site.<br />
+Ce mode de fonctionnement va mécaniquement entrainer une mise à jour &quot;par étape&quot; de votre site ce qui vous permettra de le voir évoluer, de vous y impliquer au fur et à mesure et de de décider quand le site doit etre mis à jour (visible par les utilisateurs).</p>
+<h3>Hébergement</h3>
+<p>Vous pouvez héberger votre site chez n'importe quel hébergeur. Je peux vous aider à le sélectionner et à effectuer la configuration.<br />
+Plus tarif je proposerais surement une offre d'hébergement verte spécialisé pour héberger des site Webleger.</p>
+<h4>Quelques exemple</h4>
+<p>Voici quelques cas classique pour vous donner un ordre d'idée en fonction du niveau d'autonomie que vous souhaitez avoir.<br />
+L'autonomie vous évite de payer un professionelle mais vous oblige à effectuer des installation/configuration d'outils, à comprendre le fonctionne de l'outils et à faire (un peu) de CSS et JavaScript.</p>
+<p>Lors de la migration d'un site existant, les textes, les logos et images sont déja existant. Ceci fait gagner du temps.<br />
+MEs heures de travails peuvent être des heures de réunion avec vous ou des heur de travail en solo.</p>
+<h4>vous souhaitez un maximum d'autonomie</h4>
+<table>
+<thead>
+<tr><th align="left"> type de site </th><th align="left"> Durée pour vos </th><th align="left"> Durée pour moi </th><th align="left"> montant facture </th></tr>
+</thead>
+<tbody>
+<tr><td align="left"> Migration Site &quot;One page&quot; </td><td align="left"> 14h </td><td align="left"> 0h </td><td align="left"> 0€ </td></tr>
+<tr><td align="left"> Migration Site existant </td><td align="left"> 28h </td><td align="left"> 0h </td><td align="left"> 0€ </td></tr>
+<tr><td align="left"> Création Site &quot;One page&quot; </td><td align="left"> 20h </td><td align="left"> 0h </td><td align="left"> 0€ </td></tr>
+<tr><td align="left"> Création Site standard </td><td align="left"> 40h </td><td align="left"> 0h </td><td align="left"> 0h </td></tr>
+</tbody>
+</table>
+<h4>vous souhaitez acquérire de l'autonomie tout en étant accompagné</h4>
+<table>
+<thead>
+<tr><th align="left"> type de site </th><th align="left"> Durée pour vos </th><th align="left"> Durée pour moi </th><th align="left"> montant facture </th></tr>
+</thead>
+<tbody>
+<tr><td align="left"> Migration Site &quot;One page&quot; </td><td align="left"> 10h </td><td align="left"> 4h </td><td align="left"> 160-320€ </td></tr>
+<tr><td align="left"> Migration Site existant </td><td align="left"> 20h </td><td align="left"> 8h </td><td align="left"> 320-640€ </td></tr>
+<tr><td align="left"> Création Site &quot;One page&quot; </td><td align="left"> 8h </td><td align="left"> 6h </td><td align="left"> 160-320€ </td></tr>
+<tr><td align="left"> Création Site standard </td><td align="left"> 20h </td><td align="left"> 20h </td><td align="left"> 800-1 600€ </td></tr>
+</tbody>
+</table>
+<h4>vous souhaitez un site clef en main</h4>
+<table>
+<thead>
+<tr><th align="left"> type de site </th><th align="left"> Durée pour vos </th><th align="left"> Durée pour moi </th><th align="left"> montant facture </th></tr>
+</thead>
+<tbody>
+<tr><td align="left"> Migration Site &quot;One page&quot; </td><td align="left"> 1h </td><td align="left"> 6h </td><td align="left"> 240-480€ </td></tr>
+<tr><td align="left"> Migration Site existant </td><td align="left"> 1h </td><td align="left"> 16h </td><td align="left"> 640-1 280€ </td></tr>
+<tr><td align="left"> Création Site &quot;One page&quot; </td><td align="left"> 3h </td><td align="left"> 12h </td><td align="left"> 480-960€ </td></tr>
+<tr><td align="left"> Création Site standard </td><td align="left"> 6h </td><td align="left"> 30h </td><td align="left"> 1200-2400€ </td></tr>
+</tbody>
+</table>
+
+					</div>	
+				</div>
+			</div>
 
 		</div>
 		<img src="org_openCiLife_ecoWeb/images/pageup.svg" id="go_to_top" OnClick='window.location.href="#up"' alt="go to top">
@@ -196,18 +271,20 @@
 					<div class="footer_block">
 			            <img src="images/donation.svg">
 			            <div class="footer_block_text">
-			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p> 
+			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p>
 <p><a href="https://www.helloasso.com/associations/open-cylife/formulaires/1">Pour faire un don, c'est par ici</a></p>
+
 			            </div>
 			        </div>
 					<div class="footer_block">
 			            <img src="images/contact.svg">
 			            <div class="footer_block_text">
 			            	<p><a href="https://www.open-cy.life/">Contact</a></p>
+
 			            </div>
 			        </div>
 	     </div>
-	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 0.3.1</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
       </div>
     </div>
     

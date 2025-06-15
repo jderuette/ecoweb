@@ -26,7 +26,7 @@
 			<div id="pageTitle">
 				<img src="../images/common/logo_left.svg" alt="Logo WebLeger" id="logoLeft"/>
 				<h1 id="headerTitle">Web Leger, c'est du lourd</h1>
-				<img src="../images/common/logo_right.png" alt="Site Eco ConÃÂ§u" id="logoRight"/>
+				<img src="../images/common/logo_right.png" alt="Site Eco ConÃ§u" id="logoRight"/>
 			</div>
 		</div>	
 	<!-- Fixed navbar -->
@@ -43,11 +43,12 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav" role="menubar">
 										<li><a href="../index.html#a_quoi_ca_sert"  role="menuitem">A quoi ca sert ?</a></li>
-							<li><a href="../index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
 							<li><a href="../index.html#quel_herbergement"  role="menuitem">Quel hébergement ?</a></li>
+							<li><a href="../index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
 							<li><a href="../index.html#pourquoi"  role="menuitem">Pourquoi ?</a></li>
 							<li><a href="../index.html#Contact"  role="menuitem">Contact</a></li>
 							<li><a href="../index.html#Carousel"  role="menuitem">Carousel</a></li>
+							<li><a href="../index.html#Tarifs"  role="menuitem">Tarifs</a></li>
 							<li><a href="../100_blogs.html" role="menuitem">Articles</a></li>
 							<li><a href="../documents/200_documents.html" role="menuitem">Base documentaire</a></li>
 							<li><a href="../events/400_events.html" role="menuitem">Evènements</a></li>
@@ -58,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="container" role="main">	
+    <div id="mainContent" class="container" role="main">	
 		<p>Publié le : <em>07 April 2025</em></p>
 		<span>Tags : </span>
 		<ul class="content_tags">
@@ -68,30 +69,34 @@
 		<div class="page-header">
 			<h1>Installer les outils en local</h1>
 		</div>
-	<h1>Java</h1> 
-<p>Nécéssaire pour transformer les pages de texte en HTML (JBake et Maven) et utiliser Elcipse IDE.</p> 
-<p>Il faut au minimum java 1.8 et un JDK Java Developement Kit ("Java for devellopers").</p> 
-<p>Il est recommandé de télécharger les versions <strong>ZIP</strong> et d'éviter le MSI ou l'installeur. En effet il s'agit d'une ancienne version de JAVA et il n'ai pas nécéssaire de remplacer votre version actuel sur votre ordinateur.<br> Il est recommandé de décompresser le ZIP dans un dossier sans espaces et pas trop long (<em>C:/MyProgram/Java</em> par exemple).</p> 
-<h2>Oracle</h2> 
-<p>La version <strong>1.8.0_191</strong> d'Oracle à été testée, mais d'autres versions 1.8 devraient fonctionner sans problèmes.<br> vous pouvez télécharger Java Oracle ici : <a href="https://www.oracle.com/fr/java/technologies/javase/javase8-archive-downloads.html">https://www.oracle.com/fr/java/technologies/javase/javase8-archive-downloads.html</a></p> 
-<h2>Open JDK</h2> 
-<p>La version <strong>1.8.0_452</strong> d'Open JDK à été testée. Mais d'aurets version 1.8 devraient fonctionenr sans problèmes.<br> Vous pouvez télécharger Java Open JDK ici : <a href="https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&amp;field_operating_system_target_id=All&amp;field_architecture_target_id=All&amp;field_java_package_target_id=All">https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&amp;field_operating_system_target_id=All&amp;field_architecture_target_id=All&amp;field_java_package_target_id=All</a></p> 
-<h1>Eclipse IDE</h1> 
-<p>Très très utile pour :</p> 
-<ul> 
- <li>éditer les fichier texte et avoir un prévisualisation minimal</li> 
- <li>lancer le build de votre site</li> 
- <li>partager votre code avec Git</li> 
-</ul> 
-<h2>Installation</h2> 
-<p>La version suivante à été testée d' <em>Eclipse IDE for Enterprise Java and Web Developers</em>. Cependant la dernière version disponible devrait fonctionner :</p> 
+	<h1>Java</h1>
+<p>Nécéssaire pour transformer les pages de texte en HTML (JBake et Maven) et utiliser Elcipse IDE.</p>
+<p>Il faut au minimum java 1.8 et un JDK Java Developement Kit (&quot;Java for devellopers&quot;).</p>
+<p>Il est recommandé de télécharger les versions <strong>ZIP</strong> et d'éviter le MSI ou l'installeur. En effet il s'agit d'une ancienne version de JAVA et il n'ai pas nécéssaire de remplacer votre version actuel sur votre ordinateur.<br />
+Il est recommandé de décompresser le ZIP dans un dossier sans espaces et pas trop long (<em>C:/MyProgram/Java</em> par exemple).</p>
+<h2>Oracle</h2>
+<p>La version <strong>1.8.0_191</strong> d'Oracle à été testée, mais d'autres versions 1.8 devraient fonctionner sans problèmes.<br />
+vous pouvez télécharger Java Oracle ici : <a href="https://www.oracle.com/fr/java/technologies/javase/javase8-archive-downloads.html">https://www.oracle.com/fr/java/technologies/javase/javase8-archive-downloads.html</a></p>
+<h2>Open JDK</h2>
+<p>La version <strong>1.8.0_452</strong> d'Open JDK à été testée. Mais d'aurets version 1.8 devraient fonctionenr sans problèmes.<br />
+Vous pouvez télécharger Java Open JDK ici : <a href="https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&amp;field_operating_system_target_id=All&amp;field_architecture_target_id=All&amp;field_java_package_target_id=All">https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&amp;field_operating_system_target_id=All&amp;field_architecture_target_id=All&amp;field_java_package_target_id=All</a></p>
+<h1>Eclipse IDE</h1>
+<p>Très très utile pour :</p>
+<ul>
+<li>éditer les fichier texte et avoir un prévisualisation minimal</li>
+<li>lancer le build de votre site</li>
+<li>partager votre code avec Git</li>
+</ul>
+<h2>Installation</h2>
+<p>La version suivante à été testée d' <em>Eclipse IDE for Enterprise Java and Web Developers</em>. Cependant la dernière version disponible devrait fonctionner :</p>
 <pre><code>Version: 2023-12 (4.30.0)
 Build id: 20231201-2043
-</code></pre> 
-<h2>Configuration</h2> 
-<p>La version par défaut est tout à fait utilisable. Il y aura quelques règlage à faire (notament pour utiliser la bonne version de Java) qui seront expliquer lors de la création de votre premier site.</p> 
-<h1>optionel : KeyGen</h1> 
+</code></pre>
+<h2>Configuration</h2>
+<p>La version par défaut est tout à fait utilisable. Il y aura quelques règlage à faire (notament pour utiliser la bonne version de Java) qui seront expliquer lors de la création de votre premier site.</p>
+<h1>optionel : KeyGen</h1>
 <p>Nécéssaire si vous souhaitez utiliser un système de clef de chiffrement pour échanger avec GitHub (recommandé).</p>
+
 			
 				
 				
@@ -144,6 +149,8 @@ Build id: 20231201-2043
 					 
 					
 					 
+					
+					 
 					</div>
 	
 		</div>
@@ -157,18 +164,20 @@ Build id: 20231201-2043
 					<div class="footer_block">
 			            <img src="../images/donation.svg">
 			            <div class="footer_block_text">
-			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p> 
+			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p>
 <p><a href="https://www.helloasso.com/associations/open-cylife/formulaires/1">Pour faire un don, c'est par ici</a></p>
+
 			            </div>
 			        </div>
 					<div class="footer_block">
 			            <img src="../images/contact.svg">
 			            <div class="footer_block_text">
 			            	<p><a href="https://www.open-cy.life/">Contact</a></p>
+
 			            </div>
 			        </div>
 	     </div>
-	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 0.3.1</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
       </div>
     </div>
     

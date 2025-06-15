@@ -25,6 +25,12 @@ img {
 	max-width: 100%;
 }
 
+
+#mainContent img {
+	margin: 5px;
+    border: 1px solid #6900cc;
+}
+
 a:link {
   color: #6900cc;
 }

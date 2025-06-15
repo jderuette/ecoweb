@@ -26,7 +26,7 @@
 			<div id="pageTitle">
 				<img src="../images/common/logo_left.svg" alt="Logo WebLeger" id="logoLeft"/>
 				<h1 id="headerTitle">Web Leger, c'est du lourd</h1>
-				<img src="../images/common/logo_right.png" alt="Site Eco ConÃÂ§u" id="logoRight"/>
+				<img src="../images/common/logo_right.png" alt="Site Eco ConÃ§u" id="logoRight"/>
 			</div>
 		</div>	
 	<!-- Fixed navbar -->
@@ -43,11 +43,12 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav" role="menubar">
 										<li><a href="../index.html#a_quoi_ca_sert"  role="menuitem">A quoi ca sert ?</a></li>
-							<li><a href="../index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
 							<li><a href="../index.html#quel_herbergement"  role="menuitem">Quel hébergement ?</a></li>
+							<li><a href="../index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
 							<li><a href="../index.html#pourquoi"  role="menuitem">Pourquoi ?</a></li>
 							<li><a href="../index.html#Contact"  role="menuitem">Contact</a></li>
 							<li><a href="../index.html#Carousel"  role="menuitem">Carousel</a></li>
+							<li><a href="../index.html#Tarifs"  role="menuitem">Tarifs</a></li>
 							<li><a href="../100_blogs.html" role="menuitem">Articles</a></li>
 							<li><a href="../documents/200_documents.html" role="menuitem">Base documentaire</a></li>
 							<li><a href="../events/400_events.html" role="menuitem">Evènements</a></li>
@@ -58,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="container" role="main">	
+    <div id="mainContent" class="container" role="main">	
 		<p>Publié le : <em>02 May 2025</em></p>
 		<span>Tags : </span>
 		<ul class="content_tags">
@@ -68,33 +69,36 @@
 		<div class="page-header">
 			<h1>Tutoriel héberger sur gitHub Pages (gh-pages)</h1>
 		</div>
-	<h2>Pour quel contenus ?</h2> 
-<p>GitHub Pages ne peut héberger que des site web statiques, sans php ni java ni autre technologie "serveur" qui serait nécéssaire pour afficher les pages.</p> 
-<h2>Principe général</h2> 
-<p>Cette articles vous donnera plus d'information sur comment héberger un site sur gitHubPage indépendanment de l'outils que vous utiliser <a href="https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/">https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/</a>.</p> 
-<h2>Avec Webleger ?</h2> 
-<p>Avec WebLeger cela est encore plus simple car intégré.<br> 1-Changez l'URL de publication dans le fichier <em>pom.xml</em> en changeant <strong>jderuette/ecoweb.git</strong> par l'URL de votre repository.</p> 
+	<h2>Pour quel contenus ?</h2>
+<p>GitHub Pages ne peut héberger que des site web statiques, sans php ni java ni autre technologie &quot;serveur&quot; qui serait nécéssaire pour afficher les pages.</p>
+<h2>Principe général</h2>
+<p>Cette articles vous donnera plus d'information sur comment héberger un site sur gitHubPage indépendanment de l'outils que vous utiliser <a href="https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/">https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/</a>.</p>
+<h2>Avec Webleger ?</h2>
+<p>Avec WebLeger  cela est encore plus simple car intégré.<br />
+1-Changez l'URL de publication dans le fichier <em>pom.xml</em> en changeant <strong>jderuette/ecoweb.git</strong> par l'URL de votre repository.</p>
 <pre><code>&lt;properties&gt;
   ...
   &lt;publish.url&gt;scm:git:git@github.com:jderuette/ecoweb.git&lt;/publish.url&gt;
   ...
 &lt;/properties&gt;
-</code></pre> 
-<p>2- créez une clef SSH pour acceder à vore rerpository <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh</a>.<br> 3- Créez la branche gh-pages. <strong>Attention</strong> cette action va vous faire perdre tout contenus <strong>non commité</strong> sur votre branches acutel.</p> 
+</code></pre>
+<p>2- créez une clef SSH pour acceder à vore rerpository <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh</a>.<br />
+3- Créez la branche gh-pages. <strong>Attention</strong> cette action va vous faire perdre tout contenus <strong>non commité</strong> sur votre branches acutel.</p>
 <pre><code>git checkout --orphan gh-pages
 rm .git/index ; git clean -fdx
-echo "It works" &gt; index.html
-git add . &amp;&amp; git commit -m "initial site content" &amp;&amp; git push origin gh-pages
-</code></pre> 
-<p>4- Construisez le site comme d'habitude</p> 
+echo &quot;It works&quot; &gt; index.html
+git add . &amp;&amp; git commit -m &quot;initial site content&quot; &amp;&amp; git push origin gh-pages
+</code></pre>
+<p>4- Construisez le site comme d'habitude</p>
 <pre><code>mvn clean initialize resources:resources jbake:generate
-</code></pre> 
-<p>5- Lancez le déploiement</p> 
+</code></pre>
+<p>5- Lancez le déploiement</p>
 <pre><code>scm-publish:publish-scm
-</code></pre> 
-<p>6- Attendez quelques minutes puis aller visualiser le résultat</p> 
-<h2>Limites</h2> 
+</code></pre>
+<p>6- Attendez quelques minutes puis aller visualiser le résultat</p>
+<h2>Limites</h2>
 <p>La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démo ou pour partager occasionnellement le site avec les relecteurs.</p>
+
 			
 				
 				
@@ -147,6 +151,8 @@ git add . &amp;&amp; git commit -m "initial site content" &amp;&amp; git push or
 					 
 					
 					 
+					
+					 
 					</div>
 	
 		</div>
@@ -160,18 +166,20 @@ git add . &amp;&amp; git commit -m "initial site content" &amp;&amp; git push or
 					<div class="footer_block">
 			            <img src="../images/donation.svg">
 			            <div class="footer_block_text">
-			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p> 
+			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p>
 <p><a href="https://www.helloasso.com/associations/open-cylife/formulaires/1">Pour faire un don, c'est par ici</a></p>
+
 			            </div>
 			        </div>
 					<div class="footer_block">
 			            <img src="../images/contact.svg">
 			            <div class="footer_block_text">
 			            	<p><a href="https://www.open-cy.life/">Contact</a></p>
+
 			            </div>
 			        </div>
 	     </div>
-	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 0.3.1</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
       </div>
     </div>
     
