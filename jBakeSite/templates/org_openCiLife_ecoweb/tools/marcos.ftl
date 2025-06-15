@@ -184,11 +184,16 @@ param : closeButtonlabel : *default* : close : label of the botom close button
 	</div>
 </#macro>
 
+<#assign oldRdnVal = 1>
 <#function randomNumber salt = 7>
     <#local str= .now?long />
-    <#assign str = (str * salt)/3 />
-    <#assign random = str[(str?string?length-13)..] />
-    <#assign returnVal = random?replace("\\D+", "_", "r") />
+    <#local str = (str * salt)/3 />
+    <#local random = str[(str?string?length-13)..] />
+    <#local returnVal = random?replace("\\D+", "1", "r") />
+    <#if returnVal?number == oldRdnVal?number>
+    	<#local returnVal += 1>
+    </#if>
+    <#assign oldRdnVal = returnVal>
     <#return returnVal/>	
 </#function>
 
@@ -333,7 +338,7 @@ param : content : content to search for incluide content
 								<#break>
 								<#case "collapse_block">
 									<#assign collapseClass = "collapse">
-									<#assign collapseId = randomNumber(2)>
+									<#assign collapseId = randomNumber()>
     								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
 								<#break>
 								<#case "card">
@@ -453,7 +458,7 @@ param : content : content to search for carousel data
 <#macro buildCarousel content>
 	<#if (content.carouselData)??>
 		<#assign slides=(content.carouselData.slides)! />
-		<#assign carouselId=(content.carouselData.id)!randomNumber(4) />
+		<#assign carouselId=(content.carouselData.id)!randomNumber() />
 		<#assign controls=(content.carouselData.controls)! />
 		<#assign displayIndicator=(content.carouselData.displayIndicator)!false />
 		<#assign carouselStyle=(content.carouselData.style)! />
