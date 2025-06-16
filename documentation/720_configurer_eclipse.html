@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr_FR">
   <head>
     <meta charset="utf-8"/>
     <title>Configurer Eclipse IDE</title>
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div id="mainContent" class="container" role="main">	
-		<p>Publié le : <em>09 April 2025</em></p>
+		<p>Publié le : <em>09 avril 2025</em></p>
 		<span>Tags : </span>
 		<ul class="content_tags">
 			<li>installer-WebLeger</li>
@@ -101,11 +101,12 @@ Elle ne sera pas listé par défaut il faut l'ajouter dans Elcipse IDE ! En cliq
 <p>Faire un clique droit sur le dosser <em>website</em> puis selectionner <strong>refresh</strong>.<br />
 Vous pouvez alors consulter le site en faisant un clique droit sur le fichier <em>website/index.html</em> puis en choisissant <strong>Open With</strong> puis <strong>System Editor</strong>.</p>
 <h2>Ajouter une configuration pour publier le site sur votre gitHub</h2>
-<p>Pour publier sur gitHub Pages suivez le tutoriel <a href="/articles/">Tutoriel héberger sur gitHub Pages (gh-pages)</a>.</p>
-<p>Ensuite créez une nouvelle configuration identiqueà la précédente en changeant :<br />
-1. le nom par exmple &quot;WebLeger Deploy&quot;<br />
+<p>WebLeger est déja pré-configuré pour pouvoir publier le site surGitHubPages (inspiré par ce tutoriel <a href="https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/">Tutoriel héberger sur gitHub Pages (gh-pages)</a>).<br />
+Il y a cependant quelques éléments à modifier.</p>
+<p>Ensuite créez une nouvelle configuration identique à la précédente en changeant :<br />
+1. le nom par exemple &quot;WebLeger Deploy&quot;<br />
 2. en utilisant le goal suivant <code>scm-publish:publish-scm</code></p>
-<p><strong>/!\ important</strong> Cette configuration publie sur gitHub Pages la version <strong>actuel</strong> du dossier <strong>website</strong> sans reconstruire le projet. Cela vous permet de vérifier votre site en local et s'il est satisfaisant de le publier tel quel. Toutes modifcations effectuées depuis le dernier <strong>build</strong> du projet ne sera pas envoyé sur gitHub Pages.</p>
+<p><strong>/!\ important</strong> Cette configuration publie sur gitHub Pages la version <strong>actuel</strong> du dossier <strong>website</strong> sans reconstruire le projet. Cela vous permet de vérifier votre site en local et s'il est satisfaisant de le publier tel quel. Toutes modifcations effectuées depuis le dernier <strong>build</strong> du projet ne sera pas envoyées sur gitHub Pages.</p>
 
 			
 				
@@ -142,12 +143,27 @@ Vous pouvez alors consulter le site en faisant un clique droit sur le fichier <e
 							<div class="card content_type_link ">
 										<a href="../documentation/740_deployer_sur_gitHub_pages.html">
 									<div class="card_image">
-										<img src="../images/articles/deploy_github/gitHub-logo.svg" class="widget_image"/>
+										<img src="../images/documentation/deploy_github/gitHub-logo.svg" class="widget_image"/>
 									</div>
 								<h3 class="card_title widget_title">Tutoriel héberger sur gitHub Pages (gh-pages)</h3>
 								
 									<div class="card_exerpt widget_exerpt">
-										Comment herbger un site sur gitHub Pages (pour démo our partage avec relecteurs) ?
+										Comment herbger un site sur gitHub Pages (pour démo ou partage avec relecteurs)
+									</div>
+									</a>
+							</div>
+						 
+ 
+					
+							<div class="card content_type_link ">
+										<a href="../documentation/750_deployer_le+site.html">
+									<div class="card_image">
+										<img src="../images/servers.svg" class="widget_image"/>
+									</div>
+								<h3 class="card_title widget_title">Herbeger le site</h3>
+								
+									<div class="card_exerpt widget_exerpt">
+										Herbeger le site
 									</div>
 									</a>
 							</div>
