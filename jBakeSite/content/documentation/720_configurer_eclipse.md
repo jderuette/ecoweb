@@ -42,11 +42,12 @@ Faire un clique droit sur le dosser *website* puis selectionner **refresh**.
 Vous pouvez alors consulter le site en faisant un clique droit sur le fichier _website/index.html_ puis en choisissant **Open With** puis **System Editor**.
 
 ## Ajouter une configuration pour publier le site sur votre gitHub
-Pour publier sur gitHub Pages suivez le tutoriel [Tutoriel héberger sur gitHub Pages (gh-pages)](/articles/).
+WebLeger est déja pré-configuré pour pouvoir publier le site surGitHubPages (inspiré par ce tutoriel [Tutoriel héberger sur gitHub Pages (gh-pages)]( https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/)).
+Il y a cependant quelques éléments à modifier.
 
-Ensuite créez une nouvelle configuration identiqueà la précédente en changeant : 
-1. le nom par exmple "WebLeger Deploy"
+Ensuite créez une nouvelle configuration identique à la précédente en changeant : 
+1. le nom par exemple "WebLeger Deploy"
 2. en utilisant le goal suivant ``scm-publish:publish-scm``
 
-**/!\ important** Cette configuration publie sur gitHub Pages la version **actuel** du dossier **website** sans reconstruire le projet. Cela vous permet de vérifier votre site en local et s'il est satisfaisant de le publier tel quel. Toutes modifcations effectuées depuis le dernier **build** du projet ne sera pas envoyé sur gitHub Pages.
+**/!\ important** Cette configuration publie sur gitHub Pages la version **actuel** du dossier **website** sans reconstruire le projet. Cela vous permet de vérifier votre site en local et s'il est satisfaisant de le publier tel quel. Toutes modifcations effectuées depuis le dernier **build** du projet ne sera pas envoyées sur gitHub Pages.
 

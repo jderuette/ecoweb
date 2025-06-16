@@ -5,8 +5,8 @@ includeContent={"type":"org_openCiLife_post", "category":"documentation", "speci
 category=documentation
 tags=autonomie IT
 status=published
-exerpt=Comment herbger un site sur gitHub Pages (pour démo our partage avec relecteurs) ?
-contentImage=images/articles/deploy_github/gitHub-logo.svg
+exerpt=Comment herbger un site sur gitHub Pages (pour démo ou partage avec relecteurs)
+contentImage=images/documentation/deploy_github/gitHub-logo.svg
 displayDate=true
 order=740
 ~~~~~~
@@ -16,7 +16,7 @@ GitHub Pages ne peut héberger que des site web statiques, sans php ni java ni a
 
 ## Principe général
 
-Cette articles vous donnera plus d'information sur comment héberger un site sur gitHubPage indépendanment de l'outils que vous utiliser [https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/](https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/).
+Cette articles vous donnera plus d'information sur comment héberger un site sur gitHubPage indépendament de l'outils que vous utilisez [https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/](https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/).
 
 ## Avec Webleger ?
 
@@ -46,6 +46,4 @@ Avec WebLeger  cela est encore plus simple car intégré.
 6- Attendez quelques minutes puis aller visualiser le résultat
 
 ## Limites
-La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démo ou pour partager occasionnellement le site avec les relecteurs.
-
-
+La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démos ou pour partager occasionnellement le site avec les relecteurs.
