@@ -18,6 +18,6 @@ Vous devez avoir un nom de domaine. Cela peut être un nom "par defaut" proposer
 Le serveur à besoin uniquement un d'un serveur web classique (par exemple [HTTPD (apache)](https://httpd.apache.org/) ou [Nginx](https://nginx.org/)).
 Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurité.
 
-## Instlation de votre site
+## Instalation de votre site
 
 Il suffit de déposer sur votre serveur (soit via l'interface dédiée fournie par votre hébergeur soit via FTP) le dossier **website** de votre projet ![dossier website dans le projet](../images/documentation/heberger_site/dossier_website_dans_le_projet.png)
