@@ -1,4 +1,4 @@
-title=Tutoriel héberger sur gitHub Pages (gh-pages)
+title=Herbeger le site
 date=2025-06-16
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
