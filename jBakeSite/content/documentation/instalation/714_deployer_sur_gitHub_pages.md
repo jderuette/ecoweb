@@ -1,7 +1,7 @@
 title=Tutoriel héberger sur gitHub Pages (gh-pages)
 date=2025-05-02
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"preparation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
 category=documentation, preparation, V0.0.1
 tags=autonomie IT
 status=published

@@ -1,7 +1,7 @@
 title=Herbeger le site
 date=2025-06-16
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"preparation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
 category=documentation, preparation, V0.0.1
 tags=Déploiement
 status=published

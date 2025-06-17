@@ -6,7 +6,7 @@ category=documentation, doc_chapter, preparation, V0.0.1
 tags=Déploiement
 status=published
 exerpt=Préparation
-contentImage=images/servers.svg
+contentImage=images/documentation/toolbox.svg
 displayDate=true
 order=710
 ~~~~~~

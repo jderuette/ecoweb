@@ -6,7 +6,7 @@ category=documentation, doc_chapter, création, V0.0.1
 tags=Création de contenu
 status=published
 exerpt=Aide à la création de contenus
-contentImage=images/servers.svg
+contentImage=images/documentation/paint.svg
 displayDate=true
 order=720
 ~~~~~~
