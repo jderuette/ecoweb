@@ -6,7 +6,7 @@ category=documentation, création, V0.0.1
 tags=Création de contenu
 status=published
 exerpt=Comprendre la structure du projet
-contentImage=images/folder-tree.svg
+contentImage=images/documentation/folder-tree.svg
 displayDate=true
 order=721
 ~~~~~~
