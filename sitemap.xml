@@ -5,7 +5,19 @@
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documentation/750_deployer_le+site.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/creation/721_strucutre_du_projet.html</loc>
+        <lastmod>2025-06-17</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/instalation/716_deployer_le+site.html</loc>
+        <lastmod>2025-06-16</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/instalation/710_Preparation.html</loc>
+        <lastmod>2025-06-16</lastmod>
+    </url>
+    <url>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/creation/720_Creation_contenu.html</loc>
         <lastmod>2025-06-16</lastmod>
     </url>
     <url>
@@ -25,7 +37,7 @@
         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documentation/740_deployer_sur_gitHub_pages.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/instalation/714_deployer_sur_gitHub_pages.html</loc>
         <lastmod>2025-05-02</lastmod>
     </url>
     <url>
@@ -33,11 +45,11 @@
         <lastmod>2025-04-29</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documentation/720_configurer_eclipse.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/instalation/712_configurer_eclipse.html</loc>
         <lastmod>2025-04-09</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/documentation/710_installer_les_outils_en_local.html</loc>
+        <loc>file:///D:/git/CitoyenBlog/website/documentation/instalation/711_installer_les_outils_en_local.html</loc>
         <lastmod>2025-04-07</lastmod>
     </url>
     <url>
@@ -62,11 +74,11 @@
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/footer/donation.html</loc>
-        <lastmod>2025-06-16</lastmod>
+        <lastmod>2025-06-17</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/footer/contact.html</loc>
-        <lastmod>2025-06-16</lastmod>
+        <lastmod>2025-06-17</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/home_page/070_tarifs.html</loc>
@@ -77,12 +89,16 @@
         <lastmod>2025-05-16</lastmod>
     </url>
     <url>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/050_Contact.html</loc>
+        <lastmod>2025-05-15</lastmod>
+    </url>
+    <url>
         <loc>file:///D:/git/CitoyenBlog/website/home_page/040_Pourquoi.html</loc>
         <lastmod>2025-05-15</lastmod>
     </url>
     <url>
-        <loc>file:///D:/git/CitoyenBlog/website/home_page/050_Contact.html</loc>
-        <lastmod>2025-05-15</lastmod>
+        <loc>file:///D:/git/CitoyenBlog/website/home_page/010_A_quoi_ca_sert.html</loc>
+        <lastmod>2025-04-30</lastmod>
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/home_page/030_Quel_herbergement.html</loc>
@@ -90,10 +106,6 @@
     </url>
     <url>
         <loc>file:///D:/git/CitoyenBlog/website/home_page/020_Comment.html</loc>
-        <lastmod>2025-04-30</lastmod>
-    </url>
-    <url>
-        <loc>file:///D:/git/CitoyenBlog/website/home_page/010_A_quoi_ca_sert.html</loc>
         <lastmod>2025-04-30</lastmod>
     </url>
 </urlset>

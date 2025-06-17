@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr_FR">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Structure du projet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="C'est du lourds !">
+    <meta name="author" content="jDeruette">
+    <meta name="keywords" content="Web Eco-conception site-builder">
+    <meta name="generator" content="JBake">
+    
+		
+		
+		<link href="../../org_openCiLife_ecoWeb/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../org_openCiLife_ecoWeb/css/base.css" rel="stylesheet">
+		<link href="../../css/style-ext.css" rel="stylesheet">
+				<!--[if lt IE 9]>
+		<link href="../../org_openCiLife_ecoWeb/js/html5shiv.min.js" rel="stylesheet">
+				<![endif]-->
+	
+    <link rel="shortcut icon" href="../../images/common/logo-small.png">
+  </head>
+  <body class="org_openCiLife_post">
+    <div id="wrap">
+    	<div id="up" class="header" role="banner">
+			<div id="pageTitle">
+				<img src="../../images/common/logo_left.svg" alt="Logo WebLeger" id="logoLeft"/>
+				<h1 id="headerTitle">Web Leger, c'est du lourd</h1>
+				<img src="../../images/common/logo_right.png" alt="Site Eco ConÃ§u" id="logoRight"/>
+			</div>
+		</div>	
+	<!-- Fixed navbar -->
+    <div class="container">
+    <div class="navbar navbar-light bg-white" role="navigation">
+              <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" role="menubar">
+										<li><a href="../../index.html#a_quoi_ca_sert"  role="menuitem">A quoi ca sert ?</a></li>
+							<li><a href="../../index.html#quel_herbergement"  role="menuitem">Quel hébergement ?</a></li>
+							<li><a href="../../index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
+							<li><a href="../../index.html#pourquoi"  role="menuitem">Pourquoi ?</a></li>
+							<li><a href="../../index.html#Contact"  role="menuitem">Contact</a></li>
+							<li><a href="../../index.html#Carousel"  role="menuitem">Carousel</a></li>
+							<li><a href="../../index.html#Tarifs"  role="menuitem">Tarifs</a></li>
+							<li><a href="../../100_blogs.html" role="menuitem">Articles</a></li>
+							<li><a href="../../documents/200_documents.html" role="menuitem">Base documentaire</a></li>
+							<li><a href="../../events/400_events.html" role="menuitem">Evènements</a></li>
+							<li><a href="../../projects/500_projects.html" role="menuitem">Nos projets</a></li>
+							<li><a href="../../documentation/700_documentation.html" role="menuitem">Documentation</a></li>
+							<li><a href="../../faq/800_faq.html" role="menuitem">Foires aux Questions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="mainContent" class="container" role="main">	
+		<p>Publié le : <em>17 juin 2025</em></p>
+		<span>Tags : </span>
+		<ul class="content_tags">
+			<li>Création-de-contenu</li>
+		</ul>
+	
+		<div class="page-header">
+			<h1>Structure du projet</h1>
+		</div>
+	<h2>Dossier jBakeMavenData</h2>
+<p>Ce dossier ne <strong>doit pas</strong> être modifié. Il sert en interne du projet. Toutes modification sera perdue !</p>
+<p>Lors de la phase de <strong>build</strong> du projet tous les fichier du dossier <em>jBakeSite</em> sont copié dans ce dossier, puis les variable ${xxx} qui sont présent dans le fichier <em>ecoWeb-build.properties</em> sont remplacé par la valeur précisé dans le fichier.</p>
+<h2>Dossier jBakeSite</h2>
+<p>C'est le dossier principal du projet. C'est dans se dossier (et sous dossier) que vous aller effectuer toutes les actions de création de contenus (et plus).</p>
+<h3>Le sous-dossier assets</h3>
+<p>Se dossier contient les images, les fichier CSS et les fichier JS du projet. TOut ce qui n'est pas du &quot;texte&quot; à afficher à l'utilisateur.</p>
+<h4>Le sous dossier css</h4>
+<p>Contient le fichier <em>style-ext.css</em> : ce fichier contient du CSS spécific à votre site. Cela permet d'aporter des modification au modèle (<em>template</em>) de votre site dans modifier les fichier d'origine.</p>
+<h3>Le sous dossier images</h3>
+<p>Contient els images du site. Hormis le dossier <em>common</em> les dossier peuvent être créé librement. Il est recommandé de suivre une structure simillaire à la structure du dossier <em>content</em>.</p>
+<h4>Le sous dossier common</h4>
+<p>Contient des images utilisées par le template (les logos de votre site). Il faudra rempalcer les images pr defaut par les votre (en conservant <strong>exactement</strong> le même nom).</p>
+<h3>Le sous-dossier content</h3>
+<p>Contient le texte de vos pages.<br />
+La structure en sous-dossier est libre. WebLeger recommande l'utilisation de fichier rédigé en MarkDown (.md).</p>
+<h3>Le sous-dossier templates</h3>
+<p>Ce dossier contient le modèle de votre site.<br />
+Chaque modèle est dans un sous dossier. Ces modèles ont la charge de transformer vos contenue &quot;texte&quot; (en MarkDown) en fichier HTML.<br />
+Il est recomandandé de ne <em>pas modifier</em> les fichiers d'un template.</p>
+<p>Si jamais vous souhaitez personaliser les modèle (pour les <strong>developpeurs</strong>) copier un dossier de modèle existant, renomez-le puis effectuer vos modifications.<br />
+Pour utiliser votre nouveau modèle modifier la variables <em>webleger.site.template</em> du fichier <em>ecoWeb-build.properties</em>.</p>
+<h3>le fichier jbake.properties</h3>
+<p>Ce fichier contient la configuration de JBake. Il faut éviter de modifier les lignes contenant des variables <code>${xxxx}</code>. Pour modifier lesl ignes contennat des varaibles il vaut mieux modifier le fichier <em>ecoWeb-build.properties</em>.</p>
+<h2>Dossier target</h2>
+<p>Ce dossier ne <strong>doit pas</strong> être modifié. Il sert en interne du projet. Toutes modification sera perdue !</p>
+<h2>Dossier website</h2>
+<p>Contient votre site HTML généré par JBake en utilisant les fichier du dossier <em>templates</em> et les contenue du dossier <em>content</em>.<br />
+C'est se dossier qui devra être déplacé sur une serveur Web (ou sur gitHub Pages) pour afficher le site à vos utilisateurs.</p>
+<h2>Fichier ecoWeb-build.properties</h2>
+<p>Ce fichier permet de configurer  certains paramètre sans avoir a modifier des fichier <em>senssibles</em> du projet.</p>
+<h2>Fichier pom.xml</h2>
+<p>Ce fichier contient la configuration nécéssaire pour <strong>éxécuter</strong> les actiosn de construction du projet.<br />
+Il contient aussi quelques paramètres utiles à modifier.</p>
+
+			
+				
+				
+					<div class="card_list documentation">
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					
+							<div class="card content_type_link ">
+										<a href="../../documentation/creation/720_Creation_contenu.html">
+									<div class="card_image">
+										<img src="../../images/documentation/paint.svg" class="widget_image"/>
+									</div>
+								<h3 class="card_title widget_title">Création du contenu</h3>
+								
+									<div class="card_exerpt widget_exerpt">
+										Aide à la création de contenus
+									</div>
+									</a>
+							</div>
+						 
+ 
+					
+					 
+					
+					 
+					
+					 
+					
+					 
+					</div>
+	
+		</div>
+		<img src="../../org_openCiLife_ecoWeb/images/pageup.svg" id="go_to_top" OnClick='window.location.href="#up"' alt="go to top">
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer" role="contentinfo">
+     <div class="container">
+	     <div class="footer_blocks">
+					<div class="footer_block">
+			            <img src="../../images/donation.svg">
+			            <div class="footer_block_text">
+			            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p>
+<p><a href="https://www.helloasso.com/associations/open-cylife/formulaires/1">Pour faire un don, c'est par ici</a></p>
+
+			            </div>
+			        </div>
+					<div class="footer_block">
+			            <img src="../../images/contact.svg">
+			            <div class="footer_block_text">
+			            	<p><a href="https://www.open-cy.life/">Contact</a></p>
+
+			            </div>
+			        </div>
+	     </div>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
+      </div>
+    </div>
+    
+    <!-- Javascript here load faster -->
+		
+		
+		<script src="../../org_openCiLife_ecoWeb/js/jquery-1.11.1.min.js"></script>
+		<script src="../../org_openCiLife_ecoWeb/js/bootstrap.min.js"></script>
+		<script src="../../org_openCiLife_ecoWeb/js/org_openCiLife_ecoWeb.js"></script>
+  </body>
+</html>
