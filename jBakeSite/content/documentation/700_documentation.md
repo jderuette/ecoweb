@@ -1,7 +1,7 @@
 title=Documentation
 date=2019-03-16
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"documentation", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"doc_chapter", "display":{"type":"card", "content":"link"}}
 category=global
 status=published
 displayDate=false

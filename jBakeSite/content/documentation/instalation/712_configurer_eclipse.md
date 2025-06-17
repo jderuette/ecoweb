@@ -2,13 +2,13 @@ title=Configurer Eclipse IDE
 date=2025-04-09
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
-category=documentation, V0.0.1
+category=documentation, preparation, V0.0.1
 tags=installer WebLeger
 status=published
 exerpt=Configurer Eclipse IDE pour votre projet
 contentImage=images/documentation/configurer_eclipse/Eclipse IDE.svg
 displayDate=true
-order=720
+order=712
 ~~~~~~
 
 # Lancer le build du site Web

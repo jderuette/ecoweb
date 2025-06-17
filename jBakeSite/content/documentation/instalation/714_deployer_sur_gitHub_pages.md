@@ -2,13 +2,13 @@ title=Tutoriel héberger sur gitHub Pages (gh-pages)
 date=2025-05-02
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
-category=documentation
+category=documentation, preparation, V0.0.1
 tags=autonomie IT
 status=published
 exerpt=Comment herbger un site sur gitHub Pages (pour démo ou partage avec relecteurs)
 contentImage=images/documentation/deploy_github/gitHub-logo.svg
 displayDate=true
-order=740
+order=714
 ~~~~~~
 ## Pour quel contenus ? 
 

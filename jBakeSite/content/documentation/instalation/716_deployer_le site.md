@@ -2,13 +2,13 @@ title=Herbeger le site
 date=2025-06-16
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"documentation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
-category=documentation
+category=documentation, preparation, V0.0.1
 tags=Déploiement
 status=published
 exerpt=Herbeger le site
 contentImage=images/servers.svg
 displayDate=true
-order=750
+order=716
 ~~~~~~
 ## Pré-requis
 
