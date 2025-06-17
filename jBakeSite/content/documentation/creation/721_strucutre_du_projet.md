@@ -21,13 +21,13 @@ C'est le dossier principal du projet. C'est dans se dossier (et sous dossier) qu
 ### Le sous-dossier assets
 Se dossier contient les images, les fichier CSS et les fichier JS du projet. TOut ce qui n'est pas du "texte" à afficher à l'utilisateur.
 
-### Le sous dossier css
+#### Le sous dossier css
 Contient le fichier *style-ext.css* : ce fichier contient du CSS spécific à votre site. Cela permet d'aporter des modification au modèle (*template*) de votre site dans modifier les fichier d'origine.
 
-#### Le sous dossier images
+### Le sous dossier images
 Contient els images du site. Hormis le dossier *common* les dossier peuvent être créé librement. Il est recommandé de suivre une structure simillaire à la structure du dossier *content*.
 
-##### Le sous dossier common
+#### Le sous dossier common
 Contient des images utilisées par le template (les logos de votre site). Il faudra rempalcer les images pr defaut par les votre (en conservant **exactement** le même nom).
 
 ### Le sous-dossier content
