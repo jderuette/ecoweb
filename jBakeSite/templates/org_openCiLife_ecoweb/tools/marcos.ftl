@@ -235,8 +235,12 @@ param : content : content to search for incluide content
 	<#if (content.includeContent)??>
 		<@debug "(sub)Content should be included"/>
 			<#assign allSubContents = db.getPublishedContent(content.includeContent.type)>
+			<#assign displaySelf = (content.includeContent.displaySelf)!"disabled">
+			<#assign subContents = allSubContents>
 			<#--  -- remove self if presents -->
-			<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
+			<#if (displaySelf == "none")>
+				<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
+			</#if>
 			<@debug "Included Type " + content.includeContent.type, "Number of subContent to display " + subContents?size/>
 			
 			<#if (subContents?size > 0)>
@@ -281,6 +285,20 @@ param : content : content to search for incluide content
 					<#assign specificContentClass = (content.includeContent.display.specificClass)!"">
 					<#assign collapseClass = "">
 					<#assign collapseId = "">
+					<#local isSelf = subContent.title == content.title>
+					<#local slefSpecificClass = "">
+					
+					<#if isSelf>
+						<#assign specificContentClass += " self">
+						<#switch displaySelf>
+							<#case "disabled">
+								<#assign specificContentClass += " self_disabled">
+							<#break>
+							<#case "none">
+								<#-- Nothing to do content is not in list -->
+							<#break>
+						</#switch>
+					</#if>
 					
 					<#if ((subContent.status == "published") && (includeContentFilter == "all" || seq_containsOne(includeContentFilter, subContentCategory)))>
 						<@debug "ACEPTED : SubContent : " + (subContent.title)!"not_set", includeContentFilter  + " IN " + subContentCategory/>

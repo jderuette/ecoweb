@@ -245,6 +245,17 @@ table th, table td {
 	padding: 0.5%;
 }
 
+.self_disabled {
+	background-color: grey;
+    
+}
+.self_disabled a {
+	pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+
 .carousel {
 	margin:auto;
 }
