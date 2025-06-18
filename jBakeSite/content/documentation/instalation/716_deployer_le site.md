@@ -20,4 +20,4 @@ Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurit�
 
 ## Instalation de votre site
 
-Il suffit de déposer sur votre serveur (soit via l'interface dédiée fournie par votre hébergeur soit via FTP) le dossier **website** de votre projet ![dossier website dans le projet](../images/documentation/heberger_site/dossier_website_dans_le_projet.png)
+Il suffit de déposer sur votre serveur (soit via l'interface dédiée fournie par votre hébergeur soit via FTP) le dossier **website** de votre projet ![dossier website dans le projet](${webleger.build.host}/images/documentation/heberger_site/dossier_website_dans_le_projet.png)
