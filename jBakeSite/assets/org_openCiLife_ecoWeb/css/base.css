@@ -28,7 +28,6 @@ img {
 
 #mainContent img {
 	margin: 5px;
-    border: 1px solid ${webleger.site.style.header.title.color};
 }
 
 a:link {
