@@ -8,6 +8,7 @@ displayDate=false
 order=830
 ~~~~~~
 La création d'un site web classique nécéssite : 
+
 1. une direction artistique
 1. des contenus 
    1. textuel
@@ -18,6 +19,7 @@ Tous ces élément peuvent être disponible au début de votre projet ou pas. Il
 Webleger encourage un fonctionnement **itératif** donc enchainer ces 3 étapes sur des petit bout du site.
 
 Pour WebLeger il faut : 
+
  - héberger le code source
  - installer les outisl de création sur votre ordinateur
  - puis enchainer avec les 3 étapes précédentes aussi souvent que nécéssaire

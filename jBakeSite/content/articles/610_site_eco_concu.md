@@ -18,6 +18,7 @@ On a envoyé apollo 11 sur la Lune avec la capacité de calcul d'une carte SIM (
 
 ## Comment le réduire
 Le principe générale est de réduire : 
+
 - le poid des images
 - le poid des fichier CSS (mise en forme des pages)
 - le poid de fichier javaScript (animation du contenu et mise en forme des pages)

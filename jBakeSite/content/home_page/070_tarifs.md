@@ -13,6 +13,7 @@ order=070
 Chaque site est différents. Vos besoins peuvent évoluer. Votre implication est variable. Il est aussi souvent compliqué de bien identifier tous les besoins dès le début.
 Afin d'éviter des prises de décisions complexes de votre part au début du projet, ou d'enchainer les devis je pratique un **tarif à l'heur**.
 Je pratique 2 tarif : 
+
 - tarif standard (réalition de votre projet à la suite des autres) : 40 € HT.
 - Tarif en Urgence (réalisation de votre projet en priorité) : 80 € HT.
 
