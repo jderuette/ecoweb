@@ -4,10 +4,10 @@ type=org_openCiLife_block
 category=homepage
 tags=
 status=published
-specificClass=mainBlock style1
+specificClass=mainBlock style2
 contentImage=images/servers.svg
 anchorId=quel_herbergement
-order=020
+order=030
 ~~~~~~
 Pour l'hébergement il suffit d'un **serveur Web** (Apache, NGix) accessible sur internet.
 Il n'y a pas besoin de base de données ni de language de pogramation (Java, Php, Python...) sur le serveur.

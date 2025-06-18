@@ -4,7 +4,7 @@ type=org_openCiLife_block
 category=homepage
 tags=
 status=published
-specificClass=mainBlock style1
+specificClass=mainBlock style2
 anchorId=Tarifs
 order=070
 ~~~~~~
