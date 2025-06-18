@@ -26,7 +26,7 @@ Ce mode de fonctionnement va mécaniquement entrainer une mise à jour "par éta
 Vous pouvez héberger votre site chez n'importe quel hébergeur. Je peux vous aider à le sélectionner et à effectuer la configuration.
 Plus tarif je proposerais surement une offre d'hébergement verte spécialisé pour héberger des site Webleger.
 
-#### Quelques exemple
+### Quelques exemple
 Voici quelques cas classique pour vous donner un ordre d'idée en fonction du niveau d'autonomie que vous souhaitez avoir.
 L'autonomie vous évite de payer un professionelle mais vous oblige à effectuer des installation/configuration d'outils, à comprendre le fonctionne de l'outils et à faire (un peu) de CSS et JavaScript.
 
