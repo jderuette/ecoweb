@@ -56,5 +56,5 @@ C'est se dossier qui devra être déplacé sur une serveur Web (ou sur gitHub Pa
 Ce fichier permet de configurer  certains paramètre sans avoir a modifier des fichier *senssibles* du projet.
 
 ## Fichier pom.xml
-Ce fichier contient la configuration nécéssaire pour **éxécuter** les actiosn de construction du projet.
+Ce fichier contient la configuration nécéssaire pour **éxécuter** les actions de construction du projet.
 Il contient aussi quelques paramètres utiles à modifier.
