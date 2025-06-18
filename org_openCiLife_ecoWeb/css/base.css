@@ -28,7 +28,6 @@ img {
 
 #mainContent img {
 	margin: 5px;
-    border: 1px solid #6900cc;
 }
 
 a:link {
@@ -244,6 +243,17 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 table th, table td {
 	border: 1px solid black;
 	padding: 0.5%;
+}
+
+.self_disabled {
+	background-color: grey;
+    
+}
+.self_disabled a {
+	pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
 }
 
 .carousel {

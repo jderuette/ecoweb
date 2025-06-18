@@ -2,7 +2,7 @@
 <html lang="fr_FR">
   <head>
     <meta charset="utf-8"/>
-    <title>Structure du projet</title>
+    <title>Structure d&apos;une page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="C'est du lourds !">
     <meta name="author" content="jDeruette">
@@ -61,49 +61,29 @@
       </div>
     </div>
     <div id="mainContent" class="container" role="main">	
-		<p>Publié le : <em>17 juin 2025</em></p>
+		<p>Publié le : <em>18 juin 2025</em></p>
 		<span>Tags : </span>
 		<ul class="content_tags">
 			<li>Création-de-contenu</li>
 		</ul>
 	
 		<div class="page-header">
-			<h1>Structure du projet</h1>
+			<h1>Structure d&apos;une page</h1>
 		</div>
-	<h2>Dossier jBakeMavenData</h2>
-<p>Ce dossier ne <strong>doit pas</strong> être modifié. Il sert en interne du projet. Toutes modification sera perdue !</p>
-<p>Lors de la phase de <strong>build</strong> du projet tous les fichier du dossier <em>jBakeSite</em> sont copié dans ce dossier, puis les variable ${xxx} qui sont présent dans le fichier <em>ecoWeb-build.properties</em> sont remplacé par la valeur précisé dans le fichier.</p>
-<h2>Dossier jBakeSite</h2>
-<p>C'est le dossier principal du projet. C'est dans se dossier (et sous dossier) que vous aller effectuer toutes les actions de création de contenus (et plus).</p>
-<h3>Le sous-dossier assets</h3>
-<p>Se dossier contient les images, les fichier CSS et les fichier JS du projet. TOut ce qui n'est pas du &quot;texte&quot; à afficher à l'utilisateur.</p>
-<h4>Le sous dossier css</h4>
-<p>Contient le fichier <em>style-ext.css</em> : ce fichier contient du CSS spécific à votre site. Cela permet d'aporter des modification au modèle (<em>template</em>) de votre site dans modifier les fichier d'origine.</p>
-<h3>Le sous dossier images</h3>
-<p>Contient els images du site. Hormis le dossier <em>common</em> les dossier peuvent être créé librement. Il est recommandé de suivre une structure simillaire à la structure du dossier <em>content</em>.</p>
-<h4>Le sous dossier common</h4>
-<p>Contient des images utilisées par le template (les logos de votre site). Il faudra rempalcer les images pr defaut par les votre (en conservant <strong>exactement</strong> le même nom).</p>
-<h3>Le sous-dossier content</h3>
-<p>Contient le texte de vos pages.<br />
-La structure en sous-dossier est libre. WebLeger recommande l'utilisation de fichier rédigé en MarkDown (.md).</p>
-<h3>Le sous-dossier templates</h3>
-<p>Ce dossier contient le modèle de votre site.<br />
-Chaque modèle est dans un sous dossier. Ces modèles ont la charge de transformer vos contenue &quot;texte&quot; (en MarkDown) en fichier HTML.<br />
-Il est recomandandé de ne <em>pas modifier</em> les fichiers d'un template.</p>
-<p>Si jamais vous souhaitez personaliser les modèle (pour les <strong>developpeurs</strong>) copier un dossier de modèle existant, renomez-le puis effectuer vos modifications.<br />
-Pour utiliser votre nouveau modèle modifier la variables <em>webleger.site.template</em> du fichier <em>ecoWeb-build.properties</em>.</p>
-<h3>le fichier jbake.properties</h3>
-<p>Ce fichier contient la configuration de JBake. Il faut éviter de modifier les lignes contenant des variables <code>${xxxx}</code>. Pour modifier lesl ignes contennat des varaibles il vaut mieux modifier le fichier <em>ecoWeb-build.properties</em>.</p>
-<h2>Dossier target</h2>
-<p>Ce dossier ne <strong>doit pas</strong> être modifié. Il sert en interne du projet. Toutes modification sera perdue !</p>
-<h2>Dossier website</h2>
-<p>Contient votre site HTML généré par JBake en utilisant les fichier du dossier <em>templates</em> et les contenue du dossier <em>content</em>.<br />
-C'est se dossier qui devra être déplacé sur une serveur Web (ou sur gitHub Pages) pour afficher le site à vos utilisateurs.</p>
-<h2>Fichier ecoWeb-build.properties</h2>
-<p>Ce fichier permet de configurer  certains paramètre sans avoir a modifier des fichier <em>senssibles</em> du projet.</p>
-<h2>Fichier pom.xml</h2>
-<p>Ce fichier contient la configuration nécéssaire pour <strong>éxécuter</strong> les actions de construction du projet.<br />
-Il contient aussi quelques paramètres utiles à modifier.</p>
+	<h2>l'entête</h2>
+<p>Le début de la page contient l'entete. L'entete contient des informations sur la page. Les symboles <code>~~~~~~</code> marquent la fin de l'entete et le début du corps de la page.<br />
+Dans l'entete chaque ligne est un attribut de la page composé de 2 parties : le nom de la l'attribut et le contenu de l'attribut sépraré par <strong>=</strong>.</p>
+<h3>Attributs requis</h3>
+<p><strong>title</strong> : titre de la page : sera affiché au début du contenu et en titre de l'onglet<br />
+<strong>type</strong> : le type de contenu : le type <code>org_openCiLife_post</code> est le plus courrant, il représente une &quot;page&quot; classique du site et gère des attributs spécifique<br />
+<strong>order</strong> : ordre d'affichage du contenu par rapports aux autres.</p>
+<p>Il existe de nombreux attributs et les template peuvent en créer de nouveaux.</p>
+<h2>le corps de la page</h2>
+<p>Contient le contenu de la page. Le language MarkDown peut être utilisé pour :<br />
+- modifier le texte (titres, en gras, italique, ....)<br />
+- insérer des liens<br />
+- insérer des images</p>
+<p>Les plugins peuvent ajouter de nouveau marquage markdown.</p>
 
 			
 				
@@ -160,7 +140,7 @@ Il contient aussi quelques paramètres utiles à modifier.</p>
  
 					
 					
-							<div class="card content_type_link  self self_disabled">
+							<div class="card content_type_link ">
 										<a href="../../documentation/creation/721_strucutre_du_projet.html">
 									<div class="card_image">
 										<img src="../../images/documentation/folder-tree.svg" class="widget_image"/>
@@ -176,7 +156,7 @@ Il contient aussi quelques paramètres utiles à modifier.</p>
  
 					
 					
-							<div class="card content_type_link ">
+							<div class="card content_type_link  self self_disabled">
 										<a href="../../documentation/creation/723_strucutre_d_une_page.html">
 									<div class="card_image">
 										<img src="../../images/documentation/strcuture_page/file-word.svg" class="widget_image"/>
