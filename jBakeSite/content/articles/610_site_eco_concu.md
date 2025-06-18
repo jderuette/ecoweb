@@ -32,6 +32,3 @@ Parfois cela est nécéssaire (notmament lorsque les informations affichées **d
 Souvent ce n'est pas très utile car tous les visiteurs verront la même page. Cependant les developpeurs ont pris l'habitude d'utiliser ces outils de génération dynamique des pages et l'utilise donc même pour des site qui n'en ont pas besoin.
 
 **WebLeger** propose une solution pour éviter tous ces calculs sur les serveurs et est **100%** compatible avec les technique d'éco-conception existantes.
-
-
-
