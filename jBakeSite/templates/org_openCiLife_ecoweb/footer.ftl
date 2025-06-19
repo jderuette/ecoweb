@@ -8,7 +8,7 @@
 	     <div class="footer_blocks">
 			<#list org_openCiLife_blocks?sort_by("order") as block>
 				<#assign blockCategory = block.category>
-				<#if ( ecoWeb.seq_containsOne(blockCategory, "footer"))>
+				<#if ( ecoWeb.seq_containsOne(blockCategory, config.site_footer_category))>
 					<div class="footer_block">
 			            <img src="${ecoWeb.buildRootPathAwareURL(block.contentImage)}">
 			            <div class="footer_block_text">
