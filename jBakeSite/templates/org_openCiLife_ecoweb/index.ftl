@@ -2,8 +2,8 @@
 	
 	<#include "menu.ftl">
 
-	<#list org_openCiLife_blocks?sort_by("order") as block>
-		<#assign blockCategory = block.category>
+	<#list org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order") as block>
+		<#assign blockCategory = block.category!"__empty_categ__">
 		<#if ( ecoWeb.seq_containsOne(blockCategory, config.site_homepage_category))>
 		
 		<div id="${block.anchorId}"<#rt>
