@@ -17,7 +17,7 @@ Destiné aux personnes curieuse de la technique et pret à mettre les mains dans
 
 - Accès gratuit à WebLeger et à la documentation en ligne.
 - Un petit volume d'heures (en fonction de votre projet) pour vous aider à : 
-  - mettre en place le projet
-  - utiliser les outils (ou aide a "débuguer" un dysfonctionnememt)
-  - des conseilles sur l'architecture de votre site
-  - si besoin une aide au déploiement
+    - mettre en place le projet
+    - utiliser les outils (ou aide a "débuguer" un dysfonctionnememt)
+    - des conseilles sur l'architecture de votre site
+    - si besoin une aide au déploiement
