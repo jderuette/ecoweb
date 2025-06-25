@@ -25,6 +25,11 @@ img {
 	max-width: 100%;
 }
 
+
+#mainContent img {
+	margin: 5px;
+}
+
 a:link {
   color: ${webleger.site.style.link.text-color};
 }
@@ -44,6 +49,8 @@ b, strong {
 
 h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	color:${webleger.site.style.header.title.color};
+	white-space: break-spaces;
+    word-break: break-word;
 }
 
 #pageTitle {
@@ -54,15 +61,16 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 
 #headerTitle {
 	color: ${webleger.site.style.header.title.color};
+	margin: auto;
 }
 
 #logoLeft {
-	width: 200px;
+	width: ${webleger.site.logoLeft.size.width.mobile};
 	height: auto;
 }
 
 #logoRight {
-	width: 50px;
+	width: ${webleger.site.logoRight.size.width.mobile};
 	height: auto;
 }
 
@@ -71,7 +79,6 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .navbar-toggle {
-	background-image: url(${webleger.build.host}/${site.template}/images/burger.svg);
 	width: 32px;
 }
 
@@ -91,6 +98,11 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
       width: 1em;
       height: 1em;
       vertical-align: -0.125em;
+}
+
+.widget_title_image {
+	float:left;
+	margin-top:28px !important;
 }
 
 .blockContent {
@@ -236,9 +248,28 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	height: 50px;
 }
 
+table {
+	border-collapse: collapse;
+}
+
 table th, table td {
-	border: 1px solid black;
-	padding: 0.5%;
+	border: 1px solid ${webleger.site.style.link.text-color};
+	padding: 2px 5px;
+}
+
+code {
+	white-space: break-spaces;
+}
+
+.self_disabled {
+	background-color: grey;
+    
+}
+.self_disabled a {
+	pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
 }
 
 .carousel {
@@ -263,6 +294,7 @@ table th, table td {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	margin-top: 10px;
 }
 
 .card {
@@ -426,7 +458,10 @@ div.debug {
 		flex-direction: row;
 	}
 	#logoRight {
-		width: 150px;
+		width: ${webleger.site.logoRight.size.width.desktop};
+	}
+	#logoLeft {
+		width: ${webleger.site.logoLeft.size.width.desktop};
 	}
 	.blockIcon {
 		width: 130px;

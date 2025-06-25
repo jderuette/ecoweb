@@ -10,12 +10,12 @@
           </button>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" role="menubar">
 			<#if (config.site_menu_includeBlock == "true")>
 				<#list org_openCiLife_blocks?sort_by("order") as block_menu>
 					<#if   (ecoWeb.seq_containsOne(block_menu.category, config.site_menu_tags_include))>
 						<#if (block_menu.anchorId)??>
-							<li><a href="${ecoWeb.buildRootPathAwareURL("index.html#"+block_menu.anchorId)}">${block_menu.title}</a></li>
+							<li><a href="${ecoWeb.buildRootPathAwareURL("index.html#"+block_menu.anchorId)}"  role="menuitem">${block_menu.title}</a></li>
 						<#else></#if>
 					</#if>
 				</#list>
@@ -24,7 +24,7 @@
 				<#list org_openCiLife_posts?sort_by("order") as blog_menu>
 					<#if   (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_includeCategories))>
 						<#if (blog_menu.uri)?? && blog_menu.status == "published">
-							<li><a href="${ecoWeb.buildRootPathAwareURL(blog_menu.uri)}">${blog_menu.title}</a></li>
+							<li><a href="${ecoWeb.buildRootPathAwareURL(blog_menu.uri)}" role="menuitem">${blog_menu.title}</a></li>
 						<#else></#if>
 					</#if>
 				</#list>
@@ -48,4 +48,4 @@
         </div><#--/.nav-collapse -->
       </div>
     </div>
-    <div class="container">
+    <div id="mainContent" class="container" role="main">

@@ -103,6 +103,17 @@ return : a text (with original coma ",")
 	<#return text>
 </#function>
 
+
+<#function hasConfigValue theValue>
+	<#local hasValue = false>
+	<#if (config[theValue])??>
+		<#if (config[theValue] != "$\{webleger."+theValue?replace("_", ".")+"}")>
+			<#local hasValue = true>
+		</#if>
+	</#if>
+	<#return hasValue>
+</#function>
+
 <#-- display debug messages in HTML page. Only displayend if "site.debug.enabled" exist and is "true"
 param : message : the message to display (a String)
 -->
@@ -184,11 +195,16 @@ param : closeButtonlabel : *default* : close : label of the botom close button
 	</div>
 </#macro>
 
+<#assign oldRdnVal = 1>
 <#function randomNumber salt = 7>
     <#local str= .now?long />
-    <#assign str = (str * salt)/3 />
-    <#assign random = str[(str?string?length-13)..] />
-    <#assign returnVal = random?replace("\\D+", "_", "r") />
+    <#local str = (str * salt)/3 />
+    <#local random = str[(str?string?length-13)..] />
+    <#local returnVal = random?replace("\\D+", "1", "r") />
+    <#if returnVal?number == oldRdnVal?number>
+    	<#local returnVal += 1>
+    </#if>
+    <#assign oldRdnVal = returnVal>
     <#return returnVal/>	
 </#function>
 
@@ -230,8 +246,12 @@ param : content : content to search for incluide content
 	<#if (content.includeContent)??>
 		<@debug "(sub)Content should be included"/>
 			<#assign allSubContents = db.getPublishedContent(content.includeContent.type)>
+			<#assign displaySelf = (content.includeContent.displaySelf)!"disabled">
+			<#assign subContents = allSubContents>
 			<#--  -- remove self if presents -->
-			<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
+			<#if (displaySelf == "none")>
+				<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
+			</#if>
 			<@debug "Included Type " + content.includeContent.type, "Number of subContent to display " + subContents?size/>
 			
 			<#if (subContents?size > 0)>
@@ -276,6 +296,20 @@ param : content : content to search for incluide content
 					<#assign specificContentClass = (content.includeContent.display.specificClass)!"">
 					<#assign collapseClass = "">
 					<#assign collapseId = "">
+					<#local isSelf = subContent.title == content.title>
+					<#local slefSpecificClass = "">
+					
+					<#if isSelf>
+						<#assign specificContentClass += " self">
+						<#switch displaySelf>
+							<#case "disabled">
+								<#assign specificContentClass += " self_disabled">
+							<#break>
+							<#case "none">
+								<#-- Nothing to do content is not in list -->
+							<#break>
+						</#switch>
+					</#if>
 					
 					<#if ((subContent.status == "published") && (includeContentFilter == "all" || seq_containsOne(includeContentFilter, subContentCategory)))>
 						<@debug "ACEPTED : SubContent : " + (subContent.title)!"not_set", includeContentFilter  + " IN " + subContentCategory/>
@@ -333,7 +367,7 @@ param : content : content to search for incluide content
 								<#break>
 								<#case "collapse_block">
 									<#assign collapseClass = "collapse">
-									<#assign collapseId = randomNumber(2)>
+									<#assign collapseId = randomNumber()>
     								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
 								<#break>
 								<#case "card">
@@ -453,7 +487,7 @@ param : content : content to search for carousel data
 <#macro buildCarousel content>
 	<#if (content.carouselData)??>
 		<#assign slides=(content.carouselData.slides)! />
-		<#assign carouselId=(content.carouselData.id)!randomNumber(4) />
+		<#assign carouselId=(content.carouselData.id)!randomNumber() />
 		<#assign controls=(content.carouselData.controls)! />
 		<#assign displayIndicator=(content.carouselData.displayIndicator)!false />
 		<#assign carouselStyle=(content.carouselData.style)! />
@@ -472,18 +506,18 @@ param : content : content to search for carousel data
 			</ol>
 		</#if>
 		
-		<div class="carousel-inner" role="listbox">
-		<#--  ReInit isF	irst for real slide (may be altered by indicator loop) -->
+		<div class="carousel-inner" role="listbox" aria-roledescription="caroussel" aria-readonly="true">
+		<#--  ReInit isFirst for real slide (may be altered by indicator loop) -->
 		<#assign isFirst=true/>
 		
 		<#list slides as slide>
-			<div class="item carousel-item <#if (isFirst)>active</#if>">
+			<div class="item carousel-item <#if (isFirst)>active" aria-selected="true"<#else>"</#if> role="option">
 			<#assign isFirst=false/>
 				<#if (slide.type)="img">
 	      			<img class="d-block w-100" src="<#escape x as x?xml>${ecoWeb.buildRootPathAwareURL(slide.data)}</#escape>" <#if (slide.style)??> style="<#escape x as x?xml>${slide.style}</#escape>"</#if><#if (slide.alt)??> alt="<#escape x as x?xml>${slide.alt}</#escape>"</#if>>
 				</#if>
 				<#if (slide.caption)??>
-					<div class="carousel-caption d-none d-md-block" <#if (slide.captionStyle)??> style="<#escape x as x?xml>${slide.captionStyle}</#escape>"</#if>>
+					<div class="carousel-caption d-none d-md-block" <#if (slide.captionStyle)??> style="<#escape x as x?xml>${slide.captionStyle}</#escape>" role="presentation"</#if>>
 					${slide.caption}
 					</div>
 				</#if>
