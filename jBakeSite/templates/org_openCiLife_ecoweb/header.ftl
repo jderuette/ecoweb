@@ -26,10 +26,15 @@
   </head>
   <body class="${content.type}">
     <div id="wrap">
-    	<div id="up" class="header" role="banner">
+    	<div id="up" class="container header" role="banner">
 			<div id="pageTitle">
+				<#assign test = config["site_logoLeft_file"]>
+				<#if ecoWeb.hasConfigValue("site_logoLeft_file")>
 				<img src="${ecoWeb.buildRootPathAwareURL(config.site_logoLeft_file)}" alt="${ecoWeb.displayConfigText(config.site_logoLeft_description)}" id="logoLeft"/>
+				</#if>
 				<h1 id="headerTitle">${ecoWeb.displayConfigText(config.site_headline)}</h1>
+				<#if ecoWeb.hasConfigValue("site_logoRight_file")>
 				<img src="${ecoWeb.buildRootPathAwareURL(config.site_logoRight_file)}" alt="${ecoWeb.displayConfigText(config.site_logoRight_description)}" id="logoRight"/>
+				</#if>
 			</div>
 		</div>

@@ -61,15 +61,16 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 
 #headerTitle {
 	color: ${webleger.site.style.header.title.color};
+	margin: auto;
 }
 
 #logoLeft {
-	width: ${webleger.site.logoRight.size.width.mobile};
+	width: ${webleger.site.logoLeft.size.width.mobile};
 	height: auto;
 }
 
 #logoRight {
-	width: ${webleger.site.logoLeft.size.width.mobile};
+	width: ${webleger.site.logoRight.size.width.mobile};
 	height: auto;
 }
 
@@ -455,7 +456,7 @@ div.debug {
 		width: ${webleger.site.logoRight.size.width.desktop};
 	}
 	#logoLeft {
-		width: ${webleger.site.logoRight.size.width.desktop};
+		width: ${webleger.site.logoLeft.size.width.desktop};
 	}
 	.blockIcon {
 		width: 130px;

@@ -103,6 +103,17 @@ return : a text (with original coma ",")
 	<#return text>
 </#function>
 
+
+<#function hasConfigValue theValue>
+	<#local hasValue = false>
+	<#if (config[theValue])??>
+		<#if (config[theValue] != "$\{webleger."+theValue?replace("_", ".")+"}")>
+			<#local hasValue = true>
+		</#if>
+	</#if>
+	<#return hasValue>
+</#function>
+
 <#-- display debug messages in HTML page. Only displayend if "site.debug.enabled" exist and is "true"
 param : message : the message to display (a String)
 -->
