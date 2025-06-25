@@ -1,7 +1,7 @@
 title=Qu'est-ce qu'un site eco-conçu ?
 date=2019-10-15
 type=org_openCiLife_post
-category=main
+category=article
 tags=économie datas
 status=published
 exerpt=comprendre l'éco-conception pour le Web

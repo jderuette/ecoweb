@@ -23,6 +23,7 @@ Il existe de nombreux attributs et les template peuvent en créer de nouveaux.
 
 ## le corps de la page
 Contient le contenu de la page. Le language MarkDown peut être utilisé pour : 
+
 - modifier le texte (titres, en gras, italique, ....)
 - insérer des liens
 - insérer des images
