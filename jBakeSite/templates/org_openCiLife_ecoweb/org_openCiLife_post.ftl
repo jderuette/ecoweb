@@ -5,7 +5,7 @@
 	<#if ((content.displayDate)?? && content.displayDate == "true")>
 		<p>Publié le : <em>${content.date?string("dd MMMM yyyy")}</em></p>
 	</#if>
-	<#if (content.tags)??>
+	<#if (content.tags)?? && (content.tags?size > 0) >
 		<span>Tags : </span>
 		<ul class="content_tags">
 		<#list content.tags as tag>
