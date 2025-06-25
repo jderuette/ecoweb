@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr_FR">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Les type de contenus Weblegé : org_openCiLife_ecoweb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="C'est du lourds !">
+    <meta name="author" content="jDeruette">
+    <meta name="keywords" content="Web Eco-conception site-builder">
+    <meta name="generator" content="JBake">
+    
+		
+		
+		<link href="../../org_openCiLife_ecoWeb/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../org_openCiLife_ecoWeb/css/base.css" rel="stylesheet">
+		<link href="../../css/style-ext.css" rel="stylesheet">
+				<!--[if lt IE 9]>
+		<link href="../../org_openCiLife_ecoWeb/js/html5shiv.min.js" rel="stylesheet">
+				<![endif]-->
+	
+    <link rel="shortcut icon" href="../../images/common/logo-small.png">
+  </head>
+  <body class="org_openCiLife_post">
+    <div id="wrap">
+    	<div id="up" class="container header" role="banner">
+			<div id="pageTitle">
+				<a href="file:///D:/git/CitoyenBlog/website/index.html">
+					<img src="../../images/common/logo_left.svg" alt="Logo WebLeger" id="logoLeft"/>
+				</a>
+				<h1 id="headerTitle">Web Leger, c'est du lourd</h1>
+			</div>
+		</div>	
+	<!-- Fixed navbar -->
+    <div class="container">
+    <div class="navbar navbar-light bg-white" role="navigation">
+              <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" role="menubar">
+										<li><a href="../../index.html#a_quoi_ca_sert"  role="menuitem">A quoi ca sert ?</a></li>
+							<li><a href="../../index.html#a_quoi_ca_sert"  role="menuitem">Pour qui ?</a></li>
+							<li><a href="../../index.html#comment"  role="menuitem">Comment ca marche ?</a></li>
+							<li><a href="../../index.html#quel_herbergement"  role="menuitem">Quel hébergement ?</a></li>
+							<li><a href="../../index.html#pourquoi"  role="menuitem">Pourquoi ?</a></li>
+							<li><a href="../../index.html#Contact"  role="menuitem">Contact</a></li>
+							<li><a href="../../index.html#Carousel"  role="menuitem">Carousel</a></li>
+							<li><a href="../../index.html#Tarifs"  role="menuitem">Tarifs</a></li>
+							<li><a href="../../100_blogs.html" role="menuitem">Articles</a></li>
+							<li><a href="../../documentation/700_documentation.html" role="menuitem">Documentation</a></li>
+							<li><a href="../../faq/800_faq.html" role="menuitem">Foires aux Questions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="mainContent" class="container" role="main">	
+		<p>Publié le : <em>23 juin 2025</em></p>
+		<span>Tags : </span>
+		<ul class="content_tags">
+			<li>Création-de-contenu</li>
+		</ul>
+	
+		<div class="page-header">
+			<h1>Les type de contenus Weblegé : org_openCiLife_ecoweb</h1>
+		</div>
+	<h2>org_openCiLife_post</h2>
+<p>Ce type est utilisé pour constituer une page contenant plusieurs bloques de contenu. Est utiliser pour la page d'accueil et pour le peid de page.</p>
+<h3>attributs</h3>
+<table>
+<thead>
+<tr><th align="left"> nom </th><th align="left"> requis ? </th><th align="left"> exemple </th><th align="left"> description </th></tr>
+</thead>
+<tbody>
+<tr><td align="left"> title </td><td align="left"> <strong>requis</strong> </td><td align="left"> Nos engagements </td><td align="left"> le titre du bloc </td></tr>
+<tr><td align="left"> date </td><td align="left"> optionnel </td><td align="left"> 2025-04-30  </td><td align="left"> date de publication. N'est pas affiché. </td></tr>
+<tr><td align="left"> type </td><td align="left"> <strong>requis</strong> </td><td align="left"> org_openCiLife_block </td><td align="left"> le type de contenu : indique que se contenu sera intégré dans une autre page. </td></tr>
+<tr><td align="left"> category </td><td align="left"> <strong>requis</strong> </td><td align="left"> homepage </td><td align="left"> est utiliser pour afficher le block sur la bonne page. Par exemple &quot;homepage&quot; est la valeur par defaut pour que se bloque soit affiche sur la page d'acueil. La valeur par defaut peut être changé dnas le fichier de configuration. </td></tr>
+<tr><td align="left"> tags </td><td align="left"> optionnel </td><td align="left"> infos, tarifs </td><td align="left"> n'est pas affiché par le template. </td></tr>
+<tr><td align="left"> status </td><td align="left"> <strong>requis</strong> </td><td align="left"> published </td><td align="left"> si &quot;published&quot; le bloque sera visible. Sinon il ne sera pas affiché. </td></tr>
+<tr><td align="left"> contentImage </td><td align="left"> optionnel </td><td align="left"> images/principe.svg </td><td align="left"> Image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel </td></tr>
+<tr><td align="left"> specificClass </td><td align="left"> optionnel </td><td align="left"> mainBlock style2 </td><td align="left"> Permet d'ajouter un style CSS au bloque. </td></tr>
+<tr><td align="left"> anchorId </td><td align="left"> <strong>requis</strong> </td><td align="left"> a_quoi_ca_sert </td><td align="left"> nom de l'ancre. Ce nom aparait dans l'URL de la page lorsque l'on n'avigue jusqu'au bloque via le menu. </td></tr>
+<tr><td align="left"> order </td><td align="left"> <strong>requis</strong> </td><td align="left"> 050 </td><td align="left"> Ordre d'affichage du block par rapports aux autres. </td></tr>
+</tbody>
+</table>
+<h2>org_openCiLife_post</h2>
+<p>Le type de contenu le plus courrant. Permet d'afficher une &quot;page&quot;. Contient différentes options pour afficher des éléments en plus du contenu textuel.</p>
+<h3>attributs</h3>
+<table>
+<thead>
+<tr><th align="left"> nom </th><th align="left"> requis ? </th><th align="left"> exemple </th><th align="left"> description </th></tr>
+</thead>
+<tbody>
+<tr><td align="left"> title </td><td align="left"> <strong>requis</strong> </td><td align="left"> Nos engagements </td><td align="left"> le titre du bloc </td></tr>
+<tr><td align="left"> date </td><td align="left"> optionnel </td><td align="left"> 2025-04-30  </td><td align="left"> date de publication. N'est pas affiché. </td></tr>
+<tr><td align="left"> type </td><td align="left"> <strong>requis</strong> </td><td align="left"> org_openCiLife_post </td><td align="left"> le type de contenu : indique que se contenu sera une page. </td></tr>
+<tr><td align="left"> includeContent </td><td align="left"> optionnel </td><td align="left"> <code>{&quot;type&quot;:&quot;org_openCiLife_post&quot;, &quot;category&quot;:&quot;création&quot;, &quot;specificClass&quot;:&quot;documentation&quot;, &quot;display&quot;:{&quot;type&quot;:&quot;card&quot;, &quot;content&quot;:&quot;link&quot;}}</code> </td><td align="left"> inclut d'autre contenus dans la page.  </td></tr>
+<tr><td align="left"> carouselData </td><td align="left"> optionnel </td><td align="left"> <code>{&quot;id&quot;:&quot;HomePageCarousel&quot;,&quot;control&quot;:{&quot;previousLabel&quot;:&quot;Précédent&quot;, &quot;nextLabel&quot;:&quot;Suivant&quot;}, &quot;displayIndicator&quot;:true, &quot;style&quot;:&quot;margin:auto&quot; &quot;slides&quot;:[{&quot;type&quot;:&quot;img&quot;, &quot;data&quot;:&quot;images/common/logo_left.png&quot;, &quot;caption&quot;:&quot;&lt;h3&gt;bob&lt;/h3&gt;&lt;p&gt;un texte&lt;/p&gt;&quot;, &quot;captionStyle&quot;:&quot;color:black&quot;, &quot;alt&quot;:&quot;Une image&quot;, &quot;style&quot;:&quot;margin:auto;height:60%&quot;}, {&quot;type&quot;:&quot;text&quot;, &quot;caption&quot;:&quot;&lt;h3&gt;Juste un texte sans images&lt;/h3&gt;&lt;p&gt;Et un peu de texte en plus qui prend un maximum de place pour voire ce que ca donne&lt;/p&gt;&lt;p&gt;avec un deuxième paragraphe&lt;/p&gt;&quot;, &quot;captionStyle&quot;:&quot;color:black&quot;,}]}</code> </td><td align="left"> Inclut un carousel en dessous du contenu textuel </td></tr>
+<tr><td align="left"> formData </td><td align="left"> optionnel </td><td align="left"> <code>{&quot;to&quot;:&quot;djer13@gmail.com&quot;, &quot;method&quot;:&quot;get&quot; &quot;enctype&quot;:&quot;application/x-www-form-urlencoded&quot;, &quot;sendLabel&quot;:&quot;Contactez-moi&quot;, &quot;fields&quot;:[{&quot;id&quot;:&quot;destinataire&quot;, &quot;label&quot;:&quot;Destinataire&quot;, &quot;type&quot;:&quot;text&quot;, &quot;readOnly&quot;:&quot;true&quot;, &quot;value&quot;:&quot;djer13@gmail.com&quot;, &quot;specificClass&quot;:&quot;form-control-plaintext&quot;}, {&quot;id&quot;:&quot;motif&quot;, &quot;label&quot;:&quot;Motif&quot;, &quot;type&quot;:&quot;text&quot;, &quot;name&quot;:&quot;subject&quot;}, {&quot;id&quot;:&quot;email&quot;, &quot;label&quot;:&quot;Votre e-mail&quot;, &quot;type&quot;:&quot;text&quot;, &quot;name&quot;:&quot;from&quot;}, {&quot;id&quot;:&quot;message&quot;, &quot;label&quot;:&quot;Votre message&quot;, &quot;type&quot;:&quot;textarea&quot;, &quot;rows&quot;:6, &quot;name&quot;:&quot;body&quot;}]}</code> </td><td align="left"> inclut un formulaire en dessosu du contenu textuel </td></tr>
+<tr><td align="left"> category </td><td align="left"> <strong>requis</strong> </td><td align="left"> documentation, création, V0.0.1 </td><td align="left"> est utiliser pour filter le contenu (notament via l'attribut <code>includeContent</code>) </td></tr>
+<tr><td align="left"> tags </td><td align="left"> optionnel </td><td align="left"> infos, tarifs </td><td align="left"> n'est pas affiché par le template. </td></tr>
+<tr><td align="left"> status </td><td align="left"> <strong>requis</strong> </td><td align="left"> published </td><td align="left"> si &quot;published&quot; le bloque sera visible. Sinon il ne sera pas affiché. </td></tr>
+<tr><td align="left"> contentImage </td><td align="left"> optionnel </td><td align="left"> images/principe.svg </td><td align="left"> Image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel </td></tr>
+<tr><td align="left"> specificClass </td><td align="left"> optionnel </td><td align="left"> mainBlock style2 </td><td align="left"> Permet d'ajouter un style CSS au bloque. </td></tr>
+<tr><td align="left"> order </td><td align="left"> <strong>requis</strong> </td><td align="left"> 050 </td><td align="left"> Ordre d'affichage du block par rapports aux autres. </td></tr>
+<tr><td align="left"> exerpt </td><td align="left"> <strong>recommandé</strong> </td><td align="left"> Comprendre la structure d'une page de contenu </td><td align="left"> résumé bref de la page. Est utiliser lorsqu'il faut présenter le contenu parmis d'autres. </td></tr>
+<tr><td align="left"> displayDate </td><td align="left"> optionnel (defaut : false) </td><td align="left"> true </td><td align="left"> si true la date de publication sera afficher en entete de la page </td></tr>
+</tbody>
+</table>
+
+			
+				
+				
+					<div class="card_list documentation">
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					
+					
+							<div class="card content_type_link ">
+										<a href="../../documentation/creation/720_Creation_contenu.html">
+									<div class="card_image">
+										<img src="../../images/documentation/paint.svg" class="widget_image"/>
+									</div>
+								<h3 class="card_title widget_title">Création du contenu</h3>
+								
+									<div class="card_exerpt widget_exerpt">
+										Aide à la création de contenus
+									</div>
+									</a>
+							</div>
+						 
+ 
+					
+					
+							<div class="card content_type_link ">
+										<a href="../../documentation/creation/721_strucutre_du_projet.html">
+									<div class="card_image">
+										<img src="../../images/documentation/folder-tree.svg" class="widget_image"/>
+									</div>
+								<h3 class="card_title widget_title">Structure du projet</h3>
+								
+									<div class="card_exerpt widget_exerpt">
+										Comprendre la structure du projet
+									</div>
+									</a>
+							</div>
+						 
+ 
+					
+					
+							<div class="card content_type_link ">
+										<a href="../../documentation/creation/723_strucutre_d_une_page.html">
+									<div class="card_image">
+										<img src="../../images/documentation/strcuture_page/file-word.svg" class="widget_image"/>
+									</div>
+								<h3 class="card_title widget_title">Structure d'une page</h3>
+								
+									<div class="card_exerpt widget_exerpt">
+										Comprendre la structure d'une page de contenu
+									</div>
+									</a>
+							</div>
+						 
+ 
+					
+					
+							<div class="card content_type_link  self self_disabled">
+										<a href="../../documentation/creation/725_les_type_de_contenus.html">
+									<div class="card_image">
+										<img src="../../images/documentation/strcuture_page/file-word.svg" class="widget_image"/>
+									</div>
+								<h3 class="card_title widget_title">Les type de contenus Weblegé : org_openCiLife_ecoweb</h3>
+								
+									<div class="card_exerpt widget_exerpt">
+										Connaitre les types de contenus spécifique au template par défaut
+									</div>
+									</a>
+							</div>
+						 
+ 
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					
+					
+					 
+					</div>
+	
+		</div>
+		<img src="../../org_openCiLife_ecoWeb/images/pageup.svg" id="go_to_top" OnClick='window.location.href="#up"' alt="go to top">
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer" role="contentinfo">
+     <div class="container">
+	     <div class="footer_blocks">
+			<div class="footer_block ">
+	            <img src="../../images/donation.svg">
+	            <div class="footer_block_text">
+	            	<p><a href="https://www.helloasso.com/associations/open-cylife/adhesions/open-cylife-adhesion">Adhesion</a></p>
+<p><a href="https://www.helloasso.com/associations/open-cylife/formulaires/1">Pour faire un don, c'est par ici</a></p>
+
+	            </div>
+	        </div>
+			<div class="footer_block ">
+	            <img src="../../images/contact.svg">
+	            <div class="footer_block_text">
+	            	<p><a href="https://www.open-cy.life/">Contact</a></p>
+
+	            </div>
+	        </div>
+	     </div>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> | Version 0.0.1-SNAPSHOT</p>
+      </div>
+    </div>
+    
+    <!-- Javascript here load faster -->
+		
+		
+		<script src="../../org_openCiLife_ecoWeb/js/jquery-1.11.1.min.js"></script>
+		<script src="../../org_openCiLife_ecoWeb/js/bootstrap.min.js"></script>
+		<script src="../../org_openCiLife_ecoWeb/js/org_openCiLife_ecoWeb.js"></script>
+  </body>
+</html>
