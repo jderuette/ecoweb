@@ -5,6 +5,7 @@ category=homepage
 tags=
 status=published
 specificClass=mainBlock style2
+contentImage=images/euro.svg
 anchorId=Tarifs
 order=070
 ~~~~~~
