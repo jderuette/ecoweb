@@ -1,14 +1,14 @@
-title=Agence EthikNet : Tarifs
-date=2025-06-25
-type=org_openCiLife_block
-category=homepage
-tags=
-status=draft
-specificClass=mainBlock style2
+title=Tarifs
+date=2019-03-25
+type=org_openCiLife_post
+includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClass":"EthikNet Tarifs", "display":{"type":"card", "content":"link"}}
+category=EthikNet, tarifs
+status=published
+exerpt=Tarifs
 contentImage=images/euro.svg
+displayDate=false
 order=910
 ~~~~~~
-
 ### Création du site
 Chaque site est différents. Vos besoins peuvent évoluer. Votre implication est variable. Il est aussi souvent compliqué de bien identifier tous les besoins dès le début.
 Afin d'éviter des prises de décisions complexes de votre part au début du projet, ou d'enchainer les devis je pratique un **tarif à l'heur**.
@@ -60,5 +60,3 @@ Mes heures de travails peuvent être des heures de réunion avec vous ou des heu
 | Migration Site existant | 1h | 16h | 640-1 280€ |
 | Création Site "One page" | 3h | 12h | 480-960€ |
 | Création Site standard | 6h | 30h | 1200-2400€ |
-
-
