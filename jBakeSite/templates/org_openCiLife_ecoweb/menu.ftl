@@ -15,7 +15,11 @@
 				<#list org_openCiLife_blocks?sort_by("order") as block_menu>
 					<#if   (ecoWeb.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
 						<#if (block_menu.anchorId)??>
-							<li><a href="${ecoWeb.buildRootPathAwareURL("index.html#"+block_menu.anchorId)}"  role="menuitem">${block_menu.title}</a></li>
+							<#assign menuSpecificClass = "">
+							<#if block_menu.menuSpecificClass??>
+								<#assign menuSpecificClass = " class=\"" + block_menu.menuSpecificClass + "\"">
+							</#if>
+							<li${menuSpecificClass}><a href="${ecoWeb.buildRootPathAwareURL("index.html#"+block_menu.anchorId)}" role="menuitem">${block_menu.title}</a></li>
 						<#else></#if>
 					</#if>
 				</#list>
@@ -24,7 +28,11 @@
 				<#list org_openCiLife_posts?sort_by("order") as blog_menu>
 					<#if   (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include))>
 						<#if (blog_menu.uri)?? && blog_menu.status == "published">
-							<li><a href="${ecoWeb.buildRootPathAwareURL(blog_menu.uri)}" role="menuitem">${blog_menu.title}</a></li>
+							<#assign menuSpecificClass = "">
+							<#if blog_menu.menuSpecificClass??>
+								<#assign menuSpecificClass = " class=\"" + blog_menu.menuSpecificClass + "\"">
+							</#if>
+							<li${menuSpecificClass}><a href="${ecoWeb.buildRootPathAwareURL(blog_menu.uri)}" role="menuitem">${blog_menu.title}</a></li>
 						<#else></#if>
 					</#if>
 				</#list>
@@ -48,11 +56,11 @@
         </div><#--/.nav-collapse -->
       </div>
     </div>
-    <#assign mainContainerClass = "mainContent" />
+    <#assign mainContainerClass = "container" />
     <#if content?? && content.specificClass??>
     	<#assign mainContainerClass = mainContainerClass + " " + content.specificClass>
     </#if>
-    <div id="${mainContainerClass}" class="container" role="main">
+    <div id="container" class="${mainContainerClass}" role="main">
     <#if content?? && content?has_content>
     <@ecoWeb.buildBreadcrumb content/>
     </#if>

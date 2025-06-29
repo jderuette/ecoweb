@@ -5,6 +5,7 @@ includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClas
 category=tarifs
 status=published
 exerpt=Tarif autonome
+specificClass=EthikNet
 contentImage=images/cadena_zero_euro.svg
 displayDate=false
 order=912

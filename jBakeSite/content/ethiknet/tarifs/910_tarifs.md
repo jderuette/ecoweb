@@ -5,6 +5,7 @@ includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClas
 category=EthikNet, tarifs
 status=published
 exerpt=Tarifs
+specificClass=EthikNet
 contentImage=images/euro.svg
 displayDate=false
 order=910

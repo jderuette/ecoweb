@@ -6,6 +6,7 @@ category=EthikNet, global
 status=published
 exerpt=Découvrire l'agence EthikNet
 specificClass=EthikNet
+menuSpecificClass=menu_EthikNet
 contentImage=images/bulding.svg
 displayDate=false
 order=900

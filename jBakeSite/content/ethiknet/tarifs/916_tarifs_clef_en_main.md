@@ -5,6 +5,7 @@ includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClas
 category=tarifs
 status=published
 exerpt=Tarif clef en main
+specificClass=EthikNet
 contentImage=images/box_open.svg
 displayDate=false
 order=916
