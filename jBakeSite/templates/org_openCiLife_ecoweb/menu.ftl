@@ -49,3 +49,7 @@
       </div>
     </div>
     <div id="mainContent" class="container" role="main">
+    <#if content?? && content?has_content>
+    <@ecoWeb.buildBreadcrumb content/>
+    </#if>
+    

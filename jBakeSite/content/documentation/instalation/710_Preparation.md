@@ -1,11 +1,11 @@
-title=Préparation
+title=Installation
 date=2025-06-16
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"preparation", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
 category=documentation, doc_chapter, preparation, V0.0.1
 tags=Déploiement
 status=published
-exerpt=Préparation
+exerpt=Installation
 contentImage=images/documentation/toolbox.svg
 displayDate=true
 order=710

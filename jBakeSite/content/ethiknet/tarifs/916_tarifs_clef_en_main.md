@@ -16,7 +16,7 @@ Destiné aux personnes voulant un site web, mais ne souhaitant pas s'occuper de 
 ## Que contient cette offre
 
 - Accès gratuit à WebLeger et à la documentation en ligne.
-- aide à strucutrer vos contenu (et détai lde vos contenus)
+- aide à strucutrer vos contenu (et détail de vos contenus)
 - une proposition de mise en page et de design
 - création des logos, redimenssionement des images, ....
 - assistance à la mise en production

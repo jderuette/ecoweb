@@ -24,4 +24,6 @@
 	<@ecoWeb.buildForm content />
 	<@ecoWeb.buildCarousel content />
 	
+	
+	<@ecoWeb.displayDebugFunctionMessages />
 <#include "footer.ftl">
