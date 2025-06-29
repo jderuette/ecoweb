@@ -8,4 +8,4 @@ order=820
 ~~~~~~
 **Non** WebLege est gratuit. WebLege utilise des outils OpenSource et déja gratuits.
 Vous pouvez soutenir le developpeur qui agrege tout ces outils ou soutenir directement les projets OpenSource utilisé par WebLege.
-La page tarif ne paye pas l'outils mais le devellopeur lorsqu'il va réaliser **votre** site (si vous souhaitez le faire développer).
+Vous pouvez passer par l'agence **EthikNet** pour faire réaliser votre site web ou obtenir del'aide pour le faire vous même.

@@ -9,4 +9,4 @@ contentImage=images/bulding.svg
 displayDate=false
 order=900
 ~~~~~~
-L'agence EthikNet vous aide à concervoir, créer, alimenter en contenu et publier vos site Web.
+L'agence EthikNet vous aide à concervoir, créer, alimenter en contenu et publier votre site Web.
