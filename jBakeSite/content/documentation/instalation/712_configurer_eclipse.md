@@ -10,14 +10,13 @@ contentImage=images/documentation/configurer_eclipse/Eclipse IDE.svg
 displayDate=true
 order=712
 ~~~~~~
-
-# Lancer le build du site Web
+## Lancer le build du site Web
 
 Eclipse gère les actions sous forme de **configuration**. Pour construire votre SiteWeb Maven est utilisé. Une version est intégré à Eclipse IDE il n'est pas nécéssaire d'installer Maven sur votre ordinateur.
 
-## Ajouter une configuration Build
+### Ajouter une configuration Build
 
-1. Une fois Elcipse IDE démaré il faut cliquer sur la petite flèche vers le bas à coté de l'icone de lancement d'une configuration ![Ajouter une configuration étape 1](../images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_1.png) 
+1. Une fois Elcipse IDE démaré il faut cliquer sur la petite flèche vers le bas à coté de l'icone de lancement d'une configuration ![Ajouter une configuration étape 1](${webleger.build.host}/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_1.png) 
 1. puis cliquer sur *Run Configuration...* ![Ajouter une configuration étape 2](${webleger.build.host}/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_2.png)
 1. faire un clique droit sur le groupe *Maven Build* ![Ajouter une configuration étape 3](${webleger.build.host}/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_3.png)
     1. Choisir un nom pour la configuration, par exemple "WebLeger install"
@@ -41,7 +40,7 @@ La vue "Console" devrait apparaitre avec des texte qui défile. Si tous se passe
 Faire un clique droit sur le dosser *website* puis selectionner **refresh**.
 Vous pouvez alors consulter le site en faisant un clique droit sur le fichier _website/index.html_ puis en choisissant **Open With** puis **System Editor**.
 
-## Ajouter une configuration pour publier le site sur votre gitHub
+### Ajouter une configuration pour publier le site sur votre gitHub
 WebLeger est déja pré-configuré pour pouvoir publier le site surGitHubPages (inspiré par ce tutoriel [Tutoriel héberger sur gitHub Pages (gh-pages)]( https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/)).
 Il y a cependant quelques éléments à modifier.
 
