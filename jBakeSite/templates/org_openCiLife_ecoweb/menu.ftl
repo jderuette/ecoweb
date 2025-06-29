@@ -48,7 +48,11 @@
         </div><#--/.nav-collapse -->
       </div>
     </div>
-    <div id="mainContent" class="container" role="main">
+    <#assign mainContainerClass = "mainContent" />
+    <#if content?? && content.specificClass??>
+    	<#assign mainContainerClass = mainContainerClass + " " + content.specificClass>
+    </#if>
+    <div id="${mainContainerClass}" class="container" role="main">
     <#if content?? && content?has_content>
     <@ecoWeb.buildBreadcrumb content/>
     </#if>

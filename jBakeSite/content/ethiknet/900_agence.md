@@ -5,6 +5,7 @@ includeContent={"type":"org_openCiLife_post", "category":"EthikNet", "specificCl
 category=EthikNet, global
 status=published
 exerpt=Découvrire l'agence EthikNet
+specificClass=EthikNet
 contentImage=images/bulding.svg
 displayDate=false
 order=900
