@@ -94,6 +94,14 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	background-color:black;
 }
 
+#breadcrumb {
+	list-style-type: none;
+}
+
+#breadcrumb li {
+	display: inline;
+}
+
 .icon {
       width: 1em;
       height: 1em;
