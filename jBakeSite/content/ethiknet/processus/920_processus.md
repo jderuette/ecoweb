@@ -29,7 +29,7 @@ Voici les principales étapes de création d'un site Web. Il est courant que les
 
 ### aspect annexe au site
 
-### Web
+#### Web
 
 - Liens vers des réseaux sociaux
 - référencement sur des annuaires existants
