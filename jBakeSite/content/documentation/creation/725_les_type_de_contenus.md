@@ -49,6 +49,7 @@ Le type de contenu le plus courrant. Permet d'afficher une "page". Contient diff
 | status | **requis** | published | si "published" le bloque sera visible. Sinon il ne sera pas affiché. |
 | contentImage | optionnel | images/principe.svg | Image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel |
 | specificClass | optionnel | mainBlock style2 | Permet d'ajouter un style CSS au bloque. |
+| menuSpecificClass | optionnel | menu_EthikNet | Permet d'ajouter un style CSS au menu pointant vers cet page. |
 | order | **requis** | 050 | Ordre d'affichage du block par rapports aux autres. |
 | exerpt | **recommandé** | Comprendre la structure d'une page de contenu | résumé bref de la page. Est utiliser lorsqu'il faut présenter le contenu parmis d'autres. |
 | displayDate | optionnel (defaut : false) | true | si true la date de publication sera afficher en entete de la page |
