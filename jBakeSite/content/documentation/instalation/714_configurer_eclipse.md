@@ -8,7 +8,7 @@ status=published
 exerpt=Configurer Eclipse IDE pour votre projet
 contentImage=images/documentation/configurer_eclipse/Eclipse IDE.svg
 displayDate=true
-order=712
+order=714
 ~~~~~~
 ## Lancer le build du site Web
 

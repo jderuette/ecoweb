@@ -8,7 +8,7 @@ status=published
 exerpt=Outils à installer en local pour créer un site WebLègé
 contentImage=images/common/logo_left.png
 displayDate=true
-order=711
+order=712
 ~~~~~~
 # Java
 

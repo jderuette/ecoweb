@@ -8,7 +8,7 @@ status=published
 exerpt=Herbeger le site
 contentImage=images/servers.svg
 displayDate=true
-order=716
+order=718
 ~~~~~~
 ## Pré-requis
 
