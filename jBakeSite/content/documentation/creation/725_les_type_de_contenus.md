@@ -10,9 +10,13 @@ contentImage=images/documentation/strcuture_page/file-word.svg
 displayDate=true
 order=725
 ~~~~~~
-## org_openCiLife_post
+## org_openCiLife_block
 
-Ce type est utilisé pour constituer une page contenant plusieurs bloques de contenu. Est utiliser pour la page d'accueil et pour le peid de page.
+Ce type est utilisé pour constituer une page contenant plusieurs bloques de contenu. Est utiliser pour la page d'accueil et pour le pied de page.
+**category** permet de défnir où le bloque sera affiché : 
+
+- **homepage** : sera afficher sur la page d'accueil du site.
+- **footer** : sera affiché en pied de page sur toutes les pages du site.
 
 ### attributs
 
@@ -24,22 +28,24 @@ Ce type est utilisé pour constituer une page contenant plusieurs bloques de con
 | category | **requis** | homepage | est utiliser pour afficher le block sur la bonne page. Par exemple "homepage" est la valeur par defaut pour que se bloque soit affiche sur la page d'acueil. La valeur par defaut peut être changé dnas le fichier de configuration. |
 | tags | optionnel | infos, tarifs | n'est pas affiché par le template. |
 | status | **requis** | published | si "published" le bloque sera visible. Sinon il ne sera pas affiché. |
-| contentImage | optionnel | images/principe.svg | Image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel |
-| specificClass | optionnel | mainBlock style2 | Permet d'ajouter un style CSS au bloque. |
+| contentImage | optionnel | images/principe.svg | image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel |
+| specificClass | optionnel | mainBlock style2 | permet d'ajouter un style CSS au bloque. |
 | anchorId | **requis** | a_quoi_ca_sert | nom de l'ancre. Ce nom aparait dans l'URL de la page lorsque l'on n'avigue jusqu'au bloque via le menu. |
-| order | **requis** | 050 | Ordre d'affichage du block par rapports aux autres. |
+| order | **requis** | 050 | ordre d'affichage du block par rapports aux autres. |
 
 
 ## org_openCiLife_post
 
 Le type de contenu le plus courrant. Permet d'afficher une "page". Contient différentes options pour afficher des éléments en plus du contenu textuel.
 
+
+
 ### attributs
 
 | nom | requis ? | exemple | description |
 | :--- | :--- | :--- | :--- |
 | title | **requis** | Nos engagements | le titre du bloc |
-| date | optionnel | 2025-04-30  | date de publication. N'est pas affiché. |
+| date | optionnel | 2025-04-30  | date de publication. est affiché uniquement si l'attribut ``displayDate`` vaut "true" . |
 | type | **requis** | org_openCiLife_post | le type de contenu : indique que se contenu sera une page. |
 | includeContent | optionnel | `{"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}` | inclut d'autre contenus dans la page.  |
 | carouselData | optionnel | `{"id":"HomePageCarousel","control":{"previousLabel":"Précédent", "nextLabel":"Suivant"}, "displayIndicator":true, "style":"margin:auto" "slides":[{"type":"img", "data":"images/common/logo_left.png", "caption":"<h3>bob</h3><p>un texte</p>", "captionStyle":"color:black", "alt":"Une image", "style":"margin:auto;height:60%"}, {"type":"text", "caption":"<h3>Juste un texte sans images</h3><p>Et un peu de texte en plus qui prend un maximum de place pour voire ce que ca donne</p><p>avec un deuxième paragraphe</p>", "captionStyle":"color:black",}]}` | Inclut un carousel en dessous du contenu textuel |
