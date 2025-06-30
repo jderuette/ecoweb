@@ -2,7 +2,7 @@
 <html lang="fr_FR">
   <head>
     <meta charset="utf-8"/>
-    <title>Herbeger le site</title>
+    <title>Tutoriel héberger sur gitHub Pages (gh-pages)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="C'est du lourds !">
     <meta name="author" content="jDeruette">
@@ -22,12 +22,14 @@
   </head>
   <body class="org_openCiLife_post">
     <div id="wrap">
-    	<div id="up" class="container header" role="banner">
-			<div id="pageTitle">
-				<a href="file:///D:/git/CitoyenBlog/website/index.html">
-					<img src="../../images/common/logo_left.svg" alt="Logo WebLeger" id="logoLeft"/>
-				</a>
-				<h1 id="headerTitle">Web Leger, c'est du lourd</h1>
+    	<div id="header">
+	    	<div id="up" class="container header" role="banner">
+				<div id="pageTitle">
+					<a href="file:///D:/git/CitoyenBlog/website/index.html">
+						<img src="../../images/common/logo_left.svg" alt="Logo WebLeger" id="logoLeft"/>
+					</a>
+					<h1 id="headerTitle">Web Leger, c'est du lourd</h1>
+				</div>
 			</div>
 		</div>	
 	<!-- Fixed navbar -->
@@ -67,35 +69,57 @@
 			 		</a>
 			 	</li>
 			 	<li>
-			 		>>>
+			 		
 			 		<a href="../../documentation/instalation/710_Preparation.html">
 				Installation
 			 		</a>
 			 	</li>
 			 	<li>
-			 		>>>
-			 		<a href="../../documentation/instalation/716_deployer_le_site.html">
-				Herbeger le site
+			 		
+			 		<a href="../../documentation/instalation/716_deployer_sur_gitHub_pages.html">
+				Tutoriel héberger sur gitHub Pages (gh-pages)
 			 		</a>
 			 	</li>
 			</ul>
 	
-		<p>Publié le : <em>16 juin 2025</em></p>
+		<p>Publié le : <em>02 mai 2025</em></p>
 		<span>Tags : </span>
 		<ul class="content_tags">
-			<li>Déploiement</li>
+			<li>autonomie-IT</li>
 		</ul>
 	
 		<div class="page-header">
-			<h1>Herbeger le site</h1>
+			<h1>Tutoriel héberger sur gitHub Pages (gh-pages)</h1>
 		</div>
-	<h2>Pré-requis</h2>
-<p>Le serveur web doit être accessible sur internet.<br />
-Vous devez avoir un nom de domaine. Cela peut être un nom &quot;par defaut&quot; proposer par votre hébergeur ou un nom de domaine personnalisé (vous devrez alors acheter le Nom de Domaine).</p>
-<p>Le serveur à besoin uniquement un d'un serveur web classique (par exemple <a href="https://httpd.apache.org/">HTTPD (apache)</a> ou <a href="https://nginx.org/">Nginx</a>).<br />
-Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurité.</p>
-<h2>Instalation de votre site</h2>
-<p>Il suffit de déposer sur votre serveur (soit via l'interface dédiée fournie par votre hébergeur soit via FTP) le dossier <strong>website</strong> de votre projet <img src="file:///D:/git/CitoyenBlog/website/images/documentation/heberger_site/dossier_website_dans_le_projet.png" alt="dossier website dans le projet" /></p>
+	<h2>Pour quel contenus ?</h2>
+<p>GitHub Pages ne peut héberger que des site web statiques, sans php ni java ni autre technologie &quot;serveur&quot; qui serait nécéssaire pour afficher les pages.</p>
+<h2>Principe général</h2>
+<p>Cette articles vous donnera plus d'information sur comment héberger un site sur gitHubPage indépendament de l'outils que vous utilisez <a href="https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/">https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/</a>.</p>
+<h2>Avec Webleger ?</h2>
+<p>Avec WebLeger  cela est encore plus simple car intégré.<br />
+1-Changez l'URL de publication dans le fichier <em>pom.xml</em> en changeant <strong>jderuette/ecoweb.git</strong> par l'URL de votre repository.</p>
+<pre><code>&lt;properties&gt;
+  ...
+  &lt;publish.url&gt;scm:git:git@github.com:jderuette/ecoweb.git&lt;/publish.url&gt;
+  ...
+&lt;/properties&gt;
+</code></pre>
+<p>2- créez une clef SSH pour acceder à vore rerpository <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh</a>.<br />
+3- Créez la branche gh-pages. <strong>Attention</strong> cette action va vous faire perdre tout contenus <strong>non commité</strong> sur votre branches acutel.</p>
+<pre><code>git checkout --orphan gh-pages
+rm .git/index ; git clean -fdx
+echo &quot;It works&quot; &gt; index.html
+git add . &amp;&amp; git commit -m &quot;initial site content&quot; &amp;&amp; git push origin gh-pages
+</code></pre>
+<p>4- Construisez le site comme d'habitude</p>
+<pre><code>mvn clean initialize resources:resources jbake:generate
+</code></pre>
+<p>5- Lancez le déploiement</p>
+<pre><code>scm-publish:publish-scm
+</code></pre>
+<p>6- Attendez quelques minutes puis aller visualiser le résultat</p>
+<h2>Limites</h2>
+<p>La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démos ou pour partager occasionnellement le site avec les relecteurs.</p>
 
 			
 				
@@ -129,7 +153,7 @@ Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurit�
 					
 					
 							<div class="card content_type_link ">
-										<a href="../../documentation/instalation/711_installer_les_outils_en_local.html">
+										<a href="../../documentation/instalation/712_installer_les_outils_en_local.html">
 									<div class="card_image">
 										<img src="../../images/common/logo_left.png" class="widget_image"/>
 									</div>
@@ -145,7 +169,7 @@ Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurit�
 					
 					
 							<div class="card content_type_link ">
-										<a href="../../documentation/instalation/712_configurer_eclipse.html">
+										<a href="../../documentation/instalation/714_configurer_eclipse.html">
 									<div class="card_image">
 										<img src="../../images/documentation/configurer_eclipse/Eclipse IDE.svg" class="widget_image"/>
 									</div>
@@ -161,7 +185,23 @@ Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurit�
 					
 					
 							<div class="card content_type_link ">
-										<a href="../../documentation/instalation/714_deployer_sur_gitHub_pages.html">
+										<a href="../../documentation/instalation/715_recuperation_du_framework.html">
+									<div class="card_image">
+										<img src="../../images/documentation/recuperer_framework/file-import.svg" class="widget_image"/>
+									</div>
+								<h3 class="card_title widget_title">Récupération du Framework</h3>
+								
+									<div class="card_exerpt widget_exerpt">
+										Comment récupérer le Framework Webleger
+									</div>
+									</a>
+							</div>
+						 
+ 
+					
+					
+							<div class="card content_type_link  self self_disabled">
+										<a href="../../documentation/instalation/716_deployer_sur_gitHub_pages.html">
 									<div class="card_image">
 										<img src="../../images/documentation/deploy_github/gitHub-logo.svg" class="widget_image"/>
 									</div>
@@ -176,8 +216,8 @@ Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurit�
  
 					
 					
-							<div class="card content_type_link  self self_disabled">
-										<a href="../../documentation/instalation/716_deployer_le_site.html">
+							<div class="card content_type_link ">
+										<a href="../../documentation/instalation/718_deployer_le_site.html">
 									<div class="card_image">
 										<img src="../../images/servers.svg" class="widget_image"/>
 									</div>
@@ -190,6 +230,9 @@ Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurit�
 							</div>
 						 
  
+					
+					
+					 
 					
 					
 					 
@@ -248,7 +291,7 @@ Même si Weblèger est par conception sécurisé soyez vigilant sur la sécurit�
 	            </div>
 	        </div>
 	     </div>
-	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> and <a href="http://www.webleger.fr">WebLeger</a> | Version 0.0.1-SNAPSHOT at 29 juin 2025 18:35:45</p>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> and <a href="http://www.webleger.fr">WebLeger</a> | Version 0.0.1-SNAPSHOT at 30 juin 2025 16:30:25</p>
       </div>
     </div>
     
