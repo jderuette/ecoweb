@@ -26,16 +26,18 @@
   </head>
   <body class="${content.type}">
     <div id="wrap">
-    	<div id="up" class="container header" role="banner">
-			<div id="pageTitle">
-				<#if ecoWeb.hasConfigValue("site_logoLeft_file")>
-				<a href="${config.site_host}/index.html">
-					<img src="${ecoWeb.buildRootPathAwareURL(config.site_logoLeft_file)}" alt="${ecoWeb.displayConfigText(config.site_logoLeft_description)}" id="logoLeft"/>
-				</a>
-				</#if>
-				<h1 id="headerTitle">${ecoWeb.displayConfigText(config.site_headline)}</h1>
-				<#if ecoWeb.hasConfigValue("site_logoRight_file")>
-				<img src="${ecoWeb.buildRootPathAwareURL(config.site_logoRight_file)}" alt="${ecoWeb.displayConfigText(config.site_logoRight_description)}" id="logoRight"/>
-				</#if>
+    	<div id="header">
+	    	<div id="up" class="container header" role="banner">
+				<div id="pageTitle">
+					<#if ecoWeb.hasConfigValue("site_logoLeft_file")>
+					<a href="${config.site_host}/index.html">
+						<img src="${ecoWeb.buildRootPathAwareURL(config.site_logoLeft_file)}" alt="${ecoWeb.displayConfigText(config.site_logoLeft_description)}" id="logoLeft"/>
+					</a>
+					</#if>
+					<h1 id="headerTitle">${ecoWeb.displayConfigText(config.site_headline)}</h1>
+					<#if ecoWeb.hasConfigValue("site_logoRight_file")>
+					<img src="${ecoWeb.buildRootPathAwareURL(config.site_logoRight_file)}" alt="${ecoWeb.displayConfigText(config.site_logoRight_description)}" id="logoRight"/>
+					</#if>
+				</div>
 			</div>
 		</div>
