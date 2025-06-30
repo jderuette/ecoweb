@@ -16,7 +16,7 @@ Pour commencer à utiliser WebLeger il faut "télécharger" l'outils. Il s'agit 
 
 Webleger utilise un systeme de gestion de version : Git. Le projet est hébergé sur GitHub (un site facilitant la coopération avec des projet Git).
 
-Comme votre site contiendra **votre** contenu vous ne pouvez pas utiliser le projet Webleger directement (sinon le contenu de tous les utilsiateur serait mélangé).
+Comme votre site contiendra **votre** contenu vous ne pouvez pas utiliser le projet Webleger directement (sinon le contenu de tous les utilsiateurs serait mélangés).
 Il vous faut d'abord créer une "copie" du projet, cet action s'apel faire un **fork** dans le voucabulaire gitHub.
 
 ### Création du compte gitHub
@@ -32,15 +32,15 @@ Vous allez être re-dirigé sur votre fork : une "copie" du repository dans **vo
 Vous pouriez utiliser directement le repository WebLeger MAIS : 
 
 - vous ne pourrez pas sauvegarder vos contenu.
-- vous ne pourrez pas héberger une versio nde "démo" de votre site.
+- vous ne pourrez pas héberger une version de "démo" de votre site.
 - vous ne pourrez pas intégrer la création du site dans un processus d'intégration continu.
 
 Vous pouriez "copier/coller" une version du projet en local, sans utiliser Git : 
 
-- En plus des inconvénient précédent il vous sera alors très difficile de faire les mise à jour (lors de nouvelle version de l'outils).
+- En plus des inconvénient précédent il vous sera alors très difficile de faire les mise à jour (lors de nouvelle version de Webleger).
 
 ## Récupérer votre reprository sur votre oridnateur
-Cela va vous permtre de modifier les fichiers sur votre ordinateur (avec Eclipse IDE), puis de les envoyer sur le repository GitHub de temps en temps pour faire une sauvegarde our le partager avec les autres éditeurs de contenues.
+Cela va vous permetre de modifier les fichiers sur votre ordinateur (avec Eclipse IDE), puis de les envoyer sur le repository GitHub de temps en temps pour faire une sauvegarde our le partager avec les autres éditeurs de contenues.
 
 Cette étape s'apel faire **clone** du reprository.
 
