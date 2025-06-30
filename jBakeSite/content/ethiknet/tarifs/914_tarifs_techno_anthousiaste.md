@@ -22,3 +22,13 @@ Destiné aux personnes curieuse de la technique et pret à mettre les mains dans
     - utiliser les outils (ou aide a "débuguer" un dysfonctionnememt)
     - des conseilles sur l'architecture de votre site
     - si besoin une aide au déploiement
+    
+## Exemple de coût
+
+| type de site | Durée pour vos | Durée pour moi | montant facture |
+| :--- | :--- | :--- | :--- |
+| Migration Site "One page" | 10h | 4h | 160-320€ |
+| Migration Site existant | 20h | 8h | 320-640€ |
+| Création Site "One page" | 8h | 6h | 160-320€ |
+| Création Site standard | 20h | 20h | 800-1 600€ |
+    

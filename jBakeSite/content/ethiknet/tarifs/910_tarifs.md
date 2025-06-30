@@ -34,30 +34,7 @@ L'autonomie vous évite de payer un professionelle mais vous oblige à effectuer
 Lors de la migration d'un site existant, les textes, les logos et images sont déja existant. Ceci fait gagner du temps.
 Mes heures de travails peuvent être des heures de réunion avec vous ou des heur de travail en solo.
 
-#### vous souhaitez un maximum d'autonomie
+- Vous souhaitez un **maximum d'autonomie** : entre 14h et 40h de travail pour vous, 0€ de cout à payer à l'agence
+- vous souhaitez acquérire de l'autonomie tout en étant **accompagné** : entre 10h et 20h de travail pour vous, 160€ à 1 600€ de cout à payer à l'agence
+- vous souhaitez un site **clef en main** : entre 1h et 6h de travail pour vous, 240€ à 2 400€ de cout à payer à l'agence
 
-| type de site | Durée pour vos | Durée pour moi | montant facture |
-| :--- | :--- | :--- | :--- |
-| Migration Site "One page" | 14h | 0h | 0€ |
-| Migration Site existant | 28h | 0h | 0€ |
-| Création Site "One page" | 20h | 0h | 0€ |
-| Création Site standard | 40h | 0h | 0h |
-
-#### vous souhaitez acquérire de l'autonomie tout en étant accompagné
-
-| type de site | Durée pour vos | Durée pour moi | montant facture |
-| :--- | :--- | :--- | :--- |
-| Migration Site "One page" | 10h | 4h | 160-320€ |
-| Migration Site existant | 20h | 8h | 320-640€ |
-| Création Site "One page" | 8h | 6h | 160-320€ |
-| Création Site standard | 20h | 20h | 800-1 600€ |
-
-
-#### vous souhaitez un site clef en main
-
-| type de site | Durée pour vos | Durée pour moi | montant facture |
-| :--- | :--- | :--- | :--- |
-| Migration Site "One page" | 1h | 6h | 240-480€ |
-| Migration Site existant | 1h | 16h | 640-1 280€ |
-| Création Site "One page" | 3h | 12h | 480-960€ |
-| Création Site standard | 6h | 30h | 1200-2400€ |

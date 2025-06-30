@@ -21,3 +21,12 @@ Destiné aux personnes voulant un site web, mais ne souhaitant pas s'occuper de 
 - une proposition de mise en page et de design
 - création des logos, redimenssionement des images, ....
 - assistance à la mise en production
+
+## Exemple de coût
+
+| type de site | Durée pour vos | Durée pour moi | montant facture |
+| :--- | :--- | :--- | :--- |
+| Migration Site "One page" | 1h | 6h | 240-480€ |
+| Migration Site existant | 1h | 16h | 640-1 280€ |
+| Création Site "One page" | 3h | 12h | 480-960€ |
+| Création Site standard | 6h | 30h | 1200-2400€ |
