@@ -17,34 +17,34 @@ Voici les principales étapes de création d'un site Web. Il est courant que les
 
 ### Conception (design)
 
-- conception de la partie graphique (logo, style des icones)
-- conception des couleurs principales du site
-- conception de la structure générale du site
-- Conception de la naviguation sur le site (UX Design)
+- conception de la partie graphique (logo, style des icones) : **EthikNet**
+- conception des couleurs principales du site **EthikNet**
+- conception de la structure générale du site **EthikNet**
+- Conception de la naviguation sur le site (UX Design) **EthikNet**
 
 ### Contenues
 
-- Rédaction des contenus textuels
-- Création et/ou recherche d'icones ou images
+- Rédaction des contenus textuels **Vous**
+- Création et/ou recherche d'icones ou images **EthikNet** et **Vous**
 
 ### aspect annexe au site
 
 #### Web
 
-- Liens vers des réseaux sociaux
-- référencement sur des annuaires existants
-- création/gestion des adresses e-mail
-- Référencement naturelle
-- Référencement payant
+- Liens vers des réseaux sociaux **Vous**
+- référencement sur des annuaires existants **Vous**
+- création/gestion des adresses e-mail **Vous** et **EthikNet**
+- Référencement naturelle **EthikNet**
+- Référencement payant **Vous** (optionnel)
 
 #### Hors Web
- - Flyer, affiches, cartes de visites
+ - Flyer, affiches, cartes de visites **Vous**
 
 ### Aspects techniques
 
-- Création du site (effectué par Weblegé)
-- Hébergement du site
-- Nom de domaine
+- Création du site (effectué par Weblegé) **EthikNet**
+- Hébergement du site **Vous**
+- Nom de domaine **EthikNet**
 
 ## Activité d'EthikNet
 
