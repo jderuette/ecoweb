@@ -114,6 +114,12 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	background-color:${webleger.site.style.breadcrumb.background_color};
 }
 
+.pageContent {
+    border: 2px solid ${webleger.site.style.header.title.color};
+    border-radius: 10px;
+    padding: 0px 10px 10px 10px;;
+}
+
 .icon {
       width: 1em;
       height: 1em;

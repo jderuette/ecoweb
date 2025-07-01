@@ -19,11 +19,16 @@
 			<h1><#escape x as x?xml>${content.title}</#escape></h1>
 		</div>
 	</#if>
+	<div class="pageContent">
 	${content.body}
-	<@ecoWeb.buildsubContent content />
+	
 	<@ecoWeb.buildForm content />
 	<@ecoWeb.buildCarousel content />
+	</div>
 	
+	<div class="subContent">
+	<@ecoWeb.buildsubContent content />
+	</div>
 	
 	<@ecoWeb.displayDebugFunctionMessages />
 <#include "footer.ftl">

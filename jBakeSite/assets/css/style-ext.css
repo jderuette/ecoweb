@@ -21,6 +21,9 @@
 .EthikNet table th, .EthikNet table td {
 	border-color:green;
 }
+.EthikNet  .pageContent {
+    border-color: green;
+}
 
 .EthikNet a:visited, .EthikNet a:link{
 	color:green;
