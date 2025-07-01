@@ -7,6 +7,7 @@ tags=installer WebLeger
 status=published
 exerpt=Comment récupérer le Framework Webleger
 contentImage=images/documentation/recuperer_framework/file-import.svg
+specificClass=Documentation
 displayDate=true
 order=715
 ~~~~~~

@@ -7,6 +7,7 @@ tags=Création de contenu
 status=published
 exerpt=Comprendre la structure du projet
 contentImage=images/documentation/folder-tree.svg
+specificClass=Documentation
 displayDate=true
 order=721
 ~~~~~~

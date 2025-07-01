@@ -7,6 +7,7 @@ tags=autonomie IT
 status=published
 exerpt=Comment herbger un site sur gitHub Pages (pour démo ou partage avec relecteurs)
 contentImage=images/documentation/deploy_github/gitHub-logo.svg
+specificClass=Documentation
 displayDate=true
 order=716
 ~~~~~~

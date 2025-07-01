@@ -7,6 +7,7 @@ tags=installer WebLeger
 status=published
 exerpt=Configurer Eclipse IDE pour votre projet
 contentImage=images/documentation/configurer_eclipse/Eclipse IDE.svg
+specificClass=Documentation
 displayDate=true
 order=714
 ~~~~~~

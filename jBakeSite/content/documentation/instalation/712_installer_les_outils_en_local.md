@@ -7,6 +7,7 @@ tags=installer WebLeger
 status=published
 exerpt=Outils à installer en local pour créer un site WebLègé
 contentImage=images/common/logo_left.png
+specificClass=Documentation
 displayDate=true
 order=712
 ~~~~~~

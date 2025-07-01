@@ -7,6 +7,7 @@ tags=Création de contenu
 status=published
 exerpt=Comprendre la structure d'une page de contenu
 contentImage=images/documentation/strcuture_page/file-word.svg
+specificClass=Documentation
 displayDate=true
 order=723
 ~~~~~~

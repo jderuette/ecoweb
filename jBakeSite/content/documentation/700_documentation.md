@@ -4,6 +4,7 @@ type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"doc_chapter", "display":{"type":"card", "content":"link"}}
 category=global
 status=published
+specificClass=Documentation
 displayDate=false
 order=700
 ~~~~~~

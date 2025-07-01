@@ -7,6 +7,7 @@ tags=Création de contenu
 status=published
 exerpt=Aide à la création de contenus
 contentImage=images/documentation/paint.svg
+specificClass=Documentation
 displayDate=true
 order=720
 ~~~~~~

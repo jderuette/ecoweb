@@ -7,6 +7,7 @@ tags=Déploiement
 status=published
 exerpt=Herbeger le site
 contentImage=images/servers.svg
+specificClass=Documentation
 displayDate=true
 order=718
 ~~~~~~

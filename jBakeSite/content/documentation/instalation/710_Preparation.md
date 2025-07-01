@@ -7,6 +7,7 @@ tags=Déploiement
 status=published
 exerpt=Installation
 contentImage=images/documentation/toolbox.svg
+specificClass=Documentation
 displayDate=true
 order=710
 ~~~~~~

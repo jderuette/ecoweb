@@ -7,6 +7,7 @@ tags=Création de contenu
 status=published
 exerpt=Connaitre les types de contenus spécifique au template par défaut
 contentImage=images/documentation/strcuture_page/file-word.svg
+specificClass=Documentation
 displayDate=true
 order=725
 ~~~~~~
