@@ -163,16 +163,17 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	margin: auto;
 	padding-bottom: 3%;
 	line-height: 170%;
+	border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 .style1 {
-	border-top: 1px solid #282825;
+	border: 2px solid lightgrey;
 	background-color: ${webleger.site.style.style1.background-color};
-	
 }
 
 .style2 {
-	border-top: 1px solid #282825;
+	border: 2px solid lightgrey;
 	background-color: ${webleger.site.style.style2.background-color};
 }
 
@@ -190,8 +191,8 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .blockIcon {
-	width: 75px;
-	height: 75px;
+	width: 40px;
+	height: 40px;
 	margin-right: 1%;
 }
 
@@ -465,13 +466,13 @@ div.debug {
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (min-width: 640px) {
-  #footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  #pageTitle {
+	#footer {
+		margin-left: -20px;
+    	margin-right: -20px;
+    	padding-left: 20px;
+    	padding-right: 20px;
+	}
+	#pageTitle {
 		justify-content: space-around;
 		flex-direction: row;
 	}
