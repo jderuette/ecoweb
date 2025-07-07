@@ -21,6 +21,10 @@ body {
   margin: 0 auto;
 }
 
+#preHeader{
+    background-color:${webleger.site.style.style1.background-color};
+}
+
 #header {
 	background-color:${webleger.site.style.header.background_color};
 }
@@ -448,18 +452,18 @@ div.debug {
   padding: 25px 0 0 0;
 }
 
-.footer_blocks {
+.footer_blocks{
 	display: flex;
 	flex-direction: column;
 }
 
-.footer_block {
+.footer_block, .header_block {
 	display: flex;
 	flex-direction: row;
 	font-size: 1.2em;
 }
 
-.footer_block img {
+.footer_block img, .header_block img {
 	width: 100px;
 }
 
@@ -468,6 +472,19 @@ div.debug {
 	flex-direction: column;
 	justify-content: space-around;
 	margin-left: 4%;
+}
+
+.header_blocks {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.header_block_text {
+	margin-left: 12px;
+}
+
+.header_block_text > p{
+	margin : 0px;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */

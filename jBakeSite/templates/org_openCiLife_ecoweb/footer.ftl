@@ -9,9 +9,10 @@
 			<#list org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order") as block>
 				<#assign blockCategory = block.category>
 				<#if ( ecoWeb.seq_containsOne(blockCategory, config.site_footer_category))>
-				<#assign class = "footer_block">
-			<div class="footer_block ${((block.specificClass)??)?then(block.specificClass, "")}">
+			<div class="footer_block${((block.specificClass)?? && block.specificClass != "")?then(" " + block.specificClass, "")}">
+				<#if (block.contentImage)?? && block.contentImage != "">
 	            <img src="${ecoWeb.buildRootPathAwareURL(block.contentImage)}">
+	            </#if>
 	            <div class="footer_block_text">
 	            	${block.body}
 	            </div>
