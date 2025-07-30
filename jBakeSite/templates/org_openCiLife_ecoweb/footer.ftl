@@ -24,6 +24,8 @@
       </div>
     </div>
     
+    <@ecoWeb.displayDebugFunctionMessages />
+    
     <!-- Javascript here load faster -->
     <@ecoWeb.buildExternalInjection config.site_script_footer />
   </body>

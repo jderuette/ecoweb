@@ -114,6 +114,25 @@ return : a text (with original coma ",")
 	<#return hasValue>
 </#function>
 
+
+<#function unObfuscateText obfucatedEmail, obfuscationMask>
+	<#local humanReadableText = obfucatedEmail>
+	<#if obfucatedEmail?? && obfuscationMask??>
+		${stackDebugMessage("UnObfuscateText : decrypt text ! whith key : " + obfuscationMask)}
+		<#local tokens=obfuscationMask?split(r"\s*,\s*", "r")>
+		${stackDebugMessage(">>Email : " + tokens?size + " crypt token found")}
+		<#list tokens as token>
+			<#local tokenDetail=token?split(r"\s*:\s*", "r")>
+			<#if tokenDetail?? && tokenDetail[0]?? && tokenDetail[1]??>
+				${stackDebugMessage(">>>>UnObfuscateText : replacing " + tokenDetail[1] + " by " + tokenDetail[0])}
+				<#local humanReadableText = humanReadableText?replace(tokenDetail[1], tokenDetail[0])>
+			</#if>
+			${stackDebugMessage(">>>>UnObfuscateText : Token has " + tokenDetail?size + " elements, current Human Readable e-mail : " + humanReadableText)}
+		</#list>
+	</#if>
+	<#return humanReadableText>
+</#function>
+
 <#-- display debug messages in HTML page. Only displayend if "site.debug.enabled" exist and is "true"
 param : message : the message to display (a String)
 -->
@@ -447,19 +466,30 @@ param : content : content to search for form data
 -->
 <#macro buildForm content>
 	<#if (content.formData)??>
-		<#assign to=content.formData.to />
-		<#assign method=(content.formData.method)!"get" />
-		<#assign enctype=(content.formData.enctype)!"application/x-www-form-urlencoded" />
-		<#assign sendLabel=(content.formData.sendLabel)!"Contactez" />
-		
+		<#local method=(content.formData.method)!"get" />
+		<#local enctype=(content.formData.enctype)!"application/x-www-form-urlencoded" />
+		<#local sendLabel=(content.formData.sendLabel)!"Contactez" />
+		<#local formId=(content.formData.id)!"form1" />
 		
 		<#assign fields=(content.formData.fields)! />
 		
-		<form action="mailto:<#escape x as x?xml>${to}</#escape>" method="<#escape x as x?xml>${method}</#escape>" enctype="<#escape x as x?xml>${enctype}</#escape>" class="contact_form">
+		<#local isContactForm = false>
+		<#local extraAtr = "">
+		
+		<#if (content.formData.to)??>
+			<#local isContactForm = true>
+			<#if (content.formData.dataTransform)?? && content.formData.dataTransform.type="obfuscated">
+				<#local extraAtr = "data-obfuscatedMailTo=\"" + content.formData.to + "\" data-obfuscatedMailToKey=\""+content.formData.dataTransform.obfuscatedKey+"\"">
+			</#if>
+		</#if>
+		
+		<form id="<#escape x as x?xml>${formId}</#escape>"<#if (extraAtr!="")> ${extraAtr}</#if><#if (content.formData.action)??> action="<#escape x as x?xml>${content.formData.action}</#escape></#if>" method="<#escape x as x?xml>${method}</#escape>" enctype="<#escape x as x?xml>${enctype}</#escape>" class="contact_form">
 		<div class="form-group">
 		
 		<#list fields as field>
-			<label for="<#escape x as x?xml>${field.id}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
+			<#local fieldId = field.id>
+			<label for="<#escape x as x?xml>${fieldId}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
+			
 			<#if field.type == "textarea">
 				<#assign endTag = "textarea" />
 				<textarea 
@@ -472,7 +502,15 @@ param : content : content to search for form data
 				name="<#escape x as x?xml>${field.name}</#escape>"
 			</#if>
 			<#if (field.value)??>
-				value="<#escape x as x?xml>${field.value}</#escape>"
+				<#local fieldVal=field.value>
+				<#if (field.dataTransform)?? && field.dataTransform.type == "obfuscated" && (field.dataTransform.obfuscatedKey)??>
+					<#if (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+						<#local fieldVal="" />
+					<#else>
+						<#local fieldVal=(unObfuscateText(field.value, field.dataTransform.obfuscatedKey))!"invalid obfuscation key" />
+					</#if>
+				</#if>
+				value="<#escape x as x?xml>${fieldVal}</#escape>"
 			</#if>
 			<#if (field.readOnly)?? && field.readOnly=="true">
 				 readOnly
@@ -481,6 +519,15 @@ param : content : content to search for form data
 				rows="<#escape x as x?xml>${field.rows}</#escape>"
 			</#if>
 			></${endTag}>
+			
+			<#if (field.dataTransform) ?? && (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+				</span>
+			</#if>
+			
+			<#if (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+				<#local hiddenButtonLabel = field.dataTransform.hiddenButtonLabel!"afficher">
+				<input type="button" id="<#escape x as x?xml>${field.dataTransform.id}</#escape>" value="<#escape x as x?xml>${hiddenButtonLabel}</#escape>" data-obfuscatedValue="<#escape x as x?xml>${field.value}</#escape>" data-obfuscatedKey="<#escape x as x?xml>${field.dataTransform.obfuscatedKey}</#escape>" data-obfuscatedTarget="#<#escape x as x?xml>${fieldId}</#escape>"></input>
+			</#if>
 		</#list>
 		
 		<input type="submit" value="<#escape x as x?xml>${sendLabel}</#escape>"/>

@@ -29,6 +29,4 @@
 	<div class="subContent">
 	<@ecoWeb.buildsubContent content />
 	</div>
-	
-	<@ecoWeb.displayDebugFunctionMessages />
 <#include "footer.ftl">

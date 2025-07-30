@@ -8,4 +8,4 @@ specificClass=
 contentImage=
 order=080
 ~~~~~~
-E-mail : ${webleger.site.forulaire.contact.general.email}
+E-mail : <span data-obfuscatedkey="${webleger.site.forulaire.contact.general.email.ofuscation-mask}">${webleger.site.forulaire.contact.general.email}</span>
