@@ -76,7 +76,7 @@ $('span[data-obfuscatedkey]').on('click', function() {
 	$(this).next('img.showHiddenDataAppendedButton').remove();
 });
 
-$('span[data-obfuscatedkey]').after('<img class="showHiddenDataAppendedButton" style="width: 24px;margin: 0 4px 0 4px;" src="${webleger.build.host}/${webleger.site.template}/images/eyes.svg" alt="clickez pour voir l\'e-mail en clair"></img>');
+$('span[data-obfuscatedkey]').append('<img class="showHiddenDataAppendedButton" style="width: 24px;margin: 0 4px 0 4px;" src="${webleger.build.host}/${webleger.site.template}/images/eyes.svg" alt="clickez pour voir l\'e-mail en clair"></img>');
 
 function unObfuscText(source, key){
 	var unOfuscatedText = source;
