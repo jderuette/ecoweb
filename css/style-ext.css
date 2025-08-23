@@ -29,6 +29,10 @@
 	color:green;
 }
 
+.Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
+	word-break: normal;
+} 
+
 .navbar-nav .menu_EthikNet>a:hover {
 	background-color:lightgreen;
 }
