@@ -6,7 +6,7 @@ tags=
 status=published
 specificClass=mainBlock style2
 contentImage=images/user.svg
-anchorId=a_quoi_ca_sert
+anchorId=pour_qui
 order=015
 ~~~~~~
 WebLeger à trois cible : 
