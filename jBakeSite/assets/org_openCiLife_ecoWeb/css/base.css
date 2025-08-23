@@ -111,11 +111,16 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	background-color: ${webleger.site.style.header.background_color};
     padding: 15px;
     border-radius: 20px;
+    white-space: nowrap;
 }
 
 #breadcrumb li {
 	display: inline;
 	background-color:${webleger.site.style.breadcrumb.background_color};
+}
+
+#breadcrumb li a {
+	display: inline-block;
 }
 
 .pageContent {

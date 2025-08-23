@@ -22,7 +22,7 @@ Uniquement un accès gratuit à WebLeger et à la documentation en ligne.
 
 ## Exemple de coût
 
-| type de site | Durée pour vos | Durée pour moi | montant facture |
+| Type de site | Durée pour vous | Durée pour moi | Montant facture |
 | :--- | :--- | :--- | :--- |
 | Migration Site "One page" | 14h | 0h | 0€ |
 | Migration Site existant | 28h | 0h | 0€ |

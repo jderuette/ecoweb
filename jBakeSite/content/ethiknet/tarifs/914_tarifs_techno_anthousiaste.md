@@ -25,7 +25,7 @@ Destiné aux personnes curieuse de la technique et pret à mettre les mains dans
     
 ## Exemple de coût
 
-| type de site | Durée pour vos | Durée pour moi | montant facture |
+| Type de site | Durée pour vous | Durée pour moi | Montant facture |
 | :--- | :--- | :--- | :--- |
 | Migration Site "One page" | 10h | 4h | 160-320€ |
 | Migration Site existant | 20h | 8h | 320-640€ |

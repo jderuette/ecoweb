@@ -42,11 +42,11 @@ Voici les principales étapes de création d'un site Web. Il est courant que les
 
 ### Aspects techniques
 
-- Création du site (effectué par Weblegé) **EthikNet**
+- Création du site (effectué par WebLegé) **EthikNet**
 - Hébergement du site **Vous**
-- Nom de domaine **EthikNet**
+- Nom de domaine **Vous**
 
 ## Activité d'EthikNet
 
-EthikNet peu vous accompagné sur tout ces aspects. Dans certains cas il s'agira simplement de conseils, pour d'autre cas cela sera fait pour vous.
-Cette flexibilité justifie le tarif à l'heur, de manière à pouvoir s'adapter à vos besoins.
+EthikNet peut vous accompagné sur tout ces aspects. Dans certains cas il s'agira simplement de conseils, pour d'autres cas cela sera réalisé à votre place.
+Cette flexibilité justifie le tarif à l'heur, de manière à pouvoir s'adapter à vos besoins même si votre niveau d'autonomie évolue en cour de projet.

@@ -9,3 +9,5 @@ displayDate=false
 order=700
 ~~~~~~
 La documentation de WebLègé pour mieux utiliser l'outils de création de site qui vous aide à l'éco-conveption.
+Cette documentation est destinée aux utilisateurs souhaitant être **autonome**.
+Si vous souhaitez être accompagné consultez les pages [Agence EthikNet](${webleger.build.host}/ethiknet/900_agence.html).
