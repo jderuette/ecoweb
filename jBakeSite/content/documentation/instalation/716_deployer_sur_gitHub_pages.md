@@ -37,14 +37,14 @@ Avec WebLeger  cela est encore plus simple car intégré.
     rm .git/index ; git clean -fdx
     echo "It works" > index.html
     git add . && git commit -m "initial site content" && git push origin gh-pages
-4- Construisez le site comme d'habitude
+4- Construisez le site comme d'habitude *en modifiant* le host (modifier la commande ci-dessous avec *votre* host). Si vous utilisez Eclipse IDE il recommandé de créer un nouveau "Run Configuration" pour cette étape.
 
-    mvn clean initialize resources:resources jbake:generate
+    mvn clean initialize resources:resources jbake:generate -Dwebleger.build.host=https://jderuette.github.io/ecoweb
 5- Lancez le déploiement
 
     scm-publish:publish-scm
 
-6- Attendez quelques minutes puis aller visualiser le résultat
+6- Attendez quelques minutes puis aller visualiser le résultat sur ``https://jderuette.github.io/ecoweb``
 
 ## Limites
 La mise à jour du site peut prendre plusieurs minutes. En effet gitHub Pages n'est pas fait pour héberger rapidement des sites. Ce mode d'hébergement est cependant pratique pour des démos ou pour partager occasionnellement le site avec les relecteurs.
