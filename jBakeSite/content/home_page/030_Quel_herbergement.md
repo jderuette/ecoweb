@@ -7,6 +7,7 @@ status=published
 specificClass=mainBlock style2
 contentImage=images/servers.svg
 anchorId=quel_herbergement
+menu={"parent":"WebLegé"}
 order=030
 ~~~~~~
 Pour l'hébergement il suffit d'un **serveur Web** (Apache, NGix) accessible sur internet.

@@ -8,6 +8,7 @@ formData={"to":"${webleger.site.forulaire.contact.general.email}", "method":"get
 specificClass=mainBlock style2
 contentImage=images/contact.svg
 anchorId=Contact
+menu={"parent":"WebLegé"}
 order=050
 ~~~~~~
 Contactez-moi en remplissant le formulaire ci-dessous.

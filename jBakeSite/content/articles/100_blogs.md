@@ -5,6 +5,7 @@ includeContent={"type":"org_openCiLife_post", "category":"article", "display":{"
 category=global
 status=published
 displayDate=false
+menu={"parent":"WebLegé"}
 order=100
 ~~~~~~
 Notre R&D vous livre ses tutos et bonnes pratiques.

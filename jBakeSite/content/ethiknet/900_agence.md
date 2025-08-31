@@ -6,9 +6,9 @@ category=EthikNet, global
 status=published
 exerpt=Découvrire l'agence EthikNet
 specificClass=EthikNet
-menuSpecificClass=menu_EthikNet
 contentImage=images/bulding.svg
 displayDate=false
+menu={"parent":"EthikNet", "specificClass":"menu_EthikNet"}
 order=900
 ~~~~~~
 L'agence EthikNet vous aide à concervoir, créer, alimenter en contenu et publier votre site Web.

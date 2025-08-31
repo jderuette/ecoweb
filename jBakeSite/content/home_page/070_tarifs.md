@@ -6,6 +6,7 @@ tags=
 status=draft
 specificClass=mainBlock style2
 contentImage=images/euro.svg
+menu={"parent":"WebLegé"}
 order=910
 ~~~~~~
 

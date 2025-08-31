@@ -152,19 +152,17 @@ param : message : the message to display (a String)
 			</#list>
 		<#elseif (message?is_sequence)>
 			<#-- Called using <@macro debug ["A message"]> OR <@macro debug ["first message", "Second message"]> -->
-				<#list message as value>
-					<#if value?is_sequence>
-						<#list value as aMessage>
-							<p class="debug"> ${aMessage}</p>
-						</#list>
-					<#else>
-						<#if (value?is_boolean)>
-						<p class="debug">${value?string('yes', 'no')}</p>
-						<#else>
-							<p class="debug">${value}</p>
-						</#if>
-					</#if>
-				</#list>
+			<#list message as value>
+				<#if value?is_sequence>
+					<#list value as aMessage>
+						<p class="debug"> ${aMessage}</p>
+					</#list>
+				<#elseif (value?is_boolean)>
+					<p class="debug">${value?string('yes', 'no')}</p>
+				<#else>
+					<p class="debug">${value}</p>
+				</#if>
+			</#list>
 		<#else>
 			<p class="debug"> ${message}</p>
 		</#if>
@@ -201,6 +199,139 @@ return : a text, the configured display name (in jbake.properties) or the origin
 </#function>
 
 
+<#function filterMenuList list menuName>
+  <#local result=[]>
+  <#list list as menuItem>
+  	<#if menuName == "__GLOBAL__">
+  		<#if !menuItem.menu??>
+  			<#local result=result + [menuItem]>
+  		</#if>
+    <#else>
+    	<#if menuItem.menu?? && menuItem.menu.parent?? && menuItem.menu.parent == menuName>
+      		<#local result=result + [menuItem]>
+      	</#if>
+    </#if>
+  </#list>
+  <#return result>
+</#function>
+
+<#function createMultiLevelMenu list>
+  <#local result={}>
+  <#list list as blockMenu>
+  	<#if blockMenu.menu?? && blockMenu.menu.parent??>
+	    <#if !result[blockMenu.menu.parent]??>
+	      <#local result=result + {blockMenu.menu.parent: filterMenuList(list, blockMenu.menu.parent) }>
+	    </#if>
+	<#else>
+		<#local result=result + {"__GLOBAL__": filterMenuList(list, "__GLOBAL__") }>
+	</#if>
+  </#list>
+  <#return result>
+</#function>
+
+<#-- macro debugMenu menuItems>
+	<div class="debug">
+	debug du menu<br/>
+	<#list menuItems as parentName, menuItems>
+		- ${parentName}<br/>
+		<#list menuItems as subMenu >
+			--- ${subMenu.title}
+		</#list>
+		<br/>
+	</#list>
+	</div>
+</#macro>
+-->
+
+<#-- build the site menu (using Boostrap) -->
+<#macro buildMenu>
+<div class="navbar navbar-light bg-white" role="navigation">
+      <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav" role="menubar">
+  	<#local menu_list = []>
+  	<#if (config.site_menu_includeBlock == "true")>
+  		<#list org_openCiLife_blocks?sort_by("order") as block_menu>
+			<#if (ecoWeb.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
+				<#if (block_menu.anchorId)?? && block_menu.status == "published">
+					<#local menu_list = menu_list + [block_menu]>
+				</#if>
+			</#if>
+		</#list>
+	</#if>
+	
+	<#if (config.site_menu_includeCategories)??>
+		<#list org_openCiLife_posts?sort_by("order") as blog_menu>
+			<#if   (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include))>
+				<#if (blog_menu.uri)?? && blog_menu.status == "published">
+					<#local menu_list = menu_list + [blog_menu]>
+				<#else></#if>
+			</#if>
+		</#list>
+	</#if>
+	
+	<@debug menu_list?size/>
+	<#local hierachical_menu = createMultiLevelMenu(menu_list)>
+	
+	
+	<#list hierachical_menu as top_level_menu_name, top_level_menu_items>
+		<#if top_level_menu_name != "__GLOBAL__">
+			<#local parentMenuSpecificClass = "class=\"dropdown-toggle\"">
+			<#--
+			<#if menu_item.menu?? && menu_item.menu.parentSpecificClass??>
+				<#local parentMenuSpecificClass = " class=\"dropdown-toggle " + menu_item.menu.parentSpecificClass + "\"">
+			</#if>
+			-->
+			<li class="dropdown">
+				<a href="#" ${parentMenuSpecificClass} data-toggle="dropdown">${top_level_menu_name} <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+		</#if>
+		<#list top_level_menu_items as menu_item>
+				<#assign menuSpecificClass = "">
+				<#if menu_item.menu?? && menu_item.menu.specificClass??>
+					<#assign menuSpecificClass = " class=\"" + menu_item.menu.specificClass + "\"">
+				</#if>
+				<#local link = "">
+				<#if menu_item.anchorId??>
+					<#local link = "index.html#"+menu_item.anchorId>
+				<#else>
+					<#local link = menu_item.uri>
+				</#if>
+				
+				<li${menuSpecificClass}><a href="${ecoWeb.buildRootPathAwareURL(link)}" role="menuitem">${menu_item.title}</a></li>
+		</#list>
+		<#if top_level_menu_name != "__GLOBAL__">
+			</li>
+				</ul>
+		</#if>
+	</#list>
+	
+    <#-- <li><a href="${ecoWeb.buildRootPathAwareURL("/")}">Home</a></li> -->
+   <#--
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li class="dropdown-header">Nav header</li>
+        <li><a href="#">Separated link</a></li>
+        <li><a href="#">One more separated link</a></li>
+      </ul>
+    </li>
+    -->
+  </ul>
+</div><#--/.nav-collapse -->
+  </div>
+</#macro>
 <#-- build an modal block (using Boostrap)
 param : modalId : *default* : basicModal : (html) ID of the modal (to be ued in link to target this modal)
 param : closeButtonlabel : *default* : close : label of the botom close button
