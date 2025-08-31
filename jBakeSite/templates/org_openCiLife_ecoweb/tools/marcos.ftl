@@ -47,7 +47,7 @@ return : true in a least one lookupItems is found in aSequence
 <#-- convert a String to a Sequence
 param : value : the String to convert
 param : **default** : , : autoSplitChar : String containing this Char will be converted to Sequence with autoSplitChar as separator
-return : URL prepend with rootPath (if configured)
+return : A sequence with all elements after splitting
 -->
 <#function splitStringToSequence stringValue autoSplitChar = ",">
 	<#if (stringValue?is_string && stringValue?contains(autoSplitChar))>
@@ -73,7 +73,7 @@ return : URL prepend with rootPath (if configured)
 	<#return rootPathAwareURL>
 </#function>
 
-<#-- search for absolute UURL in content and preprend the RootPath
+<#-- search for absolute URL in content and preprend the RootPath
 param : text : the teh text to search for relative URL
 param : rootPath : default ${content.rootpath} : the rootPath of teh webSite
 return : text with URL transformed

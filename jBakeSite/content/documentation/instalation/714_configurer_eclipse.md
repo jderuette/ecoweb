@@ -28,7 +28,7 @@ Eclipse gère les actions sous forme de **configuration**. Pour construire votre
     Elle ne sera pas listé par défaut il faut l'ajouter dans Elcipse IDE ! En cliquant sur le bouton *installed JRE...* puis *add* puis en sélectionnant le dossier contenant le JDK télécharger précédement.
 1. Enfin cliquer sur le bouton *apply* puis *Run* tout en bas
 
-La vue "Console" devrait apparaitre avec des texte qui défile. Si tous se passe bien cela se terminra par le texte
+La vue "Console" devrait apparaitre avec des texte qui défile. Si tous se passe bien cela se terminera par le texte
 
 ```
     [INFO] ------------------------------------------------------------------------
