@@ -11,7 +11,7 @@
 	height:75%;
 }
 
-.navbar-nav > li > a {
+.navbar-nav > li > a, .dropdown-menu > li > a{
 	border-radius:15px;
 }
 
@@ -33,7 +33,7 @@
 	word-break: normal;
 } 
 
-.navbar-nav .menu_EthikNet>a:hover {
+.navbar-nav .menu_EthikNet>a:hover, .dropDown_menu_EthikNet>li>a:hover{
 	background-color:lightgreen;
 }
 

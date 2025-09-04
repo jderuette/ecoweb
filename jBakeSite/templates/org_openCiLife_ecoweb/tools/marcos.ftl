@@ -207,7 +207,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
   			<#local result=result + [menuItem]>
   		</#if>
     <#else>
-    	<#if menuItem.menu?? && menuItem.menu.parent?? && menuItem.menu.parent == menuName>
+    	<#if menuItem.menu?? && menuItem.menu.parent?? && menuItem.menu.parent.title?? && menuItem.menu.parent.title == menuName>
       		<#local result=result + [menuItem]>
       	</#if>
     </#if>
@@ -218,14 +218,51 @@ return : a text, the configured display name (in jbake.properties) or the origin
 <#function createMultiLevelMenu list>
   <#local result={}>
   <#list list as blockMenu>
-  	<#if blockMenu.menu?? && blockMenu.menu.parent??>
-	    <#if !result[blockMenu.menu.parent]??>
-	      <#local result=result + {blockMenu.menu.parent: filterMenuList(list, blockMenu.menu.parent) }>
+  	<#if blockMenu.menu?? && blockMenu.menu.parent?? && blockMenu.menu.parent.title??>
+	    <#if !result[blockMenu.menu.parent.title]??>
+	      <#local result=result + {blockMenu.menu.parent.title: filterMenuList(list, blockMenu.menu.parent.title) }>
 	    </#if>
 	<#else>
 		<#local result=result + {"__GLOBAL__": filterMenuList(list, "__GLOBAL__") }>
 	</#if>
   </#list>
+  <#return result>
+</#function>
+
+
+<#function collectDropDownClasses list>
+  <#local AllDropDownClasses=[]>
+  <#list list as blockMenu>
+  	<#if blockMenu.menu?? && blockMenu.menu.dropDownSpecificClass??>
+	    <#if !AllDropDownClasses?seq_contains(blockMenu.menu.dropDownSpecificClass)>
+	      <#local AllDropDownClasses=AllDropDownClasses + [blockMenu.menu.dropDownSpecificClass]>
+	    </#if>
+	</#if>
+  </#list>
+  
+  <#local result = "">
+  <#list AllDropDownClasses as aDropDownClass>
+  	<#local result = result + " " + aDropDownClass>
+  </#list>
+  
+  <#return result>
+</#function>
+
+<#function collectMenuParentClasses list>
+  <#local AllMenuParentClasses=[]>
+  <#list list as blockMenu>
+  	<#if blockMenu.menu?? && blockMenu.menu.parent?? && blockMenu.menu.parent.specificClass??>
+	    <#if !AllMenuParentClasses?seq_contains(blockMenu.menu.parent.specificClass)>
+	      <#local AllMenuParentClasses=AllMenuParentClasses + [blockMenu.menu.parent.specificClass]>
+	    </#if>
+	</#if>
+  </#list>
+  
+  <#local result = "">
+  <#list AllMenuParentClasses as aMenuParentClass>
+  	<#local result = result + " " + aMenuParentClass>
+  </#list>
+  
   <#return result>
 </#function>
 
@@ -280,18 +317,11 @@ return : a text, the configured display name (in jbake.properties) or the origin
 	<@debug menu_list?size/>
 	<#local hierachical_menu = createMultiLevelMenu(menu_list)>
 	
-	
 	<#list hierachical_menu as top_level_menu_name, top_level_menu_items>
 		<#if top_level_menu_name != "__GLOBAL__">
-			<#local parentMenuSpecificClass = "class=\"dropdown-toggle\"">
-			<#--
-			<#if menu_item.menu?? && menu_item.menu.parentSpecificClass??>
-				<#local parentMenuSpecificClass = " class=\"dropdown-toggle " + menu_item.menu.parentSpecificClass + "\"">
-			</#if>
-			-->
-			<li class="dropdown">
-				<a href="#" ${parentMenuSpecificClass} data-toggle="dropdown">${top_level_menu_name} <b class="caret"></b></a>
-				<ul class="dropdown-menu">
+			<li class="dropdown${collectMenuParentClasses(top_level_menu_items)}">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">${top_level_menu_name} <b class="caret"></b></a>
+				<ul class="dropdown-menu${collectDropDownClasses(top_level_menu_items)}">
 		</#if>
 		<#list top_level_menu_items as menu_item>
 				<#assign menuSpecificClass = "">
