@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 .navbar-nav>li>a {
 	color:black;
 }
-.navbar-nav>li>a:hover {
+.navbar-nav>li>a:hover, .dropdown-menu>li>a:hover {
     background-color: #f7e6ff;
     text-decoration: underline;
 }
