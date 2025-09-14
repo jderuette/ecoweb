@@ -8,6 +8,7 @@ exerpt=Tarifs
 specificClass=EthikNet
 contentImage=images/euro.svg
 displayDate=false
+menu={"parent"{"title":"EthikNet"}}
 order=910
 ~~~~~~
 ### Création du site

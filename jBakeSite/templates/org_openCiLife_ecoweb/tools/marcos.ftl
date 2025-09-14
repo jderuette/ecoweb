@@ -306,7 +306,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 	
 	<#if (config.site_menu_includeCategories)??>
 		<#list org_openCiLife_posts?sort_by("order") as blog_menu>
-			<#if   (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include))>
+			<#if   (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
 				<#if (blog_menu.uri)?? && blog_menu.status == "published">
 					<#local menu_list = menu_list + [blog_menu]>
 				<#else></#if>
