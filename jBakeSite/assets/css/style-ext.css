@@ -21,12 +21,20 @@
 .EthikNet table th, .EthikNet table td {
 	border-color:green;
 }
-.EthikNet  .pageContent {
+.EthikNet  .subContent {
     border-color: green;
 }
 
 .EthikNet a:visited, .EthikNet a:link{
 	color:green;
+}
+
+.EthikNet b, .EthikNet strong, .menu_EthikNet b, .menu_EthikNet strong {
+	color: green;
+}
+
+.EthikNet #breadcrumb li a {
+	background-color:#ccffcc;
 }
 
 .Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
@@ -35,12 +43,6 @@
 
 .navbar-nav .menu_EthikNet>a:hover, .dropDown_menu_EthikNet>li>a:hover{
 	background-color:lightgreen;
-}
-
-#breadcrumb li {
-	border-radius: 20px;
-    padding: 10px 15px;
-    margin-right: 10px;
 }
 
 @media screen and (min-width: 640px) {

@@ -20,10 +20,18 @@
 		</div>
 	</#if>
 	<div class="pageContent">
-	${content.body}
+	
+	<#if (content.body)??>
+		${content.body}
+	</#if>
 	
 	<@ecoWeb.buildForm content />
 	<@ecoWeb.buildCarousel content />
+	
+	<#if (content.includeBlocks)??>
+		<@ecoWeb.buildBlocks content.includeBlocks.category/>
+	</#if>
+	
 	</div>
 	
 	<div class="subContent">

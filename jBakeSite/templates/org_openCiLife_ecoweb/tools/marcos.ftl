@@ -362,6 +362,43 @@ return : a text, the configured display name (in jbake.properties) or the origin
 </div><#--/.nav-collapse -->
   </div>
 </#macro>
+
+<#-- build a content with blocks
+    @param categoryFilter category to filter to get blocks. "config.site_homepage_category" for HomePage.
+-->
+<#macro buildBlocks categoryFilter>
+
+	<#list org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order") as block>
+		<#assign blockCategory = block.category!"__empty_categ__">
+		<@debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + ecoWeb.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
+		<#if ( ecoWeb.seq_containsOne(blockCategory, categoryFilter))>
+		
+		<div id="${block.anchorId}"<#rt>
+		<#if (block.specificClass)??>
+			<#lt> class="<#escape x as x?xml>${block.specificClass}</#escape>"<#rt>
+		</#if>
+		<#lt>>
+		<#if (block.title)??>
+			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
+		</#if>
+				<div class="blockBody">
+					<div class="blockContent">
+						${block.body}
+						<@ecoWeb.buildsubContent block />
+						<@ecoWeb.buildForm block />
+						<@ecoWeb.buildCarousel block />
+					</div>	
+					<#if (block.contentImage)??>
+						<img src=${buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
+					<#else></#if>
+				</div>
+			</div>
+		</#if>
+  	</#list>
+
+</#macro>
+
+
 <#-- build an modal block (using Boostrap)
 param : modalId : *default* : basicModal : (html) ID of the modal (to be ued in link to target this modal)
 param : closeButtonlabel : *default* : close : label of the botom close button
