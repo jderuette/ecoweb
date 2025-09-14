@@ -94,6 +94,10 @@
 				<ul class="dropdown-menu dropDown_menu_EthikNet">
 				
 				<li class="agence"><a href="../../ethiknet/900_agence.html" role="menuitem">Agence EthikNet</a></li>
+				
+				<li><a href="../../ethiknet/tarifs/910_tarifs.html" role="menuitem">Tarifs</a></li>
+				
+				<li><a href="../../ethiknet/processus/920_processus.html" role="menuitem">Processus</a></li>
 			</li>
 				</ul>
 	
@@ -110,13 +114,13 @@
 			 		</a>
 			 	</li>
 			 	<li>
-			 		
+			 		>>
 			 		<a href="../../documentation/creation/720_Creation_contenu.html">
 				Création du contenu
 			 		</a>
 			 	</li>
 			 	<li>
-			 		
+			 		>>
 			 		<a href="../../documentation/creation/725_les_type_de_contenus.html">
 				Les type de contenus Weblegé : org_openCiLife_ecoweb
 			 		</a>
@@ -133,7 +137,8 @@
 			<h1>Les type de contenus Weblegé : org_openCiLife_ecoweb</h1>
 		</div>
 	<div class="pageContent">
-	<h2>org_openCiLife_block</h2>
+	
+		<h2>org_openCiLife_block</h2>
 <p>Ce type est utilisé pour constituer une page contenant plusieurs bloques de contenu. Est utiliser pour la page d'accueil et pour le pied de page.<br />
 <strong>category</strong> permet de défnir où le bloque sera affiché :</p>
 <ul>
@@ -170,6 +175,7 @@
 <tr><td align="left"> date </td><td align="left"> optionnel </td><td align="left"> 2025-04-30  </td><td align="left"> La date de publication. Est affiché uniquement si l'attribut <code>displayDate</code> vaut &quot;true&quot; . </td></tr>
 <tr><td align="left"> type </td><td align="left"> <strong>requis</strong> </td><td align="left"> org_openCiLife_post </td><td align="left"> Le type de contenu : indique que se contenu sera une page. </td></tr>
 <tr><td align="left"> includeContent </td><td align="left"> optionnel </td><td align="left"> <code>{&quot;type&quot;:&quot;org_openCiLife_post&quot;, &quot;category&quot;:&quot;création&quot;, &quot;specificClass&quot;:&quot;documentation&quot;, &quot;display&quot;:{&quot;type&quot;:&quot;card&quot;, &quot;content&quot;:&quot;link&quot;}}</code> </td><td align="left"> Inclut d'autre contenus dans la page.  </td></tr>
+<tr><td align="left"> includeBlocks </td><td align="left"> optionnel </td><td align="left"> <code>{&quot;category&quot;:&quot;Ethiknet_block&quot;}</code> </td><td align="left"> Inclut des block de contenu dans la page (après le contenu).  </td></tr>
 <tr><td align="left"> carouselData </td><td align="left"> optionnel </td><td align="left"> <code>{&quot;id&quot;:&quot;HomePageCarousel&quot;,&quot;control&quot;:{&quot;previousLabel&quot;:&quot;Précédent&quot;, &quot;nextLabel&quot;:&quot;Suivant&quot;}, &quot;displayIndicator&quot;:true, &quot;style&quot;:&quot;margin:auto&quot; &quot;slides&quot;:[{&quot;type&quot;:&quot;img&quot;, &quot;data&quot;:&quot;images/common/logo_left.png&quot;, &quot;caption&quot;:&quot;&lt;h3&gt;bob&lt;/h3&gt;&lt;p&gt;un texte&lt;/p&gt;&quot;, &quot;captionStyle&quot;:&quot;color:black&quot;, &quot;alt&quot;:&quot;Une image&quot;, &quot;style&quot;:&quot;margin:auto;height:60%&quot;}, {&quot;type&quot;:&quot;text&quot;, &quot;caption&quot;:&quot;&lt;h3&gt;Juste un texte sans images&lt;/h3&gt;&lt;p&gt;Et un peu de texte en plus qui prend un maximum de place pour voire ce que ca donne&lt;/p&gt;&lt;p&gt;avec un deuxième paragraphe&lt;/p&gt;&quot;, &quot;captionStyle&quot;:&quot;color:black&quot;,}]}</code> </td><td align="left"> Inclut un carrousel en dessous du contenu textuel </td></tr>
 <tr><td align="left"> formData </td><td align="left"> optionnel </td><td align="left"> <code>{&quot;to&quot;:&quot;djer___^^!????ailaaam&quot;, &quot;method&quot;:&quot;get&quot; &quot;enctype&quot;:&quot;application/x-www-form-urlencoded&quot;, &quot;sendLabel&quot;:&quot;Contactez-moi&quot;, &quot;fields&quot;:[{&quot;id&quot;:&quot;destinataire&quot;, &quot;label&quot;:&quot;Destinataire&quot;, &quot;type&quot;:&quot;text&quot;, &quot;readOnly&quot;:&quot;true&quot;, &quot;value&quot;:&quot;djer___^^!????ailaaam&quot;, &quot;specificClass&quot;:&quot;form-control-plaintext&quot;}, {&quot;id&quot;:&quot;motif&quot;, &quot;label&quot;:&quot;Motif&quot;, &quot;type&quot;:&quot;text&quot;, &quot;name&quot;:&quot;subject&quot;}, {&quot;id&quot;:&quot;email&quot;, &quot;label&quot;:&quot;Votre e-mail&quot;, &quot;type&quot;:&quot;text&quot;, &quot;name&quot;:&quot;from&quot;}, {&quot;id&quot;:&quot;message&quot;, &quot;label&quot;:&quot;Votre message&quot;, &quot;type&quot;:&quot;textarea&quot;, &quot;rows&quot;:6, &quot;name&quot;:&quot;body&quot;}]}</code> </td><td align="left"> inclut un formulaire en dessous du contenu textuel </td></tr>
 <tr><td align="left"> category </td><td align="left"> <strong>requis</strong> </td><td align="left"> documentation, création, V0.0.1 </td><td align="left"> Est utiliser pour filtrer le contenu (notament via l'attribut <code>includeContent</code>) </td></tr>
@@ -177,13 +183,15 @@
 <tr><td align="left"> status </td><td align="left"> <strong>requis</strong> </td><td align="left"> published </td><td align="left"> Si &quot;published&quot; le bloque sera visible. Sinon il ne sera pas affiché. </td></tr>
 <tr><td align="left"> contentImage </td><td align="left"> optionnel </td><td align="left"> images/principe.svg </td><td align="left"> Image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel </td></tr>
 <tr><td align="left"> specificClass </td><td align="left"> optionnel </td><td align="left"> mainBlock style2 </td><td align="left"> Permet d'ajouter un style CSS au bloque. </td></tr>
-<tr><td align="left"> menu </td><td align="left"> optionnel </td><td align="left"> { <code>menu={&quot;parent&quot;{&quot;title&quot;:&quot;EthikNet&quot;, &quot;specificClass&quot;:&quot;menu_EthikNet&quot;}, &quot;dropDownSpecificClass&quot;:&quot;dropDown_menu_EthikNet&quot;, &quot;specificClass&quot;:&quot;agence&quot;}</code> </td><td align="left"> Permet d'ajouter des styles CSS au menu pointant vers cette page. Permet aussi de regrouper les elements de menu. </td></tr>
+<tr><td align="left"> menu </td><td align="left"> optionnel </td><td align="left"> { <code>menu={&quot;parent&quot;{&quot;title&quot;:&quot;EthikNet&quot;, &quot;specificClass&quot;:&quot;menu_EthikNet&quot;}, &quot;dropDownSpecificClass&quot;:&quot;dropDown_menu_EthikNet&quot;, &quot;specificClass&quot;:&quot;agence&quot;}</code> </td><td align="left"> Permet d'ajouter des styles CSS au menu pointant vers cette page. Permet aussi de regrouper les elements de menu. Les contenue avec cette propriété seront automatiquement ajouté au (sous)menu. </td></tr>
 <tr><td align="left"> order </td><td align="left"> <strong>requis</strong> </td><td align="left"> 050 </td><td align="left"> Ordre d'affichage du block/page par rapports aux autres. </td></tr>
 <tr><td align="left"> exerpt </td><td align="left"> <strong>recommandé</strong> </td><td align="left"> Comprendre la structure d'une page de contenu </td><td align="left"> Résumé bref de la page. Est utiliser lorsqu'il faut présenter le contenu parmis d'autres. </td></tr>
 <tr><td align="left"> displayDate </td><td align="left"> optionnel (defaut : false) </td><td align="left"> true </td><td align="left"> Si true la date de publication sera afficher en entete de la page </td></tr>
 </tbody>
 </table>
 
+	
+	
 	
 	</div>
 	
@@ -331,7 +339,7 @@
 	            </div>
 	        </div>
 	     </div>
-	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> and <a href="http://www.webleger.fr">WebLeger</a> | Version 0.0.1-SNAPSHOT at 4 sept. 2025 16:38:31</p>
+	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake 2.7.0-rc.7</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> and <a href="http://www.webleger.fr">WebLeger</a> | Version 0.0.1-SNAPSHOT at 14 sept. 2025 19:23:58</p>
       </div>
     </div>
     
