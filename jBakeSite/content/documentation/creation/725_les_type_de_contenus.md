@@ -57,7 +57,7 @@ Le type de contenu le plus courrant. Permet d'afficher une "page". Contient diff
 | status | **requis** | published | Si "published" le bloque sera visible. Sinon il ne sera pas affiché. |
 | contentImage | optionnel | images/principe.svg | Image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel |
 | specificClass | optionnel | mainBlock style2 | Permet d'ajouter un style CSS au bloque. |
-| menu | optionnel | { `menu={"parent"{"title":"EthikNet", "specificClass":"menu_EthikNet"}, "dropDownSpecificClass":"dropDown_menu_EthikNet", "specificClass":"agence"}` | Permet d'ajouter des styles CSS au menu pointant vers cette page. Permet aussi de regrouper les elements de menu. |
+| menu | optionnel | { `menu={"parent"{"title":"EthikNet", "specificClass":"menu_EthikNet"}, "dropDownSpecificClass":"dropDown_menu_EthikNet", "specificClass":"agence"}` | Permet d'ajouter des styles CSS au menu pointant vers cette page. Permet aussi de regrouper les elements de menu. Les contenue avec cette propriété seront automatiquement ajouté au (sous)menu. |
 | order | **requis** | 050 | Ordre d'affichage du block/page par rapports aux autres. |
 | exerpt | **recommandé** | Comprendre la structure d'une page de contenu | Résumé bref de la page. Est utiliser lorsqu'il faut présenter le contenu parmis d'autres. |
 | displayDate | optionnel (defaut : false) | true | Si true la date de publication sera afficher en entete de la page |
