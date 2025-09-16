@@ -115,6 +115,72 @@ return : a text (with original coma ",")
 </#function>
 
 
+<#-- convert hash, sequence, boolean to String
+param : value : object to transform in String
+-->
+<#function toString value>
+	<#local stringVal = "">
+	<#if (value?is_hash)>
+		<#local stringVal = stringVal + "{" />
+		<#local separator = "">
+		<#list value as key, value>
+			<#local stringVal = stringVal + separator + toString(key) + ":"/>
+			<#local stringVal = stringVal + toString(value)/>
+			<#local separator = ",">
+		</#list>
+		<#local stringVal = stringVal + "}" />
+	<#elseif (value?is_sequence)>
+		<#local stringVal = stringVal + "[" />
+		<#local separator = "">
+		<#list value as value>
+			<#local stringVal = stringVal + separator + toString(value)/>
+			<#local separator = ",">
+		</#list>
+		<#local stringVal = stringVal + "]" />
+	<#elseif (value?is_boolean)>
+		<#local stringVal = stringVal + value?string('true', 'false') />
+	<#else>
+		<#local stringVal = stringVal + "\"" + value + "\"" />
+	</#if>
+	<#return stringVal>
+</#function>
+
+<#-- Parse a con,fig property has JSON
+param : propValue : Config property containing the JSON
+-->
+<#function parseJsonProperty propValue>
+	<#local jsonContent = {"error":"invalidValue", "parsedVal":"no value"}>
+	
+	<#if (propValue)??>
+		<#assign fullContent = propValue>
+		<#if propValue?is_sequence>
+			<#assign fullContent = "">
+			<#assign separator = "">
+			<#list propValue as fakeItem>
+				<#assign fullContent = fullContent + separator + fakeItem>
+				<#assign separator = ",">
+			</#list>
+		</#if>
+		
+		<#local jsonContent = {"error":"invalidValue", "parsedVal":fullContent}>
+		
+		<#local jsonContent = fullContent?eval_json>
+	</#if>
+	<#return jsonContent>
+</#function>
+
+<#function displayParseJsonError jsonContent>
+	<#local message = "Parsing is valid">
+	
+	<#if (jsonContent)?? && (jsonContent.error)??>
+		<#local message = "JSON error : " + jsonContent.error>
+		<#if (jsonContent.parsedVal)??>
+			<#local message = message + "value : " + jsonContent.parsedVal>
+		</#if>
+	</#if>
+	<#return toString(jsonContent)>
+</#function>
+
 <#function unObfuscateText obfucatedEmail, obfuscationMask>
 	<#local humanReadableText = obfucatedEmail>
 	<#if obfucatedEmail?? && obfuscationMask??>
@@ -174,14 +240,13 @@ param : message : the message to display (a String)
 <#assign stackedDebugMessage = "">
 <#-- allow function to debug. Message are starcked in a sequence, and rendered at the end of the page. -->
 <#function stackDebugMessage message>
-	<#assign stackedDebugMessage = stackedDebugMessage + "<br/>" + message>
+	<#assign stackedDebugMessage = stackedDebugMessage + "<br/>" + toString(message)>
 	<#return ""/>
 </#function>
 
 <#macro displayDebugFunctionMessages>
 	<@debug stackedDebugMessage />
 </#macro>
-
 
 <#-- Find the **displayName** of a custom document type
 param : postType : the name of the document type
@@ -199,34 +264,66 @@ return : a text, the configured display name (in jbake.properties) or the origin
 </#function>
 
 
-<#function filterMenuList list menuName>
+<#-- get the language of the content
+    @param content The content.
+-->
+<#function getLang content>
+	<#local contentLang = "fr_FR">
+	
+	<#if (config.site_langs_default)??>
+		<#local contentLang = config.site_langs_default>
+	</#if>
+	
+	<#if (content)?? && (content.lang)??>
+		<#local contentLang = content.lang>
+	</#if>
+	
+	<#return contentLang>
+</#function>
+
+<#-- Determine if content has the correct lang
+    @param content The content.
+-->
+<#function isCorectLang content lang>
+	<#local isCorectLang = seq_containsOne(lang getLang(content))>
+	<#return isCorectLang>
+</#function>
+
+
+<#function filterMenuList list menuName lang>
   <#local result=[]>
   <#list list as menuItem>
-  	<#if menuName == "__GLOBAL__">
-  		<#if !menuItem.menu??>
-  			<#local result=result + [menuItem]>
-  		</#if>
-    <#else>
-    	<#if menuItem.menu?? && menuItem.menu.parent?? && menuItem.menu.parent.title?? && menuItem.menu.parent.title == menuName>
-      		<#local result=result + [menuItem]>
-      	</#if>
-    </#if>
+  	<#if isCorectLang(menuItem, lang)>
+	  	<#if menuName == "__GLOBAL__">
+	  		<#if !menuItem.menu??>
+	  			<#local result=result + [menuItem]>
+	  		</#if>
+	    <#else>
+	    	<#if menuItem.menu?? && menuItem.menu.parent?? && menuItem.menu.parent.title?? && menuItem.menu.parent.title == menuName>
+	      		<#local result=result + [menuItem]>
+	      	</#if>
+	    </#if>
+	 </#if>
   </#list>
   <#return result>
 </#function>
 
-<#function createMultiLevelMenu list>
-  <#local result={}>
-  <#list list as blockMenu>
-  	<#if blockMenu.menu?? && blockMenu.menu.parent?? && blockMenu.menu.parent.title??>
-	    <#if !result[blockMenu.menu.parent.title]??>
-	      <#local result=result + {blockMenu.menu.parent.title: filterMenuList(list, blockMenu.menu.parent.title) }>
-	    </#if>
-	<#else>
-		<#local result=result + {"__GLOBAL__": filterMenuList(list, "__GLOBAL__") }>
-	</#if>
-  </#list>
-  <#return result>
+<#function createMultiLevelMenu list lang>
+	${stackDebugMessage("MENU : Creating a menu with : " + list?size + " item for language : " + lang)}
+  	<#local result={}>
+  	<#list list as blockMenu>
+  		<#if blockMenu.menu?? && blockMenu.menu.parent?? && blockMenu.menu.parent.title??>
+	    	<#if !result[blockMenu.menu.parent.title]??>
+	    		<#local subItemList = filterMenuList(list, blockMenu.menu.parent.title, lang)>
+	    		<#if subItemList?size gt 0>
+	      			<#local result=result + {blockMenu.menu.parent.title: subItemList }>
+	      		</#if>
+	    	</#if>
+		<#else>
+			<#local result=result + {"__GLOBAL__": filterMenuList(list, "__GLOBAL__", lang) }>
+		</#if>
+  	</#list>
+    <#return result>
 </#function>
 
 
@@ -293,10 +390,11 @@ return : a text, the configured display name (in jbake.properties) or the origin
 </div>
 <div class="navbar-collapse collapse">
   <ul class="nav navbar-nav" role="menubar">
+
   	<#local menu_list = []>
   	<#if (config.site_menu_includeBlock == "true")>
   		<#list org_openCiLife_blocks?sort_by("order") as block_menu>
-			<#if (ecoWeb.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
+			<#if ((block_menu.category) ?? && ecoWeb.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
 				<#if (block_menu.anchorId)?? && block_menu.status == "published">
 					<#local menu_list = menu_list + [block_menu]>
 				</#if>
@@ -306,7 +404,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 	
 	<#if (config.site_menu_includeCategories)??>
 		<#list org_openCiLife_posts?sort_by("order") as blog_menu>
-			<#if   (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
+			<#if   (blog_menu.category)?? && (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
 				<#if (blog_menu.uri)?? && blog_menu.status == "published">
 					<#local menu_list = menu_list + [blog_menu]>
 				<#else></#if>
@@ -314,8 +412,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 		</#list>
 	</#if>
 	
-	<@debug menu_list?size/>
-	<#local hierachical_menu = createMultiLevelMenu(menu_list)>
+	<#local hierachical_menu = createMultiLevelMenu(menu_list, getLang(content))>
 	
 	<#list hierachical_menu as top_level_menu_name, top_level_menu_items>
 		<#if top_level_menu_name != "__GLOBAL__">
@@ -368,29 +465,36 @@ return : a text, the configured display name (in jbake.properties) or the origin
 -->
 <#macro buildBlocks categoryFilter>
 
-	<#list org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order") as block>
+	<#list org_openCiLife_blocks?filter(b -> b.status=="published")?filter(ct -> isCorectLang(ct, getLang(content)))?sort_by("order") as block>
 		<#assign blockCategory = block.category!"__empty_categ__">
 		<@debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + ecoWeb.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
-		<#if ( ecoWeb.seq_containsOne(blockCategory, categoryFilter))>
+		<#if (ecoWeb.seq_containsOne(blockCategory, categoryFilter))>
 		
-		<div id="${block.anchorId}"<#rt>
-		<#if (block.specificClass)??>
-			<#lt> class="<#escape x as x?xml>${block.specificClass}</#escape>"<#rt>
+		<div<#rt>
+		<#if (block.anchorId)??>
+			id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
 		</#if>
-		<#lt>>
-		<#if (block.title)??>
+		 
+		<#local classes = "block">
+		<#if (block.specificClass)??>
+			<#local classes = classes + " " + block.specificClass>
+		</#if>
+		<#lt> class="<#escape x as x?xml>${classes}</#escape>">
+		
+		<#if (block.title)?? && block.title?has_content>
 			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
 		</#if>
 				<div class="blockBody">
 					<div class="blockContent">
 						${block.body}
-						<@ecoWeb.buildsubContent block />
-						<@ecoWeb.buildForm block />
-						<@ecoWeb.buildCarousel block />
+						<@buildLanguageSwitcher block />
+						<@buildsubContent block />
+						<@buildForm block />
+						<@buildCarousel block />
 					</div>	
 					<#if (block.contentImage)??>
 						<img src=${buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
-					<#else></#if>
+					</#if>
 				</div>
 			</div>
 		</#if>
@@ -442,18 +546,11 @@ param : content : JSON content describing inclusions.
 -->
 <#macro buildExternalInjection content>
 	<#if (content)??>
-		<#assign fullContent = content>
-		<#if content?is_sequence>
-			<#assign fullContent = "">
-			<#assign separator = "">
-			<#list content as fakeItem>
-				<#assign fullContent = fullContent + separator + fakeItem>
-				<#assign separator = ",">
-			</#list>
-		</#if>
+		<#local jsonContent = parseJsonProperty(content)>
 		
-		<#assign jsonContent = fullContent?eval_json>
-		
+		<#if !(jsonContent.data)??>
+			${stackDebugMessage("buildExternalInjection : Error missing 'data' attribute after JSON parsing of attribute ==> " + displayParseJsonError(jsonContent))}
+		<#else>
 		<#list jsonContent.data as injection>
 			<#assign tagType = injection.tagType!"link">
 			<#if ((injection.constraint)??)>
@@ -464,6 +561,7 @@ param : content : JSON content describing inclusions.
 				<![endif]-->
 			</#if>
 		</#list>
+		</#if>
 	</#if>
 </#macro>
 
@@ -481,8 +579,12 @@ param : content : content to search for incluide content
 			<#if (displaySelf == "none")>
 				<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
 			</#if>
-			<@debug "Included Type " + content.includeContent.type, "Number of subContent to display " + subContents?size/>
 			
+			<#assign subContents = subContents?filter(ct -> isCorectLang(ct, getLang(content)))>
+			
+			<@debug "Included Type " + content.includeContent.type + ", for lang " + getLang(content) + " : number of subContent to display " + subContents?size/>
+			
+			<div class="subContent">
 			<#if (subContents?size > 0)>
 				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
 				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
@@ -520,19 +622,19 @@ param : content : content to search for incluide content
 					<div class="${subContentDisplayMode}_list ${specificClass}">
 				</#if>
 				<#list subContents?sort_by("order") as subContent>
-					<#assign subContentCategory = (subContent.category)!"__none__">
-					<#assign includeContentFilter = content.includeContent.category!"all">
-					<#assign specificContentClass = (content.includeContent.display.specificClass)!"">
-					<#assign collapseClass = "">
-					<#assign collapseId = "">
+					<#local subContentCategory = (subContent.category)!"__none__">
+					<#local includeContentFilter = content.includeContent.category!"all">
+					<#local specificContentClass = (content.includeContent.display.specificClass)!"">
+					<#local collapseClass = "">
+					<#local collapseId = "">
 					<#local isSelf = subContent.title == content.title>
 					<#local slefSpecificClass = "">
 					
 					<#if isSelf>
-						<#assign specificContentClass += " self">
+						<#local specificContentClass += " self">
 						<#switch displaySelf>
 							<#case "disabled">
-								<#assign specificContentClass += " self_disabled">
+								<#local specificContentClass += " self_disabled">
 							<#break>
 							<#case "none">
 								<#-- Nothing to do content is not in list -->
@@ -595,8 +697,8 @@ param : content : content to search for incluide content
 									<a href="#" role="button" class="widget_link_modal" data-toggle="modal" data-target="#${theModalId}">
 								<#break>
 								<#case "collapse_block">
-									<#assign collapseClass = "collapse">
-									<#assign collapseId = randomNumber()>
+									<#local collapseClass = "collapse">
+									<#local collapseId = randomNumber()>
     								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
 								<#break>
 								<#case "card">
@@ -654,6 +756,7 @@ param : content : content to search for incluide content
 			<#else>
 				pas de contenus (pour le moment).
 			</#if>
+			</div>
 	<#else>
 		<@debug "No SubContent for this content"/>
 	</#if>
@@ -797,10 +900,42 @@ param : content : content to search for carousel data
 		</div>
 	</#if>
 </#macro>
+
+<#-- build the language siwthcer menu -->
+<#macro buildLanguageSwitcher content>
+	<#if (content)?? && (content.languageSwitcher)?? && content.languageSwitcher = "true">
+	
+		<#if !(config.site_langs)??>
+			<@debug "buildLanguageSwitcher : Error missing 'config.langs' config value" />
+		<#else>
+			<#local jsonContent = parseJsonProperty(config.site_langs)>
+			<#if !(jsonContent.data)??>
+				${stackDebugMessage("buildLanguageSwitcher : Error missing 'data' attribute after JSON parsing of attribute ==> " + displayParseJsonError(jsonContent))}
+			<#else>
+				<ul class="languageSwitcher">
+				<#list jsonContent.data as languageData>
+					<#local isCurrentLang = (languageData.local == getLang(content))>
+					<li>
+					<#if (languageData.icon)??>
+						<img src="${buildRootPathAwareURL(languageData.icon)}">
+					</#if>
+					<#local languageFolder = "">
+					<#if (languageData.folder)?? && (languageData.folder?has_content)>
+						<#local languageFolder = "/"+languageData.folder>
+					</#if>
+					<span><a class="language" href="${config.site_host}${languageFolder}/index.html"><#escape x as x?xml>${languageData.title}</#escape></a></span>
+					</li>
+				</#list>
+				</ul>
+			</#if>
+		</#if>
+	</#if>
+</#macro>
+
 	
 <#-- build the breacrumb -->
 <#macro buildBreadcrumb content>
-	<#if config.site_breakcrumb_display == "true">
+	<#if config.site_breakcrumb_display == "true" && !((content.displayBreadcrumb)?? && content.displayBreadcrumb=="false")>
 		<#if content?? && content.uri??>
 		 	<ul id="breadcrumb">
 		 	${stackDebugMessage("Breadcrumb : Current page URI : ${content.uri}")}
@@ -854,14 +989,16 @@ Retur a LIST of content for each **directory** in URI structure. First content i
 			<#local lowestOrderContentFound = []>
 			<#local foundUri = "">
 			<#list allSubContents as aContent>
-				<#if (aContent.uri)?? && aContent.order?? && aContent.uri?keep_before_last("/") == uri>
+				<#local contentTile = aContent.title!"no_title">
+				<#local contentOrder = aContent.order!-999>
+				<#if (aContent.uri)?? && contentOrder?? && aContent.uri?keep_before_last("/") == uri>
 					<#if lowestOrderContentFound?size == 0>
-						${stackDebugMessage(">>>> Breadcrumb '${aContent.title}' with order ${aContent.order} is the first candidate")}
+						${stackDebugMessage(">>>> Breadcrumb '${contentTile}' with order ${contentOrder} is the first candidate")}
 						<#local lowestOrderContentFound = aContent>
 						<#local foundUri = aContent.uri>
 					<#else>
-						<#if (aContent.order?number < lowestOrderContentFound.order?number) >
-							${stackDebugMessage(">>>> Breadcrumb '${aContent.title}' has order ${aContent.order} lowest than previous found content '${lowestOrderContentFound.title}' with order ${lowestOrderContentFound.order}")}
+						<#if (contentOrder?number < lowestOrderContentFound.order?number) >
+							${stackDebugMessage(">>>> Breadcrumb '${contentTile}' has order ${contentOrder} lowest than previous found content '${lowestOrderContentFound.title}' with order ${lowestOrderContentFound.order}")}
 							<#local lowestOrderContentFound = aContent>
 							<#local foundUri = aContent.uri>
 						</#if>

@@ -4,6 +4,8 @@ type=org_openCiLife_block
 category=header
 tags=
 status=published
-order=084
+languageSwitcher=true
+lang=fr_FR, en_EN
+order=086
 ~~~~~~
-Téléphonne : 0601020304
+	

@@ -3,7 +3,7 @@
 </#if>
 <#import "tools/marcos.ftl" as ecoWeb>
 <!DOCTYPE html>
-<html lang="${config.site_locale}">
+<html lang="${ecoWeb.getLang(content)}">
   <head>
     <meta charset="utf-8"/>
     <title><#if (content.title)??><#escape x as x?xml>${content.title}</#escape><#else>${ecoWeb.displayConfigText(config.site_header_title)}</#if></title>
@@ -28,19 +28,7 @@
     <div id="wrap">
     	<div id="preHeader"  class="container preHeader">
     		<div class="header_blocks">
-	    		<#list org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order") as block>
-					<#assign blockCategory = block.category>
-					<#if ( ecoWeb.seq_containsOne(blockCategory, config.site_header_category))>
-				<div class="header_block${((block.specificClass)?? && block.contentImage != "")?then(" " + block.specificClass, "")}">
-				<#if (block.contentImage)?? && block.contentImage != "">
-		            <img src="${ecoWeb.buildRootPathAwareURL(block.contentImage)}">
-		        </#if>
-		            <div class="header_block_text">
-		            	${block.body}
-		            </div>
-		        </div>
-					</#if>
-				</#list>
+    			<@ecoWeb.buildBlocks config.site_header_category/>
 			</div>
     	</div>
     	<div id="header">

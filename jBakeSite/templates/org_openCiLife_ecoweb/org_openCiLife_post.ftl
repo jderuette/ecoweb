@@ -14,7 +14,7 @@
 		</ul>
 	</#if>
 	
-	<#if (content.title)??>
+	<#if (content.title)?? && ((content.displayTitle)?? && !(content.displayTitle=="false"))>
 		<div class="page-header">
 			<h1><#escape x as x?xml>${content.title}</#escape></h1>
 		</div>
@@ -34,7 +34,5 @@
 	
 	</div>
 	
-	<div class="subContent">
 	<@ecoWeb.buildsubContent content />
-	</div>
 <#include "footer.ftl">

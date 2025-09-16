@@ -6,7 +6,7 @@
     <div id="footer" role="contentinfo">
      <div class="container">
 	     <div class="footer_blocks">
-			<#list org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order") as block>
+			<#list org_openCiLife_blocks?filter(b -> b.status=="published")?filter(ct -> ecoWeb.isCorectLang(ct, ecoWeb.getLang(content)))?sort_by("order") as block>
 				<#assign blockCategory = block.category>
 				<#if ( ecoWeb.seq_containsOne(blockCategory, config.site_footer_category))>
 			<div class="footer_block${((block.specificClass)?? && block.specificClass != "")?then(" " + block.specificClass, "")}">

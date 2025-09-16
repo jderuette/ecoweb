@@ -1,12 +1,12 @@
 title=Articles
-date=2019-03-16
+date=2025-10-15
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"article", "display":{"type":"card", "content":"link"}}
 category=global
 status=published
 displayDate=false
 menu={"parent"{"title":"WebLegé"}}
-lang=fr_FR
+lang=en_EN
 order=100
 ~~~~~~
-Notre R&D vous livre ses tutos et bonnes pratiques.
+Check out advice to build a better Web.
