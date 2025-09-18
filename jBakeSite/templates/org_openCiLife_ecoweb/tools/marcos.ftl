@@ -90,6 +90,33 @@ return : text with URL transformed
 </#function>
  -->
  
+ <#-- read and display text from config file. Handle corectly when coma "," in text.
+param : theText : the text to display (may be a "sequence")
+return : a text (with original coma ",")
+-->
+<#function retrieveAndDisplayConfigText theProperty>
+	<#local prop = theProperty>
+	<#if theProperty?is_sequence>
+		<#local prop = theProperty?join(", ")>
+	</#if>
+	
+	
+	<#local prop = prop?replace(".", "_")>
+	
+	<#if (config["site_langs"])??>
+		<#if (content.lang)?? && (config[content.lang + "_" + prop])??>
+			<#local prop = content.lang + "_" + prop>
+		</#if>
+	</#if>
+	
+	<#if config[prop]??>
+		<#local text = displayConfigText(config[prop])>
+	<#else>
+		<#local text = "no '" + prop + "' in config file">
+	</#if>
+	<#return text>
+</#function>
+ 
 <#-- display text from config file. Handle corectly when coma "," in text
 param : theText : the text to display (may be a "sequence")
 return : a text (with original coma ",")
