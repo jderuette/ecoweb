@@ -211,6 +211,17 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	color: #6900cc;
 }
 
+.languageSwitcher {
+	list-style:none;
+	float:left;
+	margin:0;
+}
+
+.languageSwitcher li {
+	float:left;
+	margin-left: 15px;
+}
+
 .blockBody {
 	display: flex;
 	flex-direction: row;
@@ -502,11 +513,13 @@ div.debug {
 	flex-direction: row-reverse;
 }
 
-.header_block_text {
+
+.preHeader .blockContent {
+	padding: 0;
 	margin-left: 12px;
 }
 
-.header_block_text > p{
+.preHeader .blockContent > p{
 	margin : 0px;
 }
 
@@ -537,6 +550,10 @@ div.debug {
 	}
 	.blockDescription {
 		width: 40%
+	}
+	
+	.preHeader .blockContent {
+		margin-left: 25px;
 	}
 	.footer_blocks {
 		flex-direction: row;
