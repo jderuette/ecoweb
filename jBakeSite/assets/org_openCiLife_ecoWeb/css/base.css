@@ -111,13 +111,13 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	background-color: ${webleger.site.style.header.background_color};
     padding: 15px;
     border-radius: 20px;
-    white-space: nowrap;
 }
 
 #breadcrumb li {
 	display: inline;
 	padding:0;
 	border-radius:0;
+	white-space: nowrap;
 }
 
 #breadcrumb li a {
@@ -219,7 +219,11 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 
 .languageSwitcher li {
 	float:left;
-	margin-left: 15px;
+	margin-left: 5px;
+}
+
+.languageSwitcher img {
+	max-width: 16px;
 }
 
 .blockBody {
@@ -243,6 +247,14 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 .subContent {
 	border-top: 2px solid ${webleger.site.style.header.title.color};
     border-radius: 20px;
+}
+
+.subContent>.title {
+    padding-top: 12px;
+    padding-left: 12px;
+    font-size: 150%;
+    color: ${webleger.site.style.header.title.color};
+    text-decoration: underline;
 }
 
 .blockSubContent {
@@ -540,6 +552,13 @@ div.debug {
 	}
 	#logoLeft {
 		width: ${webleger.site.logoLeft.size.width.desktop};
+	}
+	.languageSwitcher li {
+		float:left;
+		margin-left: 15px;
+	}
+	.languageSwitcher img {
+		max-width: 32px;
 	}
 	.blockIcon {
 		width: 130px;

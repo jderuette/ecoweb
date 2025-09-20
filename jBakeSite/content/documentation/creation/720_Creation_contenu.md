@@ -1,7 +1,7 @@
 title=Création du contenu
 date=2025-06-16
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "title":"Dans la même catégorie", "display":{"type":"card", "content":"link"}}
 category=documentation, doc_chapter, création, V0.0.1
 tags=Création de contenu
 status=published

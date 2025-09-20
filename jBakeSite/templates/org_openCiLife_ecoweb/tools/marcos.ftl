@@ -613,6 +613,9 @@ param : content : content to search for incluide content
 			
 			<div class="subContent">
 			<#if (subContents?size > 0)>
+				<#if (content.includeContent.title)??>
+					<div class="title">${content.includeContent.title}</div>
+				</#if>
 				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
 				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
 				<#assign subContentBeforeTitleImage = (content.includeContent.display.beforeTitleImage)!"">
