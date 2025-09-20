@@ -48,7 +48,7 @@ Le type de contenu le plus courrant. Permet d'afficher une "page". Contient diff
 | title | **requis** | Nos engagements | Le titre du bloc |
 | date | optionnel | 2025-04-30  | La date de publication. Est affiché uniquement si l'attribut ``displayDate`` vaut "true" . |
 | type | **requis** | org_openCiLife_post | Le type de contenu : indique que se contenu sera une page. |
-| includeContent | optionnel | `{"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}` | Inclut d'autre contenus dans la page.  |
+| includeContent | optionnel | `{"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "title":"Dans la même catégorie",  "display":{"type":"card", "content":"link"}}` | Inclut d'autre contenus dans la page.  |
 | includeBlocks | optionnel | `{"category":"Ethiknet_block"}` | Inclut des block de contenu dans la page (après le contenu).  |
 | carouselData | optionnel | `{"id":"HomePageCarousel","control":{"previousLabel":"Précédent", "nextLabel":"Suivant"}, "displayIndicator":true, "style":"margin:auto" "slides":[{"type":"img", "data":"images/common/logo_left.png", "caption":"<h3>bob</h3><p>un texte</p>", "captionStyle":"color:black", "alt":"Une image", "style":"margin:auto;height:60%"}, {"type":"text", "caption":"<h3>Juste un texte sans images</h3><p>Et un peu de texte en plus qui prend un maximum de place pour voire ce que ca donne</p><p>avec un deuxième paragraphe</p>", "captionStyle":"color:black",}]}` | Inclut un carrousel en dessous du contenu textuel |
 | formData | optionnel | `{"to":"${webleger.site.forulaire.contact.general.email}", "method":"get" "enctype":"application/x-www-form-urlencoded", "sendLabel":"Contactez-moi", "fields":[{"id":"destinataire", "label":"Destinataire", "type":"text", "readOnly":"true", "value":"${webleger.site.forulaire.contact.general.email}", "specificClass":"form-control-plaintext"}, {"id":"motif", "label":"Motif", "type":"text", "name":"subject"}, {"id":"email", "label":"Votre e-mail", "type":"text", "name":"from"}, {"id":"message", "label":"Votre message", "type":"textarea", "rows":6, "name":"body"}]}` | inclut un formulaire en dessous du contenu textuel |
@@ -58,6 +58,9 @@ Le type de contenu le plus courrant. Permet d'afficher une "page". Contient diff
 | contentImage | optionnel | images/principe.svg | Image à afficher pour se contenu. Est affiché par defaut a gauche du contenu textuel |
 | specificClass | optionnel | mainBlock style2 | Permet d'ajouter un style CSS au bloque. |
 | menu | optionnel | { `menu={"parent"{"title":"EthikNet", "specificClass":"menu_EthikNet"}, "dropDownSpecificClass":"dropDown_menu_EthikNet", "specificClass":"agence"}` | Permet d'ajouter des styles CSS au menu pointant vers cette page. Permet aussi de regrouper les elements de menu. Les contenue avec cette propriété seront automatiquement ajouté au (sous)menu. |
+| lang | optionnel | en_EN | Lang du contenu : defaut : `site.langs.default` |
 | order | **requis** | 050 | Ordre d'affichage du block/page par rapports aux autres. |
 | exerpt | **recommandé** | Comprendre la structure d'une page de contenu | Résumé bref de la page. Est utiliser lorsqu'il faut présenter le contenu parmis d'autres. |
-| displayDate | optionnel (defaut : false) | true | Si true la date de publication sera afficher en entete de la page |
+| displayDate | optionnel (defaut : false) | true | Si true la date de publication sera affiché en entête de la page |
+| displayTitle | optionnel (defaut : true) | true | Si false Le titre de publication ne sera pas affiché en entête de la page |
+| displayBreadcrumb | optionnel (defaut : false) | true | Si false le fil d'ariane ne sera pas affiché en entête de la page |
