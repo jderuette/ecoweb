@@ -6,4 +6,4 @@ tags=
 status=published
 order=080
 ~~~~~~
-E-mail : <span data-obfuscatedkey="${webleger.site.forulaire.contact.general.email.ofuscation-mask}">${webleger.site.forulaire.contact.general.email}</span>
+E-mail : <span data-obfuscatedkey="${webleger.site.forulaire.contact.general.email.obfuscation-mask}">${webleger.site.forulaire.contact.general.email}</span>
