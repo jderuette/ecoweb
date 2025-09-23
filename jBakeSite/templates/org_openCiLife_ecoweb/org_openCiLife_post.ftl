@@ -5,7 +5,7 @@
 	<#if ((content.displayDate)?? && content.displayDate == "true")>
 		<p>Publié le : <em>${content.date?string("dd MMMM yyyy")}</em></p>
 	</#if>
-	<#if (content.tags)??>
+	<#if (content.tags)?? && (content.tags?size > 0) >
 		<span>Tags : </span>
 		<ul class="content_tags">
 		<#list content.tags as tag>
@@ -14,14 +14,25 @@
 		</ul>
 	</#if>
 	
-	<#if (content.title)??>
+	<#if (content.title)?? && ((content.displayTitle)?? && !(content.displayTitle=="false"))>
 		<div class="page-header">
 			<h1><#escape x as x?xml>${content.title}</#escape></h1>
 		</div>
 	</#if>
-	${content.body}
-	<@ecoWeb.buildsubContent content />
+	<div class="pageContent">
+	
+	<#if (content.body)??>
+		${content.body}
+	</#if>
+	
 	<@ecoWeb.buildForm content />
 	<@ecoWeb.buildCarousel content />
 	
+	<#if (content.includeBlocks)??>
+		<@ecoWeb.buildBlocks content.includeBlocks.category/>
+	</#if>
+	
+	</div>
+	
+	<@ecoWeb.buildsubContent content />
 <#include "footer.ftl">

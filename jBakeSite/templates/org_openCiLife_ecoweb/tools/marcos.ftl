@@ -47,7 +47,7 @@ return : true in a least one lookupItems is found in aSequence
 <#-- convert a String to a Sequence
 param : value : the String to convert
 param : **default** : , : autoSplitChar : String containing this Char will be converted to Sequence with autoSplitChar as separator
-return : URL prepend with rootPath (if configured)
+return : A sequence with all elements after splitting
 -->
 <#function splitStringToSequence stringValue autoSplitChar = ",">
 	<#if (stringValue?is_string && stringValue?contains(autoSplitChar))>
@@ -73,7 +73,7 @@ return : URL prepend with rootPath (if configured)
 	<#return rootPathAwareURL>
 </#function>
 
-<#-- search for absolute UURL in content and preprend the RootPath
+<#-- search for absolute URL in content and preprend the RootPath
 param : text : the teh text to search for relative URL
 param : rootPath : default ${content.rootpath} : the rootPath of teh webSite
 return : text with URL transformed
@@ -89,6 +89,33 @@ return : text with URL transformed
 	<#return contentRootPathAwareURL>
 </#function>
  -->
+ 
+ <#-- read and display text from config file. Handle corectly when coma "," in text.
+param : theText : the text to display (may be a "sequence")
+return : a text (with original coma ",")
+-->
+<#function retrieveAndDisplayConfigText theProperty>
+	<#local prop = theProperty>
+	<#if theProperty?is_sequence>
+		<#local prop = theProperty?join(", ")>
+	</#if>
+	
+	
+	<#local prop = prop?replace(".", "_")>
+	
+	<#if (config["site_langs"])??>
+		<#if (content.lang)?? && (config[content.lang + "_" + prop])??>
+			<#local prop = content.lang + "_" + prop>
+		</#if>
+	</#if>
+	
+	<#if config[prop]??>
+		<#local text = displayConfigText(config[prop])>
+	<#else>
+		<#local text = "no '" + prop + "' in config file">
+	</#if>
+	<#return text>
+</#function>
  
 <#-- display text from config file. Handle corectly when coma "," in text
 param : theText : the text to display (may be a "sequence")
@@ -114,6 +141,91 @@ return : a text (with original coma ",")
 	<#return hasValue>
 </#function>
 
+
+<#-- convert hash, sequence, boolean to String
+param : value : object to transform in String
+-->
+<#function toString value>
+	<#local stringVal = "">
+	<#if (value?is_hash)>
+		<#local stringVal = stringVal + "{" />
+		<#local separator = "">
+		<#list value as key, value>
+			<#local stringVal = stringVal + separator + toString(key) + ":"/>
+			<#local stringVal = stringVal + toString(value)/>
+			<#local separator = ",">
+		</#list>
+		<#local stringVal = stringVal + "}" />
+	<#elseif (value?is_sequence)>
+		<#local stringVal = stringVal + "[" />
+		<#local separator = "">
+		<#list value as value>
+			<#local stringVal = stringVal + separator + toString(value)/>
+			<#local separator = ",">
+		</#list>
+		<#local stringVal = stringVal + "]" />
+	<#elseif (value?is_boolean)>
+		<#local stringVal = stringVal + value?string('true', 'false') />
+	<#else>
+		<#local stringVal = stringVal + "\"" + value + "\"" />
+	</#if>
+	<#return stringVal>
+</#function>
+
+<#-- Parse a con,fig property has JSON
+param : propValue : Config property containing the JSON
+-->
+<#function parseJsonProperty propValue>
+	<#local jsonContent = {"error":"invalidValue", "parsedVal":"no value"}>
+	
+	<#if (propValue)??>
+		<#assign fullContent = propValue>
+		<#if propValue?is_sequence>
+			<#assign fullContent = "">
+			<#assign separator = "">
+			<#list propValue as fakeItem>
+				<#assign fullContent = fullContent + separator + fakeItem>
+				<#assign separator = ",">
+			</#list>
+		</#if>
+		
+		<#local jsonContent = {"error":"invalidValue", "parsedVal":fullContent}>
+		
+		<#local jsonContent = fullContent?eval_json>
+	</#if>
+	<#return jsonContent>
+</#function>
+
+<#function displayParseJsonError jsonContent>
+	<#local message = "Parsing is valid">
+	
+	<#if (jsonContent)?? && (jsonContent.error)??>
+		<#local message = "JSON error : " + jsonContent.error>
+		<#if (jsonContent.parsedVal)??>
+			<#local message = message + "value : " + jsonContent.parsedVal>
+		</#if>
+	</#if>
+	<#return toString(jsonContent)>
+</#function>
+
+<#function unObfuscateText obfucatedEmail, obfuscationMask>
+	<#local humanReadableText = obfucatedEmail>
+	<#if obfucatedEmail?? && obfuscationMask??>
+		${stackDebugMessage("UnObfuscateText : decrypt text ! whith key : " + obfuscationMask)}
+		<#local tokens=obfuscationMask?split(r"\s*,\s*", "r")>
+		${stackDebugMessage(">>Email : " + tokens?size + " crypt token found")}
+		<#list tokens as token>
+			<#local tokenDetail=token?split(r"\s*:\s*", "r")>
+			<#if tokenDetail?? && tokenDetail[0]?? && tokenDetail[1]??>
+				${stackDebugMessage(">>>>UnObfuscateText : replacing " + tokenDetail[1] + " by " + tokenDetail[0])}
+				<#local humanReadableText = humanReadableText?replace(tokenDetail[1], tokenDetail[0])>
+			</#if>
+			${stackDebugMessage(">>>>UnObfuscateText : Token has " + tokenDetail?size + " elements, current Human Readable e-mail : " + humanReadableText)}
+		</#list>
+	</#if>
+	<#return humanReadableText>
+</#function>
+
 <#-- display debug messages in HTML page. Only displayend if "site.debug.enabled" exist and is "true"
 param : message : the message to display (a String)
 -->
@@ -133,19 +245,17 @@ param : message : the message to display (a String)
 			</#list>
 		<#elseif (message?is_sequence)>
 			<#-- Called using <@macro debug ["A message"]> OR <@macro debug ["first message", "Second message"]> -->
-				<#list message as value>
-					<#if value?is_sequence>
-						<#list value as aMessage>
-							<p class="debug"> ${aMessage}</p>
-						</#list>
-					<#else>
-						<#if (value?is_boolean)>
-						<p class="debug">${value?string('yes', 'no')}</p>
-						<#else>
-							<p class="debug">${value}</p>
-						</#if>
-					</#if>
-				</#list>
+			<#list message as value>
+				<#if value?is_sequence>
+					<#list value as aMessage>
+						<p class="debug"> ${aMessage}</p>
+					</#list>
+				<#elseif (value?is_boolean)>
+					<p class="debug">${value?string('yes', 'no')}</p>
+				<#else>
+					<p class="debug">${value}</p>
+				</#if>
+			</#list>
 		<#else>
 			<p class="debug"> ${message}</p>
 		</#if>
@@ -153,6 +263,17 @@ param : message : the message to display (a String)
 	</#if>
 </#macro>
 
+
+<#assign stackedDebugMessage = "">
+<#-- allow function to debug. Message are starcked in a sequence, and rendered at the end of the page. -->
+<#function stackDebugMessage message>
+	<#assign stackedDebugMessage = stackedDebugMessage + "<br/>" + toString(message)>
+	<#return ""/>
+</#function>
+
+<#macro displayDebugFunctionMessages>
+	<@debug stackedDebugMessage />
+</#macro>
 
 <#-- Find the **displayName** of a custom document type
 param : postType : the name of the document type
@@ -168,6 +289,245 @@ return : a text, the configured display name (in jbake.properties) or the origin
 	
 	<#return postTypeDisplayName>
 </#function>
+
+
+<#-- get the language of the content
+    @param content The content.
+-->
+<#function getLang content>
+	<#local contentLang = "fr_FR">
+	
+	<#if (config.site_langs_default)??>
+		<#local contentLang = config.site_langs_default>
+	</#if>
+	
+	<#if (content)?? && (content.lang)??>
+		<#local contentLang = content.lang>
+	</#if>
+	
+	<#return contentLang>
+</#function>
+
+<#-- Determine if content has the correct lang
+    @param content The content.
+-->
+<#function isCorectLang content lang>
+	<#local isCorectLang = seq_containsOne(lang getLang(content))>
+	<#return isCorectLang>
+</#function>
+
+
+<#function filterMenuList list menuName lang>
+  <#local result=[]>
+  <#list list as menuItem>
+  	<#if isCorectLang(menuItem, lang)>
+	  	<#if menuName == "__GLOBAL__">
+	  		<#if !menuItem.menu??>
+	  			<#local result=result + [menuItem]>
+	  		</#if>
+	    <#else>
+	    	<#if menuItem.menu?? && menuItem.menu.parent?? && menuItem.menu.parent.title?? && menuItem.menu.parent.title == menuName>
+	      		<#local result=result + [menuItem]>
+	      	</#if>
+	    </#if>
+	 </#if>
+  </#list>
+  <#return result>
+</#function>
+
+<#function createMultiLevelMenu list lang>
+	${stackDebugMessage("MENU : Creating a menu with : " + list?size + " item for language : " + lang)}
+  	<#local result={}>
+  	<#list list as blockMenu>
+  		<#if blockMenu.menu?? && blockMenu.menu.parent?? && blockMenu.menu.parent.title??>
+	    	<#if !result[blockMenu.menu.parent.title]??>
+	    		<#local subItemList = filterMenuList(list, blockMenu.menu.parent.title, lang)>
+	    		<#if subItemList?size gt 0>
+	      			<#local result=result + {blockMenu.menu.parent.title: subItemList }>
+	      		</#if>
+	    	</#if>
+		<#else>
+			<#local result=result + {"__GLOBAL__": filterMenuList(list, "__GLOBAL__", lang) }>
+		</#if>
+  	</#list>
+    <#return result>
+</#function>
+
+
+<#function collectDropDownClasses list>
+  <#local AllDropDownClasses=[]>
+  <#list list as blockMenu>
+  	<#if blockMenu.menu?? && blockMenu.menu.dropDownSpecificClass??>
+	    <#if !AllDropDownClasses?seq_contains(blockMenu.menu.dropDownSpecificClass)>
+	      <#local AllDropDownClasses=AllDropDownClasses + [blockMenu.menu.dropDownSpecificClass]>
+	    </#if>
+	</#if>
+  </#list>
+  
+  <#local result = "">
+  <#list AllDropDownClasses as aDropDownClass>
+  	<#local result = result + " " + aDropDownClass>
+  </#list>
+  
+  <#return result>
+</#function>
+
+<#function collectMenuParentClasses list>
+  <#local AllMenuParentClasses=[]>
+  <#list list as blockMenu>
+  	<#if blockMenu.menu?? && blockMenu.menu.parent?? && blockMenu.menu.parent.specificClass??>
+	    <#if !AllMenuParentClasses?seq_contains(blockMenu.menu.parent.specificClass)>
+	      <#local AllMenuParentClasses=AllMenuParentClasses + [blockMenu.menu.parent.specificClass]>
+	    </#if>
+	</#if>
+  </#list>
+  
+  <#local result = "">
+  <#list AllMenuParentClasses as aMenuParentClass>
+  	<#local result = result + " " + aMenuParentClass>
+  </#list>
+  
+  <#return result>
+</#function>
+
+<#-- macro debugMenu menuItems>
+	<div class="debug">
+	debug du menu<br/>
+	<#list menuItems as parentName, menuItems>
+		- ${parentName}<br/>
+		<#list menuItems as subMenu >
+			--- ${subMenu.title}
+		</#list>
+		<br/>
+	</#list>
+	</div>
+</#macro>
+-->
+
+<#-- build the site menu (using Boostrap) -->
+<#macro buildMenu>
+<div class="navbar navbar-light bg-white" role="navigation">
+      <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav" role="menubar">
+
+  	<#local menu_list = []>
+  	<#if (config.site_menu_includeBlock == "true")>
+  		<#list org_openCiLife_blocks?sort_by("order") as block_menu>
+			<#if ((block_menu.category) ?? && ecoWeb.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
+				<#if (block_menu.anchorId)?? && block_menu.status == "published">
+					<#local menu_list = menu_list + [block_menu]>
+				</#if>
+			</#if>
+		</#list>
+	</#if>
+	
+	<#if (config.site_menu_includeCategories)??>
+		<#list org_openCiLife_posts?sort_by("order") as blog_menu>
+			<#if   (blog_menu.category)?? && (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
+				<#if (blog_menu.uri)?? && blog_menu.status == "published">
+					<#local menu_list = menu_list + [blog_menu]>
+				<#else></#if>
+			</#if>
+		</#list>
+	</#if>
+	
+	<#local hierachical_menu = createMultiLevelMenu(menu_list, getLang(content))>
+	
+	<#list hierachical_menu as top_level_menu_name, top_level_menu_items>
+		<#if top_level_menu_name != "__GLOBAL__">
+			<li class="dropdown${collectMenuParentClasses(top_level_menu_items)}">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">${top_level_menu_name} <b class="caret"></b></a>
+				<ul class="dropdown-menu${collectDropDownClasses(top_level_menu_items)}">
+		</#if>
+		<#list top_level_menu_items as menu_item>
+				<#assign menuSpecificClass = "">
+				<#if menu_item.menu?? && menu_item.menu.specificClass??>
+					<#assign menuSpecificClass = " class=\"" + menu_item.menu.specificClass + "\"">
+				</#if>
+				<#local link = "">
+				<#if menu_item.anchorId??>
+					<#local link = "index.html#"+menu_item.anchorId>
+				<#else>
+					<#local link = menu_item.uri>
+				</#if>
+				
+				<li${menuSpecificClass}><a href="${ecoWeb.buildRootPathAwareURL(link)}" role="menuitem">${menu_item.title}</a></li>
+		</#list>
+		<#if top_level_menu_name != "__GLOBAL__">
+			</li>
+				</ul>
+		</#if>
+	</#list>
+	
+    <#-- <li><a href="${ecoWeb.buildRootPathAwareURL("/")}">Home</a></li> -->
+   <#--
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li class="dropdown-header">Nav header</li>
+        <li><a href="#">Separated link</a></li>
+        <li><a href="#">One more separated link</a></li>
+      </ul>
+    </li>
+    -->
+  </ul>
+</div><#--/.nav-collapse -->
+  </div>
+</#macro>
+
+<#-- build a content with blocks
+    @param categoryFilter category to filter to get blocks. "config.site_homepage_category" for HomePage.
+-->
+<#macro buildBlocks categoryFilter>
+
+	<#list org_openCiLife_blocks?filter(b -> b.status=="published")?filter(ct -> isCorectLang(ct, getLang(content)))?sort_by("order") as block>
+		<#assign blockCategory = block.category!"__empty_categ__">
+		<@debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + ecoWeb.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
+		<#if (ecoWeb.seq_containsOne(blockCategory, categoryFilter))>
+		
+		<div<#rt>
+		<#if (block.anchorId)??>
+			id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
+		</#if>
+		 
+		<#local classes = "block">
+		<#if (block.specificClass)??>
+			<#local classes = classes + " " + block.specificClass>
+		</#if>
+		<#lt> class="<#escape x as x?xml>${classes}</#escape>">
+		
+		<#if (block.title)?? && block.title?has_content>
+			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
+		</#if>
+				<div class="blockBody">
+					<div class="blockContent">
+						${block.body}
+						<@buildLanguageSwitcher block />
+						<@buildsubContent block />
+						<@buildForm block />
+						<@buildCarousel block />
+					</div>	
+					<#if (block.contentImage)??>
+						<img src=${buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
+					</#if>
+				</div>
+			</div>
+		</#if>
+  	</#list>
+
+</#macro>
 
 
 <#-- build an modal block (using Boostrap)
@@ -213,18 +573,11 @@ param : content : JSON content describing inclusions.
 -->
 <#macro buildExternalInjection content>
 	<#if (content)??>
-		<#assign fullContent = content>
-		<#if content?is_sequence>
-			<#assign fullContent = "">
-			<#assign separator = "">
-			<#list content as fakeItem>
-				<#assign fullContent = fullContent + separator + fakeItem>
-				<#assign separator = ",">
-			</#list>
-		</#if>
+		<#local jsonContent = parseJsonProperty(content)>
 		
-		<#assign jsonContent = fullContent?eval_json>
-		
+		<#if !(jsonContent.data)??>
+			${stackDebugMessage("buildExternalInjection : Error missing 'data' attribute after JSON parsing of attribute ==> " + displayParseJsonError(jsonContent))}
+		<#else>
 		<#list jsonContent.data as injection>
 			<#assign tagType = injection.tagType!"link">
 			<#if ((injection.constraint)??)>
@@ -235,6 +588,7 @@ param : content : JSON content describing inclusions.
 				<![endif]-->
 			</#if>
 		</#list>
+		</#if>
 	</#if>
 </#macro>
 
@@ -252,9 +606,16 @@ param : content : content to search for incluide content
 			<#if (displaySelf == "none")>
 				<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
 			</#if>
-			<@debug "Included Type " + content.includeContent.type, "Number of subContent to display " + subContents?size/>
 			
+			<#assign subContents = subContents?filter(ct -> isCorectLang(ct, getLang(content)))>
+			
+			<@debug "Included Type " + content.includeContent.type + ", for lang " + getLang(content) + " : number of subContent to display " + subContents?size/>
+			
+			<div class="subContent">
 			<#if (subContents?size > 0)>
+				<#if (content.includeContent.title)??>
+					<div class="title">${content.includeContent.title}</div>
+				</#if>
 				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
 				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
 				<#assign subContentBeforeTitleImage = (content.includeContent.display.beforeTitleImage)!"">
@@ -291,19 +652,19 @@ param : content : content to search for incluide content
 					<div class="${subContentDisplayMode}_list ${specificClass}">
 				</#if>
 				<#list subContents?sort_by("order") as subContent>
-					<#assign subContentCategory = (subContent.category)!"__none__">
-					<#assign includeContentFilter = content.includeContent.category!"all">
-					<#assign specificContentClass = (content.includeContent.display.specificClass)!"">
-					<#assign collapseClass = "">
-					<#assign collapseId = "">
+					<#local subContentCategory = (subContent.category)!"__none__">
+					<#local includeContentFilter = content.includeContent.category!"all">
+					<#local specificContentClass = (content.includeContent.display.specificClass)!"">
+					<#local collapseClass = "">
+					<#local collapseId = "">
 					<#local isSelf = subContent.title == content.title>
 					<#local slefSpecificClass = "">
 					
 					<#if isSelf>
-						<#assign specificContentClass += " self">
+						<#local specificContentClass += " self">
 						<#switch displaySelf>
 							<#case "disabled">
-								<#assign specificContentClass += " self_disabled">
+								<#local specificContentClass += " self_disabled">
 							<#break>
 							<#case "none">
 								<#-- Nothing to do content is not in list -->
@@ -366,8 +727,8 @@ param : content : content to search for incluide content
 									<a href="#" role="button" class="widget_link_modal" data-toggle="modal" data-target="#${theModalId}">
 								<#break>
 								<#case "collapse_block">
-									<#assign collapseClass = "collapse">
-									<#assign collapseId = randomNumber()>
+									<#local collapseClass = "collapse">
+									<#local collapseId = randomNumber()>
     								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
 								<#break>
 								<#case "card">
@@ -425,6 +786,7 @@ param : content : content to search for incluide content
 			<#else>
 				pas de contenus (pour le moment).
 			</#if>
+			</div>
 	<#else>
 		<@debug "No SubContent for this content"/>
 	</#if>
@@ -435,19 +797,30 @@ param : content : content to search for form data
 -->
 <#macro buildForm content>
 	<#if (content.formData)??>
-		<#assign to=content.formData.to />
-		<#assign method=(content.formData.method)!"get" />
-		<#assign enctype=(content.formData.enctype)!"application/x-www-form-urlencoded" />
-		<#assign sendLabel=(content.formData.sendLabel)!"Contactez" />
-		
+		<#local method=(content.formData.method)!"get" />
+		<#local enctype=(content.formData.enctype)!"application/x-www-form-urlencoded" />
+		<#local sendLabel=(content.formData.sendLabel)!"Contactez" />
+		<#local formId=(content.formData.id)!"form1" />
 		
 		<#assign fields=(content.formData.fields)! />
 		
-		<form action="mailto:<#escape x as x?xml>${to}</#escape>" method="<#escape x as x?xml>${method}</#escape>" enctype="<#escape x as x?xml>${enctype}</#escape>" class="contact_form">
+		<#local isContactForm = false>
+		<#local extraAtr = "">
+		
+		<#if (content.formData.to)??>
+			<#local isContactForm = true>
+			<#if (content.formData.dataTransform)?? && content.formData.dataTransform.type="obfuscated">
+				<#local extraAtr = "data-obfuscatedMailTo=\"" + content.formData.to + "\" data-obfuscatedMailToKey=\""+content.formData.dataTransform.obfuscatedKey+"\"">
+			</#if>
+		</#if>
+		
+		<form id="<#escape x as x?xml>${formId}</#escape>"<#if (extraAtr!="")> ${extraAtr}</#if><#if (content.formData.action)??> action="<#escape x as x?xml>${content.formData.action}</#escape></#if>" method="<#escape x as x?xml>${method}</#escape>" enctype="<#escape x as x?xml>${enctype}</#escape>" class="contact_form">
 		<div class="form-group">
 		
 		<#list fields as field>
-			<label for="<#escape x as x?xml>${field.id}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
+			<#local fieldId = field.id>
+			<label for="<#escape x as x?xml>${fieldId}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
+			
 			<#if field.type == "textarea">
 				<#assign endTag = "textarea" />
 				<textarea 
@@ -460,7 +833,15 @@ param : content : content to search for form data
 				name="<#escape x as x?xml>${field.name}</#escape>"
 			</#if>
 			<#if (field.value)??>
-				value="<#escape x as x?xml>${field.value}</#escape>"
+				<#local fieldVal=field.value>
+				<#if (field.dataTransform)?? && field.dataTransform.type == "obfuscated" && (field.dataTransform.obfuscatedKey)??>
+					<#if (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+						<#local fieldVal="" />
+					<#else>
+						<#local fieldVal=(unObfuscateText(field.value, field.dataTransform.obfuscatedKey))!"invalid obfuscation key" />
+					</#if>
+				</#if>
+				value="<#escape x as x?xml>${fieldVal}</#escape>"
 			</#if>
 			<#if (field.readOnly)?? && field.readOnly=="true">
 				 readOnly
@@ -469,6 +850,15 @@ param : content : content to search for form data
 				rows="<#escape x as x?xml>${field.rows}</#escape>"
 			</#if>
 			></${endTag}>
+			
+			<#if (field.dataTransform) ?? && (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+				</span>
+			</#if>
+			
+			<#if (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+				<#local hiddenButtonLabel = field.dataTransform.hiddenButtonLabel!"afficher">
+				<input type="button" id="<#escape x as x?xml>${field.dataTransform.id}</#escape>" value="<#escape x as x?xml>${hiddenButtonLabel}</#escape>" data-obfuscatedValue="<#escape x as x?xml>${field.value}</#escape>" data-obfuscatedKey="<#escape x as x?xml>${field.dataTransform.obfuscatedKey}</#escape>" data-obfuscatedTarget="#<#escape x as x?xml>${fieldId}</#escape>"></input>
+			</#if>
 		</#list>
 		
 		<input type="submit" value="<#escape x as x?xml>${sendLabel}</#escape>"/>
@@ -540,3 +930,135 @@ param : content : content to search for carousel data
 		</div>
 	</#if>
 </#macro>
+
+<#-- build the language siwthcer menu -->
+<#macro buildLanguageSwitcher content>
+	<#if (content)?? && (content.languageSwitcher)?? && content.languageSwitcher = "true">
+	
+		<#if !(config.site_langs)??>
+			<@debug "buildLanguageSwitcher : Error missing 'config.langs' config value" />
+		<#else>
+			<#local jsonContent = parseJsonProperty(config.site_langs)>
+			<#if !(jsonContent.data)??>
+				${stackDebugMessage("buildLanguageSwitcher : Error missing 'data' attribute after JSON parsing of attribute ==> " + displayParseJsonError(jsonContent))}
+			<#else>
+				<ul class="languageSwitcher">
+				<#list jsonContent.data as languageData>
+					<#local isCurrentLang = (languageData.local == getLang(content))>
+					<li>
+					<#if (languageData.icon)??>
+						<img src="${buildRootPathAwareURL(languageData.icon)}">
+					</#if>
+					<#local languageFolder = "">
+					<#if (languageData.folder)?? && (languageData.folder?has_content)>
+						<#local languageFolder = "/"+languageData.folder>
+					</#if>
+					<span><a class="language" href="${config.site_host}${languageFolder}/index.html"><#escape x as x?xml>${languageData.title}</#escape></a></span>
+					</li>
+				</#list>
+				</ul>
+			</#if>
+		</#if>
+	</#if>
+</#macro>
+
+	
+<#-- build the breacrumb -->
+<#macro buildBreadcrumb content>
+	<#if config.site_breakcrumb_display == "true" && !((content.displayBreadcrumb)?? && content.displayBreadcrumb=="false")>
+		<#if content?? && content.uri??>
+		 	<ul id="breadcrumb">
+		 	${stackDebugMessage("Breadcrumb : Current page URI : ${content.uri}")}
+			 <#local pathElements = getContentsFromUri(content.uri)>
+			 <#local isFirst=true>
+			 <#list pathElements as element>
+			 	<li>
+			 	<#if isFirst>
+			 		<#local isFirst=false>
+			 	<#else>
+			 		${config.site_breakcrumb_seprator!" >>> "}
+			 	</#if>
+			 	<#if element.uri??>
+			 		<a href="${buildRootPathAwareURL(element.uri)}">
+			 	</#if>
+				${element.title!"__missing_title__"}
+				<#if element.uri??>
+			 		</a>
+			 	</#if>
+			 	</li>
+			</#list>
+			</ul>
+		</#if>
+	</#if>
+</#macro>
+
+<#assign maxLoop = 10>
+<#assign foundContents = []>
+<#--  Help build Breacrumb.
+Using URI strucutre, for each element search for the first (using Order attribute) content.
+Retur a LIST of content for each **directory** in URI structure. First content is for the firts element.
+-->
+<#function getContentsFromUri uri>
+	${stackDebugMessage(">>Breadcrumb : Search content for URI '"+uri+"'")}
+	<#local pageFound = false>
+	<#if (maxLoop > 0) && uri?? && uri != "">
+		<#local allSubContents = db.getPublishedContent("org_openCiLife_post")>
+		
+		<#list allSubContents as aContent>
+			<#if aContent.uri?? && (aContent.uri == uri)>
+				<#-- content is a standard page -->
+				${stackDebugMessage(">>>> Breadcrumb : Content Page found !")}
+				<#assign foundContents = [aContent] + foundContents>
+				<#local pageFound = true>
+				<#break>
+			</#if>
+		</#list>
+		
+		<#if !pageFound>
+			<#-- uri : is a directory, search for "main page" of the dirtectory (page with the lowest order attribute) -->
+			<#local lowestOrderContentFound = []>
+			<#local foundUri = "">
+			<#list allSubContents as aContent>
+				<#local contentTile = aContent.title!"no_title">
+				<#local contentOrder = aContent.order!-999>
+				<#if (aContent.uri)?? && contentOrder?? && aContent.uri?keep_before_last("/") == uri>
+					<#if lowestOrderContentFound?size == 0>
+						${stackDebugMessage(">>>> Breadcrumb '${contentTile}' with order ${contentOrder} is the first candidate")}
+						<#local lowestOrderContentFound = aContent>
+						<#local foundUri = aContent.uri>
+					<#else>
+						<#if (contentOrder?number < lowestOrderContentFound.order?number) >
+							${stackDebugMessage(">>>> Breadcrumb '${contentTile}' has order ${contentOrder} lowest than previous found content '${lowestOrderContentFound.title}' with order ${lowestOrderContentFound.order}")}
+							<#local lowestOrderContentFound = aContent>
+							<#local foundUri = aContent.uri>
+						</#if>
+					</#if>
+				</#if>
+			</#list>
+			<#-- if found content *for a folder* is the curent page we are on a "dispatch" page, wich is a "duplicate" of the current page.
+	    	Remove this item. -->
+	    	<#if  foundUri == content.uri>
+				${stackDebugMessage(">>>>>> Breadcrumb : directory content ("+lowestOrderContentFound.uri+") found IS the CURRENT page("+content.uri+"), this element will be removed")}
+				<#local lowestOrderContentFound = []>
+			</#if>
+			<#if lowestOrderContentFound?size != 0>
+				<#assign foundContents = [lowestOrderContentFound] + foundContents>
+			</#if>
+		</#if>
+		
+		<#--  remove the last part of URI -->
+		<#if  uri?contains("/")>
+			<#local newUri = uri?keep_before_last("/")>
+		<#else>
+			<#local newUri = "">
+		</#if>
+		
+		<#if newUri?? && newUri !="">
+			<#--  RECURSIVE call -->
+			<#assign maxLoop = maxLoop -1>
+			<#local foundContents = getContentsFromUri(newUri) />
+		</#if>
+	 	
+	 </#if>
+	<#return foundContents>
+</#function>

@@ -21,6 +21,18 @@ body {
   margin: 0 auto;
 }
 
+#preHeader{
+    background-color:${webleger.site.style.style1.background-color};
+}
+
+#header {
+	background-color:${webleger.site.style.header.background_color};
+}
+
+#container {
+	word-break: break-word;
+}
+
 img {
 	max-width: 100%;
 }
@@ -49,8 +61,17 @@ b, strong {
 
 h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	color:${webleger.site.style.header.title.color};
-	white-space: break-spaces;
+    white-space: break-spaces;
     word-break: break-word;
+}
+
+[data-obfuscatedkey] {
+	border: 2px solid white;
+    border-radius: 21px;
+    padding: 1px;
+    padding-bottom: 3px;
+    border-width: medium;
+    background-color: rgb(255, 255, 255, 0.5);
 }
 
 #pageTitle {
@@ -85,13 +106,39 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 .navbar-nav>li>a {
 	color:${webleger.site.style.menu.text_color};
 }
-.navbar-nav>li>a:hover {
+.navbar-nav>li>a:hover, .dropdown-menu>li>a:hover {
     background-color: ${webleger.site.style.menu.background.color.hover};
     text-decoration: ${webleger.site.style.menu.text_decoration.hover};
 }
 
 .navbar-toggle .icon-bar {
 	background-color:${webleger.site.style.menu.text_color};
+}
+
+#breadcrumb {
+	list-style-type: none;
+	background-color: ${webleger.site.style.header.background_color};
+    padding: 15px;
+    border-radius: 20px;
+}
+
+#breadcrumb li {
+	display: inline;
+	padding:0;
+	border-radius:0;
+	white-space: nowrap;
+}
+
+#breadcrumb li a {
+	display: inline-block;
+	background-color:${webleger.site.style.breadcrumb.background_color};
+	padding: 15px;
+    border-radius: 20px;
+    white-space: nowrap
+}
+
+.pageContent {
+    padding: 0px 10px 10px 10px;
 }
 
 .icon {
@@ -143,23 +190,49 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	margin: auto;
 	padding-bottom: 3%;
 	line-height: 170%;
+	border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 .style1 {
-	border-top: 1px solid #282825;
+	border: 2px solid lightgrey;
 	background-color: ${webleger.site.style.style1.background-color};
-	
 }
 
 .style2 {
-	border-top: 1px solid #282825;
+	border: 2px solid lightgrey;
 	background-color: ${webleger.site.style.style2.background-color};
+}
+
+.style3 {
+	border: 2px solid lightgrey;
+	background-color: ${webleger.site.style.style3.background-color};
+}
+
+.style4 {
+	border: 2px solid lightgrey;
+	background-color: ${webleger.site.style.style4.background-color};
 }
 
 .blockTitle {
 	font-size: 200%;
 	text-align: center;
 	color: ${webleger.site.style.block.title.text-color};
+}
+
+.languageSwitcher {
+	list-style:none;
+	float:left;
+	margin:0;
+}
+
+.languageSwitcher li {
+	float:left;
+	margin-left: 5px;
+}
+
+.languageSwitcher img {
+	max-width: 16px;
 }
 
 .blockBody {
@@ -170,14 +243,27 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .blockIcon {
-	width: 25px;
-	height: 25px;
+	width: 40px;
+	height: 40px;
 	margin-right: 1%;
 }
 
 .description {
 	font-weight: lighter;
 	color: #aaaaaa;
+}
+
+.subContent {
+	border-top: 2px solid ${webleger.site.style.header.title.color};
+    border-radius: 20px;
+}
+
+.subContent>.title {
+    padding-top: 12px;
+    padding-left: 12px;
+    font-size: 150%;
+    color: ${webleger.site.style.header.title.color};
+    text-decoration: underline;
 }
 
 .blockSubContent {
@@ -417,24 +503,22 @@ div.debug {
 #push,
 #footer {
   /*height: 60px;*/
-}
-#footer {
-  background-color: #f5f5f5;
+  background-color:${webleger.site.style.footer.background_color};
   padding: 25px 0 0 0;
 }
 
-.footer_blocks {
+.footer_blocks{
 	display: flex;
 	flex-direction: column;
 }
 
-.footer_block {
+.footer_block, .header_block {
 	display: flex;
 	flex-direction: row;
 	font-size: 1.2em;
 }
 
-.footer_block img {
+.footer_block img, .header_block img {
 	width: 100px;
 }
 
@@ -445,15 +529,30 @@ div.debug {
 	margin-left: 4%;
 }
 
+.header_blocks {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+
+.preHeader .blockContent {
+	padding: 0;
+	margin-left: 12px;
+}
+
+.preHeader .blockContent > p{
+	margin : 0px;
+}
+
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (min-width: 640px) {
-  #footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  #pageTitle {
+	#footer {
+		margin-left: -20px;
+    	margin-right: -20px;
+    	padding-left: 20px;
+    	padding-right: 20px;
+	}
+	#pageTitle {
 		justify-content: space-around;
 		flex-direction: row;
 	}
@@ -462,6 +561,13 @@ div.debug {
 	}
 	#logoLeft {
 		width: ${webleger.site.logoLeft.size.width.desktop};
+	}
+	.languageSwitcher li {
+		float:left;
+		margin-left: 15px;
+	}
+	.languageSwitcher img {
+		max-width: 32px;
 	}
 	.blockIcon {
 		width: 130px;
@@ -472,6 +578,10 @@ div.debug {
 	}
 	.blockDescription {
 		width: 40%
+	}
+	
+	.preHeader .blockContent {
+		margin-left: 25px;
 	}
 	.footer_blocks {
 		flex-direction: row;

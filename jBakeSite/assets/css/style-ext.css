@@ -8,8 +8,47 @@
 	height:300px;
 }
 #HomePageCarousel  img {
+<<<<<<< HEAD
 		height:75%;
 	}
+=======
+	height:75%;
+}
+
+.navbar-nav > li > a, .dropdown-menu > li > a{
+	border-radius:15px;
+}
+
+.EthikNet h1, .EthikNet h2, .EthikNet h3, .EthikNet h4, .EthikNet h5, .EthikNet h6, .EthikNet h7, .EthikNet h8, .EthikNet h9, .EthikNet h10, .EthikNet b, .EthikNet strong {
+	color:green;
+}
+.EthikNet table th, .EthikNet table td {
+	border-color:green;
+}
+.EthikNet  .subContent {
+    border-color: green;
+}
+
+.EthikNet a:visited, .EthikNet a:link{
+	color:green;
+}
+
+.EthikNet b, .EthikNet strong, .menu_EthikNet b, .menu_EthikNet strong {
+	color: green;
+}
+
+.EthikNet #breadcrumb li a {
+	background-color:#ccffcc;
+}
+
+.Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
+	word-break: normal;
+} 
+
+.navbar-nav .menu_EthikNet>a:hover, .dropDown_menu_EthikNet>li>a:hover{
+	background-color:lightgreen;
+}
+>>>>>>> refs/heads/webleger
 
 @media screen and (min-width: 640px) {
 	#HomePageCarousel {
