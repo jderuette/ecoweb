@@ -496,8 +496,26 @@ return : a text, the configured display name (in jbake.properties) or the origin
 		<#assign blockCategory = block.category!"__empty_categ__">
 		<@debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + ecoWeb.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
 		<#if (ecoWeb.seq_containsOne(blockCategory, categoryFilter))>
-		
-		<div<#rt>
+			<#local subTemplateName = "defaultBlockSubTemplate">
+			<#if (block.subTemplate??)>
+				<#local subTemplateName=block.subTemplate>
+			</#if>
+			<@.vars["${subTemplateName}"] block/>			
+		</#if>
+  	</#list>
+
+</#macro>
+
+<#macro bob block>
+	A Basic BOB template !!!!
+</#macro>
+
+<#macro defaultBlockSubTemplate block>
+	<@imageRightSubTemplate block />
+</#macro>
+
+<#macro imageRightSubTemplate block>
+	<div<#rt>
 		<#if (block.anchorId)??>
 			id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
 		</#if>
@@ -508,27 +526,53 @@ return : a text, the configured display name (in jbake.properties) or the origin
 		</#if>
 		<#lt> class="<#escape x as x?xml>${classes}</#escape>">
 		
-		<#if (block.title)?? && block.title?has_content>
+		<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
 			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
 		</#if>
-				<div class="blockBody">
-					<div class="blockContent">
-						${block.body}
-						<@buildLanguageSwitcher block />
-						<@buildsubContent block />
-						<@buildForm block />
-						<@buildCarousel block />
-					</div>	
-					<#if (block.contentImage)??>
-						<img src=${buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
-					</#if>
-				</div>
+			<div class="blockBody">
+				<div class="blockContent">
+					${block.body}
+					<@buildLanguageSwitcher block />
+					<@buildsubContent block />
+					<@buildForm block />
+					<@buildCarousel block />
+				</div>	
+				<#if (block.contentImage)??>
+					<img src=${buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
+				</#if>
 			</div>
-		</#if>
-  	</#list>
-
+		</div>
 </#macro>
 
+<#macro imageLeftSubTemplate block>
+	<div<#rt>
+		<#if (block.anchorId)??>
+			id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
+		</#if>
+		 
+		<#local classes = "block">
+		<#if (block.specificClass)??>
+			<#local classes = classes + " " + block.specificClass>
+		</#if>
+		<#lt> class="<#escape x as x?xml>${classes}</#escape>">
+		
+		<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
+			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
+		</#if>
+			<div class="blockBody">
+				<#if (block.contentImage)??>
+					<img src=${buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
+				</#if>
+				<div class="blockContent">
+					${block.body}
+					<@buildLanguageSwitcher block />
+					<@buildsubContent block />
+					<@buildForm block />
+					<@buildCarousel block />
+				</div>	
+			</div>
+		</div>
+</#macro>
 
 <#-- build an modal block (using Boostrap)
 param : modalId : *default* : basicModal : (html) ID of the modal (to be ued in link to target this modal)

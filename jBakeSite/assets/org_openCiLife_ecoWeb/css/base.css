@@ -512,13 +512,13 @@ div.debug {
 	flex-direction: column;
 }
 
-.footer_block, .header_block {
+.footer_blocks .block, .header_blocks .block {
 	display: flex;
 	flex-direction: row;
 	font-size: 1.2em;
 }
 
-.footer_block img, .header_block img {
+.footer_blocks .block img, .header_blocks .block img {
 	width: 100px;
 }
 

@@ -1,9 +1,11 @@
 title=Donation
 type=org_openCiLife_block
+subTemplate=imageLeftSubTemplate
 category=footer
 tags=
 status=draft
 specificClass=
+displayTitle=false
 contentImage=images/donation.svg
 anchorId=donation
 order=8

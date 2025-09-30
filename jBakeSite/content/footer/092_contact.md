@@ -1,9 +1,11 @@
 title=Contact
 type=org_openCiLife_block
+subTemplate=imageLeftSubTemplate
 category=footer
 tags=
 status=published
 specificClass=
+displayTitle=false
 contentImage=images/contact.svg
 order=9
 ~~~~~~
