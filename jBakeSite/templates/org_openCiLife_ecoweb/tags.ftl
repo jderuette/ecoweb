@@ -22,7 +22,7 @@
 		<#if (config[postTypeDisplayNameProp]) ??>
 			<#assign postTypeDisplayName = config[postTypeDisplayNameProp]>
 		</#if>
-		<li>${post.date?string("dd")} - <a href="${ecoWeb.buildRootPathAwareURL(post.uri)}">${post.title}</a>  (${ecoWeb.getDisplayName(post.type)})</li>
+		<li>${post.date?string("dd")} - <a href="${ecoWeb.buildRootPathAwareURL(post.uri)}">${post.title}</a>  (${propertiesHelper.getDisplayName(post.type)})</li>
 		<#assign last_month = post.date?string("MMMM yyyy")>
 		</#list>
 	</ul>

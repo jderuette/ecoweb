@@ -1,3 +1,10 @@
+<#import "../tools/lib/propertiesHelper.ftl" as propertiesHelper>
+
+
+<#function getComponnentInfo>
+	<#return {"name":"EcoWebMacro", "description":"All ecoWeb Macros. Need to be splited into smaller component.", "require":[{"value":"propertiesHelper.ftl", "type":"lib"}], "uses":[{"value":"Too many things !!", "type":"config, contentHeader, pomProperty"}]}>
+</#function>
+
 <#--  inspired by : https://subscription.packtpub.com/book/web_development/9781782163824/1/ch01lvl1sec06/top-9-features-you-need-to-know-about -->
 
 <#-- Search if an element on a list, belong to another list 
@@ -89,58 +96,6 @@ return : text with URL transformed
 	<#return contentRootPathAwareURL>
 </#function>
  -->
- 
- <#-- read and display text from config file. Handle corectly when coma "," in text.
-param : theText : the text to display (may be a "sequence")
-return : a text (with original coma ",")
--->
-<#function retrieveAndDisplayConfigText theProperty>
-	<#local prop = theProperty>
-	<#if theProperty?is_sequence>
-		<#local prop = theProperty?join(", ")>
-	</#if>
-	
-	
-	<#local prop = prop?replace(".", "_")>
-	
-	<#if (config["site_langs"])??>
-		<#if (content.lang)?? && (config[content.lang + "_" + prop])??>
-			<#local prop = content.lang + "_" + prop>
-		</#if>
-	</#if>
-	
-	<#if config[prop]??>
-		<#local text = displayConfigText(config[prop])>
-	<#else>
-		<#local text = "no '" + prop + "' in config file">
-	</#if>
-	<#return text>
-</#function>
- 
-<#-- display text from config file. Handle corectly when coma "," in text
-param : theText : the text to display (may be a "sequence")
-return : a text (with original coma ",")
--->
-<#function displayConfigText theText>
-	<#if theText?is_sequence>
-		<#assign text = theText?join(", ")>
-	<#else>
-		<#assign text = theText>
-	</#if>
-	<#return text>
-</#function>
-
-
-<#function hasConfigValue theValue>
-	<#local hasValue = false>
-	<#if (config[theValue])??>
-		<#if (config[theValue] != "$\{webleger."+theValue?replace("_", ".")+"}")>
-			<#local hasValue = true>
-		</#if>
-	</#if>
-	<#return hasValue>
-</#function>
-
 
 <#-- convert hash, sequence, boolean to String
 param : value : object to transform in String
@@ -170,42 +125,6 @@ param : value : object to transform in String
 		<#local stringVal = stringVal + "\"" + value + "\"" />
 	</#if>
 	<#return stringVal>
-</#function>
-
-<#-- Parse a con,fig property has JSON
-param : propValue : Config property containing the JSON
--->
-<#function parseJsonProperty propValue>
-	<#local jsonContent = {"error":"invalidValue", "parsedVal":"no value"}>
-	
-	<#if (propValue)??>
-		<#assign fullContent = propValue>
-		<#if propValue?is_sequence>
-			<#assign fullContent = "">
-			<#assign separator = "">
-			<#list propValue as fakeItem>
-				<#assign fullContent = fullContent + separator + fakeItem>
-				<#assign separator = ",">
-			</#list>
-		</#if>
-		
-		<#local jsonContent = {"error":"invalidValue", "parsedVal":fullContent}>
-		
-		<#local jsonContent = fullContent?eval_json>
-	</#if>
-	<#return jsonContent>
-</#function>
-
-<#function displayParseJsonError jsonContent>
-	<#local message = "Parsing is valid">
-	
-	<#if (jsonContent)?? && (jsonContent.error)??>
-		<#local message = "JSON error : " + jsonContent.error>
-		<#if (jsonContent.parsedVal)??>
-			<#local message = message + "value : " + jsonContent.parsedVal>
-		</#if>
-	</#if>
-	<#return toString(jsonContent)>
 </#function>
 
 <#function unObfuscateText obfucatedEmail, obfuscationMask>
@@ -274,22 +193,6 @@ param : message : the message to display (a String)
 <#macro displayDebugFunctionMessages>
 	<@debug stackedDebugMessage />
 </#macro>
-
-<#-- Find the **displayName** of a custom document type
-param : postType : the name of the document type
-return : a text, the configured display name (in jbake.properties) or the original post type name
--->
-<#function getDisplayName postType>
-	<#assign postTypeDisplayName = postType>
-	<#assign postTypeDisplayNameProp = "ecoweb_type_" + postType + "_displayName">
-	
-	<#if (config[postTypeDisplayNameProp])??>
-		<#assign postTypeDisplayName = config[postTypeDisplayNameProp]>
-	</#if>
-	
-	<#return postTypeDisplayName>
-</#function>
-
 
 <#-- get the language of the content
     @param content The content.
@@ -404,6 +307,104 @@ return : a text, the configured display name (in jbake.properties) or the origin
 </#macro>
 -->
 
+<#macro buildComponnentInfos content>
+	<#local propName = "components">
+	<#if propertiesHelper.hasConfigValue(propName)>
+		<#local includProp = propertiesHelper.retrieveAndDisplayConfigText(propName)>
+		<#assign icludes = propertiesHelper.parseJsonProperty(includProp)>
+		<div class="componnentInfos">
+		<h3>Informations extraites de : ${propName} : </h3>
+		<pre>${includProp}</pre>
+		<#list icludes.data as include>
+			<#local includeNameSpace = .vars[include.namespace]>
+			<div class="componnentInfo">
+				<h2>${include.namespace}</h2>
+				<div>file : ${include.file} </div>
+			<#attempt>
+				<#local compData = includeNameSpace.getComponnentInfo()>
+				<div>Name : ${compData.name}</div>
+				<#if (compData.description)??>
+					<div>Description : ${compData.description}</div>
+				</#if>
+				<div>Requière : 
+				<#if (compData.require)??>
+				<table>
+					<theader>
+					<tr>
+						<th>Type</th>
+						<th>Valeur</th>
+						<th>Description</th>
+					</tr>
+					</theader>
+					<tr>
+					<#list compData.require as requirement>
+						<tr>
+							<td>
+							<#if (requirement.type)??>
+								${requirement.type}
+							</#if>
+							</td>
+							<td>
+							<#if (requirement.value)??>
+								${requirement.value}
+							</#if>
+							</td>
+							<td>
+							<#if (requirement.desc)??>
+								${requirement.desc}
+							</#if>
+							</td>
+						</tr>							
+					</#list>
+					</table>
+				<#else>
+					Aucun pre-requis.
+				</#if>
+				</div>
+				<div>Utilise : 
+				<#if (compData.uses)??>
+				<table>
+					<theader>
+					<tr>
+						<th>Type</th>
+						<th>Valeur</th>
+						<th>Description</th>
+					</tr>
+					</theader>
+					<tr>
+					<#list compData.uses as uses>
+						<tr>
+							<td>
+							<#if (uses.type)??>
+								${uses.type}
+							</#if>
+							</td>
+							<td>
+							<#if (uses.value)??>
+								${uses.value}
+							</#if>
+							</td>
+							<td>
+							<#if (uses.desc)??>
+								${uses.desc}
+							</#if>
+							</td>
+						</tr>							
+					</#list>
+					</table>
+				<#else>
+					Aucune utilisation d'autre éléments.
+				</#if>
+				</div>
+			<#recover>
+				<div>Erreur lors de l'interpretation de getComponnentInfo() pour ce composant !!</div>
+			</#attempt>
+			</div>
+		</#list>
+		</div>
+	</#if>
+</#macro>
+
 <#-- build the site menu (using Boostrap) -->
 <#macro buildMenu>
 <div class="navbar navbar-light bg-white" role="navigation">
@@ -421,7 +422,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
   	<#local menu_list = []>
   	<#if (config.site_menu_includeBlock == "true")>
   		<#list org_openCiLife_blocks?sort_by("order") as block_menu>
-			<#if ((block_menu.category) ?? && ecoWeb.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
+			<#if ((block_menu.category) ?? && seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
 				<#if (block_menu.anchorId)?? && block_menu.status == "published">
 					<#local menu_list = menu_list + [block_menu]>
 				</#if>
@@ -431,7 +432,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 	
 	<#if (config.site_menu_includeCategories)??>
 		<#list org_openCiLife_posts?sort_by("order") as blog_menu>
-			<#if   (blog_menu.category)?? && (ecoWeb.seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
+			<#if   (blog_menu.category)?? && (seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
 				<#if (blog_menu.uri)?? && blog_menu.status == "published">
 					<#local menu_list = menu_list + [blog_menu]>
 				<#else></#if>
@@ -459,7 +460,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 					<#local link = menu_item.uri>
 				</#if>
 				
-				<li${menuSpecificClass}><a href="${ecoWeb.buildRootPathAwareURL(link)}" role="menuitem">${menu_item.title}</a></li>
+				<li${menuSpecificClass}><a href="${buildRootPathAwareURL(link)}" role="menuitem">${menu_item.title}</a></li>
 		</#list>
 		<#if top_level_menu_name != "__GLOBAL__">
 			</li>
@@ -467,7 +468,7 @@ return : a text, the configured display name (in jbake.properties) or the origin
 		</#if>
 	</#list>
 	
-    <#-- <li><a href="${ecoWeb.buildRootPathAwareURL("/")}">Home</a></li> -->
+    <#-- <li><a href="${buildRootPathAwareURL("/")}">Home</a></li> -->
    <#--
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -494,13 +495,13 @@ return : a text, the configured display name (in jbake.properties) or the origin
 
 	<#list org_openCiLife_blocks?filter(b -> b.status=="published")?filter(ct -> isCorectLang(ct, getLang(content)))?sort_by("order") as block>
 		<#assign blockCategory = block.category!"__empty_categ__">
-		<@debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + ecoWeb.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
-		<#if (ecoWeb.seq_containsOne(blockCategory, categoryFilter))>
+		<@debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
+		<#if (seq_containsOne(blockCategory, categoryFilter))>
 			<#local subTemplateName = "defaultBlockSubTemplate">
 			<#if (block.subTemplate??)>
 				<#local subTemplateName=block.subTemplate>
 			</#if>
-			<@.vars["${subTemplateName}"] block/>			
+			<@.vars["${subTemplateName}"] block/>
 		</#if>
   	</#list>
 
@@ -617,10 +618,10 @@ param : content : JSON content describing inclusions.
 -->
 <#macro buildExternalInjection content>
 	<#if (content)??>
-		<#local jsonContent = parseJsonProperty(content)>
+		<#local jsonContent = propertiesHelper.parseJsonProperty(content)>
 		
 		<#if !(jsonContent.data)??>
-			${stackDebugMessage("buildExternalInjection : Error missing 'data' attribute after JSON parsing of attribute ==> " + displayParseJsonError(jsonContent))}
+			${stackDebugMessage("buildExternalInjection : Error missing 'data' attribute after JSON parsing of attribute ==> " + propertiesHelper.displayParseJsonError(jsonContent))}
 		<#else>
 		<#list jsonContent.data as injection>
 			<#assign tagType = injection.tagType!"link">
@@ -721,7 +722,7 @@ param : content : content to search for incluide content
 						<#if (subContentDisplayMode == "table")>
 									<tr<#rt>
 										<#if (subContentDisplayContentMode == "link")>
-											<#lt> data-href="${ecoWeb.buildRootPathAwareURL(subContent.uri)}"<#rt>
+											<#lt> data-href="${buildRootPathAwareURL(subContent.uri)}"<#rt>
 										</#if>
 										<#if (specificContentClass != "")>
 											<#lt> class="${specificContentClass}"
@@ -729,12 +730,12 @@ param : content : content to search for incluide content
 									<#lt>>
 										<td class="${subContentDisplayMode}_image">
 											<#if (subContent.contentImage)??>
-												<img src="${ecoWeb.buildRootPathAwareURL(subContent.contentImage)}" class="widget_image" />
+												<img src="${buildRootPathAwareURL(subContent.contentImage)}" class="widget_image" />
 											</#if>
 										</td>
 										<td class="${subContentDisplayMode}_title widget_title">
 											<#if (subContentBeforeTitleImage?has_content)>
-												<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+												<img src="${buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
 											</#if>
 											${subContent.title!""}
 										</td>
@@ -765,7 +766,7 @@ param : content : content to search for incluide content
 							<div class="${subContentDisplayMode} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 								<#switch subContentDisplayMode>
 								<#case  "link">
-									<a href="${ecoWeb.buildRootPathAwareURL(subContent.uri)}" class="widget_link">
+									<a href="${buildRootPathAwareURL(subContent.uri)}" class="widget_link">
 								<#break>
 								<#case "modal">
 									<a href="#" role="button" class="widget_link_modal" data-toggle="modal" data-target="#${theModalId}">
@@ -777,20 +778,20 @@ param : content : content to search for incluide content
 								<#break>
 								<#case "card">
 									<#if (subContentDisplayContentMode == "link")>
-										<a href="${ecoWeb.buildRootPathAwareURL(subContent.uri)}">
+										<a href="${buildRootPathAwareURL(subContent.uri)}">
 									</#if>
 								<#break>
 								</#switch>
 								<#if (subContent.contentImage??)>
 									<div class="${subContentDisplayMode}_image">
 										<#if (subContent.contentImage)??>
-										<img src="${ecoWeb.buildRootPathAwareURL(subContent.contentImage)}" class="widget_image"/>
+										<img src="${buildRootPathAwareURL(subContent.contentImage)}" class="widget_image"/>
 										</#if>
 									</div>
 								</#if>
 								<h3 class="${subContentDisplayMode}_title widget_title"><#rt>
 								<#if (subContentBeforeTitleImage?has_content)>
-									<img src="${ecoWeb.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+									<img src="${buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
 								</#if>
 									<#t>${subContent.title!""}
 								<#lt></h3>
@@ -948,7 +949,7 @@ param : content : content to search for carousel data
 			<div class="item carousel-item <#if (isFirst)>active" aria-selected="true"<#else>"</#if> role="option">
 			<#assign isFirst=false/>
 				<#if (slide.type)="img">
-	      			<img class="d-block w-100" src="<#escape x as x?xml>${ecoWeb.buildRootPathAwareURL(slide.data)}</#escape>" <#if (slide.style)??> style="<#escape x as x?xml>${slide.style}</#escape>"</#if><#if (slide.alt)??> alt="<#escape x as x?xml>${slide.alt}</#escape>"</#if>>
+	      			<img class="d-block w-100" src="<#escape x as x?xml>${buildRootPathAwareURL(slide.data)}</#escape>" <#if (slide.style)??> style="<#escape x as x?xml>${slide.style}</#escape>"</#if><#if (slide.alt)??> alt="<#escape x as x?xml>${slide.alt}</#escape>"</#if>>
 				</#if>
 				<#if (slide.caption)??>
 					<div class="carousel-caption d-none d-md-block" <#if (slide.captionStyle)??> style="<#escape x as x?xml>${slide.captionStyle}</#escape>" role="presentation"</#if>>
@@ -982,9 +983,9 @@ param : content : content to search for carousel data
 		<#if !(config.site_langs)??>
 			<@debug "buildLanguageSwitcher : Error missing 'config.langs' config value" />
 		<#else>
-			<#local jsonContent = parseJsonProperty(config.site_langs)>
+			<#local jsonContent = propertiesHelper.parseJsonProperty(config.site_langs)>
 			<#if !(jsonContent.data)??>
-				${stackDebugMessage("buildLanguageSwitcher : Error missing 'data' attribute after JSON parsing of attribute ==> " + displayParseJsonError(jsonContent))}
+				${stackDebugMessage("buildLanguageSwitcher : Error missing 'data' attribute after JSON parsing of attribute ==> " + propertiesHelper.displayParseJsonError(jsonContent))}
 			<#else>
 				<ul class="languageSwitcher">
 				<#list jsonContent.data as languageData>
