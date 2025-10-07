@@ -4,7 +4,7 @@
 <#import "tools/includes.ftl" as commonInc>
 <@commonInc.buildIncludes />
 <!DOCTYPE html>
-<html lang="${ecoWeb.getLang(content)}">
+<html lang="<#if (langHelper)??>${langHelper.getLang(content)}<#elseif (config.site_langs_default)??>${config.site_langs_default}<#else>fr_FR</#if>">
   <head>
     <meta charset="utf-8"/>
     <title><#if (content.title)??><#escape x as x?xml>${content.title}</#escape><#else>${propertiesHelper.retrieveAndDisplayConfigText("site.header.title")}</#if></title>
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
-    <link rel="shortcut icon" href="${ecoWeb.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.header.iconShortcut"))}">
+    <link rel="shortcut icon" href="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.header.iconShortcut"))}">
   </head>
   <body class="${content.type}">
     <div id="wrap">
@@ -37,12 +37,12 @@
 				<div id="pageTitle">
 					<#if propertiesHelper.hasConfigValue("site.logoLeft.file")>
 					<a href="${config.site_host}/index.html">
-						<img src="${ecoWeb.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.description"))}" id="logoLeft"/>
+						<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.description"))}" id="logoLeft"/>
 					</a>
 					</#if>
 					<h1 id="headerTitle">${propertiesHelper.retrieveAndDisplayConfigText("site.headline")}</h1>
 					<#if propertiesHelper.hasConfigValue("site.logoRight.file")>
-					<img src="${ecoWeb.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.description"))}" id="logoRight"/>
+					<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.description"))}" id="logoRight"/>
 					</#if>
 				</div>
 			</div>

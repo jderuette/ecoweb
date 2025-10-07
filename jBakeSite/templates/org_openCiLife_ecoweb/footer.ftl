@@ -1,5 +1,5 @@
 		</div>
-		<img src="${ecoWeb.buildRootPathAwareURL("org_openCiLife_ecoWeb/images/pageup.svg")}" id="go_to_top" OnClick='window.location.href="#up"' alt="go to top">
+		<img src="${common.buildRootPathAwareURL("org_openCiLife_ecoWeb/images/pageup.svg")}" id="go_to_top" OnClick='window.location.href="#up"' alt="go to top">
 		<div id="push"></div>
     </div>
     
@@ -12,7 +12,9 @@
       </div>
     </div>
     
-    <@ecoWeb.displayDebugFunctionMessages />
+    <#if (logHelper)??>
+    	<@logHelper.displayDebugFunctionMessages />
+    </#if>
     
     <!-- Javascript here load faster -->
     <@ecoWeb.buildExternalInjection config.site_script_footer />

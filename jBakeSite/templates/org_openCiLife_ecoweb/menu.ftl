@@ -1,6 +1,6 @@
 	<!-- Fixed navbar -->
     <div class="container">
-    	<@ecoWeb.buildMenu />
+    	<@menu.buildMenu />
     </div>
     <#assign mainContainerClass = "container" />
     <#if content?? && content.specificClass??>

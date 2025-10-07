@@ -19,7 +19,7 @@
 			<ul>
 		</#if>
 		
-		<li>${post.date?string("dd")} - <a href="${ecoWeb.buildRootPathAwareURL(post.uri)}"><#escape x as x?xml>${post.title}</#escape></a></li>
+		<li>${post.date?string("dd")} - <a href="${common.buildRootPathAware(URLpost.uri)}"><#escape x as x?xml>${post.title}</#escape></a></li>
 		<#assign last_month = post.date?string("MMMM yyyy")>
 		</#list>
 	</ul>
