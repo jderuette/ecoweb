@@ -24,104 +24,6 @@
 </#function>
 
 
-<#macro buildComponnentInfos content>
-	<#local propName = "components">
-	<#if propertiesHelper.hasConfigValue(propName)>
-		<#local includProp = propertiesHelper.retrieveAndDisplayConfigText(propName)>
-		<#assign icludes = propertiesHelper.parseJsonProperty(includProp)>
-		<div class="componnentInfos">
-		<h3>Informations extraites de : ${propName} : </h3>
-		<pre>${includProp}</pre>
-		<#list icludes.data as include>
-			<#local includeNameSpace = .vars[include.namespace]>
-			<div class="componnentInfo">
-				<h2>${include.namespace}</h2>
-				<div>file : ${include.file} </div>
-			<#attempt>
-				<#local compData = includeNameSpace.getComponnentInfo()>
-				<div>Name : ${compData.name}</div>
-				<#if (compData.description)??>
-					<div>Description : ${compData.description}</div>
-				</#if>
-				<div>Requière : 
-				<#if (compData.require)??>
-				<table>
-					<theader>
-					<tr>
-						<th>Type</th>
-						<th>Valeur</th>
-						<th>Description</th>
-					</tr>
-					</theader>
-					<tr>
-					<#list compData.require as requirement>
-						<tr>
-							<td>
-							<#if (requirement.type)??>
-								${requirement.type}
-							</#if>
-							</td>
-							<td>
-							<#if (requirement.value)??>
-								${requirement.value}
-							</#if>
-							</td>
-							<td>
-							<#if (requirement.desc)??>
-								${requirement.desc}
-							</#if>
-							</td>
-						</tr>							
-					</#list>
-					</table>
-				<#else>
-					Aucun pre-requis.
-				</#if>
-				</div>
-				<div>Utilise : 
-				<#if (compData.uses)??>
-				<table>
-					<theader>
-					<tr>
-						<th>Type</th>
-						<th>Valeur</th>
-						<th>Description</th>
-					</tr>
-					</theader>
-					<tr>
-					<#list compData.uses as uses>
-						<tr>
-							<td>
-							<#if (uses.type)??>
-								${uses.type}
-							</#if>
-							</td>
-							<td>
-							<#if (uses.value)??>
-								${uses.value}
-							</#if>
-							</td>
-							<td>
-							<#if (uses.desc)??>
-								${uses.desc}
-							</#if>
-							</td>
-						</tr>							
-					</#list>
-					</table>
-				<#else>
-					Aucune utilisation d'autre éléments.
-				</#if>
-				</div>
-			<#recover>
-				<div>Erreur lors de l'interpretation de getComponnentInfo() pour ce composant !!</div>
-			</#attempt>
-			</div>
-		</#list>
-		</div>
-	</#if>
-</#macro>
-
 
 
 <#-- build a content with blocks
@@ -144,7 +46,9 @@
 			<#if (block.subTemplate??)>
 				<#local subTemplateName=block.subTemplate>
 			</#if>
-			<@.vars["${subTemplateName}"] block/>
+			
+			<#local subTemplateInterpretation = "<@${subTemplateName} block />"?interpret>
+			<@subTemplateInterpretation/>
 		</#if>
   	</#list>
 
