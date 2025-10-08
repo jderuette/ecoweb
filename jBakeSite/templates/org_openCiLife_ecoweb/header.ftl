@@ -28,9 +28,11 @@
   <body class="${content.type}">
     <div id="wrap">
     	<div id="preHeader"  class="container preHeader">
-    		<div class="header_blocks">
-    			<@ecoWeb.buildBlocks config.site_header_category/>
-			</div>
+    		<#if block??>
+	    		<div class="header_blocks">
+	    			<@block.build config.site_header_category/>
+				</div>
+			</#if>
     	</div>
     	<div id="header">
 	    	<div id="up" class="container header" role="banner">

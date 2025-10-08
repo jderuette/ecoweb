@@ -25,14 +25,23 @@
 		${content.body}
 	</#if>
 	
-	<@ecoWeb.buildForm content />
-	<@ecoWeb.buildCarousel content />
-	
+	<#if form??>
+		<@form.build content />
+	</#if>
+	<#if carousel??>
+		<@carousel.build content />
+	</#if>
+					
 	<#if (content.includeBlocks)??>
-		<@ecoWeb.buildBlocks content.includeBlocks.category/>
+		<#if block??>
+			<@block.build content.includeBlocks.category/>
+		</#if>
 	</#if>
 	
 	</div>
 	
-	<@ecoWeb.buildsubContent content />
+	<#if subcontent??>
+		<@subcontent.build content />
+	</#if>
+	
 <#include "footer.ftl">

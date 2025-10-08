@@ -63,3 +63,16 @@ param : value : object to transform in String
 	</#if>
 	<#return stringVal>
 </#function>
+
+<#assign oldRdnVal = 1>
+<#function randomNumber salt = 7>
+    <#local str= .now?long />
+    <#local str = (str * salt)/3 />
+    <#local random = str[(str?string?length-13)..] />
+    <#local returnVal = random?replace("\\D+", "1", "r") />
+    <#if returnVal?number == oldRdnVal?number>
+    	<#local returnVal += 1>
+    </#if>
+    <#assign oldRdnVal = returnVal>
+    <#return returnVal/>	
+</#function>

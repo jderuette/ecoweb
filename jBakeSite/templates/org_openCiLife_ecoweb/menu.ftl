@@ -8,6 +8,8 @@
     </#if>
     <div id="container" class="${mainContainerClass}" role="main">
     <#if content?? && content?has_content>
-    <@ecoWeb.buildBreadcrumb content/>
+    	<#if breadcrumb??>
+    		<@breadcrumb.build content/>
+    	</#if>
     </#if>
     
