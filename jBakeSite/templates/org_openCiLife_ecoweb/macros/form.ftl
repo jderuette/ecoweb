@@ -1,7 +1,13 @@
 <#function getComponnentInfo>
-	<#return {"name":"form", "description":"Add form in content", "recommandedNamespace":"form", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"formData", "type":"contentHeader"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"form", "description":"Add form in content", "recommandedNamespace":"form", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"formData", "type":"contentHeader"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
 </#function>
 
+<#function init>
+	<#if hookHelper??>
+		${hookHelper.registerHook("afterBody", "form.build")}
+	</#if>
+	<#return "" />
+</#function>
 
 <#-- build a form
 param : content : content to search for form data

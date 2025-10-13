@@ -1,5 +1,9 @@
 <#function getComponnentInfo>
-	<#return {"name":"block", "description":"Add blocks in content", "recommandedNamespace":"block", "require":[{"value":"sequenceHelper", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"block", "description":"Add blocks in content", "recommandedNamespace":"block", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"hookHelper", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
+</#function>
+
+<#function init>
+	<#return "" />
 </#function>
 
 <#-- build a content with blocks
@@ -29,6 +33,12 @@
   	</#list>
 </#macro>
 
+<#macro addImageIcon block>
+	<#if (block.contentImage)??>
+		<img src=${common.buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
+	</#if>
+</#macro>
+
 <#macro defaultBlockSubTemplate block>
 	<@imageRightSubTemplate block />
 </#macro>
@@ -48,27 +58,25 @@
 		<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
 			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
 		</#if>
-			<div class="blockBody">
-				<div class="blockContent">
-					${block.body}
-					<#if (langHelper)??>
-						<@langHelper.buildLanguageSwitcher block />
-					</#if>
-					<#if subcontent??>
-						<@subcontent.build block />
-					</#if>
-					<#if form??>
-						<@form.build block />
-					</#if>
-					<#if carousel??>
-						<@carousel.build block />
-					</#if>
-				</div>	
-				<#if (block.contentImage)??>
-					<img src=${common.buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
+		<div class="blockBody">
+			<#if hookHelper??>
+				<@hookHelper.hook "beforeBlockContent" block/>
+			</#if>
+			<div class="blockContent">
+				<#if hookHelper??>
+					<@hookHelper.hook "beforeBody" block/>
+				</#if>
+				${block.body}
+				<#if hookHelper??>
+					<@hookHelper.hook "afterBody" block/>
 				</#if>
 			</div>
+			<#if hookHelper??>
+				<@hookHelper.hook "afterBlockContent" block/>
+			</#if>
+			<@addImageIcon block />
 		</div>
+	</div>
 </#macro>
 
 <#macro imageLeftSubTemplate block>
@@ -87,24 +95,22 @@
 			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
 		</#if>
 			<div class="blockBody">
-				<#if (block.contentImage)??>
-					<img src=${common.buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
+				<@addImageIcon block />
+				<#if hookHelper??>
+					<@hookHelper.hook "beforeBlockContent" block/>
 				</#if>
 				<div class="blockContent">
+					<#if hookHelper??>
+						<@hookHelper.hook "beforeBody" block/>
+					</#if>
 					${block.body}
-					<#if (langHelper)??>
-						<@langHelper.buildLanguageSwitcher block />
+					<#if hookHelper??>
+						<@hookHelper.hook "afterBody" block/>
 					</#if>
-					<#if subcontent??>
-						<@subcontent.build block />
-					</#if>
-					<#if form??>
-						<@form.build block />
-					</#if>
-					<#if carousel??>
-						<@carousel.build block />
-					</#if>
-				</div>	
+				</div>
+				<#if hookHelper??>
+					<@hookHelper.hook "afterBlockContent" block/>
+				</#if>
 			</div>
 		</div>
 </#macro>

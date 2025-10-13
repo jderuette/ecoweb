@@ -1,7 +1,10 @@
 <#function getComponnentInfo>
-	<#return {"name":"sequenceHelper", "description":"Helper for sequences", "recommandedNamespace":"sequenceHelper"}>
+	<#return {"componnentVersion":1, "name":"sequenceHelper", "description":"Helper for sequences", "recommandedNamespace":"sequenceHelper"}>
 </#function>
 
+<#function init>
+	<#return "" />
+</#function>
 
 <#-- Search if an element on a list, belong to another list 
 param : aSequence : the sequence to search for matches

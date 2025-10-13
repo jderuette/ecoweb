@@ -1,5 +1,12 @@
 <#function getComponnentInfo>
-	<#return {"name":"carousel", "description":"Add carousel in content", "recommandedNamespace":"carousel", "require":[{"value":"commonHelper", "type":"lib"}, {"value":"carouselData", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"carousel", "description":"Add carousel in content", "recommandedNamespace":"carousel", "require":[{"value":"commonHelper", "type":"lib"}, {"value":"carouselData", "type":"contentHeader"}]}>
+</#function>
+
+<#function init>
+	<#if hookHelper??>
+		${hookHelper.registerHook("afterBody", "carousel.build")}
+	</#if>
+	<#return "" />
 </#function>
 
 <#-- build a carousel

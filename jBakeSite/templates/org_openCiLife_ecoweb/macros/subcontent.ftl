@@ -1,9 +1,16 @@
 <#function getComponnentInfo>
-	<#return {"name":"subcontent", "description":"Add subContent in content", "recommandedNamespace":"subcontent", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"commonHelper", "type":"lib"}, {"value":"includeContent", "type":"contentHeader"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"subcontent", "description":"Add subContent in content", "recommandedNamespace":"subcontent", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"commonHelper", "type":"lib"}, {"value":"includeContent", "type":"contentHeader"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
 </#function>
 
-<#-- build an modal block or table listing (using Boostrap)
-param : content : content to search for incluide content
+<#function init>
+	<#if hookHelper??>
+		${hookHelper.registerHook("afterBody", "subcontent.build")}
+	</#if>
+	<#return "" />
+</#function>
+
+<#-- build an block or table listing (using Boostrap)
+param : content : content to search for include content
 -->
 <#macro build content>
 	<#if (content.includeContent)??>

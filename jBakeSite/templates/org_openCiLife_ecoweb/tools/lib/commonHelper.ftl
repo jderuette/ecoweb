@@ -1,7 +1,10 @@
 <#function getComponnentInfo>
-	<#return {"name":"commonHelper", "description":"general purpose tools", "recommandedNamespace":"common"}>
+	<#return {"componnentVersion":1, "name":"commonHelper", "description":"general purpose tools", "recommandedNamespace":"common"}>
 </#function>
 
+<#function init>
+	<#return "" />
+</#function>
 
 <#-- Build URL, using the root.path if required 
 param : relativeUrl : the relative URL to adapt
@@ -34,6 +37,38 @@ return : text with URL transformed
 </#function>
  -->
 
+<#-- 
+<#function functionExists namespace functionName>
+	<#local exists = false>
+	<#local includeNameSpace = .vars[namespace]>
+	<#local namespaceExists = (includeNameSpace)??>
+	
+	<#local functionExistsInNamespace = false>
+	<#if namespaceExists>
+		<#local functionExistsInNamespace = ("${namespace}.${functionName}"?interpret)??>
+		<#if functionExistsInNamespace>
+			<#local exists = true>
+		</#if>
+	</#if>
+	
+	<#if logHelper??>
+		${logHelper.stackDebugMessage("functionExists : namespace '" +namespace +"' exists : " + namespaceExists?string('yes', 'no') + " ==> '" + functionName + "()' exists ? " + functionExistsInNamespace?string('yes', 'no'))}
+	</#if>
+	<#return exists>
+</#function>
+
+
+<#function callFunctionIfExists namespace functionName>
+	<#if functionExists(namespace, functionName)>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("callFunctionIfExists : calling '" +namespace +"." + functionName + "' (==>" + "${namespace}.${functionName}()" +")")}
+		</#if>
+		<#assign tempAutoLoadVar = "${namespace}.${functionName}"?interpret>
+	</#if>
+	<#return "">
+</#function>
+ -->
+ 
 <#-- convert hash, sequence, boolean to String
 param : value : object to transform in String
 -->

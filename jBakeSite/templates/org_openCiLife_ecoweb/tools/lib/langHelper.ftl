@@ -1,5 +1,12 @@
 <#function getComponnentInfo>
-	<#return {"name":"debugHelper", "description":"Helper for multi-language", "recommandedNamespace":"lang", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"langHelper", "description":"Helper for multi-language", "recommandedNamespace":"langHelper", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}]}>
+</#function>
+
+<#function init>
+	<#if hookHelper??>
+		${hookHelper.registerHook("afterBody", "langHelper.build")}
+	</#if>
+	<#return "" />
 </#function>
 
 <#-- get the language of the content
@@ -28,16 +35,16 @@
 </#function>
 
 <#-- build the language siwthcer menu -->
-<#macro buildLanguageSwitcher content>
+<#macro build content>
 	<#if (content)?? && (content.languageSwitcher)?? && content.languageSwitcher = "true">
 	
 		<#if !(config.site_langs)??>
-			<@debug "buildLanguageSwitcher : Error missing 'config.langs' config value" />
+			<@debug "langHelper.build : Error missing 'config.langs' config value" />
 		<#else>
 			<#local jsonContent = propertiesHelper.parseJsonProperty(config.site_langs)>
 			<#if !(jsonContent.data)??>
 				<#if logHelper??>
-					${logHelper.stackDebugMessage("buildLanguageSwitcher : Error missing 'data' attribute after JSON parsing of attribute ==> " + propertiesHelper.displayParseJsonError(jsonContent))}
+					${logHelper.stackDebugMessage("langHelper.build : Error missing 'data' attribute after JSON parsing of attribute ==> " + propertiesHelper.displayParseJsonError(jsonContent))}
 				</#if>
 			<#else>
 				<ul class="languageSwitcher">

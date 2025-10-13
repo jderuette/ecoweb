@@ -1,7 +1,10 @@
 <#function getComponnentInfo>
-	<#return {"name":"breadcrumb", "description":"Display breadcrumb", "recommandedNamespace":"breadcrumb", "require":[{"value":"commonHelper", "type":"lib"}, {"value":"site_breakcrumb_display", "type":"config"}, {"value":"site_breakcrumb_seprator", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayBreadcrumb", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"breadcrumb", "description":"Display breadcrumb", "recommandedNamespace":"breadcrumb", "require":[{"value":"commonHelper", "type":"lib"}, {"value":"site_breakcrumb_display", "type":"config"}, {"value":"site_breakcrumb_seprator", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayBreadcrumb", "type":"contentHeader"}]}>
 </#function>
 
+<#function init>
+	<#return "" />
+</#function>
 
 <#-- build the breacrumb -->
 <#macro build content>

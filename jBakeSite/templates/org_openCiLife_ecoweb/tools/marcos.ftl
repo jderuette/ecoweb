@@ -1,6 +1,9 @@
-
 <#function getComponnentInfo>
-	<#return {"name":"EcoWebMacro", "description":"All ecoWeb Macros. Need to be splited into smaller component.", "require":[{"value":"common", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}, {"value":"sequenceHelper", "type":"lib"}], "uses":[{"value":"Too many things !!", "type":"config, contentHeader, pomProperty"}]}>
+	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"All ecoWeb Macros. Need to be splited into smaller component.", "require":[{"value":"common", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}, {"value":"sequenceHelper", "type":"lib"}], "uses":[{"value":"Too many things !!", "type":"config, contentHeader, pomProperty"}]}>
+</#function>
+
+<#function init>
+	<#return "" />
 </#function>
 
 <#--  inspired by : https://subscription.packtpub.com/book/web_development/9781782163824/1/ch01lvl1sec06/top-9-features-you-need-to-know-about -->

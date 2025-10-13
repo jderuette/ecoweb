@@ -1,6 +1,9 @@
-
 <#function getComponnentInfo>
-	<#return {"name":"propertiesHelper", "description":"Help retrieve and interpret config file data"}>
+	<#return {"componnentVersion":1, "name":"propertiesHelper", "description":"Help retrieve and interpret config file data"}>
+</#function>
+
+<#function init>
+	<#return "" />
 </#function>
 
 <#--Read and display text from config file. Handle corectly when coma "," in text.

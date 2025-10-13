@@ -1,7 +1,10 @@
 <#function getComponnentInfo>
-	<#return {"name":"logHelper", "description":"Helper for debugging", "recommandedNamespace":"logHelper", "require":[{"value":"common", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"logHelper", "description":"Helper for debugging", "recommandedNamespace":"logHelper", "uses":[{"value":"common", "type":"lib"}]}>
 </#function>
 
+<#function init>
+	<#return "" />
+</#function>
 
 <#function isEnabled()>
 	<#return (config.site_debug_enabled)?? && config.site_debug_enabled == "true">
@@ -46,16 +49,18 @@ param : message : the message to display (a String)
 
 
 <#assign stackedDebugMessage = "">
-<#-- allow function to debug. Message are starcked in a sequence, and rendered at the end of the page. -->
+<#-- allow function to debug. Message are stacked and rendered at the end of the page. -->
 <#function stackDebugMessage message>
 	<#local strMessage = message>
-	<#if common??>
+	<#if !strMessage?is_string && !(common)??>
+		<#local strMessage = "LogHelper : !!! message is NOT a string and common module is NOT avaible to transforme, the message is lost !!!">
+	<#elseif common??>
 		<#local strMessage = common.toString(message)>
 	</#if>
 	<#if !strMessage?is_string>
 		<#return "">
 	</#if>
-	<#assign stackedDebugMessage = stackedDebugMessage + "<br/>" + common.toString(message)>
+	<#assign stackedDebugMessage = stackedDebugMessage + "<br/>" + strMessage>
 	<#return ""/>
 </#function>
 

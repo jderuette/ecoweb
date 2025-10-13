@@ -1,19 +1,52 @@
 <#import "../tools/lib/propertiesHelper.ftl" as propertiesHelper>
 
 <#function getComponnentInfo>
-	<#return {"name":"includes", "description":"Include ftl file as import in templates", "recommandedNamespace":"commonInc", "require":[{"value":"propertiesHelper", "type":"lib"}, {"value":"components", "type":"config", "desc":"with *namespace* attributs"}]}>
+	<#return {"componnentVersion":1, "name":"includes", "description":"Include ftl file as import in templates", "recommandedNamespace":"commonInc", "require":[{"value":"propertiesHelper", "type":"lib"},{"value":"commonHelper", "type":"lib"}, {"value":"components", "type":"config", "desc":"with *namespace* attributs"}]}>
 </#function>
 
-<#macro buildIncludes configPropertyName="components">
+<#function init>
+	<#return "" />
+</#function>
+
+<#macro buildIncludes configPropertyName="components", autoInit=true>
 	<#if propertiesHelper.hasConfigValue(configPropertyName)>
-		<#assign icludes = propertiesHelper.parseJsonProperty(propertiesHelper.retrieveAndDisplayConfigText(configPropertyName))>
+		<#local includeText = propertiesHelper.retrieveAndDisplayConfigText(configPropertyName)>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("commonInc.buildIncludes : Loading component with : " + includeText)}
+		</#if>
+		<#assign icludes = propertiesHelper.parseJsonProperty(includeText)>
+		
+		<#local addedComponents = []>
 		<#list icludes.data as include>
 			<#if (include.namespace)??>
 				<#assign fileName = include.file>
 				<#assign includeNameSpace = include.namespace>
 				<#import "../"+include.file as includeNameSpace>
 				<@'<#global ${include.namespace} = includeNameSpace>'?interpret />
+				<#local addedComponents = addedComponents + [include.namespace]>
+			<#else>
+				<#if logHelper??>
+					${logHelper.stackDebugMessage("commonInc.buildIncludes : Componnent NOT added (no namespace) : " + fileName)}
+				</#if>
 			</#if>
+		</#list>
+		
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("commonInc.buildIncludes : Componnent added : " + common.toString(addedComponents))}
+		</#if>
+		
+		<#if logHelper??>
+				${logHelper.stackDebugMessage("commonInc.buildIncludes : calling init() on added components")}
+			</#if>
+		<#list icludes.data as include>
+			<#attempt>
+				<#local includeNameSpace = .vars[include.namespace]>
+				<#local componentInfo = includeNameSpace.getComponnentInfo() >
+				<#if componentInfo?? && (componentInfo.componnentVersion)?? && componentInfo.componnentVersion == 1>
+					${includeNameSpace.init()}
+				</#if>
+			<#recover>
+			</#attempt>
 		</#list>
 	</#if>
 </#macro>

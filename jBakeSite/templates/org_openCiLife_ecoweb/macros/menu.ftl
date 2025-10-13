@@ -1,5 +1,9 @@
 <#function getComponnentInfo>
-	<#return {"name":"menu", "description":"Build dynamic menus bases on content", "require":[{"value":"sequenceHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "require":[{"value":"sequenceHelper", "type":"lib"}]}>
+</#function>
+
+<#function init>
+	<#return "" />
 </#function>
 
 <#-- Filter a menu list
