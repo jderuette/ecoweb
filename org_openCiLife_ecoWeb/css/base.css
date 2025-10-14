@@ -65,6 +65,15 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
     word-break: break-word;
 }
 
+[data-obfuscatedkey] {
+	border: 2px solid white;
+    border-radius: 21px;
+    padding: 1px;
+    padding-bottom: 3px;
+    border-width: medium;
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
 #pageTitle {
 	display: flex;
 	align-items: center;
@@ -111,13 +120,13 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	background-color: #f5f5f5;
     padding: 15px;
     border-radius: 20px;
-    white-space: nowrap;
 }
 
 #breadcrumb li {
 	display: inline;
 	padding:0;
 	border-radius:0;
+	white-space: nowrap;
 }
 
 #breadcrumb li a {
@@ -219,7 +228,11 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 
 .languageSwitcher li {
 	float:left;
-	margin-left: 15px;
+	margin-left: 5px;
+}
+
+.languageSwitcher img {
+	max-width: 16px;
 }
 
 .blockBody {
@@ -243,6 +256,14 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 .subContent {
 	border-top: 2px solid #6900cc;
     border-radius: 20px;
+}
+
+.subContent>.title {
+    padding-top: 12px;
+    padding-left: 12px;
+    font-size: 150%;
+    color: #6900cc;
+    text-decoration: underline;
 }
 
 .blockSubContent {
@@ -491,13 +512,13 @@ div.debug {
 	flex-direction: column;
 }
 
-.footer_block, .header_block {
+.footer_blocks .block, .header_blocks .block {
 	display: flex;
 	flex-direction: row;
 	font-size: 1.2em;
 }
 
-.footer_block img, .header_block img {
+.footer_blocks .block img, .header_blocks .block img {
 	width: 100px;
 }
 
@@ -540,6 +561,13 @@ div.debug {
 	}
 	#logoLeft {
 		width: 200px;
+	}
+	.languageSwitcher li {
+		float:left;
+		margin-left: 15px;
+	}
+	.languageSwitcher img {
+		max-width: 32px;
 	}
 	.blockIcon {
 		width: 130px;
