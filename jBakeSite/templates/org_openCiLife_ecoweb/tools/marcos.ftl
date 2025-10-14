@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"All ecoWeb Macros. Need to be splited into smaller component.", "require":[{"value":"common", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}, {"value":"sequenceHelper", "type":"lib"}], "uses":[{"value":"Too many things !!", "type":"config, contentHeader, pomProperty"}]}>
+	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"All ecoWeb Macros. Need to be splited into smaller component.", "require":[{"value":"propertiesHelper", "type":"lib"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
@@ -11,16 +11,24 @@
 <#function unObfuscateText obfucatedEmail, obfuscationMask>
 	<#local humanReadableText = obfucatedEmail>
 	<#if obfucatedEmail?? && obfuscationMask??>
-		${stackDebugMessage("UnObfuscateText : decrypt text ! whith key : " + obfuscationMask)}
+		<#if logHelper??>
+			${stackDebugMessage("UnObfuscateText : decrypt text ! whith key : " + obfuscationMask)}
+		</#if>
 		<#local tokens=obfuscationMask?split(r"\s*,\s*", "r")>
-		${stackDebugMessage(">>Email : " + tokens?size + " crypt token found")}
+		<#if logHelper??>
+			${stackDebugMessage(">>Email : " + tokens?size + " crypt token found")}
+		</#if>
 		<#list tokens as token>
 			<#local tokenDetail=token?split(r"\s*:\s*", "r")>
 			<#if tokenDetail?? && tokenDetail[0]?? && tokenDetail[1]??>
-				${stackDebugMessage(">>>>UnObfuscateText : replacing " + tokenDetail[1] + " by " + tokenDetail[0])}
+				<#if logHelper??>
+					${stackDebugMessage(">>>>UnObfuscateText : replacing " + tokenDetail[1] + " by " + tokenDetail[0])}
+				</#if>
 				<#local humanReadableText = humanReadableText?replace(tokenDetail[1], tokenDetail[0])>
 			</#if>
-			${stackDebugMessage(">>>>UnObfuscateText : Token has " + tokenDetail?size + " elements, current Human Readable e-mail : " + humanReadableText)}
+			<#if logHelper??>
+				${stackDebugMessage(">>>>UnObfuscateText : Token has " + tokenDetail?size + " elements, current Human Readable e-mail : " + humanReadableText)}
+				</#if>
 		</#list>
 	</#if>
 	<#return humanReadableText>

@@ -1,15 +1,14 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"ressourcesHelper", "description":"Help manage required HTML ressources like CSS and JS", "recommandedNamespace":"ressourcesHelper"}>
+	<#return {"componnentVersion":1, "name":"ressourcesHelper", "description":"Help manage required HTML ressources like CSS and JS", "recommandedNamespace":"ressourcesHelper", "require":[{"value":"commonHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>
 	<#return "" />
 </#function>
 
-
 <#assign allRessources = {}>
 
-#-- To create "link" header line or footer scripts injection.
+<#-- To create "link" header line or footer scripts injection.
 param : content : JSON content describing inclusions.
 -->
 <#macro buildExternalInjection content>

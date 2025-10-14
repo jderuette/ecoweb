@@ -1,12 +1,11 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"hookHelper", "description":"Helper for creating, rendering an res=gistering content for Hooks", "recommandedNamespace":"hookHelper", "require":[{"value":"commonHelper", "type":"lib"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"hookHelper", "description":"Helper for creating, rendering an res=gistering content for Hooks", "recommandedNamespace":"hookHelper", "require":[{"value":"commonHelper", "type":"lib"},{"value":"propertiesHelper", "type":"lib"}, {"value":"hooks", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>
 	${registerHooks()}
 	<#return "" />
 </#function>
-
 
 <#function registerHooks configPropertyName = "hooks">
 	<#if propertiesHelper.hasConfigValue(configPropertyName)>
@@ -48,7 +47,6 @@ Activate a hook.
 		</#list>
 	</#if>
 </#macro>
-
 
 <#function registerHook location functionName>
 	<#if logHelper??>

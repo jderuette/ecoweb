@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "require":[{"value":"sequenceHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "require":[{"value":"sequenceHelper", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"},{"value":"logHelper", "type":"lib"}, {"value":"site.debug.enabled", "type":"config"}, {"value":"menu", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
@@ -92,7 +92,7 @@
 </#function>
 
 <#macro debugMenu menuItems>
-	<#if (debug)??>
+	<#if (config["site_debug_enabled"])??>
 		<#if debub.isEnabled()>
 			<div class="debug">
 			debug du menu<br/>

@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"carousel", "description":"Add carousel in content", "recommandedNamespace":"carousel", "require":[{"value":"commonHelper", "type":"lib"}, {"value":"carouselData", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"carousel", "description":"Add carousel in content", "recommandedNamespace":"carousel", "require":[{"value":"common", "type":"lib"}, {"value":"carouselData", "type":"contentHeader"}, {"value":"bootstrap 3", "type":"frontLib"}]}>
 </#function>
 
 <#function init>
