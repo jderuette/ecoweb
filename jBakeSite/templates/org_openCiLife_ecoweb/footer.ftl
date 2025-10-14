@@ -14,9 +14,9 @@
       </div>
     </div>
     
-    <#if (logHelper)??>
-    	<@logHelper.displayDebugFunctionMessages />
-    </#if>
+    <#if hookHelper??>
+		<@hookHelper.hook "afterFooter" content/>
+	</#if>
     
     <!-- Javascript here load faster -->
     <@ecoWeb.buildExternalInjection config.site_script_footer />

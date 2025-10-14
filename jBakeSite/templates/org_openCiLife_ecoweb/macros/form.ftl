@@ -3,9 +3,6 @@
 </#function>
 
 <#function init>
-	<#if hookHelper??>
-		${hookHelper.registerHook("afterBody", "form.build")}
-	</#if>
 	<#return "" />
 </#function>
 

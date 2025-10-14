@@ -3,7 +3,22 @@
 </#function>
 
 <#function init>
+	${registerHooks()}
 	<#return "" />
+</#function>
+
+
+<#function registerHooks configPropertyName = "hooks">
+	<#if propertiesHelper.hasConfigValue(configPropertyName)>
+		<#local includeText = propertiesHelper.retrieveAndDisplayConfigText(configPropertyName)>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("hookHelper.registerHooks : Loading hooks declaration with : " + includeText)}
+		</#if>
+		<#assign hooksDeclarations = propertiesHelper.parseJsonProperty(includeText)>
+		<#list hooksDeclarations.data as hookDeclaration>
+			${registerHook(hookDeclaration.position, hookDeclaration.action)}
+		</#list>
+	</#if>
 </#function>
 
 <#assign contributors = {}>
@@ -11,7 +26,12 @@
 	<#return contributors[hookId] />
 </#function>
 
-<#macro hook hookId blockContent>
+<#-- 
+Activate a hook.
+@param hookId : Id (position) of hook
+@param theContent : content passed to the hooked call (can be used to détermine how/what content should provide hooked macro).
+  -->
+<#macro hook hookId theContent>
 	<#local hookContributors = getContributors(hookId)!"">
 	
 	<#if hookContributors?? && hookContributors?has_content>
@@ -23,7 +43,7 @@
 				${logHelper.stackDebugMessage("Hook : Rendering " + hookId + " with " + nbContributors + " contributors (" + common.toString(hookContributors) + ") from : " + .caller_template_name)}
 			</#if>
 		<#list hookContributors as contributor>
-			<#local contributorInterpretation = "<@${contributor} blockContent />"?interpret>
+			<#local contributorInterpretation = "<@${contributor} theContent />"?interpret>
 			<@contributorInterpretation/>
 		</#list>
 	</#if>

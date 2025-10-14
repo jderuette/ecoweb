@@ -1,6 +1,8 @@
 	<!-- Fixed navbar -->
     <div class="container">
-    	<@menu.buildMenu />
+	<#if hookHelper??>
+		<@hookHelper.hook "topMenuContainer" content/>
+	</#if>
     </div>
     <#assign mainContainerClass = "container" />
     <#if content?? && content.specificClass??>
@@ -8,8 +10,8 @@
     </#if>
     <div id="container" class="${mainContainerClass}" role="main">
     <#if content?? && content?has_content>
-    	<#if breadcrumb??>
-    		<@breadcrumb.build content/>
-    	</#if>
+    	<#if hookHelper??>
+			<@hookHelper.hook "topContentContainer" content/>
+		</#if>
     </#if>
     

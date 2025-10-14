@@ -2,16 +2,8 @@
 	
 	<#include "menu.ftl">
 	
-	<#if ((content.displayDate)?? && content.displayDate == "true")>
-		<p>Publié le : <em>${content.date?string("dd MMMM yyyy")}</em></p>
-	</#if>
-	<#if (content.tags)?? && (content.tags?size > 0) >
-		<span>Tags : </span>
-		<ul class="content_tags">
-		<#list content.tags as tag>
-			<li>${tag}</li>
-		</#list>
-		</ul>
+	<#if hookHelper??>
+		<@hookHelper.hook "beforePageHeader" content/>
 	</#if>
 	
 	<#if (content.title)?? && ((content.displayTitle)?? && !(content.displayTitle=="false"))>
@@ -22,16 +14,15 @@
 	<div class="pageContent">
 	
 	<#if (content.body)??>
+		<#if hookHelper??>
+			<@hookHelper.hook "beforeBody" content/>
+		</#if>
 		${content.body}
+		<#if hookHelper??>
+			<@hookHelper.hook "afterBody" content/>
+		</#if>
 	</#if>
 	
-	<#if form??>
-		<@form.build content />
-	</#if>
-	<#if carousel??>
-		<@carousel.build content />
-	</#if>
-					
 	<#if (content.includeBlocks)??>
 		<#if block??>
 			<@block.build content.includeBlocks.category/>
@@ -39,9 +30,4 @@
 	</#if>
 	
 	</div>
-	
-	<#if subcontent??>
-		<@subcontent.build content />
-	</#if>
-	
 <#include "footer.ftl">

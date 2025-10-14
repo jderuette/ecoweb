@@ -64,6 +64,6 @@ param : message : the message to display (a String)
 	<#return ""/>
 </#function>
 
-<#macro displayDebugFunctionMessages>
+<#macro displayDebugFunctionMessages content>
 	<@debug stackedDebugMessage />
 </#macro>

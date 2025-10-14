@@ -17,11 +17,6 @@
 			<h4>${post.date?string("MMMM yyyy")}</h4>
 			<ul>
 		</#if>
-		<#assign postTypeDisplayName = post.type>
-		<#assign postTypeDisplayNameProp = "ecoweb_type_" + post.type + "_displayName">
-		<#if (config[postTypeDisplayNameProp]) ??>
-			<#assign postTypeDisplayName = config[postTypeDisplayNameProp]>
-		</#if>
 		<li>${post.date?string("dd")} - <a href="${common.buildRootPathAwareURL(post.uri)}">${post.title}</a>  (${propertiesHelper.getDisplayName(post.type)})</li>
 		<#assign last_month = post.date?string("MMMM yyyy")>
 		</#list>

@@ -110,7 +110,7 @@
 
 
 <#-- build the site menu (using Boostrap) -->
-<#macro buildMenu>
+<#macro build content>
 <div class="navbar navbar-light bg-white" role="navigation">
       <div class="navbar-header">
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
