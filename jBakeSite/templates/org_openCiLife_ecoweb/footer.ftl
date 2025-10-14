@@ -19,6 +19,8 @@
 	</#if>
     
     <!-- Javascript here load faster -->
-    <@ecoWeb.buildExternalInjection config.site_script_footer />
+    <#if ressourcesHelper??>
+    	<@ressourcesHelper.buildExternalInjection config.site_script_footer />
+    </#if	>
   </body>
 </html>

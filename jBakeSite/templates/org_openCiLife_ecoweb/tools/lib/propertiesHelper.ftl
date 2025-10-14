@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"propertiesHelper", "description":"Help retrieve and interpret config file data"}>
+	<#return {"componnentVersion":1, "name":"propertiesHelper", "description":"Help retrieve and interpret config file data", "recommandedNamespace":"propertiesHelper"}>
 </#function>
 
 <#function init>
