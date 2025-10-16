@@ -14,12 +14,12 @@ param : content : content to search for include content
 		<#if logHelper??>
 			<@logHelper.debug "(sub)Content should be included"/>
 		</#if>
-			<#assign allSubContents = db.getPublishedContent(content.includeContent.type)>
-			<#assign displaySelf = (content.includeContent.displaySelf)!"disabled">
-			<#assign subContents = allSubContents>
+			<#local allSubContents = db.getPublishedContent(content.includeContent.type)>
+			<#local displaySelf = (content.includeContent.displaySelf)!"disabled">
+			<#local subContents = allSubContents>
 			<#--  -- remove self if presents -->
 			<#if (displaySelf == "none")>
-				<#assign subContents = allSubContents?filter(ct -> ct.title != content.title)>
+				<#local subContents = allSubContents?filter(ct -> ct.title != content.title)>
 			</#if>
 			
 			<#if (langHelper)??>
@@ -39,12 +39,12 @@ param : content : content to search for include content
 				<#if (content.includeContent.title)??>
 					<div class="title">${content.includeContent.title}</div>
 				</#if>
-				<#assign subContentDisplayMode = (content.includeContent.display.type)!"bullet">
-				<#assign subContentDisplayContentMode = (content.includeContent.display.content)!"link">
-				<#assign subContentBeforeTitleImage = (content.includeContent.display.beforeTitleImage)!"">
-				<#assign specificClass = (content.includeContent.specificClass)!"">
+				<#local subContentDisplayMode = (content.includeContent.display.type)!"bullet">
+				<#local subContentDisplayContentMode = (content.includeContent.display.content)!"link">
+				<#local subContentBeforeTitleImage = (content.includeContent.display.beforeTitleImage)!"">
+				<#local specificClass = (content.includeContent.specificClass)!"">
 				
-				<#assign theModalId = "basicModal">
+				<#local theModalId = "basicModal">
 				<#if (subContentDisplayContentMode == "modal")>
 					<@buildModal modalId= theModalId/>
 				</#if>

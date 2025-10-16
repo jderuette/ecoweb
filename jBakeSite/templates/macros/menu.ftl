@@ -157,9 +157,9 @@
 				<ul class="dropdown-menu${collectDropDownClasses(top_level_menu_items)}">
 		</#if>
 		<#list top_level_menu_items as menu_item>
-				<#assign menuSpecificClass = "">
+				<#local menuSpecificClass = "">
 				<#if menu_item.menu?? && menu_item.menu.specificClass??>
-					<#assign menuSpecificClass = " class=\"" + menu_item.menu.specificClass + "\"">
+					<#local menuSpecificClass = " class=\"" + menu_item.menu.specificClass + "\"">
 				</#if>
 				<#local link = "">
 				<#if menu_item.anchorId??>

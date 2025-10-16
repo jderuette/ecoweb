@@ -16,7 +16,7 @@ param : content : content to search for form data
 		<#local sendLabel=(content.formData.sendLabel)!"Contactez" />
 		<#local formId=(content.formData.id)!"form1" />
 		
-		<#assign fields=(content.formData.fields)! />
+		<#local fields=(content.formData.fields)! />
 		
 		<#local isContactForm = false>
 		<#local extraAtr = "">
@@ -36,10 +36,10 @@ param : content : content to search for form data
 			<label for="<#escape x as x?xml>${fieldId}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
 			
 			<#if field.type == "textarea">
-				<#assign endTag = "textarea" />
+				<#local endTag = "textarea" />
 				<textarea 
 			<#else>
-				<#assign endTag = "input" />
+				<#local endTag = "input" />
 				<input type="<#escape x as x?xml>${field.type!"text"}</#escape>" 
 			</#if>
 			class="<#escape x as x?xml>${fieldspecificClass!"form-control"}</#escape>" id="<#escape x as x?xml>${field.id}</#escape>" 

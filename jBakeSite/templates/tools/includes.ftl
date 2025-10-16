@@ -14,12 +14,12 @@
 		<#if logHelper??>
 			${logHelper.stackDebugMessage("commonInc.buildIncludes : Loading component with : " + includeText)}
 		</#if>
-		<#assign icludes = propertiesHelper.parseJsonProperty(includeText)>
+		<#local icludes = propertiesHelper.parseJsonProperty(includeText)>
 		
 		<#local addedComponents = []>
 		<#list icludes.data as include>
 			<#if (include.namespace)??>
-				<#assign fileName = include.file>
+				<#local fileName = include.file>
 				<#assign includeNameSpace = include.namespace>
 				<#import "/"+include.file as includeNameSpace>
 				<@'<#global ${include.namespace} = includeNameSpace>'?interpret />

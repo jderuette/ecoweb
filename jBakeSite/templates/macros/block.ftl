@@ -17,7 +17,7 @@
 	</#if>
 	
 	<#list blocks?sort_by("order") as block>
-		<#assign blockCategory = block.category!"__empty_categ__">
+		<#local blockCategory = block.category!"__empty_categ__">
 		<#if logHelper??>
 			<@logHelper.debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + sequenceHelper.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
 		</#if>
