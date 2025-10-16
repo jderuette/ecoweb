@@ -21,7 +21,7 @@
 			<#if (include.namespace)??>
 				<#assign fileName = include.file>
 				<#assign includeNameSpace = include.namespace>
-				<#import "../"+include.file as includeNameSpace>
+				<#import "/"+include.file as includeNameSpace>
 				<@'<#global ${include.namespace} = includeNameSpace>'?interpret />
 				<#local addedComponents = addedComponents + [include.namespace]>
 			<#else>
