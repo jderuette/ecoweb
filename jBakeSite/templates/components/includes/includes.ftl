@@ -1,4 +1,4 @@
-<#import "../tools/lib/propertiesHelper.ftl" as propertiesHelper>
+<#import "../../components/propertiesHelper/propertiesHelper.ftl" as propertiesHelper>
 
 <#function getComponnentInfo>
 	<#return {"componnentVersion":1, "name":"includes", "description":"Include ftl file as import in templates", "recommandedNamespace":"commonInc", "require":[{"value":"propertiesHelper", "type":"lib"}, {"value":"common", "type":"lib"}, {"value":"components", "type":"config", "desc":"with *namespace* attributs"}, {"value":"init()", "type":"componentFunction"}, {"value":"getComponnentInfo()", "type":"componentFunction"}], "uses":[{"value":"logHelper", "type":"lib"}]}>

@@ -22,6 +22,8 @@
 		<jbake.outputDirectory>${project.basedir}/website</jbake.outputDirectory>
 		<jbake_maven_plugin.version>2.7.0-rc.7</jbake_maven_plugin.version>
 		<publish.url>scm:git:git@github.com:jderuette/ecoweb.git</publish.url>
+		<weblegerPom.minify.css.basename>combined.min.css</weblegerPom.minify.css.basename>
+		<weblegerPom.minify.js.basename>combined.min.js</weblegerPom.minify.js.basename>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -36,6 +38,7 @@
 		</site>
 	</distributionManagement>
 
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -48,13 +51,106 @@
 						<content>${jbake.outputDirectory}</content>
 					</configuration>
 				</plugin>
-			</plugins>
 
+				<plugin>
+					<groupId>org.primefaces.extensions</groupId>
+					<artifactId>resources-optimizer-maven-plugin</artifactId>
+					<version>2.4.4</version>
+					<executions>
+						<execution>
+							<id>optimize</id>
+							<goals>
+								<goal>optimize</goal>
+							</goals>
+						</execution>
+					</executions>
+
+					<configuration>
+						<!-- top JS files -->
+						<resourcesSets>
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/top-*.js</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+								</excludes>
+
+								<aggregations>
+									<aggregation>
+										<outputFile>
+											${jbake.outputDirectory}/static/top.js</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+							<!-- bottom JS files -->
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/*.js</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+									<exclude>**/top-*.js</exclude>
+								</excludes>
+								<aggregations>
+									<aggregation>
+										<outputFile>
+											${jbake.outputDirectory}/static/bottom.js</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+
+							<!-- top CSS files -->
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/top-*.css</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+								</excludes>
+								<aggregations>
+									<aggregation>
+										<withoutCompress>true</withoutCompress>
+										<outputFile>
+											${jbake.outputDirectory}/static/top.css</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+							<!-- bottom CSS files -->
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/*.css</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+									<exclude>**/top-*.css</exclude>
+								</excludes>
+
+								<aggregations>
+									<aggregation>
+										<withoutCompress>true</withoutCompress>
+										<outputFile>
+											${jbake.outputDirectory}/static/bottom.css</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+						</resourcesSets>
+					</configuration>
+				</plugin>
+			</plugins>
 		</pluginManagement>
 		<filters>
 			<filter>ecoWeb-build.properties</filter>
 		</filters>
-		
+
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -73,10 +169,25 @@
 						<phase>initialize</phase>
 						<configuration>
 							<tasks>
-								<delete dir="${jbake.inputDirectory}" />
+								<delete dir="${jbake.inputDirectory}"
+									failonerror="false" />
 								<mkdir dir="${jbake.inputDirectory}" />
-								<delete dir="${jbake.outputDirectory}" />
+								<delete dir="${jbake.outputDirectory}"
+									failonerror="false" />
 								<mkdir dir="${jbake.outputDirectory}" />
+
+								<!-- to copy ressoruces from components to
+								assets -->
+								<mkdir
+									dir="${jbake.inputDirectory}/assets/static" />
+								<copy
+									todir="${jbake.inputDirectory}/assets">
+									<fileset dir="${src.dir}"
+										includes="**/copyToAssests/**" />
+								</copy>
+
+								<!-- compressed CSS and JS will go here -->
+								<mkdir dir="${jbake.outputDirectory}/static" />
 							</tasks>
 						</configuration>
 						<goals>
@@ -114,6 +225,24 @@
 			</plugin>
 
 			<plugin>
+				<groupId>com.coderplus.maven.plugins</groupId>
+				<artifactId>copy-rename-maven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<id>copy-file</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<!-- Place config here -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
 				<groupId>org.jbake</groupId>
 				<artifactId>jbake-maven-plugin</artifactId>
 				<version>${jbake_maven_plugin.version}</version>
@@ -124,15 +253,36 @@
 				<executions>
 					<execution>
 						<id>default-generate</id>
-						<phase>generate-resources</phase>
+						<phase>process-resources</phase>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+				<groupId>com.github.hazendaz.maven</groupId>
+				<artifactId>htmlcompressor-maven-plugin</artifactId>
+				<version>1.7.3</version>
+				<configuration>
+					<srcFolder>${jbake.outputDirectory}</srcFolder>
+					<targetFolder>${jbake.outputDirectory}</targetFolder>
+					<fileExt>
+						<fileExtension>html</fileExtension>
+					</fileExt>
+				</configuration>
+				<executions>
+					<execution>
+						<id>compress-html-generated-files</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>html</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
-
 	</build>
 
 </project>

@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"All ecoWeb Macros. Need to be splited into smaller component.", "require":[{"value":"propertiesHelper", "type":"lib"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"EcoWeb Template", "require":[{"value":"propertiesHelper", "type":"lib"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>

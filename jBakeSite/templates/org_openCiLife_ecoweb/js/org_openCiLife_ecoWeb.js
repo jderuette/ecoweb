@@ -1,28 +1,28 @@
 $('#basicModal').on('show.bs.modal', function (event) {
-                console.log (event);
-                console.log ('we are showing');
-                
-                
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                //var recipient = button.data('whatever') // Extract info from data-* attributes
-                var widget = button.parent();
-                console.log (widget);
-                
-                var bodyContent = widget.find('.widget_content').html();
-                console.log (bodyContent);
-                
-                var bodyTitle = widget.find('.widget_title').html();
-                console.log (bodyTitle);
-                
-                var bodyImage = widget.find('.widget_image');
-                console.log (bodyImage);
-                console.log (bodyImage.attr('src'));
-                
-                var modal = $(this);
-                modal.find('.modal-title').text(bodyTitle);
-                modal.find('.modal-body-content').replaceWith('<div class="modal-body-content">' + bodyContent + '</div>');
-                console.log (modal.find('.modal-image').attr('src'));
-                modal.find('.modal-image').attr('src', bodyImage.attr('src'));
+        console.log (event);
+        console.log ('we are showing');
+        
+        
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        //var recipient = button.data('whatever') // Extract info from data-* attributes
+        var widget = button.parent();
+        console.log (widget);
+        
+        var bodyContent = widget.find('.widget_content').html();
+        console.log (bodyContent);
+        
+        var bodyTitle = widget.find('.widget_title').html();
+        console.log (bodyTitle);
+        
+        var bodyImage = widget.find('.widget_image');
+        console.log (bodyImage);
+        console.log (bodyImage.attr('src'));
+        
+        var modal = $(this);
+        modal.find('.modal-title').text(bodyTitle);
+        modal.find('.modal-body-content').replaceWith('<div class="modal-body-content">' + bodyContent + '</div>');
+        console.log (modal.find('.modal-image').attr('src'));
+        modal.find('.modal-image').attr('src', bodyImage.attr('src'));
         /*
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes
@@ -45,32 +45,32 @@ function changeValue(targetId, newValue) {
 
 $('*[data-obfuscatedMailTo]').on('submit', function() {
 	console.log ("data-obfuscatedMailTo : Handling obfuscated action for form : " + $(this).attr('id'));
-	const obfuscatedEmail = $(this).data("obfuscatedmailto");
-	const obfuscatedEmailKey = $(this).data("obfuscatedmailtokey");
+	var obfuscatedEmail = $(this).data("obfuscatedmailto");
+	var obfuscatedEmailKey = $(this).data("obfuscatedmailtokey");
 	console.log ("data-obfuscatedMailTo : prepare to unobfuscate data : " + obfuscatedEmail + " using key : " + obfuscatedEmailKey);
 	
-	const humanReadeableEmail = unObfuscText(obfuscatedEmail, obfuscatedEmailKey);
-	const newAction = "mailto:"+humanReadeableEmail
+	var humanReadeableEmail = unObfuscText(obfuscatedEmail, obfuscatedEmailKey);
+	var newAction = "mailto:"+humanReadeableEmail
 	$(this).attr('action', newAction);
     return true;
 });
 
 
 $('*[data-obfuscatedValue]').on('click', function() {
-	const obfuscatedValue = $(this).data("obfuscatedvalue");
-	const obfuscatedKey = $(this).data("obfuscatedkey");
-	const obfuscatedTarget = $(this).data("obfuscatedtarget");
+	var obfuscatedValue = $(this).data("obfuscatedvalue");
+	var obfuscatedKey = $(this).data("obfuscatedkey");
+	var obfuscatedTarget = $(this).data("obfuscatedtarget");
 	console.log ("data-obfuscatedValue : Handling obfuscated action for : " + obfuscatedTarget  + " ("+obfuscatedValue+" using key : "+obfuscatedKey+") cliked on : " + $(this).attr('id'));
-	const humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
+	var humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
 	$(obfuscatedTarget).val(humanReadeableText);
 	$(obfuscatedTarget).attr("readonly", false);
 });
 
 $('span[data-obfuscatedkey]').on('click', function() {
-	const obfuscatedValue = $(this).text();
-	const obfuscatedKey = $(this).data("obfuscatedkey");
+	var obfuscatedValue = $(this).text();
+	var obfuscatedKey = $(this).data("obfuscatedkey");
 	console.log ("data-obfuscatedText : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
-	const humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
+	var humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
 	$(this).text(humanReadeableText);
 	$(this).off('click');
 	$(this).next('img.showHiddenDataAppendedButton').remove();
@@ -80,9 +80,9 @@ $('span[data-obfuscatedkey]').append('<img class="showHiddenDataAppendedButton" 
 
 function unObfuscText(source, key){
 	var unOfuscatedText = source;
-	const tokens = key.split(",");
-	for (const token of tokens){
-		const tokenDetails = token.split(":")
+	var tokens = key.split(",");
+	for (var token in tokens){
+		var tokenDetails = token.split(":");
 		//console.log ("unObfuscText : Replacing : " + tokenDetails[1] + " by : " + tokenDetails[0]);
 		unOfuscatedText = unOfuscatedText.replace(tokenDetails[1], tokenDetails[0]);
 	}

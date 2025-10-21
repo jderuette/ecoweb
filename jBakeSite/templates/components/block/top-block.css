@@ -1,0 +1,112 @@
+.blockContent {
+	padding: 0px 2%;
+	width: 100%;
+}
+
+.mainBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+	margin: auto;
+	padding-bottom: 3%;
+	line-height: 170%;
+	border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.style1 {
+	border: 2px solid lightgrey;
+	background-color: ${webleger.site.style.style1.background-color};
+}
+
+.style2 {
+	border: 2px solid lightgrey;
+	background-color: ${webleger.site.style.style2.background-color};
+}
+
+.style3 {
+	border: 2px solid lightgrey;
+	background-color: ${webleger.site.style.style3.background-color};
+}
+
+.style4 {
+	border: 2px solid lightgrey;
+	background-color: ${webleger.site.style.style4.background-color};
+}
+
+.blockTitle {
+	font-size: 200%;
+	text-align: center;
+	color: ${webleger.site.style.block.title.text-color};
+}
+
+.blockBody {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.blockIcon {
+	width: 40px;
+	height: 40px;
+	margin-right: 1%;
+}
+
+.footer_blocks{
+	display: flex;
+	flex-direction: column;
+}
+
+.footer_blocks .block, .header_blocks .block {
+	display: flex;
+	flex-direction: row;
+	font-size: 1.2em;
+}
+
+.footer_blocks .block img, .header_blocks .block img {
+	width: 100px;
+}
+
+.footer_block_text {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-left: 4%;
+}
+
+.header_blocks {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+
+.preHeader .blockContent {
+	padding: 0;
+	margin-left: 12px;
+}
+
+.preHeader .blockContent > p{
+	margin : 0px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (min-width: 640px) {
+	.blockIcon {
+		width: 130px;
+		height: 130px;
+	}
+	.preHeader .blockContent {
+		margin-left: 25px;
+	}
+	.footer_blocks {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.footer_block {
+		justify-content: space-around;
+	}
+}
