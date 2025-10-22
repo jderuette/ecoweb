@@ -203,6 +203,7 @@
 
 				<configuration>
 					<outputDirectory>${jbake.inputDirectory}</outputDirectory>
+					<escapeString>\</escapeString>
 					<resources>
 						<resource>
 							<directory>${project.basedir}/jBakeSite</directory>
