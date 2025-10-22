@@ -106,8 +106,7 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .widget_title_image {
-	float:left;
-	margin-top:28px !important;
+	margin-top:28px;
 }
 
 .description {
