@@ -4,7 +4,7 @@ type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
 category=documentation, création, V0.0.1
 tags=Création de contenu
-status=draft
+status=published
 exerpt=Découvrir les outils spécifique au template par défaut
 contentImage=images/documentation/strcuture_page/file-word.svg
 specificClass=Documentation
@@ -26,14 +26,17 @@ En ajoutant un attribut **dataTransform** de type **obfuscated** le contenue d'u
 
 Pour permtre le changement facilement de l'URL du site (notament pour déployer en local, en local et en prod) il faut pouvoir parmètrer l'URL du site. Cela se fait via le fichier de configuration ``jbake.properties`` via le paramètre **site.host**. LE fichier de propriété de JBake est accessible dasn els templates et composants mais pas dans les contenus. Pour le rendre accessible un paramètre du fichier (maven) ``ecoWeb-build.properties`` existe. Il est utilisé pour la valeur de ``site.host`` et peut être utilisé dnas les contenus : **webleger.build.host**.
 Dans un contenu il est possible d'utiliser ce dernier paramètre par exemple : 
-    ![Ajouter une configuration étape 1](${webleger.build.host}/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_1.png)
+
+    ![Ajouter une configuration étape 1](\${webleger.build.host}/images/documentation/configurer_eclipse/Eclipse_IDE_Ajouter_Configuration_1.png)
  
 ## Paramètrage des fichiers CSS
 Pour rendre le template ré-utilisable il est utile de rendre paramètrable certaisn élément qui sont utilisé dans les fichier CSS. Ces paramètre sont définie dans le fichier ``ecoWeb-build.properties`` et peuvent être utilisé via la syntaxe ``${xxxx}`` dans n'importe quel fichier y compris les fichiers CSS. Cela permet notament de choisir les couleurs principales du site. Par exemple : 
+
     .style1 {
 	   border: 2px solid lightgrey;
-	   background-color: ${webleger.site.style.style1.background-color};
+	   background-color: \${webleger.site.style.style1.background-color};
     }
+    
 Dans l'exemple ci dessus la valeur de ``background-color`` est définie par le paramètre **webleger.site.style.style1.background-color** du fichier de propriété maven : ``ecoWeb-build.properties``
 
 ## Gestion des menus
@@ -48,8 +51,9 @@ Les menu peuvent être construit autoamtiquement vial le paramètrage dans le fi
 
 Le menu autoatique évite à l'utilisateur de mondifier un modèle (template) lorsqu'il souhaite ajouter un élément dans le menu.
 
-### regreoupement
+### regroupement
 Il est possible de regrouper plusieurs element de menu dans un même menu. Cela se configure via le contenue en ajoutant un paramètre en entete du contenu ``menu``. Par exemple 
+
     menu={"parent":{"title":"EthikNet", "specificClass":"menu_EthikNet"}
 
 
