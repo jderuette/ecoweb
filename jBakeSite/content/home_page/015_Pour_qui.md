@@ -7,7 +7,7 @@ status=published
 specificClass=mainBlock style2
 contentImage=images/user.svg
 anchorId=pour_qui
-menu={"parent"{"title":"WebLegé"}}
+menu={"parent":{"title":"WebLegé"}}
 order=015
 ~~~~~~
 WebLeger à trois cible : 

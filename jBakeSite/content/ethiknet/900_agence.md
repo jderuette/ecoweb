@@ -11,7 +11,7 @@ exerpt=Découvrire l'agence EthikNet
 specificClass=EthikNet
 contentImage=images/bulding.svg
 displayDate=false
-menu={"parent"{"title":"EthikNet", "specificClass":"menu_EthikNet"}, "dropDownSpecificClass":"dropDown_menu_EthikNet", "specificClass":"agence"}
+menu={"parent":{"title":"EthikNet", "specificClass":"menu_EthikNet"}, "dropDownSpecificClass":"dropDown_menu_EthikNet", "specificClass":"agence"}
 order=900
 ~~~~~~
 	

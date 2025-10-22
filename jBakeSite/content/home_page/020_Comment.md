@@ -7,7 +7,7 @@ status=published
 specificClass=mainBlock style1
 contentImage=images/jbake_75x75.png
 anchorId=comment
-menu={"parent"{"title":"WebLegé"}}
+menu={"parent":{"title":"WebLegé"}}
 order=020
 ~~~~~~
 Il faut télécharger l'outils de developpement.
