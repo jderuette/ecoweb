@@ -1,9 +1,19 @@
+<#import "../../components/commonHelper/commonHelper.ftl" as common>
+<#import "../../components/logHelper/logHelper.ftl" as logHelper>
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"propertiesHelper", "description":"Help retrieve and interpret config file data", "recommandedNamespace":"propertiesHelper", "uses":[{"value":"site.langs", "type":"config"}]}>
+	<#return {"componnentVersion":1, "name":"propertiesHelper", "description":"Help retrieve and interpret config file data", "recommandedNamespace":"propertiesHelper", "require":[{"value":"common", "type":"lib"}], "uses":[{"value":"site.langs", "type":"config"}, {"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>
 	<#return "" />
+</#function>
+
+<#function secureStringJsonData theJsonText>
+<#local prop = theJsonText>
+	<#if theJsonText?is_sequence>
+		<#local prop = theJsonText?join(", ")>
+	</#if>
+	<#return prop>
 </#function>
 
 <#--Read and display text from config file. Handle corectly when coma "," in text.
@@ -11,12 +21,7 @@ param : theText : the text to display (may be a "sequence")
 return : a text (with original coma ",")
 -->
 <#function retrieveAndDisplayConfigText theProperty>
-	<#local prop = theProperty>
-	<#if theProperty?is_sequence>
-		<#local prop = theProperty?join(", ")>
-	</#if>
-	
-	
+	<#local prop = secureStringJsonData(theProperty)>
 	<#local prop = prop?replace(".", "_")>
 	
 	<#if (config["site_langs"])??>
@@ -91,8 +96,11 @@ param : propValue : Config property containing the JSON
 		</#if>
 		
 		<#local jsonContent = {"error":"invalidValue", "parsedVal":fullContent}>
-		
-		<#local jsonContent = fullContent?eval_json>
+		<#attempt>
+			<#local jsonContent = fullContent?eval_json>
+		<#recover>
+			${logHelper.stackDebugMessage("propertiesHelper.parseJsonProperty : ERROR while trying to parse JSON value : " + common.toString(fullContent) + " with error : " + .error)}
+		</#attempt>
 	</#if>
 	<#return jsonContent>
 </#function>
