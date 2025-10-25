@@ -1,7 +1,7 @@
 title=Components informations
 date=2025-10-01
 type=org_openCiLife_block
-subTemplate=commonInc.buildComponnentInfos
+subTemplate=commonInc.buildAllComponnentsInfos
 category=siteInfo_block
 tags=
 status=published

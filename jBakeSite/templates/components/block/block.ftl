@@ -22,6 +22,7 @@
 			<@logHelper.debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + sequenceHelper.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
 		</#if>
 		<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
+			<#local uselessTempVar = commonInc.handleContentChain(block) />
 			<#local subTemplateName = "defaultBlockSubTemplate">
 			<#if (block.subTemplate??)>
 				<#local subTemplateName=block.subTemplate>

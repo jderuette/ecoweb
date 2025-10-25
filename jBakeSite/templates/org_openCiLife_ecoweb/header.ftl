@@ -3,6 +3,7 @@
 </#if>
 <#import "../components/includes/includes.ftl" as commonInc>
 <@commonInc.buildIncludes />
+<#assign uselessTempVar = commonInc.handleContentChain(content) />
 <!DOCTYPE html>
 <html lang="<#if (langHelper)??>${langHelper.getLang(content)}<#elseif (config.site_langs_default)??>${config.site_langs_default}<#else>fr_FR</#if>">
   <head>

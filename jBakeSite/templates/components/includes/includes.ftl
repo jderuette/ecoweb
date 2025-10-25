@@ -1,20 +1,23 @@
 <#import "../../components/propertiesHelper/propertiesHelper.ftl" as propertiesHelper>
 
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"includes", "description":"Include ftl file as import in templates", "recommandedNamespace":"commonInc", "require":[{"value":"propertiesHelper", "type":"lib"}, {"value":"common", "type":"lib"}, {"value":"components", "type":"config", "desc":"with *namespace* attributs"}, {"value":"init()", "type":"componentFunction"}, {"value":"getComponnentInfo()", "type":"componentFunction"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"includes", "description":"Include ftl file as import in templates", "recommandedNamespace":"commonInc", "require":[{"value":"propertiesHelper", "type":"lib"}, {"value":"common", "type":"lib"}, {"value":"components", "type":"config", "desc":"with *namespace* attributs"}, {"value":"init()", "type":"componentFunction"}, {"value":"getComponnentInfo()", "type":"componentFunction"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"documentationComponent", "type":"contentHeader", "description":"To display component documentation in an other content"}]}>
 </#function>
 
 <#function init>
 	<#return "" />
 </#function>
 
+
+<#assign allComponentsData = []>
 <#macro buildIncludes configPropertyName="components", autoInit=true>
 	<#if propertiesHelper.hasConfigValue(configPropertyName)>
 		<#local includeText = propertiesHelper.retrieveAndDisplayConfigText(configPropertyName)>
 		<#local icludes = propertiesHelper.parseJsonProperty(includeText)>
+		<#assign allComponentsData = icludes.data>
 		
 		<#local addedComponents = []>
-		<#list icludes.data as include>
+		<#list allComponentsData as include>
 			<#if (include.namespace)??>
 				<#local fileName = include.file>
 				<#assign includeNameSpace = include.namespace>
@@ -35,7 +38,7 @@
 		<#if logHelper??>
 			${logHelper.stackDebugMessage("commonInc.buildIncludes : calling init() on added components")}
 		</#if>
-		<#list icludes.data as include>
+		<#list allComponentsData as include>
 			<#attempt>
 				<#local includeNameSpace = .vars[include.namespace]>
 				<#local componentInfo = includeNameSpace.getComponnentInfo() >
@@ -47,6 +50,25 @@
 		</#list>
 	</#if>
 </#macro>
+
+<#-- pass content to all componnent wihich need a per content actions. -->
+<#function handleContentChain content>
+	<#list allComponentsData as include>
+			<#attempt>
+				<#local includeNameSpace = .vars[include.namespace]>
+				<#local componentInfo = includeNameSpace.getComponnentInfo() >
+				<#if componentInfo?? && (componentInfo.componnentVersion)?? && componentInfo.componnentVersion == 1 
+					&& (componentInfo.contentChainBefore)?? && componentInfo.contentChainBefore == true>
+					<#if logHelper??>
+						${logHelper.stackDebugMessage("commonInc.handleContentChain : Info pass content to componnent : " + include.file + " from : " + .caller_template_name)}
+					</#if>
+					${includeNameSpace.registerContentHook(content)}
+				</#if>
+			<#recover>
+			</#attempt>
+		</#list>
+</#function>
+
 
 <#-- Display informations about all registred components 
    Could be used as a subTemplate -->
@@ -157,6 +179,11 @@
 		<#else>
 			Aucune utilisation d'autre éléments.
 		</#if>
+		<#local isHandleContent = false>
+		<#if (compData.contentChainBefore)?? && compData.contentChainBefore == true>
+			<#local isHandleContent = true>
+		</#if>
+		<div>Traite le contenu en pre-traitement : ${isHandleContent?string('Oui','Non')}</div>
 		</div>
 	<#recover>
 		<div>Erreur lors de l'interpretation de getComponnentInfo() pour ce composant !!</div>

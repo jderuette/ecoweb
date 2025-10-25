@@ -1,9 +1,47 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"hookHelper", "description":"Helper for creating, rendering an res=gistering content for Hooks", "recommandedNamespace":"hookHelper", "require":[{"value":"commonHelper", "type":"lib"},{"value":"propertiesHelper", "type":"lib"}, {"value":"hooks", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"hookHelper", "description":"Helper for creating, rendering an registering content for Hooks", "recommandedNamespace":"hookHelper", "contentChainBefore":true, "require":[{"value":"commonHelper", "type":"lib"},{"value":"propertiesHelper", "type":"lib"}, {"value":"hooks", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>
 	${registerHooks()}
+	<#return "" />
+</#function>
+
+<#function handleContentChain content>
+	${registerContentHook(content)}
+	<#return "" />
+</#function>
+
+<#function getContentIdentifier content>
+	<#return content.uri!content.title!"no ID">
+</#function>
+
+<#function registerContentHook content>
+	<#if (content.hooks)??>
+		<#local contentHooksString = common.toString(propertiesHelper.secureStringJsonData(content.hooks))>
+		<#if logHelper??>
+			<#if contentHooksString??>
+				${logHelper.stackDebugMessage("hookHelper.registerContentHook : ADDING contentHooks : " + contentHooksString)}
+			</#if>
+		</#if>
+		<#local contentHooks = propertiesHelper.parseJsonProperty(contentHooksString)>
+		<#if hookHelper?? && contentHooks?? && (contentHooks.data)??>
+			<#list contentHooks.data as hookDeclaration>
+				<#if logHelper??>
+					${logHelper.stackDebugMessage("hookHelper.registerContentHook : trying to register hook : " + common.toString(hookDeclaration))}
+				</#if>
+				<#if (hookDeclaration.position)?? && (hookDeclaration.action)??>
+					${hookHelper.registerHook(hookDeclaration.position, hookDeclaration.action)}
+				<#else>
+					<#if logHelper??>
+					${logHelper.stackDebugMessage("hookHelper.registerContentHook : ERROR Invalid hook structure :" + common.toString(hookDeclaration))}
+				</#if>
+				</#if>
+			</#list>
+		</#if>
+	<#else>
+		${logHelper.stackDebugMessage("hookHelper.registerContentHook : NO contentHooks for content : " + getContentIdentifier(content))}
+	</#if>
 	<#return "" />
 </#function>
 
@@ -39,7 +77,7 @@ Activate a hook.
 				<#if (contributors[hookId])??>
 					<#local nbContributors = hookContributors?size>
 				</#if>
-				${logHelper.stackDebugMessage("Hook : Rendering " + hookId + " with " + nbContributors + " contributors (" + common.toString(hookContributors) + ") from : " + .caller_template_name)}
+				${logHelper.stackDebugMessage("Hook : Rendering " + hookId + " with " + nbContributors + " contributors (" + common.toString(hookContributors) + ") for " + getContentIdentifier(theContent) +" from : " + .caller_template_name)}
 			</#if>
 		<#list hookContributors as contributor>
 			<#local contributorInterpretation = "<@${contributor} theContent />"?interpret>
