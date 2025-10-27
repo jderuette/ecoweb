@@ -70,6 +70,4 @@ Faire un clique droit sur le repository qui est apparu a droite puis sélectionn
 Vous pouvez maintenant retourner dans la perspective "Java EE".
 ![Afficher perspective Java EE dans Elcipse IDE](${webleger.build.host}/images/documentation/recuperer_framework/Eclipse_afficher_perspective_java_EE.png)
 
-Toutes ces étapes fastidieuse ne sont à effectuer **qu'une seul fois** ! La création de votre site s'effectura dans la perspecgtive "Java EE".
-
-
+Toutes ces étapes fastidieuses ne sont à effectuer **qu'une seul fois** ! La création de votre site s'effectura dans la perspective "Java EE".

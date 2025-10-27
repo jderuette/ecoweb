@@ -60,7 +60,7 @@
 				<#if componentInfo?? && (componentInfo.componnentVersion)?? && componentInfo.componnentVersion == 1 
 					&& (componentInfo.contentChainBefore)?? && componentInfo.contentChainBefore == true>
 					<#if logHelper??>
-						${logHelper.stackDebugMessage("commonInc.handleContentChain : Info pass content to componnent : " + include.file + " from : " + .caller_template_name)}
+						${logHelper.stackDebugMessage("commonInc.handleContentChain : INFO : send content to component : " + include.file + " from : " + .caller_template_name)}
 					</#if>
 					${includeNameSpace.registerContentHook(content)}
 				</#if>
@@ -103,7 +103,7 @@
 	<#local includeNameSpace = .vars[include.namespace]>
 	<div class="componnentInfo">
 		<h2>${include.namespace}</h2>
-		<div>file : ${include.file} </div>
+		<div>file : ${include.file!"non précisé"} </div>
 	<#attempt>
 		<#local compData = includeNameSpace.getComponnentInfo()>
 		<div>Name : ${compData.name}</div>

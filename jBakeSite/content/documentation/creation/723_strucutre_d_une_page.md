@@ -1,11 +1,11 @@
-title=Structure d'une page
+title=Structure d'un contenu
 date=2025-06-18
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}
 category=documentation, création, V0.0.1
 tags=Création de contenu
 status=published
-exerpt=Comprendre la structure d'une page de contenu
+exerpt=Comprendre la structure d'un contenu
 contentImage=images/documentation/strcuture_page/file-word.svg
 specificClass=Documentation
 displayDate=true
