@@ -6,10 +6,17 @@
 	<#return "" />
 </#function>
 
+
+<#macro build content>
+	<#if (content.includeBlocks)?? && (content.includeBlocks.category)??>
+		<@buildWithCategory content.includeBlocks.category />
+	</#if>
+</#macro>
+
 <#-- build a content with blocks
     @param categoryFilter category to filter to get blocks. "config.site_homepage_category" for HomePage.
 -->
-<#macro build categoryFilter>
+<#macro buildWithCategory categoryFilter>
 
 	<#local blocks = org_openCiLife_blocks?filter(b -> b.status=="published")?sort_by("order")>
 	<#if (langHelper)??>
@@ -65,11 +72,11 @@
 			</#if>
 			<div class="blockContent">
 				<#if hookHelper??>
-					<@hookHelper.hook "beforeBody" block/>
+					<@hookHelper.hook "beforeBlockBody" block/>
 				</#if>
 				${block.body}
 				<#if hookHelper??>
-					<@hookHelper.hook "afterBody" block/>
+					<@hookHelper.hook "afterBlockBody" block/>
 				</#if>
 			</div>
 			<#if hookHelper??>

@@ -33,7 +33,7 @@
     	<div id="preHeader"  class="container preHeader">
     		<#if block??>
 	    		<div class="header_blocks">
-	    			<@block.build config.site_header_category/>
+	    			<@block.buildWithCategory config.site_header_category/>
 				</div>
 			</#if>
     	</div>
