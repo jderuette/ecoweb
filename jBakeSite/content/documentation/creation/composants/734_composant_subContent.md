@@ -33,14 +33,14 @@ Personalisation :
 Le format d'affichae des éléments : 
 
 - ``display.type`` : les formats supportés sont : 
-  - **table** : les sous-contenus sont affiché sous forme d'un tableau. Chq=aque ligne affiche : l'image du contenue, le titre puis le contenu. Des colonnes supplémentaires peuvent être affiché à partir des attributs d'entête de chacun des sous contenue via l'attribut **additionalData**.
+  - **table** : les sous-contenus sont affiché sous forme d'un tableau. Chaque ligne affiche : l'image du contenu, le titre puis le résumé du contenu. Des colonnes supplémentaires peuvent être affichée à partir des attributs d'entête de chacun des sous contenu via l'attribut **additionalData**.
   - **link** : chaque contenu est un simple lien.
   - **modal** : ????
   - **visible** : ???
-  - **collapse_block** : ??
+  - **collapse_block** : les sous-contenus sont affiché sous forme d'un paragraphe avec un titre le contenu s'affiche en dessous lorsque l'utilisateur clique sur le titre (comme dans une FaQ)
   - **card** : ??
 - ``display.content``
   - **modal** : lorsque l'utilsiateur cloque sur un element une fenêtre modal (une sorte de "popup" interne au site) s'affiche avec le contenu
-  - **collapse_block** : lorssque l'utilisateur cloque sur un contenue le contenu s'affiche en dessous (comme dans une FaQ)
+  - **collapse_block** : ??
   - **link** : lorsque l'utilisateur clique sur le contenu une nouvelle page s'affiche
   - **visible** : le contenu est directement intégré

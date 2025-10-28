@@ -30,28 +30,3 @@
 <#macro bob block>
 	A Basic BOB template !!!!
 </#macro>
-
-<#-- build an modal block (using Boostrap)
-param : modalId : *default* : basicModal : (html) ID of the modal (to be ued in link to target this modal)
-param : closeButtonlabel : *default* : close : label of the botom close button
--->
-<#macro buildModal modalId="basicModal" closeButtonlabel = "close">
-	<div class="modal fade" id="${modalId}" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
-      			</div>
-				<div class="modal-body">
-					<img src="none" class="modal-image"/>
-					<div class="modal-body-content">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">${closeButtonlabel}</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</#macro>

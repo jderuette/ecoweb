@@ -12,7 +12,7 @@ param : lookupItems : item or items to search for
 param : **default** : , : autoSplitChar : String containing this Char will be converted to Sequence with autoSplitChar as separator
 return : true in a least one lookupItems is found in aSequence
 -->
-<#function seq_containsOne aSequence lookupItems autoSplitChar = ",">
+<#function seq_containsOne aSequence lookupItems = "" autoSplitChar = ",">
 	<#assign found=false>
 	
 	<#assign transformedASequence=aSequence>
