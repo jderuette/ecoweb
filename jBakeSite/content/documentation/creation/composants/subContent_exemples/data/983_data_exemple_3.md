@@ -9,6 +9,7 @@ specificClass=Documentation
 displayDate=true
 projet=un autre projet
 resp=Marcel
+contentImage=images/articles/eco_conception/eco_conception.png
 order=983
 ~~~~~~
 Un contenu bidon pour le contenu d'exemple (3).

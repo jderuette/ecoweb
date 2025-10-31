@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"commonHelper", "description":"general purpose tools", "recommandedNamespace":"common"}>
+	<#return {"componnentVersion":1, "name":"commonHelper", "description":"general purpose tools", "recommandedNamespace":"common", "uses":[{"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>
@@ -99,15 +99,21 @@ param : value : object to transform in String
 	<#return stringVal>
 </#function>
 
-<#assign oldRdnVal = 1>
+<#assign oldRdnValues = []>
 <#function randomNumber salt = 7>
     <#local str= .now?long />
     <#local str = (str * salt)/3 />
     <#local random = str[(str?string?length-13)..] />
     <#local returnVal = random?replace("\\D+", "1", "r") />
-    <#if returnVal?number == oldRdnVal?number>
+    <#list 0..100 as _>
+    	<#if  !oldRdnValues?seq_contains(returnVal)>
+    		<#break>
+    	</#if>
+    	<#if logHelper??>
+			${logHelper.stackDebugMessage("common.randomNumber : (" + _?counter + ") " + returnVal + " already used, adding 1")}
+		</#if>
     	<#local returnVal += 1>
-    </#if>
-    <#assign oldRdnVal = returnVal>
+    </#list>
+    <#assign oldRdnValues = oldRdnValues + [returnVal]>
     <#return returnVal/>	
 </#function>
