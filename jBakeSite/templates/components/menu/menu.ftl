@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"},{"value":"logHelper", "type":"lib"}, {"value":"site.debug.enabled", "type":"config"}, {"value":"menu", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "recommandedNamespace":"menu", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"},{"value":"logHelper", "type":"lib"}, {"value":"site.debug.enabled", "type":"config"}, {"value":"menu", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
