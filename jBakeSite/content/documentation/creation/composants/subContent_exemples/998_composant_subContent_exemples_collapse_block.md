@@ -11,3 +11,6 @@ displayDate=true
 order=998
 ~~~~~~
 Sous composant sous forme d'un **collapse_block** avec le contenu en **visible**.
+```
+includeContent={"type":"org_openCiLife_post", "category":"data_sample", "specificClass":"documentation", "display":{"type":"collapse_block", "content":"visible"}}
+```

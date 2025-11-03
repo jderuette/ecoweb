@@ -11,3 +11,6 @@ displayDate=true
 order=992
 ~~~~~~
 Sous composant sous forme d'un **tableau** avec le contenu en **link** avec des contenus additionnelles
+```
+includeContent={"type":"org_openCiLife_post", "category":"data_sample", "specificClass":"documentation", "display":{"type":"table", "content":"link", "columns":[{"name":"logo", "attr":"contentImage", "order":1}, {"name":"titre", "attr":"title", "order":2}, {"name":"resumé", "attr":"exerpt", "order":3}, {"name":"Le projet","attr":"projet", "order":4}, {"name":"la date", "attr":"date", "order":5}, {"name":"responsable", "attr":"resp", "order":6}]}}
+```

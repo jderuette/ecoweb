@@ -11,3 +11,6 @@ displayDate=true
 order=997
 ~~~~~~
 Sous composant sous forme d'un **card** avec le contenu en **modalLink** avec des contenus additionnelles
+```
+includeContent={"type":"org_openCiLife_post", "category":"data_sample", "specificClass":"documentation", "display":{"type":"card", "content":"modalLink", "closeButton":"fermer"}}
+```

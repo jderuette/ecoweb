@@ -11,3 +11,7 @@ displayDate=true
 order=991
 ~~~~~~
 Sous composant sous forme d'un **tableau** avec le contenu en **link**
+
+```
+includeContent={"type":"org_openCiLife_post", "category":"data_sample", "specificClass":"documentation", "display":{"type":"table", "content":"link", "columns":[{"name":"logo", "attr":"contentImage", "order":1}, {"name":"titre", "attr":"title", "order":2}, {"name":"resumé", "attr":"exerpt", "order":3}]}}
+```

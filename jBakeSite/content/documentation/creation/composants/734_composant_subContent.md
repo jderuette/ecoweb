@@ -44,3 +44,11 @@ Le format d'affichae des éléments :
 	- **visible** : le contenu est directement intégré
   
 Des exmples des différentes combinaisons sont diponibles : [subContent_exemples/735_composant_subContent_exemples.html](subContent_exemples/735_composant_subContent_exemples.html)
+
+Les autres attributs : 
+
+``includeContent.display.columns`` : liste des colonnes du tableau a afficher. Le format d'un colone est le suivant : ``{"name":"titre_de_la_colnne", "attr":"nom_de_l'attribut", "order":1}`` par exemple : {"name":"logo", "attr":"contentImage", "order":1}. **nom_de_l'attribut** est un attribut d'entête du contenu.
+
+``includeContent.display.closeButton`` : texte du bouton permetant de fermer la fenêtre modal.
+
+``includeContent.display.beforeTitleImage`` : image à afficher avant le titre pour les bloque de textes rétractables.
