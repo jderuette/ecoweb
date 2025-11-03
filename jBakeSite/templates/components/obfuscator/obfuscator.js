@@ -32,7 +32,7 @@ $('*[data-obfuscatedValue]').on('click', function() {
 $('span[data-obfuscatedkey]').on('click', function() {
 	var obfuscatedValue = $(this).text();
 	var obfuscatedKey = $(this).data("obfuscatedkey");
-	console.log ("data-obfuscatedText : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
+	console.log ("data-obfuscatedkey : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
 	var humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
 	$(this).text(humanReadeableText);
 	$(this).off('click');
@@ -42,9 +42,13 @@ $('span[data-obfuscatedkey]').on('click', function() {
 $('span[data-obfuscatedkey]').append('<img class="showHiddenDataAppendedButton" style="width: 24px;margin: 0 4px 0 4px;" src="${webleger.build.host}/${webleger.site.template}/images/eyes.svg" alt="clickez pour voir l\'e-mail en clair"></img>');
 
 function unObfuscText(source, key){
+	//console.log ("unObfuscText : key : " + key);
 	var unOfuscatedText = source;
 	var tokens = key.split(",");
-	for (var token in tokens){
+	//console.log ("unObfuscText : tokens : " + tokens);
+	for (i = 0; i< tokens.length; i++ ){
+		var token = tokens[i];
+		//console.log ("unObfuscText : parsing token : " + token);
 		var tokenDetails = token.split(":");
 		//console.log ("unObfuscText : Replacing : " + tokenDetails[1] + " by : " + tokenDetails[0]);
 		unOfuscatedText = unOfuscatedText.replace(tokenDetails[1], tokenDetails[0]);
