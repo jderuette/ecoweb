@@ -8,7 +8,7 @@ exerpt=Composants bootstrap3
 specificClass=Documentation
 displayDate=true
 hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos", "renderOnce":true}]}
-documentationComponent={"namespace":"boostrap3"}
+documentationComponent={"namespace":"bootstrap3"}
 order=735
 ~~~~~~
 Ce composant permet d'intégrer BootStrap (version3) ainsi que JQuery 1.11.1. Les fichier CSS et JS du composant doivent être intégré manuellement dans le fichier de configuration. Les fichiers sont automatiquement disponible dans le dossier *templates/components/bootstrap3/copyToAssests/noAgregation*, mais ne sont pas automatiquement référencé dans le header/footer de la page.
