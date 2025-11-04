@@ -2,7 +2,7 @@
 	<#setting locale=config.site_langs_default>
 </#if>
 <#import "../components/includes/includes.ftl" as commonInc>
-<@commonInc.buildIncludes />
+<@commonInc.buildIncludes "components"/>
 <#assign uselessTempVar = commonInc.handleContentChain(content) />
 <!DOCTYPE html>
 <html lang="<#if (langHelper)??>${langHelper.getLang(content)}<#elseif (config.site_langs_default)??>${config.site_langs_default}<#else>fr_FR</#if>">

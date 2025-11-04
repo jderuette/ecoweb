@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"Obfuscator", "description":"Obfuscate text (to hide content from web crawler)", "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"Obfuscator", "description":"Obfuscate text (to hide content from web crawler)", "recommandedNamespace":"obfuscator", "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>

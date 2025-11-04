@@ -14,25 +14,30 @@
 	<#if propertiesHelper.hasConfigValue(configPropertyName)>
 		<#local includeText = propertiesHelper.retrieveAndDisplayConfigText(configPropertyName)>
 		<#local icludes = propertiesHelper.parseJsonProperty(includeText)>
-		<#assign allComponentsData = icludes.data>
+		<#assign allComponentsJSONData = icludes.data>
 		
 		<#local addedComponents = []>
-		<#list allComponentsData as include>
+		<#list allComponentsJSONData as include>
 			<#if (include.namespace)??>
-				<#local fileName = include.file>
-				<#assign includeNameSpace = include.namespace>
-				<#import "/"+include.file as includeNameSpace>
-				<@'<#global ${include.namespace} = includeNameSpace>'?interpret />
-				<#local addedComponents = addedComponents + [include.namespace]>
+				<#local namespaceAlias = include.namespace>
 			<#else>
-				<#if logHelper??>
-					${logHelper.stackDebugMessage("commonInc.buildIncludes : Componnent NOT added (no namespace) : " + fileName)}
+				<#import "/"+include.file as tmpNamespace>
+				<#local componentInfo = tmpNamespace.getComponnentInfo() >
+				<#if componentInfo?? && (componentInfo.recommandedNamespace)??>
+					<#local namespaceAlias = componentInfo.recommandedNamespace>
 				</#if>
 			</#if>
+			
+			<#local fileName = include.file>
+			<#assign includeNameSpace = namespaceAlias>
+			<#import "/"+include.file as includeNameSpace>
+			<@'<#global ${namespaceAlias} = includeNameSpace>'?interpret />
+			<#local addedComponents = addedComponents + [namespaceAlias]>
+			<#assign allComponentsData = allComponentsData + [{"file":fileName, "namespace":namespaceAlias, "configNamespace":include.namespace!""}]>
 		</#list>
 		
 		<#if logHelper??>
-			${logHelper.stackDebugMessage("commonInc.buildIncludes : Componnent added : " + common.toString(addedComponents))}
+			${logHelper.stackDebugMessage("commonInc.buildIncludes : Component added : " + common.toString(addedComponents))}
 		</#if>
 		
 		<#if logHelper??>
@@ -40,10 +45,10 @@
 		</#if>
 		<#list allComponentsData as include>
 			<#attempt>
-				<#local includeNameSpace = .vars[include.namespace]>
-				<#local componentInfo = includeNameSpace.getComponnentInfo() >
+				<#local component = .vars[include.namespace]>
+				<#local componentInfo = component.getComponnentInfo() >
 				<#if componentInfo?? && (componentInfo.componnentVersion)?? && componentInfo.componnentVersion == 1>
-					${includeNameSpace.init()}
+					${component.init()}
 				</#if>
 			<#recover>
 			</#attempt>
@@ -80,7 +85,7 @@
 		<div class="componnentInfos">
 		<h3>Informations extraites de : ${propName} : </h3>
 		<pre>${includProp}</pre>
-		<#list icludes.data as include>
+		<#list allComponentsData as include>
 			<@buildACompnnentInfos include />
 		</#list>
 		</div>
@@ -191,7 +196,7 @@
 			<div class="error">Erreur lors de l'interpretation de getComponnentInfo() pour ce composant !!</div>
 		</#attempt>
 	<#else>
-		<div class="eror">Erreur lors de l'intégration du composant : ${include.namespace} n'est pas importé !!</div>
+		<div class="eror">Erreur lors de l'intégration du composant : ${include.namespace!"__EMPTY__"} n'est pas importé !!</div>
 	</#if>
 	</div>
 </#macro>
