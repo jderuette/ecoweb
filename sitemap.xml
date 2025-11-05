@@ -150,7 +150,31 @@
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/092_contact.html</loc>
-        <lastmod>2025-10-31</lastmod>
+        <lastmod>2025-11-05</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/739_composant_lang.html</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/738_composant_carousel.html</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/737_composant_breadcrumb.html</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/736_composant_menu.html</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modalLink.html</loc>
+        <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modal.html</loc>
+        <lastmod>2025-10-28</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/996_composant_subContent_exemples_card_link.html</loc>
@@ -185,27 +209,23 @@
         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modalLink.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modal.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/734_composant_subContent.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/structure/734_composant_subContent.html</loc>
         <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/733_composant_block.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/support/735_composant_boostrap3.html</loc>
         <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/732_composant_hooks.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/structure/733_composant_block.html</loc>
+        <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/support/732_composant_hooks.html</loc>
         <lastmod>2025-10-24</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/731_composant_includes.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/support/731_composant_includes.html</loc>
         <lastmod>2025-10-24</lastmod>
     </url>
     <url>
