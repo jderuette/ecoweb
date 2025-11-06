@@ -37,6 +37,7 @@
 				</div>
 			</#if>
     	</div>
+    	<#if (content.displaySiteHeaderTitle!"true") != "false">
     	<div id="header">
 	    	<div id="up" class="container header" role="banner">
 				<div id="pageTitle">
@@ -52,3 +53,4 @@
 				</div>
 			</div>
 		</div>
+	</#if>
