@@ -80,9 +80,8 @@
 
 .header_blocks {
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: column-reverse;
 }
-
 
 .preHeader .blockContent {
 	padding: 0;
@@ -98,6 +97,10 @@
 	.blockIcon {
 		width: 130px;
 		height: 130px;
+	}
+	.header_blocks {
+		display: flex;
+		flex-direction: row-reverse;
 	}
 	.preHeader .blockContent {
 		margin-left: 25px;
