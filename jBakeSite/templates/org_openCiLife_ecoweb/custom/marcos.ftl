@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"EcoWeb Template", "recommandedNamespace":"ecoWeb", "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"EcoWeb Template", "recommandedNamespace":"ecoWeb", "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}, {"value":"displaySiteHeaderTitle", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>

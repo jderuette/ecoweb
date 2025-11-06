@@ -111,7 +111,7 @@
 
 <#-- build the site menu (using Boostrap) -->
 <#macro build content>
-<#if (content.displayMenu)?? && !(content.displayMenu == "false")>
+<#if (content.displayMenu!"true") != "false">
 	<div class="navbar navbar-light bg-white" role="navigation">
 	      <div class="navbar-header">
 	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
