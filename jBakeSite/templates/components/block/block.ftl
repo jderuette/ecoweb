@@ -47,78 +47,81 @@
 	</#if>
 </#macro>
 
+<#macro generateAnchor block>
+	<#if (block.anchorId)??>
+		id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
+	</#if>
+</#macro>
+
+<#macro generateCssClass block customCssClass="">
+	<#local classes = "block">
+	<#if (block.specificClass)?? && block.specificClass?has_content>
+		<#local classes = classes + " " + block.specificClass>
+	</#if>
+	<#if (customCssClass)?? && customCssClass?has_content>
+		<#local classes = classes + " " + customCssClass>
+	</#if>
+	<#lt>class="<#escape x as x?xml>${classes}</#escape>"
+</#macro>
+
+<#macro generateTitle block>
+	<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
+		<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
+	</#if>
+</#macro>
+
+<#macro generateBodyContent block>
+	<#if hookHelper??>
+		<@hookHelper.hook "beforeBlockContent" block/>
+	</#if>
+	<div class="blockContent">
+		<#if hookHelper??>
+			<@hookHelper.hook "beforeBlockBody" block/>
+		</#if>
+		${block.body}
+		<#if hookHelper??>
+			<@hookHelper.hook "afterBlockBody" block/>
+		</#if>
+	</div>
+	<#if hookHelper??>
+		<@hookHelper.hook "afterBlockContent" block/>
+	</#if>
+</#macro>
+
 <#macro defaultBlockSubTemplate block>
 	<@imageRightSubTemplate block />
 </#macro>
 
 <#macro imageRightSubTemplate block>
-	<div<#rt>
-		<#if (block.anchorId)??>
-			id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
-		</#if>
-		 
-		<#local classes = "block">
-		<#if (block.specificClass)??>
-			<#local classes = classes + " " + block.specificClass>
-		</#if>
-		<#lt> class="<#escape x as x?xml>${classes}</#escape>">
-		
-		<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
-			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
-		</#if>
+	<div <@generateAnchor block/> <@generateCssClass block/>>
+		<@generateTitle block/>
 		<div class="blockBody">
-			<#if hookHelper??>
-				<@hookHelper.hook "beforeBlockContent" block/>
-			</#if>
-			<div class="blockContent">
-				<#if hookHelper??>
-					<@hookHelper.hook "beforeBlockBody" block/>
-				</#if>
-				${block.body}
-				<#if hookHelper??>
-					<@hookHelper.hook "afterBlockBody" block/>
-				</#if>
-			</div>
-			<#if hookHelper??>
-				<@hookHelper.hook "afterBlockContent" block/>
-			</#if>
+			<@generateBodyContent block/>
 			<@addImageIcon block />
 		</div>
 	</div>
 </#macro>
 
 <#macro imageLeftSubTemplate block>
-	<div<#rt>
-		<#if (block.anchorId)??>
-			id="<#escape x as x?xml>${block.anchorId}</#escape>"<#rt>
-		</#if>
-		 
-		<#local classes = "block">
-		<#if (block.specificClass)??>
-			<#local classes = classes + " " + block.specificClass>
-		</#if>
-		<#lt> class="<#escape x as x?xml>${classes}</#escape>">
-		
-		<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
-			<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
-		</#if>
-			<div class="blockBody">
-				<@addImageIcon block />
-				<#if hookHelper??>
-					<@hookHelper.hook "beforeBlockContent" block/>
-				</#if>
-				<div class="blockContent">
-					<#if hookHelper??>
-						<@hookHelper.hook "beforeBody" block/>
-					</#if>
-					${block.body}
-					<#if hookHelper??>
-						<@hookHelper.hook "afterBody" block/>
-					</#if>
-				</div>
-				<#if hookHelper??>
-					<@hookHelper.hook "afterBlockContent" block/>
-				</#if>
-			</div>
+	<div <@generateAnchor block/> <@generateCssClass block/>>
+		<@generateTitle block/>
+		<div class="blockBody">
+			<@addImageIcon block />
+			<@generateBodyContent block/>
 		</div>
+	</div>
+</#macro>
+
+<#macro NoImageSubTemplate block customCssStyle="">
+	<div <@generateAnchor block/> <@generateCssClass block customCss/> style="${customCssStyle}">
+		<@generateTitle block/>
+		<div class="blockBody">
+			<@generateBodyContent block/>
+		</div>
+	</div>
+</#macro>
+
+<#macro backGroundImageCoverSubTemplate block>
+	<#local customCssStyle = "background-image: url('"+common.buildRootPathAwareURL(block.contentImage)+"'); background-repeat: no-repeat; background-size: cover;">
+	<@NoImageSubTemplate block customCssStyle/>
 </#macro>
