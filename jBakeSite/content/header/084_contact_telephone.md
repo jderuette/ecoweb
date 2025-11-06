@@ -6,4 +6,4 @@ tags=
 status=published
 order=084
 ~~~~~~
-Téléphonne : 0601020304
+Téléphonne : <span data-obfuscatedkey="${webleger.site.forulaire.contact.general.phone.obfuscation-mask}">${webleger.site.forulaire.contact.general.phone}</span>
