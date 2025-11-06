@@ -51,7 +51,7 @@ function unObfuscText(source, key){
 		//console.log ("unObfuscText : parsing token : " + token);
 		var tokenDetails = token.split(":");
 		//console.log ("unObfuscText : Replacing : " + tokenDetails[1] + " by : " + tokenDetails[0]);
-		unOfuscatedText = unOfuscatedText.replace(tokenDetails[1], tokenDetails[0]);
+		unOfuscatedText = unOfuscatedText.replaceAll(tokenDetails[1], tokenDetails[0]);
 	}
 	return unOfuscatedText;
 }
