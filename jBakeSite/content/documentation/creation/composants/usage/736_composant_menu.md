@@ -13,6 +13,8 @@ order=736
 ~~~~~~
 Ce composant permet de créer le menu du site de façon automatique à partir des contenus. Il se configure via le fichier de configuration.
 
-- ``site.menu.includeBlock=true`` : indique sir les bloque de paghe d'accueil doivent être dnas le menu
-- ``site.menu.tags.include=global`` : indique les **tags** des contenus qui devront etre présent dasn le menu
-- ``site.menu.includeCategories=homepage``: indique les **catégories** des contenus qui devront etre présent dasn le menu
+- ``site.menu.includeBlock=true`` : indique si les bloques de page d'accueil doivent être dans le menu
+- ``site.menu.tags.include=global`` : indique les **tags** des contenus qui devront etre présent dans le menu
+- ``site.menu.includeCategories=homepage``: indique les **catégories** des contenus qui devront etre présent dans le menu
+
+Il est possible de désactivier le menu sur une page (utile pour les Landing Page) via l'attribut d'entête de contenu ``displayMenu`` avec la valeur **false**.

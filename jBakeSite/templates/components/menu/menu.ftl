@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "recommandedNamespace":"menu", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"},{"value":"logHelper", "type":"lib"}, {"value":"site.debug.enabled", "type":"config"}, {"value":"menu", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "recommandedNamespace":"menu", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"},{"value":"logHelper", "type":"lib"}, {"value":"site.debug.enabled", "type":"config"}, {"value":"menu", "type":"contentHeader"}, {"value":"displayMenu", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
@@ -111,91 +111,93 @@
 
 <#-- build the site menu (using Boostrap) -->
 <#macro build content>
-<div class="navbar navbar-light bg-white" role="navigation">
-      <div class="navbar-header">
-  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
-</div>
-<div class="navbar-collapse collapse">
-  <ul class="nav navbar-nav" role="menubar">
-
-  	<#local menu_list = []>
-  	<#if (config.site_menu_includeBlock == "true")>
-  		<#list org_openCiLife_blocks?sort_by("order") as block_menu>
-			<#if ((block_menu.category) ?? && sequenceHelper.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
-				<#if (block_menu.anchorId)?? && block_menu.status == "published">
-					<#local menu_list = menu_list + [block_menu]>
-				</#if>
-			</#if>
-		</#list>
-	</#if>
+<#if (content.displayMenu)?? && !(content.displayMenu == "false")>
+	<div class="navbar navbar-light bg-white" role="navigation">
+	      <div class="navbar-header">
+	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	  </button>
+	</div>
+	<div class="navbar-collapse collapse">
+	  <ul class="nav navbar-nav" role="menubar">
 	
-	<#if (config.site_menu_includeCategories)??>
-		<#list org_openCiLife_posts?sort_by("order") as blog_menu>
-			<#if   (blog_menu.category)?? && (sequenceHelper.seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
-				<#if (blog_menu.uri)?? && blog_menu.status == "published">
-					<#local menu_list = menu_list + [blog_menu]>
-				<#else></#if>
-			</#if>
-		</#list>
-	</#if>
-	
-	<#if (langHelper)??>
-		<#local language = langHelper.getLang(content)>
-	</#if>
-	
-	<#local hierachical_menu = createMultiLevelMenu(menu_list, language)>
-	
-	<#list hierachical_menu as top_level_menu_name, top_level_menu_items>
-		<#if top_level_menu_name != "__GLOBAL__">
-			<li class="dropdown${collectMenuParentClasses(top_level_menu_items)}">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">${top_level_menu_name} <b class="caret"></b></a>
-				<ul class="dropdown-menu${collectDropDownClasses(top_level_menu_items)}">
-		</#if>
-		<#list top_level_menu_items as menu_item>
-				<#local menuSpecificClass = "">
-				<#if menu_item.menu?? && menu_item.menu.specificClass??>
-					<#local menuSpecificClass = " class=\"" + menu_item.menu.specificClass + "\"">
-				</#if>
-				<#local link = "">
-				<#if menu_item.anchorId??>
-					<#local anchorUrl = "index.html">
-					<#if (menu_item.anchorUrl)??>
-						<#local anchorUrl = menu_item.anchorUrl>
+	  	<#local menu_list = []>
+	  	<#if (config.site_menu_includeBlock == "true")>
+	  		<#list org_openCiLife_blocks?sort_by("order") as block_menu>
+				<#if ((block_menu.category) ?? && sequenceHelper.seq_containsOne(block_menu.category, config.site_menu_includeCategories))>
+					<#if (block_menu.anchorId)?? && block_menu.status == "published">
+						<#local menu_list = menu_list + [block_menu]>
 					</#if>
-					<#local link = anchorUrl+"#"+menu_item.anchorId>
-				<#else>
-					<#local link = menu_item.uri>
 				</#if>
-				
-				<li${menuSpecificClass}><a href="${common.buildRootPathAwareURL(link)}" role="menuitem">${menu_item.title}</a></li>
-		</#list>
-		<#if top_level_menu_name != "__GLOBAL__">
-			</li>
-				</ul>
+			</#list>
 		</#if>
-	</#list>
-	
-    <#-- <li><a href="${common.buildRootPathAwareURL("/")}">Home</a></li> -->
-   <#--
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li class="divider"></li>
-        <li class="dropdown-header">Nav header</li>
-        <li><a href="#">Separated link</a></li>
-        <li><a href="#">One more separated link</a></li>
-      </ul>
-    </li>
-    -->
-  </ul>
-</div><#--/.nav-collapse -->
-  </div>
+		
+		<#if (config.site_menu_includeCategories)??>
+			<#list org_openCiLife_posts?sort_by("order") as blog_menu>
+				<#if   (blog_menu.category)?? && (sequenceHelper.seq_containsOne(blog_menu.category, config.site_menu_tags_include)|| (blog_menu.menu)??)>
+					<#if (blog_menu.uri)?? && blog_menu.status == "published">
+						<#local menu_list = menu_list + [blog_menu]>
+					<#else></#if>
+				</#if>
+			</#list>
+		</#if>
+		
+		<#if (langHelper)??>
+			<#local language = langHelper.getLang(content)>
+		</#if>
+		
+		<#local hierachical_menu = createMultiLevelMenu(menu_list, language)>
+		
+		<#list hierachical_menu as top_level_menu_name, top_level_menu_items>
+			<#if top_level_menu_name != "__GLOBAL__">
+				<li class="dropdown${collectMenuParentClasses(top_level_menu_items)}">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">${top_level_menu_name} <b class="caret"></b></a>
+					<ul class="dropdown-menu${collectDropDownClasses(top_level_menu_items)}">
+			</#if>
+			<#list top_level_menu_items as menu_item>
+					<#local menuSpecificClass = "">
+					<#if menu_item.menu?? && menu_item.menu.specificClass??>
+						<#local menuSpecificClass = " class=\"" + menu_item.menu.specificClass + "\"">
+					</#if>
+					<#local link = "">
+					<#if menu_item.anchorId??>
+						<#local anchorUrl = "index.html">
+						<#if (menu_item.anchorUrl)??>
+							<#local anchorUrl = menu_item.anchorUrl>
+						</#if>
+						<#local link = anchorUrl+"#"+menu_item.anchorId>
+					<#else>
+						<#local link = menu_item.uri>
+					</#if>
+					
+					<li${menuSpecificClass}><a href="${common.buildRootPathAwareURL(link)}" role="menuitem">${menu_item.title}</a></li>
+			</#list>
+			<#if top_level_menu_name != "__GLOBAL__">
+				</li>
+					</ul>
+			</#if>
+		</#list>
+		
+	    <#-- <li><a href="${common.buildRootPathAwareURL("/")}">Home</a></li> -->
+	   <#--
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	      <ul class="dropdown-menu">
+	        <li><a href="#">Action</a></li>
+	        <li><a href="#">Another action</a></li>
+	        <li><a href="#">Something else here</a></li>
+	        <li class="divider"></li>
+	        <li class="dropdown-header">Nav header</li>
+	        <li><a href="#">Separated link</a></li>
+	        <li><a href="#">One more separated link</a></li>
+	      </ul>
+	    </li>
+	    -->
+	  </ul>
+	</div><#--/.nav-collapse -->
+	  </div>
+</#if>
 </#macro>
