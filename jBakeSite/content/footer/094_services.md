@@ -1,0 +1,14 @@
+title=Services
+type=org_openCiLife_block
+subTemplate=imageLeftSubTemplate
+category=footer
+tags=
+titleTag=h3
+status=published
+specificClass=
+order=94
+~~~~~~
+[Développement](${webleger.build.host}/index.html#)
+[Formation](${webleger.build.host}/index.html#)
+[Hébergement](${webleger.build.host}/ethiknet/index.html)
+[Support](https://github.com/jderuette/ecoweb/issues)
