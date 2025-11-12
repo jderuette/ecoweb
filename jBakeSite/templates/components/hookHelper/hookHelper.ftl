@@ -16,33 +16,48 @@
 	<#return content.uri!content.title!"no ID">
 </#function>
 
+<#function tempDebugHash aHash>
+	<#local stringVal = "">
+	<#if (aHash?is_hash)>
+		<#local stringVal = stringVal + "__Hash__{" />
+		<#local separator = "">
+		<#list aHash as key, value>
+			<#local stringVal = stringVal + separator + key + ":"/>
+			<#local stringVal = stringVal + tempDebugSequence(value)/>
+			<#local separator = ",">
+		</#list>
+		<#local stringVal = stringVal + "}" />
+	</#if>
+	<#return stringVal>
+</#function>
+
+<#function tempDebugSequence aSequence>
+	<#local stringVal = "">
+	<#if aSequence?is_method>
+		<#local stringVal = stringVal + "method" />
+	<#else>
+		<#if (aSequence?is_sequence)>
+			<#local stringVal = stringVal + "__sequence__[" />
+			<#local separator = "">
+			<#list aSequence as value>
+				<#if value?is_hash>
+					<#local stringVal = stringVal + separator + tempDebugHash(value)/>
+				<#elseif value?is_sequence>
+					<#local stringVal = stringVal + separator + tempDebugSequence(value)/>
+				<#else>
+					<#local stringVal = stringVal + separator + value/>
+				</#if>
+				<#local separator = ",">
+			</#list>
+			<#local stringVal = stringVal + "]" />
+		</#if>
+	</#if>
+	<#return stringVal>
+</#function>
+
 <#function registerContentHook content>
 	<#if (content.hooks)??>
-		<#local contentHooksString = common.toString(propertiesHelper.secureStringJsonData(content.hooks))>
-		<#if logHelper??>
-			<#if contentHooksString??>
-				${logHelper.stackDebugMessage("hookHelper.registerContentHook : ADDING contentHooks : " + contentHooksString) + " for : " + content.uri}
-			</#if>
-		</#if>
-		<#local contentHooks = propertiesHelper.parseJsonProperty(contentHooksString)>
-		<#if hookHelper?? && contentHooks?? && (contentHooks.data)??>
-			<#list contentHooks.data as hookDeclaration>
-				<#if logHelper??>
-					${logHelper.stackDebugMessage("hookHelper.registerContentHook : trying to register hook : " + common.toString(hookDeclaration))}
-				</#if>
-				<#if (hookDeclaration.position)?? && (hookDeclaration.action)??>
-					<#local renderOnce = false>
-					<#if (hookDeclaration.renderOnce)?? && hookDeclaration.renderOnce == true>
-						<#local renderOnce = true>
-					</#if>
-					${hookHelper.registerHook(hookDeclaration.position, hookDeclaration.action, renderOnce)}
-				<#else>
-					<#if logHelper??>
-					${logHelper.stackDebugMessage("hookHelper.registerContentHook : ERROR Invalid hook structure :" + common.toString(hookDeclaration))}
-				</#if>
-				</#if>
-			</#list>
-		</#if>
+		${registerHookFromJson(content.hooks)}
 	</#if>
 	<#return "" />
 </#function>
@@ -50,18 +65,45 @@
 <#function registerHooks configPropertyName = "hooks">
 	<#if propertiesHelper.hasConfigValue(configPropertyName)>
 		<#local includeText = propertiesHelper.retrieveAndDisplayConfigText(configPropertyName)>
-		<#if logHelper??>
-			${logHelper.stackDebugMessage("hookHelper.registerHooks : Loading hooks declaration with : " + includeText)}
-		</#if>
 		<#assign hooksDeclarations = propertiesHelper.parseJsonProperty(includeText)>
-		<#list hooksDeclarations.data as hookDeclaration>
-			<#local renderOnce = false>
-			<#if (hookDeclaration.renderOnce)?? && hookDeclaration.renderOnce == true>
-				<#local renderOnce = true>
+		${registerHookFromJson(hooksDeclarations)}
+	</#if>
+</#function>
+
+<#function registerHookFromJson JsonData>
+	<#if JsonData?? && (JsonData.data)??>
+		<#if logHelper??>
+			<#local contentId = "no_content">
+			<#if content??>
+				<#local contentId = content.uri!"no_uri">
 			</#if>
-			${registerHook(hookDeclaration.position, hookDeclaration.action, renderOnce)}
+			${logHelper.stackDebugMessage("hookHelper.registerContentHook : INFO for content : " + contentId + " registering " + JsonData?size + " hooks")}
+		</#if>
+		<#list JsonData.data as hookDeclaration>
+			<#if (hookDeclaration.position)?? && (hookDeclaration.action)??>
+				<#local renderOnce = false>
+				<#if (hookDeclaration.renderOnce)?? && hookDeclaration.renderOnce == true>
+					<#local renderOnce = true>
+				</#if>
+				<#local hookOrder = 50>
+				<#if (hookDeclaration.order)??>
+					<#local hookOrder = hookDeclaration.order?number>
+				</#if>
+				<#if !hookOrder?? || !hookOrder?is_number>
+					<#if logHelper??>
+						${logHelper.stackDebugMessage("hookHelper.registerHookFromJson : ERROR Invalid hook order value for :" + common.toString(hookDeclaration))}
+					</#if>
+				<#else>
+					${registerHook(hookDeclaration.position, hookDeclaration.action, renderOnce, hookOrder)}
+				</#if>
+			<#else>
+				<#if logHelper??>
+					${logHelper.stackDebugMessage("hookHelper.registerHookFromJson : ERROR Invalid hook structure :" + common.toString(hookDeclaration))}
+				</#if>
+			</#if>
 		</#list>
 	</#if>
+	<#return "">
 </#function>
 
 <#assign contributors = {}>
@@ -80,9 +122,11 @@ Activate a hook.
 	<#if hookContributors?? && hookContributors?has_content>
 		<#if logHelper??>
 			<#local nbContributors = hookContributors?size>
-			${logHelper.stackDebugMessage("Hook : Rendering " + hookId + " with " + nbContributors + " contributors (" + common.toString(hookContributors) + ") for " + getContentIdentifier(theContent) +" from : " + .caller_template_name)}
+			<#if logHelper??>
+				${logHelper.stackDebugMessage("Hook : Rendering " + hookId + " with " + nbContributors + " contributors (" + common.toString(hookContributors) + ") for " + getContentIdentifier(theContent) +" from : " + .caller_template_name)}
+			</#if>
 		</#if>
-		<#list hookContributors as contributor>
+		<#list hookContributors?sort_by("order") as contributor>
 			<#local contributorInterpretation = "<@${contributor.action} theContent />"?interpret>
 			<@contributorInterpretation/>
 			<#if contributor.renderOnce == true >
@@ -92,15 +136,15 @@ Activate a hook.
 	</#if>
 </#macro>
 
-<#function registerHook location, action, renderOnce>
+<#function registerHook location, action, renderOnce, order=50>
 	<#if logHelper??>
-		${logHelper.stackDebugMessage("Hook : Registering function : " + action + " for location : " + location + " from : " + .caller_template_name)}
+		${logHelper.stackDebugMessage("Hook : REGISTER hook : " + action + ", for location : " + location + ", renderOnce : " + renderOnce?string("true","false") + ", order : " + order + " from : " + .caller_template_name)}
 	</#if>
 	
 	<#if !(contributors[location])??>
-		<#local contributorForLocation = {location, [{"action":action, "renderOnce":renderOnce}]}>
+		<#local contributorForLocation = {location, [{"action":action, "renderOnce":renderOnce, "order":order}]}>
 	<#else>
-		<#local contributorForLocation = {location, contributors[location] + [{"action":action, "renderOnce":renderOnce}]}>
+		<#local contributorForLocation = {location, contributors[location] + [{"action":action, "renderOnce":renderOnce, "order":order}]}>
 	</#if>
 	<#assign contributors = contributors + contributorForLocation>
 	
@@ -109,7 +153,7 @@ Activate a hook.
 
 <#function unRegisterHook location action>
 	<#if logHelper??>
-		${logHelper.stackDebugMessage("Hook : UnRegistering function : " + action + " for location : " + location + " from : " + .caller_template_name)}
+		${logHelper.stackDebugMessage("Hook : UNREGISTER hook : " + action + " for location : " + location + " from : " + .caller_template_name)}
 	</#if>
 	
 	<#-- "filter" contributors -->
@@ -119,7 +163,7 @@ Activate a hook.
 			<#if contributorLocation == location && contributor.action == action>
 				<#continue>
 			</#if>
-			<#local contributorForLocation = {contributorLocation, [{"action":contributor.action, "renderOnce":contributor.renderOnce}]}>
+			<#local contributorForLocation = {contributorLocation, [{"action":contributor.action, "renderOnce":contributor.renderOnce, "order":contributor.order}]}>
 		</#list>
 		<#local filteredContributors = filteredContributors + contributorForLocation>
 	</#list>

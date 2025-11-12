@@ -69,32 +69,57 @@ return : text with URL transformed
 </#function>
  -->
  
+ <#-- determine if a String is an embeded svg or not -->
+ <#function isSvg stringData>
+	<#local isSvg = false>
+	<#if stringData?starts_with("<svg")>
+		<#local isSvg = true>
+	</#if>
+	<#return isSvg>
+</#function>
+
+<#macro addImageIcon image cssClass="">
+	<#if (image)??>
+		<#if common.isSvg(image)>
+			<span <#if cssClass?has_content>class="${cssClass}"</#if>>
+				${image}
+			</span>
+		<#else>
+			<img src=${common.buildRootPathAwareURL(image)} <#if cssClass?has_content>class="${cssClass}"</#if>/>
+		</#if>
+	</#if>
+</#macro>
+ 
 <#-- convert hash, sequence, boolean to String
-param : value : object to transform in String
+param : theObject : object to transform in String
 -->
-<#function toString value>
+<#function toString theObject>
 	<#local stringVal = "">
-	<#if (value?is_hash)>
+	<#if theObject?is_string>
+		<#local stringVal = theObject>
+	<#elseif (theObject?is_hash)>
 		<#local stringVal = stringVal + "{" />
 		<#local separator = "">
-		<#list value as key, value>
+		<#list theObject as key, value>
 			<#local stringVal = stringVal + separator + toString(key) + ":"/>
 			<#local stringVal = stringVal + toString(value)/>
 			<#local separator = ",">
 		</#list>
 		<#local stringVal = stringVal + "}" />
-	<#elseif (value?is_sequence)>
+	<#elseif (theObject?is_sequence)>
 		<#local stringVal = stringVal + "[" />
 		<#local separator = "">
-		<#list value as value>
+		<#list theObject as value>
 			<#local stringVal = stringVal + separator + toString(value)/>
 			<#local separator = ",">
 		</#list>
 		<#local stringVal = stringVal + "]" />
-	<#elseif (value?is_boolean)>
-		<#local stringVal = stringVal + value?string('true', 'false') />
+	<#elseif (theObject?is_boolean)>
+		<#local stringVal = stringVal + theObject?string('true', 'false') />
+	<#elseif (theObject?is_number)>
+		<#local stringVal = stringVal + theObject  />
 	<#else>
-		<#local stringVal = stringVal + "\"" + value + "\"" />
+		<#local stringVal = stringVal + "\"" + theObject + "\"" />
 	</#if>
 	<#return stringVal>
 </#function>

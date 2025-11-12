@@ -3,7 +3,7 @@
 </#if>
 <#import "../components/includes/includes.ftl" as commonInc>
 <@commonInc.buildIncludes "components"/>
-<#assign uselessTempVar = commonInc.handleContentChain(content) />
+<#assign uselessTempVar = commonInc.propagateContentChain(content) />
 <!DOCTYPE html>
 <html lang="<#if (langHelper)??>${langHelper.getLang(content)}<#elseif (config.site_langs_default)??>${config.site_langs_default}<#else>fr_FR</#if>">
   <head>
@@ -28,18 +28,25 @@
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
     <link rel="shortcut icon" href="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.header.iconShortcut"))}">
   </head>
-  <body class="${content.type}">
+  <#assign pageSpecificClass = content.type>
+  <#if content?? && (content.pageSpecificClass)??>
+  	<#assign pageSpecificClass = pageSpecificClass + " " + content.pageSpecificClass>
+  </#if>
+  <body class="${pageSpecificClass}">
+  <div id="up"></div>
     <div id="wrap">
-    	<div id="preHeader"  class="container preHeader">
-    		<#if block??>
-	    		<div class="header_blocks">
-	    			<@block.buildWithCategory config.site_header_category/>
-				</div>
-			</#if>
-    	</div>
+	    <#if (content.displayPreHeader!"true") != "false">
+	    	<div id="preHeader"  class="container preHeader">
+	    		<#if block??>
+		    		<div class="header_blocks">
+		    			<@block.buildWithCategory config.site_header_category/>
+					</div>
+				</#if>
+	    	</div>
+	    </#if>
     	<#if (content.displaySiteHeaderTitle!"true") != "false">
     	<div id="header">
-	    	<div id="up" class="container header" role="banner">
+	    	<div class="container header" role="banner">
 				<div id="pageTitle">
 					<#if propertiesHelper.hasConfigValue("site.logoLeft.file")>
 					<a href="${config.site_host}/index.html">

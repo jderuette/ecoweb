@@ -57,7 +57,7 @@
 </#macro>
 
 <#-- pass content to all componnent wihich need a per content actions. -->
-<#function handleContentChain content>
+<#function propagateContentChain content>
 	<#list allComponentsData as include>
 			<#attempt>
 				<#local includeNameSpace = .vars[include.namespace]>
@@ -65,9 +65,10 @@
 				<#if componentInfo?? && (componentInfo.componnentVersion)?? && componentInfo.componnentVersion == 1 
 					&& (componentInfo.contentChainBefore)?? && componentInfo.contentChainBefore == true>
 					<#if logHelper??>
-						${logHelper.stackDebugMessage("commonInc.handleContentChain : INFO : send content to component : " + include.file + " from : " + .caller_template_name)}
+						<#local contentUri = content.uri!"no_uri">
+						${logHelper.stackDebugMessage("commonInc.propagateContentChain : INFO : send content to component : " + include.file + " for " + contentUri + ", from : " + .caller_template_name)}
 					</#if>
-					${includeNameSpace.registerContentHook(content)}
+					${includeNameSpace.handleContentChain(content)}
 				</#if>
 			<#recover>
 			</#attempt>

@@ -32,7 +32,7 @@ $('*[data-obfuscatedValue]').on('click', function() {
 $('span[data-obfuscatedkey]').on('click', function() {
 	var obfuscatedValue = $(this).text();
 	var obfuscatedKey = $(this).data("obfuscatedkey");
-	console.log ("data-obfuscatedkey : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
+	console.log ("data-obfuscatedkey (span) : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
 	var humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
 	$(this).text(humanReadeableText);
 	$(this).off('click');
@@ -40,6 +40,15 @@ $('span[data-obfuscatedkey]').on('click', function() {
 });
 
 $('span[data-obfuscatedkey]').append('<img class="showHiddenDataAppendedButton" style="width: 24px;margin: 0 4px 0 4px;" src="${webleger.build.host}/${webleger.site.template}/images/eyes.svg" alt="clickez pour voir l\'e-mail en clair"></img>');
+
+
+$('a[data-obfuscatedkey]').on('click', function() {
+	var obfuscatedValue = $(this).attr('href');
+	var obfuscatedKey = $(this).data("obfuscatedkey");
+	console.log ("data-obfuscatedkey (link) : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
+	var humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
+	$(this).attr('href', humanReadeableText);
+});
 
 function unObfuscText(source, key){
 	//console.log ("unObfuscText : key : " + key);

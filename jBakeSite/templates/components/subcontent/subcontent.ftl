@@ -82,8 +82,15 @@ param : content : content to search for include content
 				<div class="${listDisplayType}_list ${specificClass}">
 			</#if>
 			<#list subContents?sort_by("order") as subContent>
+				
+					<#local uselessTempVar = commonInc.propagateContentChain(subContent) />
+				
 				<#local subContentCategory = (subContent.category)!"__none__">
 				<#local specificContentClass = (content.includeContent.display.specificClass)!"">
+				<#local displayTitle = true>
+				<#if (content.includeContent.display.displayTitle)?? && content.includeContent.display.displayTitle == false>
+					<#local displayTitle = false>
+				</#if>
 				<#local collapseClass = "">
 				<#local collapseId = "">
 				<#local isSelf = subContent.title == content.title>
@@ -104,54 +111,101 @@ param : content : content to search for include content
 					<@logHelper.debug "ACEPTED : SubContent : " + (subContent.title)!"not_set", includeContentFilter  + " IN " + subContentCategory/>
 				</#if>
 				<#if (listDisplayType == "table")>
-							<tr<#rt>
-								<#if (subContentDisplayContentMode == "link")>
-									<#lt> data-href="${common.buildRootPathAwareURL(subContent.uri)}"<#rt>
-								</#if>
-								<#if (specificContentClass != "")>
-									<#lt> class="${specificContentClass}"
-								</#if>
-							<#lt>>
-								<#if ((content.includeContent.display.columns)?? && content.includeContent.display.columns?is_sequence)>
-									<#list content.includeContent.display.columns?sort_by("order") as column>
-										<td>
-										<#if (column.attr)?? && column.attr?has_content>
-											<#local contentAtttrName = column.attr>
-											<#if (subContent[contentAtttrName])??>
-												<#local contentAtttrValue = subContent[contentAtttrName]>
-												
-												<#if contentAtttrName=="title">
-													<#if (subContentBeforeTitleImage?has_content)>
-														<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
-													</#if>
-												</#if>
-												<#if (contentAtttrValue?is_date)>
-													${contentAtttrValue?string('dd/MM/yyyy à HH:mm')}
-												<#elseif contentAtttrName=="contentImage">
-													<#if (subContent.contentImage)??>
-														<img src="${common.buildRootPathAwareURL(subContent.contentImage)}"/>
-													</#if>
-												<#else>
-													${contentAtttrValue}
-												</#if>
+					<tr<#rt>
+						<#if (subContentDisplayContentMode == "link")>
+							<#lt> data-href="${common.buildRootPathAwareURL(subContent.uri)}"<#rt>
+						</#if>
+						<#if (specificContentClass != "")>
+							<#lt> class="${specificContentClass}"
+						</#if>
+					<#lt>>
+						<#if ((content.includeContent.display.columns)?? && content.includeContent.display.columns?is_sequence)>
+							<#list content.includeContent.display.columns?sort_by("order") as column>
+								<td>
+								<#if (column.attr)?? && column.attr?has_content>
+									<#local contentAtttrName = column.attr>
+									<#if (subContent[contentAtttrName])??>
+										<#local contentAtttrValue = subContent[contentAtttrName]>
+										
+										<#if contentAtttrName=="title">
+											<#if (subContentBeforeTitleImage?has_content)>
+												<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
 											</#if>
 										</#if>
-										</td>
-									</#list>
+										<#if (contentAtttrValue?is_date)>
+											${contentAtttrValue?string('dd/MM/yyyy à HH:mm')}
+										<#elseif contentAtttrName=="contentImage">
+											<#if (subContent.contentImage)??>
+												<@common.addImageIcon subContent.contentImage />
+											</#if>
+										<#else>
+											${contentAtttrValue}
+										</#if>
+									</#if>
 								</#if>
-								<#if (subContentDisplayContentMode == "modal")>
-								<td>
-									<@modal.extractContentForModal subContent, "button", listDisplayType, "voir plus" />
 								</td>
-								</#if>
-								<#if subContentDisplayContentMode == "visible">
-								<td class="${listDisplayType}_content">
-									${subContent.body!""}
-								</td>
-								</#if>
-							</tr>
-				<#else><#-- NOT a table -->
+							</#list>
+						</#if>
+						<#if (subContentDisplayContentMode == "modal")>
+						<td>
+							<@modal.extractContentForModal subContent, "button", listDisplayType, "voir plus" />
+						</td>
+						</#if>
+						<#if subContentDisplayContentMode == "visible">
+						<td class="${listDisplayType}_content">
+							${subContent.body!""}
+						</td>
+						</#if>
+					</tr>
+				<#elseif listDisplayType == "steps" >
+					<#if hookHelper??>
+						<@hookHelper.hook "BeforeItemSubContent" subContent/>
+					</#if>
 					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+						<#if hookHelper??>
+							<@hookHelper.hook "BeginItemSubContent" subContent/>
+						</#if>
+						<div class="step_icon">
+							<#if (subContent.contentImage??)>
+								<#if (subContent.contentImage)??>
+									<@common.addImageIcon subContent.contentImage listDisplayType+"_image"/>
+								</#if>
+							</#if>
+							<div class="vertical_line"></div>
+						</div>
+						<div class="step_content">
+							<#if (subContent.exerpt??)>
+								<div class="${listDisplayType}_exerpt">
+									${subContent.exerpt!""}
+								</div>
+							</#if>
+							<#if displayTitle>						
+								<h3 class="${listDisplayType}_title"><#rt>
+								<#if (subContentBeforeTitleImage?has_content)>
+									<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+								</#if>
+									<#t>${subContent.title!""}
+								<#lt></h3>
+							</#if>
+							<div class="${listDisplayType}_content<#if subContentDisplayContentMode == "modalLink"> contentHidden</#if>">
+								${subContent.body!""}
+							</div>
+						</div>
+						<#if hookHelper??>
+							<@hookHelper.hook "EndItemSubContent" subContent/>
+						</#if>
+					</div>
+					<#if hookHelper??>
+						<@hookHelper.hook "AfterItemSubContent" subContent/>
+					</#if>
+				<#else><#-- NOT a table -->
+					<#if hookHelper??>
+						<@hookHelper.hook "BeforeItemSubContent" subContent/>
+					</#if>
+					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+						<#if hookHelper??>
+							<@hookHelper.hook "BeginItemSubContent" subContent/>
+						</#if>
 						<#switch listDisplayType>
 						<#case  "link">
 							<a href="${common.buildRootPathAwareURL(subContent.uri)}" class="widget_link">
@@ -172,16 +226,18 @@ param : content : content to search for include content
 						<#if listDisplayType == "card">
 							<#if (subContent.contentImage??)>
 								<#if (subContent.contentImage)??>
-									<img src="${common.buildRootPathAwareURL(subContent.contentImage)}" class="${listDisplayType}_image"/>
+									<@common.addImageIcon subContent.contentImage listDisplayType+"_image"/>
 								</#if>
 							</#if>
 						</#if>
-						<h3 class="${listDisplayType}_title"><#rt>
-						<#if (subContentBeforeTitleImage?has_content)>
-							<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+						<#if displayTitle>						
+							<h3 class="${listDisplayType}_title"><#rt>
+							<#if (subContentBeforeTitleImage?has_content)>
+								<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+							</#if>
+								<#t>${subContent.title!""}
+							<#lt></h3>
 						</#if>
-							<#t>${subContent.title!""}
-						<#lt></h3>
 						
 						<#if listDisplayType == "collapse_block">
 							<div class="${listDisplayType}_content ${collapseClass}" id="${collapseId}">
@@ -190,7 +246,7 @@ param : content : content to search for include content
 						<#if listDisplayType != "card">
 							<#if (subContent.contentImage??)>
 								<#if (subContent.contentImage)??>
-								<img src="${common.buildRootPathAwareURL(subContent.contentImage)}"  class="${listDisplayType}_image"/>
+								<@common.addImageIcon subContent.contentImage listDisplayType+"_image"/>
 								</#if>
 							</#if>
 						</#if>
@@ -219,7 +275,13 @@ param : content : content to search for include content
 						<#if listDisplayType == "collapse_block">
 							</div>
 						</#if>
+						<#if hookHelper??>
+							<@hookHelper.hook "EndItemSubContent" subContent/>
+						</#if>
 					</div>
+					<#if hookHelper??>
+						<@hookHelper.hook "AfterItemSubContent" subContent/>
+					</#if>
 				</#if> <#-- end onf contentDuisplayType "switch" -->
 			</#list>
 			<#if (listDisplayType == "table")>

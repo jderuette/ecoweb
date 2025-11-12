@@ -29,7 +29,7 @@
 			<@logHelper.debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + sequenceHelper.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
 		</#if>
 		<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
-			<#local uselessTempVar = commonInc.handleContentChain(block) />
+			<#local uselessTempVar = commonInc.propagateContentChain(block) />
 			<#local subTemplateName = "defaultBlockSubTemplate">
 			<#if (block.subTemplate??)>
 				<#local subTemplateName=block.subTemplate>
@@ -39,12 +39,6 @@
 			<@subTemplateInterpretation/>
 		</#if>
   	</#list>
-</#macro>
-
-<#macro addImageIcon block>
-	<#if (block.contentImage)??>
-		<img src=${common.buildRootPathAwareURL(block.contentImage)} class="blockIcon"/>
-	</#if>
 </#macro>
 
 <#macro generateAnchor block>
@@ -66,7 +60,16 @@
 
 <#macro generateTitle block>
 	<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
-		<h2	class="blockTitle"><#escape x as x?xml>${block.title}</#escape></h2>
+		<#local titleTag = "h2">
+		<#if (block.titleTag)??>
+			<#local titleTag = block.titleTag>
+		</#if>
+		<${titleTag} class="blockTitle"><#escape x as x?xml>
+		<#if (block.beforeTitleImage?has_content)>
+			<@common.addImageIcon block.beforeTitleImage "block_title_image"/>
+		</#if>
+		${block.title}</#escape>
+		</${titleTag}>
 	</#if>
 </#macro>
 
@@ -97,7 +100,9 @@
 		<@generateTitle block/>
 		<div class="blockBody">
 			<@generateBodyContent block/>
-			<@addImageIcon block />
+			<#if (block.contentImage)??>
+				<@common.addImageIcon block.contentImage "blockIcon"/>
+			</#if>
 		</div>
 	</div>
 </#macro>
@@ -106,7 +111,18 @@
 	<div <@generateAnchor block/> <@generateCssClass block/>>
 		<@generateTitle block/>
 		<div class="blockBody">
-			<@addImageIcon block />
+			<#if (block.contentImage)??>
+				<@common.addImageIcon block.contentImage "blockIcon"/>
+			</#if>
+			<@generateBodyContent block/>
+		</div>
+	</div>
+</#macro>
+
+<#macro imageBeforeTitleSubTemplate block customCssStyle="">
+	<div <@generateAnchor block/> <@generateCssClass block customCss/> style="${customCssStyle}">
+		<@generateTitle block/>
+		<div class="blockBody">
 			<@generateBodyContent block/>
 		</div>
 	</div>
@@ -122,6 +138,13 @@
 </#macro>
 
 <#macro backGroundImageCoverSubTemplate block>
-	<#local customCssStyle = "background-image: url('"+common.buildRootPathAwareURL(block.contentImage)+"'); background-repeat: no-repeat; background-size: cover;">
+	<#local customCssStyle = "background-image: url('"+common.buildRootPathAwareURL(block.contentImage)+"'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 	<@NoImageSubTemplate block customCssStyle/>
 </#macro>
+
+
+<#macro backGroundImageContainSubTemplate block>
+	<#local customCssStyle = "background-image: url('"+common.buildRootPathAwareURL(block.contentImage)+"'); background-repeat: no-repeat; background-size: contain;">
+	<@NoImageSubTemplate block customCssStyle/>
+</#macro>
+

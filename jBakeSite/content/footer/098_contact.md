@@ -3,10 +3,12 @@ type=org_openCiLife_block
 subTemplate=imageLeftSubTemplate
 category=footer
 tags=
+titleTag=h3
 status=published
 specificClass=
-displayTitle=false
-contentImage=images/contact.svg
-order=9
+order=98
 ~~~~~~
-[Contact](${webleger.build.host}/index.html#Contact)
+[Jérémie DERUETTE](${webleger.build.host}/index.html#Contact)
+[EthikNet](${webleger.build.host}/ethiknet/index.html)
+<span data-obfuscatedkey="${webleger.site.forulaire.contact.general.email.obfuscation-mask}">${webleger.site.forulaire.contact.general.email}</span>
+<span data-obfuscatedkey="${webleger.site.forulaire.contact.general.phone.obfuscation-mask}">${webleger.site.forulaire.contact.general.phone}</span>

@@ -63,8 +63,7 @@
 
 .footer_blocks .block, .header_blocks .block {
 	display: flex;
-	flex-direction: row;
-	font-size: 1.2em;
+	flex-direction: column;
 }
 
 .footer_blocks .block img, .header_blocks .block img {
@@ -109,7 +108,7 @@
 		flex-direction: row;
 		justify-content: space-around;
 	}
-	.footer_block {
-		justify-content: space-around;
+	.footer_blocks .block {
+		flex-direction: row;
 	}
 }

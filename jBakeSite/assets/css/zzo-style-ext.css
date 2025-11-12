@@ -1,3 +1,8 @@
+.impact_img svg {
+	background-color:${webleger.site.style.header.title.color};
+	border-radius: 5px;
+}
+
 .content_tags{
 	display: inline-block;
     list-style-type: none;
@@ -45,6 +50,13 @@
 	background-color:lightgreen;
 }
 
+.footer_blocks .block h3.blockTitle {
+	font-size: 150%;
+}
+.footer_blocks .block .blockTitle, .footer_blocks .block .blockContent > p {
+	text-align:left;
+}
+
 @media screen and (min-width: 640px) {
 	#HomePageCarousel {
 		width:600px;
@@ -52,6 +64,11 @@
 	}
 	#HomePageCarousel  img {
 		height:60%;
+	}
+	.footer_blocks .block {
+		flex-direction:column;
+		text-align:left;
+		width:22%;
 	}
 }
 @media screen and (min-width: 1024px) {

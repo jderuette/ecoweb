@@ -53,7 +53,7 @@ param : closeButtonlabel : *default* : close : label of the botom close button
 		<span class="${cssPrefix}_title contentHidden">${theContent.title}</span>
 	</#if>
 	<#if (theContent.contentImage)??>
-		<img src="${common.buildRootPathAwareURL(theContent.contentImage)}" class="${cssPrefix}_image contentHidden" />
+		<@common.addImageIcon theContent.contentImage cssPrefix+"_image contentHidden"/>
 	</#if>
 </#macro>
 
