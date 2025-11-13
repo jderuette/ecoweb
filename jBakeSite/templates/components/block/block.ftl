@@ -23,11 +23,12 @@
 		<#local blocks = blocks?filter(ct -> langHelper.isCorectLang(ct, langHelper.getLang(content)))>
 	</#if>
 	
+	<#if logHelper??>
+		<@logHelper.debug "Blocks : search if " + categoryFilter + " exists in " + blocks?size + " blocks"/>
+	</#if>
+	
 	<#list blocks?sort_by("order") as block>
 		<#local blockCategory = block.category!"__empty_categ__">
-		<#if logHelper??>
-			<@logHelper.debug "Blocks : search if " + blockCategory + " in " + categoryFilter + " res : " + sequenceHelper.seq_containsOne(blockCategory, categoryFilter)?string("yes","no")/>
-		</#if>
 		<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
 			<#local uselessTempVar = commonInc.propagateContentChain(block) />
 			<#local subTemplateName = "defaultBlockSubTemplate">

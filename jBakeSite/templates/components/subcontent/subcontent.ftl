@@ -51,7 +51,7 @@ param : content : content to search for include content
 			<#local subContentmodaleCloseButton = (content.includeContent.display.closeButton)!"close">
 			
 			<#if logHelper??>
-				<@logHelper.debug listDisplayType = listDisplayType subContentDisplayContentMode = subContentDisplayContentMode/>
+				<@logHelper.debug "listDisplayType = " + listDisplayType + " subContentDisplayContentMode = " + subContentDisplayContentMode/>
 			</#if>
 			
 			<#local theModalId = "basicModal">
@@ -113,9 +113,6 @@ param : content : content to search for include content
 					<#if (subContent.featured.text)??>
 						<#local featauredText = subContent.featured.text>
 					</#if>
-				</#if>
-				<#if logHelper??>
-					<@logHelper.debug "ACEPTED : SubContent : " + (subContent.title)!"not_set", includeContentFilter  + " IN " + subContentCategory/>
 				</#if>
 				<#if (listDisplayType == "table")>
 					<#local specificClassForContent = specificContentClass>
