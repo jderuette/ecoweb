@@ -26,3 +26,9 @@ Ce composant se configure via l'entête de contenu
 - ``action.data.operation.type`` : type d'opération à effectuer. Valeurs possibles : anchor, link, mailto.
 - ``action.data.operation.to`` : destination de l'action.
 - ``action.data.operation.obfuscationMask`` : (optionnel) si défini le *label* sera décodé avec le masque présent.
+
+## Hook
+Nécéiste la configuration d'une hook pour s'afficher. La hooks précisera où le sticker devra s'afficher.
+Voici un exemple pour un **block**, en affichant les stickers juste après le contenu du block (et avant les autres contenu par defaut dans cette hook).
+
+``hooks={"data":[{"position":"afterBlockBody", "action":"action.build", "renderOnce":true, "order":30}]}``
