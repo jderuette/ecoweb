@@ -1,4 +1,4 @@
-title=webleger
+title=WebLeger
 type=org_openCiLife_block
 subTemplate=imageLeftSubTemplate
 category=footer

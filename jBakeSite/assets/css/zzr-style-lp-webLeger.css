@@ -22,7 +22,7 @@
 .lpWebLeger  h1, .lpWebLeger  h2 {
 	text-align: center;
 	letter-spacing: 0.025em;
-    font-weight: 800;
+    font-weight: 750;
     margin:25px 0;
 }
 
@@ -42,6 +42,17 @@
 .lpWebLeger .featured_label {
 	color: white;
 	background-color: #2D8659;
+}
+
+.lpWebLeger .sticker_list {
+	margin-top : 15px;
+}
+.lpWebLeger .sticker {
+	background-color:#eaf3ee;
+	border:1px solid white;
+	border-radius:20px;
+	color:#2D8659;
+	padding: 5px 20px;
 }
 
 .lpWebLeger .steps_list .steps .steps_image {
@@ -107,6 +118,9 @@
 	padding: 10px;
 	text-align:left;
 	margin-top:20px;
+}
+.lpWebLeger .fonctionality .card:hover {
+	border:2px solid #2D8659;
 }
 .lpWebLeger .fonctionality .card .card_image {
 	height:50px;
