@@ -94,7 +94,7 @@ param : content : content to search for include content
 				<#local collapseClass = "">
 				<#local collapseId = "">
 				<#local isSelf = subContent.title == content.title>
-				<#local slefSpecificClass = "">
+				<#local featauredText = "">
 				
 				<#if isSelf>
 					<#local specificContentClass += " self">
@@ -107,43 +107,64 @@ param : content : content to search for include content
 						<#break>
 					</#switch>
 				</#if>
+				
+				<#if (subContent.featured)??>
+					<#local specificContentClass = specificContentClass + " featured">
+					<#if (subContent.featured.text)??>
+						<#local featauredText = subContent.featured.text>
+					</#if>
+				</#if>
 				<#if logHelper??>
 					<@logHelper.debug "ACEPTED : SubContent : " + (subContent.title)!"not_set", includeContentFilter  + " IN " + subContentCategory/>
 				</#if>
 				<#if (listDisplayType == "table")>
+					<#local specificClassForContent = specificContentClass>
+					<#if (subContent.featured)??>
+						<#local specificClassForContent = specificClassForContent + "featured">
+					</#if>
+					
 					<tr<#rt>
 						<#if (subContentDisplayContentMode == "link")>
 							<#lt> data-href="${common.buildRootPathAwareURL(subContent.uri)}"<#rt>
 						</#if>
+						
 						<#if (specificContentClass != "")>
 							<#lt> class="${specificContentClass}"
 						</#if>
+						
 					<#lt>>
+						<#local isFirstColumn = true>
 						<#if ((content.includeContent.display.columns)?? && content.includeContent.display.columns?is_sequence)>
 							<#list content.includeContent.display.columns?sort_by("order") as column>
 								<td>
-								<#if (column.attr)?? && column.attr?has_content>
-									<#local contentAtttrName = column.attr>
-									<#if (subContent[contentAtttrName])??>
-										<#local contentAtttrValue = subContent[contentAtttrName]>
-										
-										<#if contentAtttrName=="title">
-											<#if (subContentBeforeTitleImage?has_content)>
-												<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
-											</#if>
-										</#if>
-										<#if (contentAtttrValue?is_date)>
-											${contentAtttrValue?string('dd/MM/yyyy à HH:mm')}
-										<#elseif contentAtttrName=="contentImage">
-											<#if (subContent.contentImage)??>
-												<@common.addImageIcon subContent.contentImage />
-											</#if>
-										<#else>
-											${contentAtttrValue}
+									<#if isFirstColumn>
+										<#if featauredText?has_content>
+											<span class="featured_label">${featauredText}</span>
 										</#if>
 									</#if>
-								</#if>
+									<#if (column.attr)?? && column.attr?has_content>
+										<#local contentAtttrName = column.attr>
+										<#if (subContent[contentAtttrName])??>
+											<#local contentAtttrValue = subContent[contentAtttrName]>
+											
+											<#if contentAtttrName=="title">
+												<#if (subContentBeforeTitleImage?has_content)>
+													<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+												</#if>
+											</#if>
+											<#if (contentAtttrValue?is_date)>
+												${contentAtttrValue?string('dd/MM/yyyy à HH:mm')}
+											<#elseif contentAtttrName=="contentImage">
+												<#if (subContent.contentImage)??>
+													<@common.addImageIcon subContent.contentImage />
+												</#if>
+											<#else>
+												${contentAtttrValue}
+											</#if>
+										</#if>
+									</#if>
 								</td>
+								<#local isFirstColumn = false>
 							</#list>
 						</#if>
 						<#if (subContentDisplayContentMode == "modal")>
@@ -158,6 +179,9 @@ param : content : content to search for include content
 						</#if>
 					</tr>
 				<#elseif listDisplayType == "steps" >
+					<#if featauredText?has_content>
+						<div class="featured_label">${featauredText}</div>
+					</#if>
 					<#if hookHelper??>
 						<@hookHelper.hook "BeforeItemSubContent" subContent/>
 					</#if>
@@ -203,6 +227,9 @@ param : content : content to search for include content
 						<@hookHelper.hook "BeforeItemSubContent" subContent/>
 					</#if>
 					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+						<#if featauredText?has_content>
+							<div class="featured_label">${featauredText}</div>
+						</#if>
 						<#if hookHelper??>
 							<@hookHelper.hook "BeginItemSubContent" subContent/>
 						</#if>
