@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"sequenceHelper", "description":"Helper for sequences", "recommandedNamespace":"sequenceHelper"}>
+	<#return {"componnentVersion":1, "name":"sequenceHelper", "description":"Helper for sequences", "recommandedNamespace":"sequenceHelper", "version":"0.1.0"}>
 </#function>
 
 <#function init>

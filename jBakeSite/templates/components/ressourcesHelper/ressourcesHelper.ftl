@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"ressourcesHelper", "description":"Help manage required HTML ressources like CSS and JS", "recommandedNamespace":"ressourcesHelper", "require":[{"value":"commonHelper", "type":"lib"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"ressourcesHelper", "description":"Help manage required HTML ressources like CSS and JS", "recommandedNamespace":"ressourcesHelper", "version":"0.1.0", "require":[{"value":"commonHelper", "type":"lib"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>

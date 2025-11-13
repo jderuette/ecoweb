@@ -1,7 +1,7 @@
 <#import "../../components/commonHelper/commonHelper.ftl" as common>
 <#import "../../components/logHelper/logHelper.ftl" as logHelper>
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"propertiesHelper", "description":"Help retrieve and interpret config file data", "recommandedNamespace":"propertiesHelper", "require":[{"value":"common", "type":"lib"}], "uses":[{"value":"site.langs", "type":"config"}, {"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"propertiesHelper", "description":"Help retrieve and interpret config file data", "recommandedNamespace":"propertiesHelper", "version":"0.1.0", "require":[{"value":"common", "type":"lib"}], "uses":[{"value":"site.langs", "type":"config"}, {"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>

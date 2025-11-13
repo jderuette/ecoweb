@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"logHelper", "description":"Helper for debugging", "recommandedNamespace":"logHelper", "require":[{"value":"site.debug.enabled", "type":"config"}, {"value":"common", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"logHelper", "description":"Helper for debugging", "recommandedNamespace":"logHelper", "version":"0.1.0", "require":[{"value":"site.debug.enabled", "type":"config"}, {"value":"common", "type":"lib"}]}>
 </#function>
 
 <#function init>

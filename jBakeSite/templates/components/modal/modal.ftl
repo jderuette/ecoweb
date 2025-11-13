@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"modal", "description":"Generate and display modal (use boostrap)", "recommandedNamespace":"modal", "require":[{"value":"common", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"modal", "description":"Generate and display modal (use boostrap)", "recommandedNamespace":"modal", "version":"0.1.0", "require":[{"value":"common", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}]}>
 </#function>
 
 <#function init>

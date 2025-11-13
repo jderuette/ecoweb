@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"form", "description":"Add form in content", "recommandedNamespace":"form", "require":[{"value":"formData", "type":"contentHeader"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"bootstrap 3", "type":"frontLib"}]}>
+	<#return {"componnentVersion":1, "name":"form", "description":"Add form in content", "recommandedNamespace":"form", "version":"0.1.0", "require":[{"value":"formData", "type":"contentHeader"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"bootstrap 3", "type":"frontLib"}]}>
 </#function>
 
 <#function init>

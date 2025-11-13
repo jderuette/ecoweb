@@ -1,7 +1,7 @@
 <#import "../../components/propertiesHelper/propertiesHelper.ftl" as propertiesHelper>
 
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"includes", "description":"Include ftl file as import in templates", "recommandedNamespace":"commonInc", "require":[{"value":"propertiesHelper", "type":"lib"}, {"value":"common", "type":"lib"}, {"value":"components", "type":"config", "desc":"with *namespace* attributs"}, {"value":"init()", "type":"componentFunction"}, {"value":"getComponnentInfo()", "type":"componentFunction"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"documentationComponent", "type":"contentHeader", "description":"To display component documentation in an other content"}]}>
+	<#return {"componnentVersion":1, "name":"includes", "description":"Include ftl file as import in templates", "recommandedNamespace":"commonInc", "version":"0.1.0", "require":[{"value":"propertiesHelper", "type":"lib"}, {"value":"common", "type":"lib"}, {"value":"components", "type":"config", "desc":"with *namespace* attributs"}, {"value":"init()", "type":"componentFunction"}, {"value":"getComponnentInfo()", "type":"componentFunction"}], "uses":[{"value":"logHelper", "type":"lib"}, {"value":"documentationComponent", "type":"contentHeader", "description":"To display component documentation in an other content"}]}>
 </#function>
 
 <#function init>
@@ -118,6 +118,13 @@
 			<#if (compData.description)??>
 				<div>Description : ${compData.description}</div>
 			</#if>
+			<div>Version :
+			<#if (compData.version)??>
+				 ${compData.version}
+			<#else>
+				non précisé
+			</#if>
+			</div>
 			<div>Requière : 
 			<#if (compData.require)??>
 			<table>

@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"langHelper", "description":"Helper for multi-language", "recommandedNamespace":"langHelper", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}, {"value":"lang", "type":"contentHeader"}, {"value":"languageSwitcher", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"langHelper", "description":"Helper for multi-language", "recommandedNamespace":"langHelper", "version":"0.1.0", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}, {"value":"lang", "type":"contentHeader"}, {"value":"languageSwitcher", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
