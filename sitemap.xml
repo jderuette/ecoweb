@@ -81,10 +81,6 @@
         <lastmod>2025-06-17</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/718_deployer_le_site.html</loc>
-        <lastmod>2025-06-16</lastmod>
-    </url>
-    <url>
         <loc>https://jderuette.github.io/ecoweb/documentation/instalation/710_Preparation.html</loc>
         <lastmod>2025-06-16</lastmod>
     </url>
@@ -93,12 +89,12 @@
         <lastmod>2025-06-16</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/faq/830_WebLege_processus.html</loc>
-        <lastmod>2025-06-13</lastmod>
+        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/718_deployer_le_site.html</loc>
+        <lastmod>2025-06-16</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/faq/820_WebLege_payant.html</loc>
-        <lastmod>2025-05-14</lastmod>
+        <loc>https://jderuette.github.io/ecoweb/faq/830_WebLege_processus.html</loc>
+        <lastmod>2025-06-13</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/faq/810_Boutique_avec_WebLege.html</loc>
@@ -106,6 +102,10 @@
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/faq/800_faq.html</loc>
+        <lastmod>2025-05-14</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/faq/820_WebLege_payant.html</loc>
         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
@@ -154,19 +154,19 @@
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/098_contact.html</loc>
-        <lastmod>2025-11-12</lastmod>
+        <lastmod>2025-11-13</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/094_services.html</loc>
-        <lastmod>2025-11-12</lastmod>
+        <lastmod>2025-11-13</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/092_produit.html</loc>
-        <lastmod>2025-11-12</lastmod>
+        <lastmod>2025-11-13</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/090_accroche_produit.html</loc>
-        <lastmod>2025-11-12</lastmod>
+        <lastmod>2025-11-13</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/lp/pret/826_pret.html</loc>
@@ -221,14 +221,6 @@
         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/fonctionnalite/list/826_fonctionalite_mobileFirst.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/fonctionnalite/list/825_fonctionalite_multilang.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
         <loc>https://jderuette.github.io/ecoweb/lp/fonctionnalite/list/824_fonctionalite_modulaire.html</loc>
         <lastmod>2025-11-06</lastmod>
     </url>
@@ -255,6 +247,22 @@
     <url>
         <loc>https://jderuette.github.io/ecoweb/lp/fonctionnalite/list/828_fonctionalite_herbergementSimple.html</loc>
         <lastmod>2025-11-06</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/lp/fonctionnalite/list/826_fonctionalite_mobileFirst.html</loc>
+        <lastmod>2025-11-06</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/lp/fonctionnalite/list/825_fonctionalite_multilang.html</loc>
+        <lastmod>2025-11-06</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/741_composant_sticker.html</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/740_composant_action.html</loc>
+        <lastmod>2025-11-03</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/739_composant_lang.html</loc>
@@ -353,15 +361,15 @@
         <lastmod>2025-09-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/preHeader/086_choix_langue.html</loc>
-        <lastmod>2025-07-07</lastmod>
-    </url>
-    <url>
         <loc>https://jderuette.github.io/ecoweb/preHeader/084_contact_telephone.html</loc>
         <lastmod>2025-07-07</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/preHeader/080_contact_email.html</loc>
+        <lastmod>2025-07-07</lastmod>
+    </url>
+    <url>
+        <loc>https://jderuette.github.io/ecoweb/preHeader/086_choix_langue.html</loc>
         <lastmod>2025-07-07</lastmod>
     </url>
     <url>
