@@ -57,6 +57,9 @@
 
 <#function registerContentHook content>
 	<#if (content.hooks)??>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("hookHelper.registerContentHook : INFO hooks content : registering hooks from : " + common.toString(content.hooks))}
+		</#if>
 		${registerHookFromJson(content.hooks)}
 	</#if>
 	<#return "" />
@@ -66,20 +69,23 @@
 	<#if propertiesHelper.hasConfigValue(configPropertyName)>
 		<#local includeText = propertiesHelper.retrieveAndDisplayConfigText(configPropertyName)>
 		<#assign hooksDeclarations = propertiesHelper.parseJsonProperty(includeText)>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("hookHelper.registerHooks : INFO global hooks : registering hooks from : " + common.toString(hooksDeclarations))}
+		</#if>
 		${registerHookFromJson(hooksDeclarations)}
 	</#if>
 </#function>
 
-<#function registerHookFromJson JsonData>
-	<#if JsonData?? && (JsonData.data)??>
+<#function registerHookFromJson hooksJsonData>
+	<#if hooksJsonData?? && (hooksJsonData.data)??>
 		<#if logHelper??>
 			<#local contentId = "no_content">
 			<#if content??>
 				<#local contentId = content.uri!"no_uri">
 			</#if>
-			${logHelper.stackDebugMessage("hookHelper.registerContentHook : INFO for content : " + contentId + " registering " + JsonData?size + " hooks")}
+			${logHelper.stackDebugMessage("hookHelper.registerHookFromJson : INFO for content : " + contentId + " (or blocks, or subContents) registering " + hooksJsonData.data?size + " hooks from : " + common.toString(hooksJsonData))}
 		</#if>
-		<#list JsonData.data as hookDeclaration>
+		<#list hooksJsonData.data as hookDeclaration>
 			<#if (hookDeclaration.position)?? && (hookDeclaration.action)??>
 				<#local renderOnce = false>
 				<#if (hookDeclaration.renderOnce)?? && hookDeclaration.renderOnce == true>
@@ -153,21 +159,38 @@ Activate a hook.
 
 <#function unRegisterHook location action>
 	<#if logHelper??>
-		${logHelper.stackDebugMessage("Hook : UNREGISTER hook : " + action + " for location : " + location + " from : " + .caller_template_name)}
+		${logHelper.stackDebugMessage("Hook : UNREGISTER hook : " + action + " for location : " + location + " (" + displayContributorsSizeForLogs()+ ") from : " + .caller_template_name)}
 	</#if>
 	
 	<#-- "filter" contributors -->
-	<#local filteredContributors = {}>
+	<#local filteredContributors = contributors>
 	<#list contributors as contributorLocation, contributorActions>
-		<#list contributorActions as contributor>
-			<#if contributorLocation == location && contributor.action == action>
-				<#continue>
-			</#if>
-			<#local contributorForLocation = {contributorLocation, [{"action":contributor.action, "renderOnce":contributor.renderOnce, "order":contributor.order}]}>
-		</#list>
-		<#local filteredContributors = filteredContributors + contributorForLocation>
+		<#if contributorLocation == location>
+			<#local newContributors = []>
+			<#list contributorActions as contributor>
+				<#if contributor.action != action>
+					<#local newContributors = newContributors + [contributor]>
+				</#if>
+			</#list>
+			<#local filteredContributors = filteredContributors + {contributorLocation, newContributors}>
+		</#if>
 	</#list>
 	<#assign contributors = filteredContributors>
 	
+	<#if logHelper??>
+		${logHelper.stackDebugMessage("Hook : UNREGISTER hook : Contributors after unregister (" + displayContributorsSizeForLogs()+ ")")}
+	</#if>
 	<#return ""/>
+</#function>
+
+<#function displayContributorsSizeForLogs>
+	<#local totalContributor = 0>
+	<#local dataToDisplay = "Nb location : " + contributors?size + " locations : ">
+	<#list contributors as contributorLocation, contributorActions>
+		<#local dataToDisplay = dataToDisplay + " [" + contributorLocation + "]:" + contributorActions?size>
+		<#local totalContributor = totalContributor + contributorActions?size>
+	</#list>
+	
+	<#local dataToDisplay = dataToDisplay + " TOTAL : " + totalContributor>
+	<#return dataToDisplay>
 </#function>
