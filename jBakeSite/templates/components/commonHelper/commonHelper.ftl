@@ -96,7 +96,7 @@ param : theObject : object to transform in String
 <#function toString theObject>
 	<#local stringVal = "">
 	<#if theObject?is_string>
-		<#local stringVal = theObject>
+		<#local stringVal = "\"" + theObject + "\"">
 	<#elseif (theObject?is_hash)>
 		<#local stringVal = stringVal + "{" />
 		<#local separator = "">
