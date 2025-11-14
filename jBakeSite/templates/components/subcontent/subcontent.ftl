@@ -102,8 +102,10 @@ param : content : content to search for include content
 						<#case "disabled">
 							<#local specificContentClass += " self_disabled">
 						<#break>
+						<#break>
 						<#case "none">
 							<#-- Nothing to do content is not in list -->
+						<#break>
 						<#break>
 					</#switch>
 				</#if>
@@ -231,21 +233,21 @@ param : content : content to search for include content
 							<@hookHelper.hook "BeginItemSubContent" subContent/>
 						</#if>
 						<#switch listDisplayType>
-						<#case  "link">
-							<a href="${common.buildRootPathAwareURL(subContent.uri)}" class="widget_link">
-						<#break>
-						<#case "collapse_block">
-							<#local collapseClass = "collapse">
-							<#local collapseId = common.randomNumber()>
-							<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
-						<#break>
-						<#case "card">
-							<#if (subContentDisplayContentMode == "modalLink")>
-								<@modal.extractContentForModal subContent, "link", listDisplayType, "", []/>
-							<#elseif (subContentDisplayContentMode == "link")>
-								<a href="${common.buildRootPathAwareURL(subContent.uri)}">
-							</#if>
-						<#break>
+							<#case  "link">
+								<a href="${common.buildRootPathAwareURL(subContent.uri)}" class="widget_link">
+							<#break>
+							<#case "collapse_block">
+								<#local collapseClass = "collapse">
+								<#local collapseId = common.randomNumber()>
+								<a data-toggle="collapse" href="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+							<#break>
+							<#case "card">
+								<#if (subContentDisplayContentMode == "modalLink")>
+									<@modal.extractContentForModal subContent, "link", listDisplayType, "", []/>
+								<#elseif (subContentDisplayContentMode == "link")>
+									<a href="${common.buildRootPathAwareURL(subContent.uri)}">
+								</#if>
+							<#break>
 						</#switch>
 						<#if listDisplayType == "card">
 							<#if (subContent.contentImage??)>

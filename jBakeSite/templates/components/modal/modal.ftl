@@ -36,8 +36,10 @@ param : closeButtonlabel : *default* : close : label of the botom close button
 	<#switch interactionType>
 		<#case "button">
 			<button type="button" class="btn btn-primary btn-block ${cssPrefix}_showMore showMore" data-toggle="modal" data-target="#${theModalId}" data-content-position="parent" data-content-class-prefix="${cssPrefix}">${buttonLabel}</button>
+		<#break>
 		<#case "link">
 			<a href="#" data-toggle="modal" data-target="#${theModalId}" data-content-position="inside" data-content-class-prefix="${cssPrefix}">
+		<#break>
 	</#switch>
 	
 	<#if extract?seq_contains("content")>

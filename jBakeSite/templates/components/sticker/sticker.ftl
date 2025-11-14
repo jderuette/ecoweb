@@ -20,6 +20,7 @@
 			<#switch stickerListDisposition>
 				<#case "center">
 					<#local stickerListSpecificClass = stickerListSpecificClass + " sticker_centered">
+				<#break>
 			</#switch>
 			<#if (content.sticker.specificClass)??>
 				<#local stickerListSpecificClass = stickerListSpecificClass + " " + content.stickers.specificClass>
@@ -35,6 +36,7 @@
 				<#switch stickerListDisposition>
 				<#case "center">
 						<#local specificClass = specificClass + " action_centered">
+					<#break>
 				</#switch>
 				<#if (aSticker.specificClass)??>
 					<#local specificClass = specificClass + " " + aSticker.specificClass>

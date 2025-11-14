@@ -21,6 +21,7 @@
 			<#switch actionListDisposition>
 				<#case "center">
 					<#local actionListSpecificClass = actionListSpecificClass + " action_centered">
+				<#break>
 			</#switch>
 			<#if (content.action.specificClass)??>
 				<#local actionListSpecificClass = actionListSpecificClass + " " + content.action.specificClass>
@@ -42,17 +43,21 @@
 				<#switch anAction.operation.type>
 					<#case "anchor">
 						<#local target = "#"+anAction.operation.to>
+					<#break>
 					<#case "link">
 						<#local target = anAction.operation.to>
+					<#break>
 					<#case "mailto">
 						<#local target = "mailto:"+anAction.operation.to>
 						<#if obfuscator?? && (anAction.operation.obfuscationMask)??>
 							<#local customAttributs = "data-obfuscatedkey=\"" + anAction.operation.obfuscationMask + "\"">
 						</#if>
+					<#break>
 				</#switch>
 				<#switch actionType>
 					<#case "button">
 						<a href="${target}" ${customAttributs} class="action_${actionType} btn ${specificClass}">${anAction.label}</a>
+					<#break>
 				</#switch>
 			</#list>
 			</div>
