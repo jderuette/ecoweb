@@ -27,7 +27,7 @@ Ce composant se configure via l'entête de contenu
 - ``action.data.operation.to`` : destination de l'action.
 - ``action.data.operation.obfuscationMask`` : (optionnel) si défini le *label* sera décodé avec le masque présent.
 
-## Hook
+### Hook
 Nécéiste la configuration d'une hook pour s'afficher. La hooks précisera où le sticker devra s'afficher.
 Voici un exemple pour un **block**, en affichant les stickers juste après le contenu du block (et avant les autres contenu par defaut dans cette hook).
 

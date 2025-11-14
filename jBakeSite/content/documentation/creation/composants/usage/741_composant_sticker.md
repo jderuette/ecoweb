@@ -25,7 +25,7 @@ Ce composant se configure via l'entête de contenu
 - ``action.data.imageSpecificClass`` : classe CSS à ajouter pour l'image.
 - ``action.data.specificClass`` : classe CSS à ajouter pour le sticker (image + texte).
 
-## Hook
+### Hook
 Nécéiste la configuration d'une hook pour s'afficher. La hooks précisera où le sticker devra s'afficher.
 Voici un exemple pour un **block**, en affichant les stickers juste avant le contenu du block
 
