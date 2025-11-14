@@ -58,6 +58,9 @@
 					<#case "button">
 						<a href="${target}" ${customAttributs} class="action_${actionType} btn ${specificClass}">${anAction.label}</a>
 					<#break>
+					<#case "link">
+						<a href="${target}" ${customAttributs} class="action_${actionType} ${specificClass}">${anAction.label}</a>
+					<#break>
 				</#switch>
 			</#list>
 			</div>
