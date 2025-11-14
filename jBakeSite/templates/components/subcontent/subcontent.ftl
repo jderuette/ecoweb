@@ -6,6 +6,23 @@
 	<#return "" />
 </#function>
 
+<#macro generateAnchor subContent>
+	<#if (subContent.anchorId)??>
+		id="<#escape x as x?xml>${subContent.anchorId}</#escape>"<#rt>
+	</#if>
+</#macro>
+
+<#macro generateCssClass subContent customCssClass="">
+	<#local classes = "subContent">
+	<#if (subContent.specificClass)?? && subContent.specificClass?has_content>
+		<#local classes = classes + " " + subContent.specificClass>
+	</#if>
+	<#if (customCssClass)?? && customCssClass?has_content>
+		<#local classes = classes + " " + customCssClass>
+	</#if>
+	<#lt>class="<#escape x as x?xml>${classes}</#escape>"
+</#macro>
+
 <#-- build an block or table listing (using Boostrap)
 param : content : content to search for include content
 -->
@@ -39,7 +56,7 @@ param : content : content to search for include content
 			</#if>
 		</#if>
 		
-		<div class="subContent">
+		<div <@generateAnchor content/> <@generateCssClass content/>>
 		<#if (subContents?size > 0)>
 			<#if (content.includeContent.title)??>
 				<div class="title">${content.includeContent.title}</div>
@@ -82,8 +99,7 @@ param : content : content to search for include content
 				<div class="${listDisplayType}_list ${specificClass}">
 			</#if>
 			<#list subContents?sort_by("order") as subContent>
-				
-					<#local uselessTempVar = commonInc.propagateContentChain(subContent) />
+				<#local uselessTempVar = commonInc.propagateContentChain(subContent) />
 				
 				<#local subContentCategory = (subContent.category)!"__none__">
 				<#local specificContentClass = (content.includeContent.display.specificClass)!"">
@@ -122,7 +138,7 @@ param : content : content to search for include content
 						<#local specificClassForContent = specificClassForContent + "featured">
 					</#if>
 					
-					<tr<#rt>
+					<tr <@generateAnchor subContent/> <#rt>
 						<#if (subContentDisplayContentMode == "link")>
 							<#lt> data-href="${common.buildRootPathAwareURL(subContent.uri)}"<#rt>
 						</#if>
@@ -184,7 +200,7 @@ param : content : content to search for include content
 					<#if hookHelper??>
 						<@hookHelper.hook "BeforeItemSubContent" subContent/>
 					</#if>
-					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+					<div <@generateAnchor subContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if hookHelper??>
 							<@hookHelper.hook "BeginItemSubContent" subContent/>
 						</#if>
@@ -225,7 +241,7 @@ param : content : content to search for include content
 					<#if hookHelper??>
 						<@hookHelper.hook "BeforeItemSubContent" subContent/>
 					</#if>
-					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+					<div <@generateAnchor subContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if featauredText?has_content>
 							<div class="featured_label">${featauredText}</div>
 						</#if>
