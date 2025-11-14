@@ -32,12 +32,6 @@
 				</#if>
 				
 				<#local specificClass = "">
-				<#local stickerListDisposition = content.stickers.disposition!"center">
-				<#switch stickerListDisposition>
-				<#case "center">
-						<#local specificClass = specificClass + " action_centered">
-					<#break>
-				</#switch>
 				<#if (aSticker.specificClass)??>
 					<#local specificClass = specificClass + " " + aSticker.specificClass>
 				</#if>
@@ -51,7 +45,10 @@
 						</#if>
 						<@common.addImageIcon aSticker.image imageSpecificClass/>
 					</#if>
-				${aSticker.label}</span>
+					<#if (aSticker.label)??>
+						${aSticker.label}
+					</#if>
+					</span>
 			</#list>
 			</div>
 		<#else>
