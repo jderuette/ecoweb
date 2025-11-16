@@ -59,7 +59,7 @@
 	<#lt>class="<#escape x as x?xml>${classes}</#escape>"
 </#macro>
 
-<#macro generateTitle block>
+<#macro generateTitle block contentImageBefore=false>
 	<#if (block.title)?? && block.title?has_content && !((block.displayTitle)?? && block.displayTitle == "false")>
 		<#local titleTag = "h2">
 		<#if (block.titleTag)??>
@@ -68,6 +68,9 @@
 		<${titleTag} class="blockTitle"><#escape x as x?xml>
 		<#if (block.beforeTitleImage?has_content)>
 			<@common.addImageIcon block.beforeTitleImage "block_title_image"/>
+		</#if>
+		<#if (contentImageBefore)>
+			<@common.addImageIcon block.contentImage "block_title_image"/>
 		</#if>
 		${block.title}</#escape>
 		</${titleTag}>
@@ -97,7 +100,7 @@
 </#macro>
 
 <#macro imageRightSubTemplate block>
-	<div <@generateAnchor block/> <@generateCssClass block/>>
+	<div <@generateAnchor block/> <@generateCssClass block "imageRightSubTemplate"/>>
 		<@generateTitle block/>
 		<div class="blockBody">
 			<@generateBodyContent block/>
@@ -109,7 +112,7 @@
 </#macro>
 
 <#macro imageLeftSubTemplate block>
-	<div <@generateAnchor block/> <@generateCssClass block/>>
+	<div <@generateAnchor block/> <@generateCssClass block "imageLeftSubTemplate"/>>
 		<@generateTitle block/>
 		<div class="blockBody">
 			<#if (block.contentImage)??>
@@ -120,17 +123,31 @@
 	</div>
 </#macro>
 
+<#macro imageLeftTitleAndContentSubTemplate block>
+	<div <@generateAnchor block/> <@generateCssClass block "imageLeftTitleAndContentSubTemplate"/>>
+		<#if (block.contentImage)??>
+				<@common.addImageIcon block.contentImage "blockIcon"/>
+		</#if>
+		<div class="groupe_content">
+			<@generateTitle block/>
+			<div class="blockBody">
+				<@generateBodyContent block/>
+			</div>
+		</div>
+	</div>
+</#macro>
+
 <#macro imageBeforeTitleSubTemplate block customCssStyle="">
-	<div <@generateAnchor block/> <@generateCssClass block customCss/> style="${customCssStyle}">
-		<@generateTitle block/>
+	<div <@generateAnchor block/> <@generateCssClass block "imageBeforeTitleSubTemplate"/> <#if customCssStyle?has_content>style="${customCssStyle}"</#if>>
+		<@generateTitle block true/>
 		<div class="blockBody">
 			<@generateBodyContent block/>
 		</div>
 	</div>
 </#macro>
 
-<#macro NoImageSubTemplate block customCssStyle="">
-	<div <@generateAnchor block/> <@generateCssClass block customCss/> style="${customCssStyle}">
+<#macro noImageSubTemplate block customCssStyle="">
+	<div <@generateAnchor block/> <@generateCssClass block "noImageSubTemplate"/> <#if customCssStyle?has_content>style="${customCssStyle}"</#if>>
 		<@generateTitle block/>
 		<div class="blockBody">
 			<@generateBodyContent block/>
@@ -140,12 +157,12 @@
 
 <#macro backGroundImageCoverSubTemplate block>
 	<#local customCssStyle = "background-image: url('"+common.buildRootPathAwareURL(block.contentImage)+"'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-	<@NoImageSubTemplate block customCssStyle/>
+	<@noImageSubTemplate block customCssStyle/>
 </#macro>
 
 
 <#macro backGroundImageContainSubTemplate block>
 	<#local customCssStyle = "background-image: url('"+common.buildRootPathAwareURL(block.contentImage)+"'); background-repeat: no-repeat; background-size: contain;">
-	<@NoImageSubTemplate block customCssStyle/>
+	<@noImageSubTemplate block customCssStyle/>
 </#macro>
 

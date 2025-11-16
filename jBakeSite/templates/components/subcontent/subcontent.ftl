@@ -198,11 +198,11 @@ param : content : content to search for include content
 						<div class="featured_label">${featauredText}</div>
 					</#if>
 					<#if hookHelper??>
-						<@hookHelper.hook "BeforeItemSubContent" subContent/>
+						<@hookHelper.hook "beforeItemSubContent" subContent/>
 					</#if>
 					<div <@generateAnchor subContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if hookHelper??>
-							<@hookHelper.hook "BeginItemSubContent" subContent/>
+							<@hookHelper.hook "beginItemSubContent" subContent/>
 						</#if>
 						<div class="step_icon">
 							<#if (subContent.contentImage??)>
@@ -231,22 +231,22 @@ param : content : content to search for include content
 							</div>
 						</div>
 						<#if hookHelper??>
-							<@hookHelper.hook "EndItemSubContent" subContent/>
+							<@hookHelper.hook "endItemSubContent" subContent/>
 						</#if>
 					</div>
 					<#if hookHelper??>
-						<@hookHelper.hook "AfterItemSubContent" subContent/>
+						<@hookHelper.hook "afterItemSubContent" subContent/>
 					</#if>
 				<#else><#-- NOT a table -->
 					<#if hookHelper??>
-						<@hookHelper.hook "BeforeItemSubContent" subContent/>
+						<@hookHelper.hook "beforeItemSubContent" subContent/>
 					</#if>
 					<div <@generateAnchor subContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if featauredText?has_content>
 							<div class="featured_label">${featauredText}</div>
 						</#if>
 						<#if hookHelper??>
-							<@hookHelper.hook "BeginItemSubContent" subContent/>
+							<@hookHelper.hook "beginItemSubContent" subContent/>
 						</#if>
 						<#switch listDisplayType>
 							<#case  "link">
@@ -318,11 +318,11 @@ param : content : content to search for include content
 							</div>
 						</#if>
 						<#if hookHelper??>
-							<@hookHelper.hook "EndItemSubContent" subContent/>
+							<@hookHelper.hook "endItemSubContent" subContent/>
 						</#if>
 					</div>
 					<#if hookHelper??>
-						<@hookHelper.hook "AfterItemSubContent" subContent/>
+						<@hookHelper.hook "afterItemSubContent" subContent/>
 					</#if>
 				</#if> <#-- end onf contentDuisplayType "switch" -->
 			</#list>
@@ -336,6 +336,9 @@ param : content : content to search for include content
 			pas de contenus (pour le moment).
 		</#if>
 		</div>
+		<#if hookHelper??>
+			<@hookHelper.hook "afterSubContent" content/>
+		</#if>
 	<#else>
 		<#if logHelper??>
 			<@logHelper.debug "No SubContent for this content"/>
