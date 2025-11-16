@@ -22,7 +22,7 @@
 					<#local stickerListSpecificClass = stickerListSpecificClass + " sticker_centered">
 				<#break>
 			</#switch>
-			<#if (content.sticker.specificClass)??>
+			<#if (content.stickers.specificClass)??>
 				<#local stickerListSpecificClass = stickerListSpecificClass + " " + content.stickers.specificClass>
 			</#if>
 			<div class="${stickerListSpecificClass}">
