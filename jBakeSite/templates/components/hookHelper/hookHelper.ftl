@@ -16,45 +16,6 @@
 	<#return content.uri!content.title!"no ID">
 </#function>
 
-<#function tempDebugHash aHash>
-	<#local stringVal = "">
-	<#if (aHash?is_hash)>
-		<#local stringVal = stringVal + "__Hash__{" />
-		<#local separator = "">
-		<#list aHash as key, value>
-			<#local stringVal = stringVal + separator + key + ":"/>
-			<#local stringVal = stringVal + tempDebugSequence(value)/>
-			<#local separator = ",">
-		</#list>
-		<#local stringVal = stringVal + "}" />
-	</#if>
-	<#return stringVal>
-</#function>
-
-<#function tempDebugSequence aSequence>
-	<#local stringVal = "">
-	<#if aSequence?is_method>
-		<#local stringVal = stringVal + "method" />
-	<#else>
-		<#if (aSequence?is_sequence)>
-			<#local stringVal = stringVal + "__sequence__[" />
-			<#local separator = "">
-			<#list aSequence as value>
-				<#if value?is_hash>
-					<#local stringVal = stringVal + separator + tempDebugHash(value)/>
-				<#elseif value?is_sequence>
-					<#local stringVal = stringVal + separator + tempDebugSequence(value)/>
-				<#else>
-					<#local stringVal = stringVal + separator + value/>
-				</#if>
-				<#local separator = ",">
-			</#list>
-			<#local stringVal = stringVal + "]" />
-		</#if>
-	</#if>
-	<#return stringVal>
-</#function>
-
 <#function registerContentHook content>
 	<#if (content.hooks)??>
 		<#if logHelper??>
