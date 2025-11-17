@@ -8,13 +8,7 @@
     list-style-type: none;
 }
 
-#HomePageCarousel {
-	width:300px;
-	height:300px;
-}
-#HomePageCarousel  img {
-	height:75%;
-}
+
 
 .navbar-nav > li > a, .dropdown-menu > li > a{
 	border-radius:15px;
@@ -58,10 +52,6 @@
 }
 
 @media screen and (min-width: 640px) {
-	#HomePageCarousel {
-		width:600px;
-		height:400px;
-	}
 	#HomePageCarousel  img {
 		height:60%;
 	}
@@ -69,11 +59,5 @@
 		flex-direction:column;
 		text-align:left;
 		width:22%;
-	}
-}
-@media screen and (min-width: 1024px) {
-	#HomePageCarousel {
-		width:1050px;
-		height:500px;
 	}
 }

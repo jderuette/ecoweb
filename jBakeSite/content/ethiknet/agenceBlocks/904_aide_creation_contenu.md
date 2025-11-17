@@ -1,7 +1,7 @@
 title=Aide à la création de contenu
 date=2025-09-14
 type=org_openCiLife_block
-category=EthikNet, Ethiknet_block
+category=Ethiknet_block
 status=published
 exerpt=L'agence vous aide à créer vos contenus
 specificClass=EthikNet mainBlock style4

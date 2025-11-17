@@ -113,7 +113,4 @@
 		flex-direction: row;
 		justify-content: space-around;
 	}
-	.footer_blocks .block {
-		flex-direction: row;
-	}
 }

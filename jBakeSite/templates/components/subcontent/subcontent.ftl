@@ -132,6 +132,19 @@ param : content : content to search for include content
 						<#local featauredText = subContent.featured.text>
 					</#if>
 				</#if>
+				
+				<#if (content.includeContent.hooks)??>
+					<#if logHelper??>
+						${logHelper.stackDebugMessage("SubContent.build : Custom Hooks detected for : " + subContent.uri + " : " + common.toString(content.includeContent.hooks))}
+					</#if>
+					<#if hookHelper??>
+						<#if logHelper??>
+							${logHelper.stackDebugMessage("SubContent.build : Registering Custom Hooks")}
+						</#if>
+						${hookHelper.registerHookFromJson(content.includeContent.hooks)}
+					</#if>
+				</#if>
+				
 				<#if (listDisplayType == "table")>
 					<#local specificClassForContent = specificContentClass>
 					<#if (subContent.featured)??>

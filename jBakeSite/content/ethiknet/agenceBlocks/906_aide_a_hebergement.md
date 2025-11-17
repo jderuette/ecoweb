@@ -1,7 +1,7 @@
 title=Aide à l'hébergement
 date=2025-09-14
 type=org_openCiLife_block
-category=EthikNet, Ethiknet_block
+category=Ethiknet_block
 status=published
 exerpt=L'agence vous aide à hèberger votre site
 specificClass=EthikNet mainBlock style3

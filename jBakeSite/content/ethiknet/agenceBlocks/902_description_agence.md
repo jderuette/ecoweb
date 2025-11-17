@@ -1,7 +1,7 @@
 title=Agence EthikNet
 date=2025-09-14
 type=org_openCiLife_block
-category=EthikNet, Ethiknet_block
+category=Ethiknet_block
 status=published
 exerpt=Découvrire l'agence EthikNet
 specificClass=EthikNet mainBlock style3
