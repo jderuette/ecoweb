@@ -226,7 +226,6 @@
     padding: 5px;
     border: 2px solid lightgrey;
     border-radius: 5px;
-    width: 80%;
     margin: 20px auto;
 }
 .lpEthikNet .ethiknet_faq .collapse_block a[data-toggle] {
@@ -351,6 +350,11 @@
 	.lpEthikNet .ethiknet_propulse_webleger{
 	    padding: 0 160px;
 	}
+	
+	.lpEthikNet .ethiknet_faq .collapse_block {
+	    width: 80%;
+	}
+
 	.lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate .blockIcon {
 		height:initial;
 	}
