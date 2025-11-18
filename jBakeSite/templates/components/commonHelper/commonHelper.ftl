@@ -85,7 +85,7 @@ return : text with URL transformed
 				${image}
 			</span>
 		<#else>
-			<img src=${common.buildRootPathAwareURL(image)} <#if cssClass?has_content>class="${cssClass}"</#if>/>
+			<img src="${common.buildRootPathAwareURL(image)}" <#if cssClass?has_content>class="${cssClass}"</#if>/>
 		</#if>
 	</#if>
 </#macro>
