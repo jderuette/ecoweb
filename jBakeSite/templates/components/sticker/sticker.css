@@ -1,0 +1,22 @@
+.sticker_centered {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.sticker_centered.noText {
+	flex-direction: row;
+	justify-content: space-arround;
+	gap: 2px;
+}
+
+.sticker_centered a{
+	margin-top:10px;
+}
+
+@media screen and (min-width: 640px) {
+	.sticker_centered {
+		flex-direction: row;
+		gap: 8px;
+	}
+}

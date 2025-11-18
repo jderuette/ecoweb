@@ -1,0 +1,8 @@
+span[data-obfuscatedkey] {
+	border: 2px solid white;
+    border-radius: 21px;
+    padding: 1px;
+    padding-bottom: 3px;
+    border-width: medium;
+    background-color: rgb(255, 255, 255, 0.5);
+}

@@ -1,0 +1,41 @@
+.carousel {
+	margin:auto;
+	width:300px;
+	height:300px;
+}
+
+.carousel  img {
+	height:60%;
+}
+
+.carousel-inner {
+	height:100%;
+	width:auto;
+}
+
+.carousel-inner>.item{
+	height:100%;
+}
+.carousel-indicators > li {
+	border:1px solid ${webleger.site.style.header.title.color};
+}
+
+@media screen and (min-width: 640px) {
+	.carousel {
+		width:600px;
+		height:400px;
+	}
+	.carousel  img {
+		height:68%;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.carousel {
+		width:1050px;
+		height:500px;
+	}
+	.carousel  img {
+		height:75%;
+	}
+}

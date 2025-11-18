@@ -6,7 +6,7 @@
 	<ul>
 		<#list tags?sortBy("name") as tag>
 		<#if (tag?? && tag?hasContent && tag.name?hasContent)>
-			<li><a href="${ecoWeb.buildRootPathAwareURL(tag.uri)}">${tag.name}</a></li>
+			<li><a href="${common.buildRootPathAwareURL(tag.uri)}">${tag.name}</a></li>
 			</#if>
 		</#list>
 	</ul>

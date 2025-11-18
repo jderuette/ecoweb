@@ -1,0 +1,25 @@
+
+.languageSwitcher {
+	list-style:none;
+	float:left;
+	margin:0;
+}
+
+.languageSwitcher li {
+	float:left;
+	margin-left: 5px;
+}
+
+.languageSwitcher img {
+	max-width: 16px;
+}
+
+@media (min-width: 640px) {
+	.languageSwitcher li {
+		float:left;
+		margin-left: 15px;
+	}
+	.languageSwitcher img {
+		max-width: 32px;
+	}
+}

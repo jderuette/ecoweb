@@ -1,0 +1,21 @@
+#breadcrumb {
+	list-style-type: none;
+	background-color: ${webleger.site.style.header.background_color};
+    padding: 15px;
+    border-radius: 20px;
+}
+
+#breadcrumb li {
+	display: inline;
+	padding:0;
+	border-radius:0;
+	white-space: nowrap;
+}
+
+#breadcrumb li a {
+	display: inline-block;
+	background-color:${webleger.site.style.breadcrumb.background_color};
+	padding: 15px;
+    border-radius: 20px;
+    white-space: nowrap
+}

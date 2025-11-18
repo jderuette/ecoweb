@@ -1,0 +1,253 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html, body {
+  height: 100%;
+  font-size: 100%;
+  line-height:1.5;
+  font-family: trebuchet, helvetica, sans-serif;
+}
+
+body {
+	background-color: ${webleger.site.style.background_color};
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto;
+}
+
+#preHeader{
+    background-color:${webleger.site.style.style1.background-color};
+}
+
+#header {
+	background-color:${webleger.site.style.header.background_color};
+}
+
+#container {
+	word-break: break-word;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+#mainContent img {
+	margin: 5px;
+}
+
+a:link {
+  color: ${webleger.site.style.link.text-color};
+}
+a:visited {
+  color: ${webleger.site.style.link.text-color.visited};
+}
+a:hover {
+  color: ${webleger.site.style.link.text-color.hover};
+}
+a:active {
+  color: ${webleger.site.style.link.text-color.active};
+}
+
+b, strong {
+	color: ${webleger.site.style.strong.text-color};
+}
+
+h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
+	color:${webleger.site.style.header.title.color};
+    white-space: break-spaces;
+    word-break: break-word;
+}
+
+.content_tags{
+	display: inline-block;
+    list-style-type: none;
+}
+
+#pageTitle {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#headerTitle {
+	color: ${webleger.site.style.header.title.color};
+	margin: auto;
+}
+
+#logoLeft {
+	width: ${webleger.site.logoLeft.size.width.mobile};
+	height: auto;
+}
+
+#logoRight {
+	width: ${webleger.site.logoRight.size.width.mobile};
+	height: auto;
+}
+
+.pageContent {
+    padding: 0px 10px 10px 10px;
+}
+
+.btn-primary{
+    background-color: ${webleger.site.style.style1.background-color};
+    border-color: ${webleger.site.style.style1.background-color};
+}
+
+.icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.125em;
+}
+
+.widget_title_image {
+	margin-top:28px;
+}
+
+.description {
+	font-weight: lighter;
+	color: #aaaaaa;
+}
+
+.titleDescription {
+	color: #282825;
+	font-size: 25px;
+	font-weight: lighter;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.descriptionIcons {
+	display: flex;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	margin-top: 3%;
+	margin-left: 40%;
+}
+
+.credit {
+	background-color: lightgray;
+	text-align: center;
+}
+
+#go_to_top {
+	position: -webkit-sticky;
+	position: fixed;
+	bottom: 100px;
+	right: 50px;
+	opacity: 0.5;
+	width: 50px;
+	height: 50px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table th, table td {
+	border: 1px solid ${webleger.site.style.link.text-color};
+	padding: 2px 5px;
+}
+
+code {
+	white-space: break-spaces;
+}
+
+.contentHidden {
+	display:none !important;
+}
+
+.self_disabled {
+	background-color: grey;
+    
+}
+.self_disabled a {
+	pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+
+.featured {
+	position:relative;
+	border-width:4px;
+}
+
+.featured_label {
+	color: ${webleger.site.style.header.title.color};
+	background-color: ${webleger.site.style.style1.background-color};
+	font-weight: bold;
+	font-size: 10px;
+ 	line-height: 1.25rem;
+ 	padding: 5px 10px;
+ 	border-radius: 9999px;
+ 	
+ 	top: -1rem;
+ 	left: 50%;
+ 	position: absolute;
+ 	transform: translate(-50%,0)
+}
+
+
+.shadow {
+	box-shadow: 5px 5px 3px rgb(187, 187, 187);
+}
+
+[data-href] {
+	cursor: pointer;
+}
+
+[data-href]:hover {
+	color: #2a6496;
+}
+
+.label {
+	font-weight: bold;
+	color: black;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  /*height: 60px;*/
+  background-color:${webleger.site.style.footer.background_color};
+  padding: 25px 0 0 0;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (min-width: 640px) {
+	#footer {
+		margin-left: -20px;
+    	margin-right: -20px;
+    	padding-left: 20px;
+    	padding-right: 20px;
+	}
+	#pageTitle {
+		justify-content: space-around;
+		flex-direction: row;
+	}
+	#logoRight {
+		width: ${webleger.site.logoRight.size.width.desktop};
+	}
+	#logoLeft {
+		width: ${webleger.site.logoLeft.size.width.desktop};
+	}
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding-top: 0px;
+}
+.container .credit {
+  margin: 20px 0;
+}
