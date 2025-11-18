@@ -10,19 +10,35 @@
 		<relativePath>./weblegerPom.xml</relativePath>
 	</parent>
 
-	<groupId>org.webleger</groupId>
-	<artifactId>website</artifactId>
+	<groupId>org.ethiknet</groupId>
+	<artifactId>weblegerwebWebSite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>WebLeger Website</name>
+	<name>WebLeger WebSite</name>
 
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		
 		<publish.url>scm:git:git@github.com:jderuette/ecoweb.git</publish.url>
-
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<dependencies>
+	</dependencies>
+
+	<distributionManagement>
+		<site>
+			<id>github</id>
+			<url>${publish.url}</url>
+		</site>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+	</build>
 
 </project>

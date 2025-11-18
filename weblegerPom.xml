@@ -165,7 +165,7 @@
 									<mkdir dir="${jbake.inputDirectory}/assets/static" />
 									<copy todir="${jbake.inputDirectory}/assets">
 										<fileset dir="${src.dir}"
-											includes="**/copyToAssests/**" />
+											includes="**/copyToAssets/**" />
 									</copy>
 
 									<!-- compressed CSS and JS will go here -->
