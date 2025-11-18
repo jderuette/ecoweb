@@ -60,16 +60,13 @@
 	display: flex;
 	flex-direction: column;
 }
-
 .footer_blocks .block, .header_blocks .block {
 	display: flex;
 	flex-direction: column;
 }
-
 .footer_blocks .block img, .header_blocks .block img {
 	width: 100px;
 }
-
 .footer_block_text {
 	display: flex;
 	flex-direction: column;
@@ -77,23 +74,21 @@
 	margin-left: 4%;
 }
 
+.imageLeftTitleAndContentSubTemplate {
+	display:flex;
+	flex-direction:row;
+}
+
 .header_blocks {
 	display: flex;
 	flex-direction: column-reverse;
 }
-
 .preHeader .blockContent {
 	padding: 0;
 	margin-left: 12px;
 }
-
 .preHeader .blockContent > p{
 	margin : 0px;
-}
-
-.imageLeftTitleAndContentSubTemplate {
-	display:flex;
-	flex-direction:row;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */
@@ -112,9 +107,6 @@
 	.footer_blocks {
 		flex-direction: row;
 		justify-content: space-around;
-	}
-	.footer_blocks .block {
-		flex-direction: row;
 	}
 }
 /*!
@@ -188,6 +180,11 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	color:#6900cc;
     white-space: break-spaces;
     word-break: break-word;
+}
+
+.content_tags{
+	display: inline-block;
+    list-style-type: none;
 }
 
 #pageTitle {

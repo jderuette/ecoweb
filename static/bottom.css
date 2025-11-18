@@ -3,18 +3,9 @@
 	border-radius: 5px;
 }
 
-.content_tags{
-	display: inline-block;
-    list-style-type: none;
-}
-
-#HomePageCarousel {
-	width:300px;
-	height:300px;
-}
-#HomePageCarousel  img {
-	height:75%;
-}
+.Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
+	word-break: normal;
+} 
 
 .navbar-nav > li > a, .dropdown-menu > li > a{
 	border-radius:15px;
@@ -29,22 +20,15 @@
 .EthikNet  .subContent {
     border-color: green;
 }
-
 .EthikNet a:visited, .EthikNet a:link{
 	color:green;
 }
-
 .EthikNet b, .EthikNet strong, .menu_EthikNet b, .menu_EthikNet strong {
 	color: green;
 }
-
 .EthikNet #breadcrumb li a {
 	background-color:#ccffcc;
 }
-
-.Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
-	word-break: normal;
-} 
 
 .navbar-nav .menu_EthikNet>a:hover, .dropDown_menu_EthikNet>li>a:hover{
 	background-color:lightgreen;
@@ -58,25 +42,13 @@
 }
 
 @media screen and (min-width: 640px) {
-	#HomePageCarousel {
-		width:600px;
-		height:400px;
-	}
-	#HomePageCarousel  img {
-		height:60%;
-	}
 	.footer_blocks .block {
 		flex-direction:column;
 		text-align:left;
 		width:22%;
 	}
 }
-@media screen and (min-width: 1024px) {
-	#HomePageCarousel {
-		width:1050px;
-		height:500px;
-	}
-}.lpEthikNet {
+.lpEthikNet {
 	color:#2D8659;
 	background-color:#F7F6F2;
 	letter-spacing: .025em;
@@ -283,6 +255,7 @@
 	padding:10px;
 	box-shadow:none;
 	text-align:center;
+	width:22%;
 }
 .lpEthikNet  .ethiknet_pourquoi .card_image {
 	display: flex;
@@ -304,7 +277,6 @@
     padding: 5px;
     border: 2px solid lightgrey;
     border-radius: 5px;
-    width: 80%;
     margin: 20px auto;
 }
 .lpEthikNet .ethiknet_faq .collapse_block a[data-toggle] {
@@ -426,9 +398,18 @@
 		width:40%;
 	}
 	
+	.lpEthikNet  .ethiknet_pourquoi .card {
+		width:22%;
+	}
+	
 	.lpEthikNet .ethiknet_propulse_webleger{
 	    padding: 0 160px;
 	}
+	
+	.lpEthikNet .ethiknet_faq .collapse_block {
+	    width: 80%;
+	}
+
 	.lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate .blockIcon {
 		height:initial;
 	}
@@ -692,6 +673,12 @@
     white-space: nowrap
 }.carousel {
 	margin:auto;
+	width:300px;
+	height:300px;
+}
+
+.carousel  img {
+	height:60%;
 }
 
 .carousel-inner {
@@ -704,6 +691,26 @@
 }
 .carousel-indicators > li {
 	border:1px solid #6900cc;
+}
+
+@media screen and (min-width: 640px) {
+	.carousel {
+		width:600px;
+		height:400px;
+	}
+	.carousel  img {
+		height:68%;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.carousel {
+		width:1050px;
+		height:500px;
+	}
+	.carousel  img {
+		height:75%;
+	}
 }
 .languageSwitcher {
 	list-style:none;
@@ -953,7 +960,6 @@
 	.card {
 		margin-right: 20px;
 		margin-bottom: 20px;
-		width: 15rem;
 		text-align: left;
 	}
 	.card_image {
