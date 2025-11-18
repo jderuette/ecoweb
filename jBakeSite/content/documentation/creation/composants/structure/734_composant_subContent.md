@@ -29,8 +29,9 @@ Personalisation :
 
  - ``specificClass`` permet d'ajouter une classe spécific pour permetre la personalisation de l'affichage (via le CSS).
  - ``title`` : permet de personaliser le titre de la section.
+ - ``hooks`` : permet d'ajouter des contenu via les Hooks interne du composant, par exemple pour activer les formulaire et les block dans **les** sous-contenus : ``"hooks":{"data":[{"position":"endItemSubContent", "action":"block.build", "renderOnce":true}, {"position":"endItemSubContent", "action":"form.build", "renderOnce":true}]}, "display":{"type":"card", "content":"visible"}``
 
-Le format d'affichae des éléments : 
+Le format d'affichage des éléments : 
 
 - ``display.type`` : les formats supportés sont : 
 	- **table** : les sous-contenus sont affiché sous forme d'un tableau. Chaque ligne affiche : l'image du contenu, le titre puis le résumé du contenu. Des colonnes supplémentaires peuvent être affichée à partir des attributs d'entête de chacun des sous contenu via l'attribut **columns**.
