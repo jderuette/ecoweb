@@ -65,6 +65,11 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
     word-break: break-word;
 }
 
+.content_tags{
+	display: inline-block;
+    list-style-type: none;
+}
+
 #pageTitle {
 	display: flex;
 	align-items: center;

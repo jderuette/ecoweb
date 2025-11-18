@@ -3,12 +3,9 @@
 	border-radius: 5px;
 }
 
-.content_tags{
-	display: inline-block;
-    list-style-type: none;
-}
-
-
+.Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
+	word-break: normal;
+} 
 
 .navbar-nav > li > a, .dropdown-menu > li > a{
 	border-radius:15px;
@@ -23,22 +20,15 @@
 .EthikNet  .subContent {
     border-color: green;
 }
-
 .EthikNet a:visited, .EthikNet a:link{
 	color:green;
 }
-
 .EthikNet b, .EthikNet strong, .menu_EthikNet b, .menu_EthikNet strong {
 	color: green;
 }
-
 .EthikNet #breadcrumb li a {
 	background-color:#ccffcc;
 }
-
-.Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
-	word-break: normal;
-} 
 
 .navbar-nav .menu_EthikNet>a:hover, .dropDown_menu_EthikNet>li>a:hover{
 	background-color:lightgreen;
@@ -52,9 +42,6 @@
 }
 
 @media screen and (min-width: 640px) {
-	#HomePageCarousel  img {
-		height:60%;
-	}
 	.footer_blocks .block {
 		flex-direction:column;
 		text-align:left;
