@@ -1,0 +1,259 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.webleger.builder</groupId>
+	<artifactId>framework</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Webleger WebSite Builder</name>
+
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<src.dir>jBakeSite</src.dir>
+		<!-- JBake build using Maven **filtered** files produced by build::plugins::plugin[maven-resources-plugin]::configuration::outputDirectory -->
+		<jbake.inputDirectory>jBakeMavenData</jbake.inputDirectory>
+		<!-- to produce webSite in "maven build directory" : ${jbake.inputDirectory}/output, 
+			to use the "default Jbake Folder" : ${project.basedir}/${src.dir}/output -->
+		<jbake.outputDirectory>${project.basedir}/website</jbake.outputDirectory>
+		<jbake_maven_plugin.version>2.7.0-rc.7</jbake_maven_plugin.version>
+		<publish.url>scm:git:git@github.com:yourGitHubLogin/yourRepo.git</publish.url>
+		<weblegerPom.minify.css.basename>combined.min.css</weblegerPom.minify.css.basename>
+		<weblegerPom.minify.js.basename>combined.min.js</weblegerPom.minify.js.basename>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+	</dependencies>
+
+	<distributionManagement>
+		<site>
+			<id>github</id>
+			<url>${publish.url}</url>
+		</site>
+	</distributionManagement>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-publish-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration>
+						<scmBranch>gh-pages</scmBranch>
+						<content>${jbake.outputDirectory}</content>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.primefaces.extensions</groupId>
+					<artifactId>resources-optimizer-maven-plugin</artifactId>
+					<version>2.4.4</version>
+					<executions>
+						<execution>
+							<id>optimize</id>
+							<goals>
+								<goal>optimize</goal>
+							</goals>
+						</execution>
+					</executions>
+
+					<configuration>
+						<!-- top JS files -->
+						<resourcesSets>
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/top-*.js</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+								</excludes>
+
+								<aggregations>
+									<aggregation>
+										<outputFile>
+											${jbake.outputDirectory}/static/top.js</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+							<!-- bottom JS files -->
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/*.js</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+									<exclude>**/top-*.js</exclude>
+								</excludes>
+								<aggregations>
+									<aggregation>
+										<outputFile>
+											${jbake.outputDirectory}/static/bottom.js</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+
+							<!-- top CSS files -->
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/top-*.css</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+								</excludes>
+								<aggregations>
+									<aggregation>
+										<withoutCompress>true</withoutCompress>
+										<outputFile>
+											${jbake.outputDirectory}/static/top.css</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+							<!-- bottom CSS files -->
+							<resourcesSet>
+								<inputDir>
+									${jbake.inputDirectory}</inputDir>
+								<includes>
+									<include>**/*.css</include>
+								</includes>
+								<excludes>
+									<exclude>**/noAgregation/*</exclude>
+									<exclude>**/top-*.css</exclude>
+								</excludes>
+
+								<aggregations>
+									<aggregation>
+										<withoutCompress>true</withoutCompress>
+										<outputFile>
+											${jbake.outputDirectory}/static/bottom.css</outputFile>
+									</aggregation>
+								</aggregations>
+							</resourcesSet>
+						</resourcesSets>
+					</configuration>
+				</plugin>
+				<!-- Clean and (re) create output folder -->
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.8</version>
+					<executions>
+						<execution>
+							<id>clean-output-folder</id>
+							<!-- enable "run" to be launch before "install" phase -->
+							<phase>initialize</phase>
+							<configuration>
+								<tasks>
+									<delete dir="${jbake.inputDirectory}"
+										failonerror="false" />
+									<mkdir dir="${jbake.inputDirectory}" />
+									<delete dir="${jbake.outputDirectory}"
+										failonerror="false" />
+									<mkdir dir="${jbake.outputDirectory}" />
+
+									<!-- to copy ressoruces from components to assets -->
+									<mkdir dir="${jbake.inputDirectory}/assets/static" />
+									<copy todir="${jbake.inputDirectory}/assets">
+										<fileset dir="${src.dir}"
+											includes="**/copyToAssests/**" />
+									</copy>
+
+									<!-- compressed CSS and JS will go here -->
+									<mkdir dir="${jbake.outputDirectory}/static" />
+								</tasks>
+							</configuration>
+							<goals>
+								<goal>run</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.1.0</version>
+
+					<configuration>
+						<outputDirectory>${jbake.inputDirectory}</outputDirectory>
+						<escapeString>\</escapeString>
+						<resources>
+							<resource>
+								<directory>${project.basedir}/jBakeSite</directory>
+								<exclude>output/**</exclude>
+								<filtering>true</filtering>
+							</resource>
+						</resources>
+					</configuration>
+					<executions>
+						<execution>
+							<id>copy-filtered-ressources-before-jbake-build</id>
+							<!-- enable "resources:resources" to be launch before "install" phase -->
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>resources</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.jbake</groupId>
+					<artifactId>jbake-maven-plugin</artifactId>
+					<version>${jbake_maven_plugin.version}</version>
+					<configuration>
+						<inputDirectory>${jbake.inputDirectory}</inputDirectory>
+						<outputDirectory>${jbake.outputDirectory}</outputDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<id>default-generate</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>com.github.hazendaz.maven</groupId>
+					<artifactId>htmlcompressor-maven-plugin</artifactId>
+					<version>1.7.3</version>
+					<configuration>
+						<srcFolder>${jbake.outputDirectory}</srcFolder>
+						<targetFolder>${jbake.outputDirectory}</targetFolder>
+						<fileExt>
+							<fileExtension>html</fileExtension>
+						</fileExt>
+					</configuration>
+					<executions>
+						<execution>
+							<id>compress-html-generated-files</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>html</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<filters>
+			<filter>ecoWeb-build.properties</filter>
+		</filters>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+	</build>
+
+</project>
