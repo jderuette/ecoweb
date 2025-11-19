@@ -56,7 +56,7 @@ param : content : content to search for include content
 			</#if>
 		</#if>
 		
-		<div <@generateAnchor content/> <@generateCssClass content/>>
+		<div <@generateAnchor content/>>
 		<#if (subContents?size > 0)>
 			<#if (content.includeContent.title)??>
 				<div class="title">${content.includeContent.title}</div>
