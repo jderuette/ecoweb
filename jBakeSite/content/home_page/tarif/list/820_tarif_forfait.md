@@ -8,9 +8,9 @@ featured={"text":"Le plus populaire"}
 status=published
 order=820
 ~~~~~~
-# 1 000€
-*HT - Paiement en 2 fois
-Parfait pour artisans et petites associations*
+**1 000€**
+HT - Paiement en 2 fois
+*Parfait pour artisans et petites associations*
 
 - Site web complet (≈25h de développement)
 - Design personnalisé

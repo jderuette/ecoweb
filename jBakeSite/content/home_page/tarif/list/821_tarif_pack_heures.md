@@ -7,9 +7,9 @@ hooks={"data":[{"position":"endItemSubContent", "action":"action.build", "render
 status=published
 order=821
 ~~~~~~
-# 40€
-*HT / heure - Offre de lancement
-Pour vos besoins ponctuels ou évolutifs*
+**40€**
+HT / heure - Offre de lancement
+*Pour vos besoins ponctuels ou évolutifs*
 
 - Pack 10h : 400€
 - Pack 25h : 1000€ (= site complet)
