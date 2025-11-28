@@ -10,7 +10,7 @@
 <#macro build content>
 	<#if config.site_breakcrumb_display == "true" && !((content.displayBreadcrumb)?? && content.displayBreadcrumb=="false")>
 		<#if content?? && content.uri??>
-		 	<ul id="breadcrumb">
+		 	<ul id="breadcrumb" class="breadcrumb">
 		 	<#if logHelper??>
 		 		${logHelper.stackDebugMessage("Breadcrumb : Current page URI : ${content.uri}")}
 		 	</#if>
@@ -18,11 +18,6 @@
 			 <#local isFirst=true>
 			 <#list pathElements as element>
 			 	<li>
-			 	<#if isFirst>
-			 		<#local isFirst=false>
-			 	<#else>
-			 		${config.site_breakcrumb_seprator!" >>> "}
-			 	</#if>
 			 	<#if element.uri??>
 			 		<a href="${common.buildRootPathAwareURL(element.uri)}">
 			 	</#if>

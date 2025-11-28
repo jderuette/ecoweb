@@ -1,0 +1,311 @@
+/** Custom style for LP-Ethiknet **/
+
+.lpEthikNet h1, .lpEthikNet h2 {
+	text-align: center;
+	letter-spacing: 0.025em;
+	font-weight: 750;
+	margin: 25px 0;
+}
+
+.lpEthikNet .featured {
+	border-color: ${webleger.site.style.primary.background.color} !important;
+}
+
+.lpEthikNet .featured_label {
+	color: white;
+	background-color: ${webleger.site.style.primary.background.color};
+}
+
+.lpEthikNet .card.emphase {
+	border: 2px solid whitesmoke;
+	box-shadow: none;
+	border-radius: 20px;
+	background-color: white;
+	padding: 10px;
+	text-align: left;
+	margin-top: 20px;
+}
+.lpEthikNet .card.emphase:hover {
+	border: 2px solid ${webleger.site.style.primary.background.color};
+}
+
+.lpEthikNet .card.emphase .card_image {
+	height: 50px;
+	width: 50px;
+	padding: 13px;
+	background-color: #eaf3ee;
+	border-radius: 5px;
+	display: inline-block;
+}
+.lpEthikNet .card.emphase .card_title {
+	color:${webleger.site.style.color};
+}
+
+.lpEthikNet .pageContent .blockContent {
+	color:${webleger.site.style.primary.background.color};
+	text-align:center;
+	letter-spacing: 0.05em;
+    font-size: large;
+}
+.lpEthikNet .pageContent .blockContent .card_content {
+    font-size: initial;
+}
+.lpEthikNet .pageContent .blockTitle {
+	color:${webleger.site.style.color};
+}
+
+.lpEthikNet .pageContent .primary .blockTitle {
+	color:${webleger.site.style.primary.color};
+}
+.lpEthikNet .pageContent .primary .blockContent {
+	color:${webleger.site.style.primary.color};
+}
+
+.lpEthikNet .sticker_list {
+	margin-top: 15px;
+}
+
+.lpEthikNet .sticker {
+	background-color: #eaf3ee;
+	border: 1px solid ${webleger.site.style.primary.color};
+	border-radius: 20px;
+	color: #628470;
+	padding: 5px 20px;
+}
+
+.lpEthikNet .accroche {
+	margin: 30px 0;
+}
+
+.lpEthikNet .accroche .card {
+	border: none;
+    background-color: #477e5d;
+    color: white;
+    box-shadow:none;
+    padding: 0 10px;
+}
+
+.lpEthikNet .accroche .card h2{
+	color:${webleger.site.style.primary.color};
+}
+
+.lpEthikNet .cta {
+	margin: 30px 0;
+}
+
+ .tarif .card .card_title {
+	font-weight: 600;
+	letter-spacing: -.025em;
+	text-align:center;
+}
+
+.lpEthikNet .tarif .card .card_content {
+	text-align:center;
+}
+
+.lpEthikNet .tarif .card .card_content strong {
+	font-size: xx-large;
+	letter-spacing: 0.05em;
+}
+
+.lpEthikNet .tarif .card .card_content em {
+	font-size: small;
+}
+
+.lpEthikNet .tarif .card .card_content ul {
+ 	text-align: left;
+	font-size: small;
+	color: black;
+}
+
+.lpEthikNet .tarif .card .card_content ul li {
+	background: url(${webleger.build.host}/images/tick.svg);
+	padding: 5px 30px 5px 25px;
+	list-style: none;
+	margin: 0;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-position: 0px 3px;
+	margin-top: 7px;
+}
+
+.lpEthikNet .tarif .card .actions_list {
+	border-top: 1px solid grey;
+	margin-top: 10px;
+	padding-bottom: 15px;
+}
+
+.lpEthikNet .lp_block_herbergement {
+	background-color: white;
+	border: 1px solid grey;
+	width:75%;
+	margin: 50px auto;
+}
+
+.lpEthikNet .hebergement .card {
+	box-shadow: none;
+	text-align: center;
+}
+
+.lpEthikNet .hebergement .card .card_title {
+	font-weight:bolder;
+	
+}
+.lpEthikNet .hebergement .card .card_title, .lpEthikNet .hebergement .card .card_content {
+	color: ${webleger.site.style.primary.background.color};
+}
+
+@media (min-width: 640px) {
+    .lpEthikNet .hebergement {
+        justify-content: space-evenly;
+    }
+}
+
+.lpEthikNet .lp_block_pourquoi_ethiknet {
+	margin-top: 80px;
+}
+
+.lpEthikNet .ethiknet_pourquoi {
+	box-shadow: none;
+}
+
+.lpEthikNet .ethiknet_pourquoi .card {
+	padding: 10px;
+	box-shadow: none;
+	text-align: center;
+	color:${webleger.site.style.primary.background.color}
+}
+
+.lpEthikNet .ethiknet_pourquoi .card_image {
+	display: flex;
+	height: 60px;
+	width: 60px;
+	margin: auto;
+	border-radius: 9999px;
+	background-color: #eaf3ee;
+	justify-content: center;
+	align-items: center;
+}
+.lpEthikNet .ethiknet_pourquoi .card_title {
+	color:${webleger.site.style.color};
+}
+
+.lpEthikNet .ethiknet_propulse_webleger {
+	background-color: ${webleger.site.style.secondary.background.color};
+	text-align: center;
+	padding: 20px;
+}
+.lpEthikNet .ethiknet_propulse_webleger .blockContent{
+	font-size: initial;
+}
+
+.lpEthikNet .ethiknet_propulse_webleger .blockContent .action_link {
+	font-weight:bolder;
+}
+
+
+.lpEthikNet .ethiknet_faq .collapse_block {
+	background-color: white;
+	padding: 10px;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	margin: 20px auto;
+	text-align: left;
+}
+
+.lpEthikNet .ethiknet_faq .collapse_block a[data-toggle] {
+	padding-bottom: 10px;
+}
+
+.lpEthikNet .ethiknet_faq .collapse_block .collapse_block_content {
+	font-size: 90%;
+}
+
+.lpEthikNet .ethiknet_faq .collapse_block h3 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: large;
+	font-weight:bold;
+	color:${webleger.site.style.color};
+}
+
+
+.lpEthikNet .ethiknet_parlons_projet .card {
+	background-color: ${webleger.site.style.primary.color};
+	box-shadow: none;
+	border: 1px solid lightgrey;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .card .blockTitle,  .ethiknet_parlons_projet .card .blockBody{
+	text-align: left;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .card .card_content>p {
+	margin-left: 10px;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .card .block {
+	margin-top: 30px;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .card .block span[data-obfuscatedkey]{
+	border-color: #eaf3ee;
+	padding: 5px
+}
+
+.lpEthikNet .ethiknet_parlons_projet .card .blockTitle {
+	font-size: initial;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate {
+	margin-top: 20px;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate .blockIcon {
+	width: 30px;
+	height: initial;
+	padding-left: 10px;
+	color: #276842;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate .groupe_content{
+	width: 100%;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate .groupe_content h2{
+	margin: 9px;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate .groupe_content .blockContent p {
+	margin: 0;
+	text-align: left;
+}
+
+.lpEthikNet .ethiknet_parlons_projet form {
+	margin: 10px;
+	color: black;
+}
+
+.lpEthikNet .ethiknet_parlons_projet form label {
+	padding-top: 15px;
+}
+
+
+.lpEthikNet .lp_offre_lancement{
+	border-radius: 20px;
+	padding: 20px;
+	color: ${webleger.site.style.primary.color};
+	width:80%;
+	margin:20px auto;
+}
+
+.lpEthikNet .lp_offre_lancement .blockTitle, .lpEthikNet .lp_offre_lancement strong {
+	color: ${webleger.site.style.primary.color};
+}
+
+.lpEthikNet .lp_offre_lancement h2 {
+	margin: 0;
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+

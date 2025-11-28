@@ -114,7 +114,6 @@
 								</excludes>
 								<aggregations>
 									<aggregation>
-										<withoutCompress>true</withoutCompress>
 										<outputFile>
 											${jbake.outputDirectory}/static/top.css</outputFile>
 									</aggregation>
@@ -131,10 +130,8 @@
 									<exclude>**/noAgregation/*</exclude>
 									<exclude>**/top-*.css</exclude>
 								</excludes>
-
 								<aggregations>
 									<aggregation>
-										<withoutCompress>true</withoutCompress>
 										<outputFile>
 											${jbake.outputDirectory}/static/bottom.css</outputFile>
 									</aggregation>

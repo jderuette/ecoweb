@@ -1,7 +1,7 @@
 title=Tarif : clef en main
 date=2019-03-25
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClass":"EthikNet Tarifs", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"tarifs", "display":{"type":"card", "content":"link"}}
 category=tarifs
 status=published
 exerpt=Tarif clef en main
@@ -26,7 +26,7 @@ Destiné aux personnes voulant un site web, mais ne souhaitant pas s'occuper de 
 
 | Type de site | Durée pour vous | Durée pour moi | Montant facture |
 | :--- | :--- | :--- | :--- |
-| Migration Site "One page" | 1h | 6h | 240-480€ |
-| Migration Site existant | 1h | 16h | 640-1 280€ |
-| Création Site "One page" | 3h | 12h | 480-960€ |
-| Création Site standard | 6h | 30h | 1200-2400€ |
+| Migration Site "One page" | 1h | 6h | 360-720€ |
+| Migration Site existant | 1h | 16h | 960-1 920€ |
+| Création Site "One page" | 3h | 12h | 720-1 440€ |
+| Création Site standard | 6h | 30h | 1 800-3 600€ |

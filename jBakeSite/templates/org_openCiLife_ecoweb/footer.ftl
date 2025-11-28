@@ -6,21 +6,23 @@
     <div id="footer" role="contentinfo">
      <div class="container">
      	<#if block??>
-		     <div class="footer_blocks">
+		     <div id="footer_blocks" class="blocks ${webleger.site.footer.class}">
 		     	<@block.buildWithCategory config.site_footer_category/>
 		     </div>
 	     </#if>
-	     <p class="muted credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake ${jbake_maven_plugin.version}</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> and <a href="http://www.webleger.fr">WebLeger</a> | Version ${version} at ${published_date?datetime}</p>
+	     <p class="discret credit">&copy; 2019 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> and <a href="https://fontawesome.com/">https://fontawesome.com/</a> | Baked with <a href="http://jbake.org">JBake ${jbake_maven_plugin.version}</a> with recipe from <a href ="https://github.com/OpenCyLife/ecoweb">EcoWeb</a> by <a href="http://www.open-cy.life">open-cy.life</a> and <a href="http://www.webleger.fr">WebLeger</a> | Version ${version} at ${published_date?datetime}</p>
       </div>
     </div>
     
-    <#if hookHelper??>
+    <#if hookHelper?? && hookHelper.hasContributors("afterFooter")>
+    	<div id="afterFooter_blocks" class="blocks ${webleger.site.afterFooter.class}">
 		<@hookHelper.hook "afterFooter" content/>
+		</div>
 	</#if>
     
     <!-- Javascript here load faster -->
     <#if ressourcesHelper??>
     	<@ressourcesHelper.buildExternalInjection config.site_script_footer />
-    </#if	>
+    </#if>
   </body>
 </html>

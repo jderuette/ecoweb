@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"hookHelper", "description":"Helper for creating, rendering an registering content for Hooks", "version":"0.1.0", "recommandedNamespace":"hookHelper", "contentChainBefore":true, "require":[{"value":"commonHelper", "type":"lib"},{"value":"propertiesHelper", "type":"lib"}, {"value":"hooks", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":1, "name":"hookHelper", "description":"Helper for creating, rendering an registering content for Hooks", "version":"0.1.1", "recommandedNamespace":"hookHelper", "contentChainBefore":true, "require":[{"value":"commonHelper", "type":"lib"},{"value":"propertiesHelper", "type":"lib"}, {"value":"hooks", "type":"config"}], "uses":[{"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>
@@ -102,6 +102,11 @@ Activate a hook.
 		</#list>
 	</#if>
 </#macro>
+
+<#function hasContributors hookId>
+	<#local hookContributors = getContributors(hookId)!"">
+	<#return hookContributors?? && hookContributors?has_content>
+</#function>
 
 <#function registerHook location, action, renderOnce, order=50>
 	<#if logHelper??>

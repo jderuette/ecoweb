@@ -9,4 +9,4 @@ order=821
 ~~~~~~
 <span data-obfuscatedkey="${webleger.site.forulaire.contact.general.phone.obfuscation-mask}">${webleger.site.forulaire.contact.general.phone}</span>
 
-*Laissez un message ou envoyer un SMS pour que je vous rappel*
+*Laissez un message ou envoyez un SMS pour que je vous rappel*

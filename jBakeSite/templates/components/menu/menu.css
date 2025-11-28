@@ -5,15 +5,3 @@
 .navbar-toggle {
 	width: 32px;
 }
-
-.navbar-nav>li>a {
-	color:${webleger.site.style.menu.text_color};
-}
-.navbar-nav>li>a:hover, .dropdown-menu>li>a:hover {
-    background-color: ${webleger.site.style.menu.background.color.hover};
-    text-decoration: ${webleger.site.style.menu.text_decoration.hover};
-}
-
-.navbar-toggle .icon-bar {
-	background-color:${webleger.site.style.menu.text_color};
-}

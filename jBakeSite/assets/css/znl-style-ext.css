@@ -1,50 +1,46 @@
-.impact_img svg {
-	background-color:${webleger.site.style.header.title.color};
-	border-radius: 5px;
+/** Custom general style **/
+#go_to_top {
+	position: -webkit-sticky;
+	position: fixed;
+	bottom: 100px;
+	right: 50px;
+	opacity: 0.5;
+	width: 50px;
+	height: 50px;
 }
-
-.Documentation table td:nth-child(1), .Documentation table td:nth-child(2) {
-	word-break: normal;
-} 
 
 .navbar-nav > li > a, .dropdown-menu > li > a{
 	border-radius:15px;
 }
 
-.EthikNet h1, .EthikNet h2, .EthikNet h3, .EthikNet h4, .EthikNet h5, .EthikNet h6, .EthikNet h7, .EthikNet h8, .EthikNet h9, .EthikNet h10, .EthikNet b, .EthikNet strong {
-	color:green;
-}
-.EthikNet table th, .EthikNet table td {
-	border-color:green;
-}
-.EthikNet  .subContent {
-    border-color: green;
-}
-.EthikNet a:visited, .EthikNet a:link{
-	color:green;
-}
-.EthikNet b, .EthikNet strong, .menu_EthikNet b, .menu_EthikNet strong {
-	color: green;
-}
-.EthikNet #breadcrumb li a {
-	background-color:#ccffcc;
+.breadcrumb li a {
+    border-radius:15px;
 }
 
-.navbar-nav .menu_EthikNet>a:hover, .dropDown_menu_EthikNet>li>a:hover{
-	background-color:lightgreen;
+#preHeader_blocks {
+	display: flex;
+	flex-direction: column-reverse;
 }
-
-.footer_blocks .block h3.blockTitle {
-	font-size: 150%;
+#preHeader .blockContent {
+	padding: 0;
+	margin-left: 12px;
 }
-.footer_blocks .block .blockTitle, .footer_blocks .block .blockContent > p {
-	text-align:left;
+#preHeader .blockContent > p{
+	margin : 0px;
+}
+#footer_blocks .block {
+	text-align:center;
 }
 
 @media screen and (min-width: 640px) {
-	.footer_blocks .block {
-		flex-direction:column;
+	#footer_blocks .block {
 		text-align:left;
 		width:22%;
+	}
+	#preHeader_blocks {
+		flex-direction: row-reverse;
+	}
+	.preHeader .blockContent {
+		margin-left: 25px;
 	}
 }

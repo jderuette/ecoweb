@@ -1,7 +1,7 @@
 title=Tarifs
 date=2019-03-25
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClass":"EthikNet Tarifs", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"tarifs", "display":{"type":"card", "content":"link"}}
 category=EthikNet, tarifs
 status=published
 exerpt=Tarifs
@@ -16,7 +16,7 @@ Chaque site est différents. Vos besoins peuvent évoluer. Votre implication est
 Afin d'éviter des prises de décisions complexes de votre part au début du projet, ou d'enchainer les devis je pratique un **tarif à l'heur**.
 Je pratique 2 tarif : 
 
-- tarif standard (réalition de votre projet à la suite des autres) : 40 € HT.
+- tarif standard (réalition de votre projet à la suite des autres) : 60 € HT.
 - Tarif en Urgence (réalisation de votre projet en priorité) : 80 € HT.
 
 

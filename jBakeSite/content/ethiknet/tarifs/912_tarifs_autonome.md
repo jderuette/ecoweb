@@ -1,7 +1,7 @@
 title=Tarif : autonome
 date=2019-03-25
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClass":"EthikNet Tarifs", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"tarifs", "display":{"type":"card", "content":"link"}}
 category=tarifs
 status=published
 exerpt=Tarif autonome

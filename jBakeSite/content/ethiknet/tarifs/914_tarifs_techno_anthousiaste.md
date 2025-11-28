@@ -1,7 +1,7 @@
 title=Tarif : techno-anthousiaste
 date=2019-03-25
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"tarifs", "specificClass":"EthikNet Tarifs", "display":{"type":"card", "content":"link"}}
+includeContent={"type":"org_openCiLife_post", "category":"tarifs", "display":{"type":"card", "content":"link"}}
 category=tarifs
 status=published
 exerpt=Tarif techno-anthousiaste
@@ -27,8 +27,8 @@ Destiné aux personnes curieuse de la technique et pret à mettre les mains dans
 
 | Type de site | Durée pour vous | Durée pour moi | Montant facture |
 | :--- | :--- | :--- | :--- |
-| Migration Site "One page" | 10h | 4h | 160-320€ |
-| Migration Site existant | 20h | 8h | 320-640€ |
-| Création Site "One page" | 8h | 6h | 160-320€ |
-| Création Site standard | 20h | 20h | 800-1 600€ |
+| Migration Site "One page" | 10h | 4h | 240-480€ |
+| Migration Site existant | 20h | 8h | 480-860€ |
+| Création Site "One page" | 8h | 6h | 360-720€ |
+| Création Site standard | 20h | 20h | 1 200-2 400€ |
     
