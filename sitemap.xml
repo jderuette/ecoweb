@@ -1,132 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://jderuette.github.io/ecoweb/documents/210_document1.html</loc>
-        <lastmod>2019-03-16</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/820_ethiknet.html</loc>
-        <lastmod>2025-11-14</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/820_webleger.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/data/980_data.html</loc>
-        <lastmod>2025-10-30</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/735_composant_subContent_exemples.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/data/984_data_exemple_4.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/data/983_data_exemple_3.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/data/982_data_exemple_2.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/data/981_data_exemple_1.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/730_les_composants.html</loc>
-        <lastmod>2025-10-23</lastmod>
-    </url>
-    <url>
         <loc>https://jderuette.github.io/ecoweb/index.html</loc>
-        <lastmod>2025-10-16</lastmod>
+        <lastmod>2025-11-14</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/en/index.html</loc>
         <lastmod>2025-10-16</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/en/articles/100_blogs.html</loc>
-        <lastmod>2025-10-15</lastmod>
+        <loc>https://jderuette.github.io/ecoweb/__index.html</loc>
+        <lastmod>2025-10-16</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/site_info/99900_infos.html</loc>
         <lastmod>2025-10-01</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/en/documentation/700_documentation.html</loc>
-        <lastmod>2025-09-15</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/727_autres_fonctions.html</loc>
-        <lastmod>2025-08-31</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/715_recuperation_du_framework.html</loc>
-        <lastmod>2025-06-30</lastmod>
-    </url>
-    <url>
         <loc>https://jderuette.github.io/ecoweb/ethiknet/900_agence.html</loc>
         <lastmod>2025-06-25</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/725_les_type_de_contenus.html</loc>
-        <lastmod>2025-06-23</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/723_strucutre_d_une_page.html</loc>
-        <lastmod>2025-06-18</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/721_strucutre_du_projet.html</loc>
-        <lastmod>2025-06-17</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/710_Preparation.html</loc>
-        <lastmod>2025-06-16</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/720_Creation_contenu.html</loc>
-        <lastmod>2025-06-16</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/718_deployer_le_site.html</loc>
-        <lastmod>2025-06-16</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/faq/830_WebLege_processus.html</loc>
-        <lastmod>2025-06-13</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/faq/810_Boutique_avec_WebLege.html</loc>
-        <lastmod>2025-05-14</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/faq/800_faq.html</loc>
-        <lastmod>2025-05-14</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/faq/820_WebLege_payant.html</loc>
-        <lastmod>2025-05-14</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/716_deployer_sur_gitHub_pages.html</loc>
-        <lastmod>2025-05-02</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/714_configurer_eclipse.html</loc>
-        <lastmod>2025-04-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/instalation/712_installer_les_outils_en_local.html</loc>
-        <lastmod>2025-04-07</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/articles/610_site_eco_concu.html</loc>
-        <lastmod>2019-10-15</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/ethiknet/processus/920_processus.html</loc>
@@ -149,352 +41,176 @@
         <lastmod>2019-03-25</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/700_documentation.html</loc>
-        <lastmod>2019-03-16</lastmod>
-    </url>
-    <url>
         <loc>https://jderuette.github.io/ecoweb/articles/100_blogs.html</loc>
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/098_contact.html</loc>
-        <lastmod>2025-11-18</lastmod>
+        <lastmod>2025-11-28</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/094_services.html</loc>
-        <lastmod>2025-11-18</lastmod>
+        <lastmod>2025-11-28</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/092_produit.html</loc>
-        <lastmod>2025-11-18</lastmod>
+        <lastmod>2025-11-28</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/footer/090_accroche_produit.html</loc>
-        <lastmod>2025-11-18</lastmod>
+        <lastmod>2025-11-28</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/pourquoi_ethiknet/list/822_simple.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/pourquoi_ethiknet/list/821_ultra_rapide.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/822_eco_conception.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/821_autonome_modification.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/pourquoi_ethiknet/list/821_ultra_rapide.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/pourquoi_ethiknet/list/820_eco_concu.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/821_autonome_modification.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/820_delais.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/pourquoi_ethiknet/list/820_eco_concu.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/pourquoi_ethiknet/827_pourquoi_ethiknet.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/820_delais.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/829_faq.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/pourquoi_ethiknet/827_pourquoi_ethiknet.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/parlons_projet/list/infos_contact/823_localisation.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/829_faq.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/parlons_projet/list/infos_contact/822_disponibilitees.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/parlons_projet/list/infos_contact/823_localisation.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/title/accroche/827_accroche_hebergement.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/parlons_projet/list/infos_contact/822_disponibilitees.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/parlons_projet/list/infos_contact/821_telephone.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/title/accroche/827_accroche_hebergement.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/title/accroche/826_accroche_rapide.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/parlons_projet/list/infos_contact/821_telephone.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/parlons_projet/list/infos_contact/820_email.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/title/accroche/826_accroche_rapide.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/parlons_projet/list/821_formulaire_contact.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/parlons_projet/list/infos_contact/820_email.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/title/822_pageTitle.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/parlons_projet/list/821_formulaire_contact.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/parlons_projet/list/820_informations_contact.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/title/822_pageTitle.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/tarif/list/821_tarif_pack_heures.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/parlons_projet/list/820_informations_contact.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/parlons_projet/829_parlons_projet.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/tarif/list/821_tarif_pack_heures.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/tarif/list/820_tarif_forfait.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/parlons_projet/829_parlons_projet.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/offre_lancement/830_offre_lancement.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/tarif/list/820_tarif_forfait.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/tarif/825_tarif.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/offre_lancement/830_offre_lancement.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/hebergement/list/821_hebergement_dedie.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/tarif/825_tarif.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/services/list/823_service_developpement_custom.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/hebergement/list/821_hebergement_dedie.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/hebergement/list/820_hebergement_mutualise.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/services/list/823_service_developpement_custom.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/services/list/822_service_formation_support.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/hebergement/list/820_hebergement_mutualise.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/hebergement/826_hebergement.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/services/list/822_service_formation_support.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/services/list/821_service_hebergement.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/hebergement/826_hebergement.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/827_reduction_premiers_clients.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/services/list/821_service_hebergement.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/services/list/820_service_creation_site_web.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/827_reduction_premiers_clients.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/826_referencement_google.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/services/list/820_service_creation_site_web.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/services/823_services.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/826_referencement_google.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/825_pack_heure.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/services/823_services.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/propulse_par_webleger/828_propulse_par_webleger.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/825_pack_heure.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/824_abonnement_mensuel.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/propulse_par_webleger/828_propulse_par_webleger.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/pourquoi_ethiknet/list/823_fiable_et_local.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/824_abonnement_mensuel.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/823_forfait_1000.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/pourquoi_ethiknet/list/823_fiable_et_local.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/pourquoi_ethiknet/list/822_simple.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/faq/faq_item/823_forfait_1000.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/faq/faq_item/822_eco_conception.html</loc>
         <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/pret/826_pret.html</loc>
-        <lastmod>2025-11-11</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/tarif/list/822_tarif_entreprise.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/tarif/list/821_tarif_thecnoAnthousiaste.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/tarif/list/820_tarif_developeur.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/tarif/825_tarif.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/start/steps/823_Hebergez.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/start/steps/822_Generez.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/start/steps/821_CreezContenu.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/start/steps/820_installez.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/pret/list/820_lp_webleger_contact.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/title/accroche/827_accroche_openSource.html</loc>
+        <loc>https://jderuette.github.io/ecoweb/home_page/title/accroche/825_accroche_prix.html</loc>
         <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/title/accroche/826_accroche_rapide.html</loc>
-        <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/title/accroche/825_accroche_size.html</loc>
-        <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/ethikNet/title/accroche/825_accroche_prix.html</loc>
-        <lastmod>2025-11-07</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/fonctionnalite/list/825_fonctionalite_multilang.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/fonctionnalite/list/824_fonctionalite_modulaire.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/fonctionnalite/list/822_fonctionalite_markdown.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/fonctionnalite/list/820_fonctionalite_performant.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/fonctionnalite/823_cta_decouvrez_fonctionalite.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/title/822_pageTitle.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/start/824_demarez.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/fonctionnalite/list/828_fonctionalite_herbergementSimple.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/lp/webleger/fonctionnalite/list/826_fonctionalite_mobileFirst.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/741_composant_sticker.html</loc>
-        <lastmod>2025-11-03</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/740_composant_action.html</loc>
-        <lastmod>2025-11-03</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/739_composant_lang.html</loc>
-        <lastmod>2025-11-03</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/738_composant_carousel.html</loc>
-        <lastmod>2025-11-03</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/737_composant_breadcrumb.html</loc>
-        <lastmod>2025-11-03</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/usage/736_composant_menu.html</loc>
-        <lastmod>2025-11-03</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modalLink.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modal.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/996_composant_subContent_exemples_card_link.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/995_composant_subContent_exemples_card_visible.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/994_composant_subContent_exemples_table_visible.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/993_composant_subContent_exemples_table_modal.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/992_composant_subContent_exemples_table_link2.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/991_composant_subContent_exemples_table_link.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/999_composant_subContent_exemples_collapse_block_withBeforeTitleImage.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/subContent_exemples/998_composant_subContent_exemples_collapse_block.html</loc>
-        <lastmod>2025-10-28</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/structure/734_composant_subContent.html</loc>
-        <lastmod>2025-10-26</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/support/735_composant_boostrap3.html</loc>
-        <lastmod>2025-10-26</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/structure/733_composant_block.html</loc>
-        <lastmod>2025-10-26</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/support/732_composant_hooks.html</loc>
-        <lastmod>2025-10-24</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/documentation/creation/composants/support/731_composant_includes.html</loc>
-        <lastmod>2025-10-24</lastmod>
     </url>
     <url>
         <loc>https://jderuette.github.io/ecoweb/site_info/99901_componentInfos.html</loc>
@@ -527,33 +243,5 @@
     <url>
         <loc>https://jderuette.github.io/ecoweb/preHeader/080_contact_email.html</loc>
         <lastmod>2025-07-07</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/015_Pour_qui.html</loc>
-        <lastmod>2025-06-18</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/060_carousel.html</loc>
-        <lastmod>2025-05-16</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/050_Contact.html</loc>
-        <lastmod>2025-05-15</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/040_Pourquoi.html</loc>
-        <lastmod>2025-05-15</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/030_Quel_herbergement.html</loc>
-        <lastmod>2025-04-30</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/020_Comment.html</loc>
-        <lastmod>2025-04-30</lastmod>
-    </url>
-    <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/010_A_quoi_ca_sert.html</loc>
-        <lastmod>2025-04-30</lastmod>
     </url>
 </urlset>
