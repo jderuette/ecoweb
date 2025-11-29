@@ -4,6 +4,7 @@ type=org_openCiLife_block
 category=landingPageEthikNet1
 tags=
 includeContent={"type":"org_openCiLife_block", "category":"lp_ethiknet_tarif", "specificClass":"tarif twoPerRow", "display":{"type":"card", "content":"visible", "specificClass":"emphase"}}
+anchorId=tarifs
 status=published
 order=825
 ~~~~~~
