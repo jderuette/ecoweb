@@ -1,5 +1,5 @@
 .subContent {
-	border-top: 2px solid ${webleger.site.style.header.title.color};
+	border-top: 2px solid ${webleger.site.style.primary.background.color};
     border-radius: 20px;
 }
 
@@ -7,7 +7,7 @@
     padding-top: 12px;
     padding-left: 12px;
     font-size: 150%;
-    color: ${webleger.site.style.header.title.color};
+    color: ${webleger.site.style.primary.background.color};
     text-decoration: underline;
 }
 

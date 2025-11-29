@@ -35,7 +35,7 @@
 @media screen and (min-width: 640px) {
 	#footer_blocks .block {
 		text-align:left;
-		width:22%;
+		width:31%;
 	}
 	#preHeader_blocks {
 		flex-direction: row-reverse;
