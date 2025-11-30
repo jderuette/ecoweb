@@ -16,5 +16,3 @@ HT - Paiement en 2 fois
 - Design personnalisé
 - Responsive mobile/tablette
 - Optimisation SEO
-- Formation à la gestion du contenu
-- 1 mois de support inclus
