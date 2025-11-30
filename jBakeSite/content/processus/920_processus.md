@@ -7,6 +7,7 @@ exerpt=Processus
 specificClass=EthikNet
 contentImage=images/circular-arrow.svg
 displayDate=false
+menu={parent:{"title":"processus"}}
 order=920
 ~~~~~~
 
