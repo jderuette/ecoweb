@@ -13,6 +13,10 @@
 	border-radius:15px;
 }
 
+.navbar-nav li:hover .caret {
+	color:${webleger.site.style.primary.highlight.color};
+}
+
 .breadcrumb li a {
     border-radius:15px;
 }
