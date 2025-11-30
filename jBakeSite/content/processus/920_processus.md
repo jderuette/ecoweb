@@ -1,4 +1,4 @@
-title=Processus à l'heure
+title=A l'heure
 date=2019-03-30
 type=org_openCiLife_post
 category=EthikNet, processus, global
