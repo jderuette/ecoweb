@@ -299,8 +299,12 @@
 	border-radius: 20px;
 	padding: 20px;
 	color: ${webleger.site.style.primary.color};
-	width:80%;
 	margin:20px auto;
+}
+@media (min-width: 640px) {
+    .lpEthikNet .lp_offre_lancement {
+        width:80%;
+    }
 }
 
 .lpEthikNet .lp_offre_lancement .blockTitle, .lpEthikNet .lp_offre_lancement strong {
