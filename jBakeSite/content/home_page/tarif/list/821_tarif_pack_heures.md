@@ -12,8 +12,7 @@ HT / heure - Offre de lancement
 *Pour vos besoins ponctuels ou évolutifs*
 
 - Pack 10h : 400€
-- Pack 25h : 1000€ (= site complet)
-- Pack 50h : 2000€
-- Pack 100h : 4000€
+- Pack 25h : 1 000€ (= site complet)
+- Pack 50h : 2 000€
+- Pack 100h : 4 000€
 - Facturation anticipée par pack
-- Suivi du temps restant en temps réel
