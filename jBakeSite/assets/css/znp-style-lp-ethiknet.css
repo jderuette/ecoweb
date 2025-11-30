@@ -7,6 +7,10 @@
 	margin: 25px 0;
 }
 
+.lpEthikNet .navbar {
+	margin-bottom:0;
+}
+
 .lpEthikNet .featured {
 	border-color: ${webleger.site.style.primary.background.color} !important;
 }
@@ -74,7 +78,7 @@
 }
 
 .lpEthikNet .accroche {
-	margin: 30px 0;
+	margin-bottom: 30px;
 }
 
 .lpEthikNet .accroche .card {

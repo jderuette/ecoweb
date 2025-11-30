@@ -2,13 +2,12 @@ title=Tarifs
 date=2019-03-25
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"tarifs", "display":{"type":"card", "content":"link"}}
-category=EthikNet, tarifs
+category=EthikNet, global
 status=published
 exerpt=Tarifs
 specificClass=EthikNet
 contentImage=images/euro.svg
 displayDate=false
-menu={"parent":{"title":"EthikNet"}}
 order=910
 ~~~~~~
 ### Création du site

@@ -2,13 +2,12 @@ title=Processus
 date=2019-03-30
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"processus", "specificClass":"EthikNet processus", "display":{"type":"card", "content":"link"}}
-category=EthikNet, processus
+category=EthikNet, processus, global
 status=published
 exerpt=Processus
 specificClass=EthikNet
 contentImage=images/circular-arrow.svg
 displayDate=false
-menu={"parent":{"title":"EthikNet"}}
 order=920
 ~~~~~~
 

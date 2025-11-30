@@ -39,6 +39,7 @@
 	}
 	#preHeader_blocks {
 		flex-direction: row-reverse;
+		justify-content: flex-start;
 	}
 	.preHeader .blockContent {
 		margin-left: 25px;
