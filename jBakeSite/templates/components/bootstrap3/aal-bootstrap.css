@@ -4748,7 +4748,8 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 	display: block;
 	width: 22px;
 	height: 2px;
-	border-radius: 1px
+	border-radius: 1px;
+	background-color:${webleger.site.style.primary.background.color}
 }
 
 .navbar-toggle .icon-bar+.icon-bar {
@@ -7235,6 +7236,10 @@ button.close {
 .primary .nav>li>a {
 	color:${webleger.site.style.primary.color}
 }
+.primary .navbar-toggle .icon-bar {
+	background-color:${webleger.site.style.primary.color}
+}
+
 
 .primary .nav>li>a:hover,
 .primary .nav>li>a:focus,
