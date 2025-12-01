@@ -72,9 +72,7 @@
 .lpEthikNet .sticker {
 	background-color: #eaf3ee;
 	border: 1px solid ${webleger.site.style.primary.color};
-	border-radius: 20px;
 	color: #628470;
-	padding: 5px 20px;
 }
 
 .lpEthikNet .accroche {
@@ -283,6 +281,10 @@
 .lpEthikNet .ethiknet_parlons_projet .block.imageLeftTitleAndContentSubTemplate .groupe_content .blockContent p {
 	margin: 0;
 	text-align: left;
+}
+
+.lpEthikNet .ethiknet_parlons_projet .card_content em {
+	font-size:small;
 }
 
 .lpEthikNet .ethiknet_parlons_projet form {
