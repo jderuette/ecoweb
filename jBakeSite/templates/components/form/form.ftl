@@ -34,7 +34,9 @@ param : content : content to search for form data
 		<#list fields as field>
 			<#local fieldId = field.id>
 			<label for="<#escape x as x?xml>${fieldId}</#escape>"><#escape x as x?xml>${field.label}</#escape></label>
-			<div class="input-group">
+			<#if (field.dataTransform)?? && (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+				<div class="input-group">
+			</#if>
 			<#if field.type == "textarea">
 				<#local endTag = "textarea" />
 				<textarea 
@@ -65,13 +67,13 @@ param : content : content to search for form data
 			</#if>
 			></${endTag}>
 			
-			<#if (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
+			<#if (field.dataTransform)?? && (field.dataTransform.hiddenByButton)?? && field.dataTransform.hiddenByButton == "true">
 				<span class="input-group-btn">
 				<#local hiddenButtonLabel = field.dataTransform.hiddenButtonLabel!"afficher">
 				<input type="button" id="<#escape x as x?xml>${field.dataTransform.id}</#escape>" value="<#escape x as x?xml>${hiddenButtonLabel}</#escape>" class="btn btn-default" data-obfuscatedValue="<#escape x as x?xml>${field.value}</#escape>" data-obfuscatedKey="<#escape x as x?xml>${field.dataTransform.obfuscatedKey}</#escape>" data-obfuscatedTarget="#<#escape x as x?xml>${fieldId}</#escape>"></input>
 				</span>
+				</div>
 			</#if>
-			</div>
 		</#list>
 		
 		<input type="submit" value="<#escape x as x?xml>${sendLabel}</#escape>"  class="btn btn-primary"/>
