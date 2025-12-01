@@ -31,33 +31,33 @@
   <#assign pageSpecificClass = content.type>
   <#if content?? && (content.pageSpecificClass)??>
   	<#assign pageSpecificClass = pageSpecificClass + " " + content.pageSpecificClass>
+  <#else>
+    <#assign pageSpecificClass = pageSpecificClass + " ${webleger.site.body.class} ">
   </#if>
   <body class="${pageSpecificClass}">
   <div id="up"></div>
     <div id="wrap">
 	    <#if (content.displayPreHeader!"true") != "false">
-	    	<div id="preHeader"  class="container preHeader">
+	    	<div id="preHeader" class="container preHeader ${webleger.site.preheader.class}">
 	    		<#if block??>
-		    		<div class="header_blocks">
+		    		<div id="preHeader_blocks" class="blocks">
 		    			<@block.buildWithCategory config.site_header_category/>
 					</div>
 				</#if>
 	    	</div>
 	    </#if>
     	<#if (content.displaySiteHeaderTitle!"true") != "false">
-    	<div id="header">
-	    	<div class="container header" role="banner">
-				<div id="pageTitle">
-					<#if propertiesHelper.hasConfigValue("site.logoLeft.file")>
-					<a href="${config.site_host}/index.html">
-						<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.description"))}" id="logoLeft"/>
-					</a>
-					</#if>
-					<h1 id="headerTitle">${propertiesHelper.retrieveAndDisplayConfigText("site.headline")}</h1>
-					<#if propertiesHelper.hasConfigValue("site.logoRight.file")>
-						<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.description"))}" id="logoRight"/>
-					</#if>
-				</div>
+    	<div id="header" class="container header ${webleger.site.header.class}" role="banner">
+			<div id="pageTitle">
+				<#if propertiesHelper.hasConfigValue("site.logoLeft.file")>
+				<a href="${config.site_host}/index.html">
+					<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.description"))}" id="logoLeft"/>
+				</a>
+				</#if>
+				<h1 id="headerTitle">${propertiesHelper.retrieveAndDisplayConfigText("site.headline")}</h1>
+				<#if propertiesHelper.hasConfigValue("site.logoRight.file")>
+					<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.description"))}" id="logoRight"/>
+				</#if>
 			</div>
 		</div>
 	</#if>

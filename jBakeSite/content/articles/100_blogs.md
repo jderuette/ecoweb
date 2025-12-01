@@ -7,4 +7,4 @@ status=published
 displayDate=false
 order=01
 ~~~~~~
-Ici bientot des articles.
+Consultez nos articles !

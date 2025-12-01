@@ -1,16 +1,4 @@
-/* Sticky footer styles
--------------------------------------------------- */
-
-html, body {
-  height: 100%;
-  font-size: 100%;
-  line-height:1.5;
-  font-family: trebuchet, helvetica, sans-serif;
-}
-
-body {
-	background-color: ${webleger.site.style.background_color};
-}
+/** WebLeger General style **/
 
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -21,48 +9,57 @@ body {
   margin: 0 auto;
 }
 
-#preHeader{
-    background-color:${webleger.site.style.style1.background-color};
-}
-
-#header {
-	background-color:${webleger.site.style.header.background_color};
-}
-
-#container {
+#mainContent {
 	word-break: break-word;
+}
+
+a.no_state:link, 
+a.no_state:visited,
+a.no_state:hover, 
+a.no_state:active {
+  color: ${webleger.site.style.link.text-color};
+}
+
+.primary a.no_state:link, 
+.primary a.no_state:visited, 
+.primary a.no_state:hover, 
+.primary a.no_state:active {
+  color: ${webleger.site.style.primary.link.text-color};
+}
+
+.primary .btn-primary a.no_state:link, 
+.primary .btn-primary a.no_state:visited, 
+.primary .btn-primary a.no_state:hover, 
+.primary .btn-primary a.no_state:active {
+  color: ${webleger.site.style.secondary.background.color};
+}
+
+
+
+.featured_label {
+	color: ${webleger.site.style.alternate.color};
+	background-color: ${webleger.site.style.alternate.background.color};
+}
+
+.primary [data-href]:hover {
+	color: ${webleger.site.style.color};
+}
+
+.discret {
+	color: ${webleger.site.style.discret.color};
+	background-color: ${webleger.site.style.discret.background.color};
 }
 
 img {
 	max-width: 100%;
 }
 
+.impact_img svg {
+	border-radius: 5px;
+}
 
 #mainContent img {
 	margin: 5px;
-}
-
-a:link {
-  color: ${webleger.site.style.link.text-color};
-}
-a:visited {
-  color: ${webleger.site.style.link.text-color.visited};
-}
-a:hover {
-  color: ${webleger.site.style.link.text-color.hover};
-}
-a:active {
-  color: ${webleger.site.style.link.text-color.active};
-}
-
-b, strong {
-	color: ${webleger.site.style.strong.text-color};
-}
-
-h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
-	color:${webleger.site.style.header.title.color};
-    white-space: break-spaces;
-    word-break: break-word;
 }
 
 .content_tags{
@@ -77,7 +74,6 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 #headerTitle {
-	color: ${webleger.site.style.header.title.color};
 	margin: auto;
 }
 
@@ -95,11 +91,6 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
     padding: 0px 10px 10px 10px;
 }
 
-.btn-primary{
-    background-color: ${webleger.site.style.style1.background-color};
-    border-color: ${webleger.site.style.style1.background-color};
-}
-
 .icon {
       width: 1em;
       height: 1em;
@@ -112,11 +103,10 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 
 .description {
 	font-weight: lighter;
-	color: #aaaaaa;
+	color: ${webleger.site.style.alternate.color};
 }
 
 .titleDescription {
-	color: #282825;
 	font-size: 25px;
 	font-weight: lighter;
 	text-align: center;
@@ -133,7 +123,6 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 }
 
 .credit {
-	background-color: lightgray;
 	text-align: center;
 }
 
@@ -147,15 +136,6 @@ h1, h2, h3, h4, h5, h6, h7, h8, h9, h10{
 	height: 50px;
 }
 
-table {
-	border-collapse: collapse;
-}
-
-table th, table td {
-	border: 1px solid ${webleger.site.style.link.text-color};
-	padding: 2px 5px;
-}
-
 code {
 	white-space: break-spaces;
 }
@@ -165,14 +145,18 @@ code {
 }
 
 .self_disabled {
-	background-color: grey;
-    
+	background-color: ${webleger.site.style.disabled.background.color};
 }
 .self_disabled a {
 	pointer-events: none;
     cursor: default;
     text-decoration: none;
-    color: black;
+    color: ${webleger.site.style.disabled.color};
+}
+.self_disabled h1, .self_disabled  h2, .self_disabled  h3, .self_disabled  h4, .self_disabled  h5,
+ .self_disabled  h6, .self_disabled  h7,	.self_disabled  h8, .self_disabled  h9, .self_disabled  h10 {
+	background-color: initial;
+	color: initial;
 }
 
 .featured {
@@ -181,8 +165,6 @@ code {
 }
 
 .featured_label {
-	color: ${webleger.site.style.header.title.color};
-	background-color: ${webleger.site.style.style1.background-color};
 	font-weight: bold;
 	font-size: 10px;
  	line-height: 1.25rem;
@@ -195,29 +177,17 @@ code {
  	transform: translate(-50%,0)
 }
 
-
-.shadow {
-	box-shadow: 5px 5px 3px rgb(187, 187, 187);
-}
-
 [data-href] {
 	cursor: pointer;
 }
 
-[data-href]:hover {
-	color: #2a6496;
-}
-
 .label {
 	font-weight: bold;
-	color: black;
 }
 
 /* Set the fixed height of the footer here */
 #push,
 #footer {
-  /*height: 60px;*/
-  background-color:${webleger.site.style.footer.background_color};
   padding: 25px 0 0 0;
 }
 

@@ -1,13 +1,26 @@
-.sticker_centered {
+.sticker_list {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
+}
+
+.sticker_centered {
 	justify-content: center;
 }
 
 .sticker_centered.noText {
 	flex-direction: row;
-	justify-content: space-arround;
-	gap: 2px;
+	gap: 4px;
+}
+
+.sticker_centered.noText .sticker {
+	flex-direction: row;
+	display: flex;
+    height: 40px;
+    width: 40px;
+    border-radius: 9999px;
+    justify-content: center;
+	align-items: center;
 }
 
 .sticker_centered a{
@@ -17,6 +30,10 @@
 @media screen and (min-width: 640px) {
 	.sticker_centered {
 		flex-direction: row;
-		gap: 8px;
+		gap: 12px;
+	}
+	.sticker_centered.noText {
+		
+		gap: 12px;
 	}
 }
