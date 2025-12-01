@@ -7,4 +7,5 @@ anchorId=lp_ethikNet_devis
 status=published
 order=821
 ~~~~~~
-Remplissez ce formulaire pour recevoir un devis
+Remplissez ce formulaire pour recevoir un devis. Ce formulaire va préparer un e-mail que vous pourrez completer.
+*Si votre client e-mail ne se lance pas : cliquez sur le bouton "afficher l'e-mail" puis rédigez l'e-mail normalement.*
