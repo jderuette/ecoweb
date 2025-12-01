@@ -3,6 +3,14 @@
 	width: 100%;
 }
 
+.blocks {
+	display: flex;
+	flex-direction: column;
+}
+.block img {
+	width: 100px;
+}
+
 .mainBlock {
 	display: flex;
 	flex-direction: column;
@@ -16,31 +24,12 @@
 	border-radius: 20px;
     margin-bottom: 10px;
 }
-
-.style1 {
-	border: 2px solid lightgrey;
-	background-color: ${webleger.site.style.style1.background-color};
-}
-
-.style2 {
-	border: 2px solid lightgrey;
-	background-color: ${webleger.site.style.style2.background-color};
-}
-
-.style3 {
-	border: 2px solid lightgrey;
-	background-color: ${webleger.site.style.style3.background-color};
-}
-
-.style4 {
-	border: 2px solid lightgrey;
-	background-color: ${webleger.site.style.style4.background-color};
+.mainBlock .blockTitle{
+	text-align: center;
 }
 
 .blockTitle {
 	font-size: 200%;
-	text-align: center;
-	color: ${webleger.site.style.block.title.text-color};
 }
 
 .blockBody {
@@ -56,56 +45,36 @@
 	margin-right: 1%;
 }
 
-.footer_blocks{
-	display: flex;
-	flex-direction: column;
-}
-.footer_blocks .block, .header_blocks .block {
-	display: flex;
-	flex-direction: column;
-}
-.footer_blocks .block img, .header_blocks .block img {
-	width: 100px;
-}
-.footer_block_text {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	margin-left: 4%;
-}
-
 .imageLeftTitleAndContentSubTemplate {
 	display:flex;
 	flex-direction:row;
 }
 
-.header_blocks {
-	display: flex;
-	flex-direction: column-reverse;
-}
-.preHeader .blockContent {
-	padding: 0;
-	margin-left: 12px;
-}
-.preHeader .blockContent > p{
-	margin : 0px;
-}
+
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (min-width: 640px) {
+	.blocks {
+		flex-direction: row;
+		justify-content:space-evenly;
+	}
 	.blockIcon {
 		width: 130px;
 		height: 130px;
 	}
-	.header_blocks {
-		display: flex;
-		flex-direction: row-reverse;
+	.onePerRow .card{
+		width:98%
 	}
-	.preHeader .blockContent {
-		margin-left: 25px;
+	.twoPerRow .card{
+		width:45%
 	}
-	.footer_blocks {
-		flex-direction: row;
-		justify-content: space-around;
+	.threePerRow .card{
+		width:30%
+	}
+	.fourPerRow .card{
+		width:23%
+	}
+	.fivePerRow .card{
+		width:19%
 	}
 }

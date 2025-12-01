@@ -17,7 +17,7 @@
 	height:100%;
 }
 .carousel-indicators > li {
-	border:1px solid ${webleger.site.style.header.title.color};
+	border:1px solid ${webleger.site.style.primary.background.color};
 }
 
 @media screen and (min-width: 640px) {

@@ -1,0 +1,41 @@
+/** Custom general style **/
+.navbar-nav > li > a, .dropdown-menu > li > a{
+	border-radius:15px;
+}
+
+.navbar-nav li:hover .caret {
+	color:${webleger.site.style.primary.highlight.color};
+}
+
+.breadcrumb li a {
+    border-radius:15px;
+}
+
+#preHeader_blocks {
+	display: flex;
+	flex-direction: column-reverse;
+}
+#preHeader .blockContent {
+	padding: 0;
+	margin-left: 12px;
+}
+#preHeader .blockContent > p{
+	margin : 0px;
+}
+#footer_blocks .block {
+	text-align:center;
+}
+
+@media screen and (min-width: 640px) {
+	#footer_blocks .block {
+		text-align:left;
+		width:31%;
+	}
+	#preHeader_blocks {
+		flex-direction: row-reverse;
+		justify-content: flex-start;
+	}
+	.preHeader .blockContent {
+		margin-left: 25px;
+	}
+}

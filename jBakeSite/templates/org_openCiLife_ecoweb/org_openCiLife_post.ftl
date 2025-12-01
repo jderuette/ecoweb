@@ -2,21 +2,27 @@
 	
 	<#include "menu.ftl">
 	
-	<#if hookHelper??>
+	<#if hookHelper?? && hookHelper.hasContributors("beforePageHeader")>
+		<div id="beforePageHeader" class="${webleger.site.beforePageHeader.class}">
 		<@hookHelper.hook "beforePageHeader" content/>
+		</div>
 	</#if>
 	
 	<div class="pageContent">
 	
-	<#if hookHelper??>
+	<#if hookHelper?? && hookHelper.hasContributors("beforeBody")>
+		<div id="beforeBody" class="${webleger.site.beforeBody.class}">
 		<@hookHelper.hook "beforeBody" content/>
+		</div>
 	</#if>
 	<#if (content.body)??>
 		${content.body}
 	</#if>
 	
-	<#if hookHelper??>
+	<#if hookHelper?? && hookHelper.hasContributors("afterBody")>
+		<div id="afterBody" class="${webleger.site.afterBody.class}">
 		<@hookHelper.hook "afterBody" content/>
+		</div>
 	</#if>
 	
 	</div>

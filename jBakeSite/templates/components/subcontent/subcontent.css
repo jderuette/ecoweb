@@ -1,5 +1,5 @@
 .subContent {
-	border-top: 2px solid ${webleger.site.style.header.title.color};
+	border-top: 2px solid ${webleger.site.style.primary.background.color};
     border-radius: 20px;
 }
 
@@ -7,7 +7,7 @@
     padding-top: 12px;
     padding-left: 12px;
     font-size: 150%;
-    color: ${webleger.site.style.header.title.color};
+    color: ${webleger.site.style.primary.background.color};
     text-decoration: underline;
 }
 
@@ -44,12 +44,12 @@
 }
 
 .card>a.widget_link:hover {
-	color: ${webleger.site.style.link.text-color.hover};
+	color: ${webleger.site.style.default.link.text-color.hover};
 }
 
 .card>a.widget_link_modal:hover {
 	cursor: zoom-in;
-	color: ${webleger.site.style.link.text-color.hover};
+	color: ${webleger.site.style.default.link.text-color.hover};
 }
 
 .card>a.widget_link:active, .card>a.widget_link_modal:active {
@@ -156,7 +156,39 @@
 	margin-top: 10px;
 }
 
+.primary .card .self_disabled {
+	background-color: ${webleger.site.style.primary.disabled.background.color};
+}
 
+/* card inside a primary design (use default) */
+.primary .card {
+	background-color:${webleger.site.style.background.color};
+	color: ${webleger.site.style.color};
+}
+.primary .card .card_title strong {
+	color: ${webleger.site.style.highlight.color};
+}
+.primary .card .card_title {
+    background-color:${webleger.site.style.background.color};
+	color: ${webleger.site.style.color};
+}
+.primary .card a:link {
+  color: ${webleger.site.style.link.text-color};
+}
+.primary .card a:visited {
+  color: ${webleger.site.style.link.text-color.visited};
+}
+.primary .card a:hover {
+  color: ${webleger.site.style.link.text-color.hover};
+}
+.primary .card a:active {
+  color: ${webleger.site.style.link.text-color.active};
+}
+
+.primary .card h1, .primary .card h2, .primary .card h3, .primary .card h4, .primary .card h5, .primary .card h6, 
+.primary .card .h1, .primary .card .h2, .primary .card .h3, .primary .card .h4, .primary .card .h5, .primary .card .h6 {
+	color:${webleger.site.style.color};
+}
 
 @media (min-width: 640px) {
 	.card>a.widget_link, .card>a.widget_link_modal {
