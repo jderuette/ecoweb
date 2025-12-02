@@ -27,7 +27,7 @@
 
 .lpWebLeger .steps_list .steps .steps_image {
 	border-color: ${webleger.site.style.primary.highlight.color};
-	color:black;
+	color:hsl(150,30%,15%);
 }
 
 .lpWebLeger .steps_exerpt {

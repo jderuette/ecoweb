@@ -6,9 +6,12 @@
 .breadcrumb li a {
     border-radius:15px;
 }
-
+.impact_img svg {
+	background-color:${webleger.site.style.color};
+	color:${webleger.site.style.background.color};
+}
 .primary .impact_img svg {
-	background-color:${webleger.site.style.highlight.color};
+	background-color:${webleger.site.style.primary.highlight.color};
 }
 
 #preHeader_blocks {
@@ -32,7 +35,7 @@
 .pageContent h1, .pageContent h2, .pageContent h3, .pageContent h4, .pageContent h5, 
 .pageContent h6, .pageContent h7, .pageContent h8, .pageContent h9, .pageContent h10, 
 #footer_blocks .blockTitle {
-	color:black;
+	color: hsl(150,30%,15%);
 }
 #footer_blocks .block {
 	text-align:left;

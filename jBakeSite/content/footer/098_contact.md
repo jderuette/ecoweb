@@ -8,4 +8,4 @@ status=published
 order=98
 ~~~~~~
 [Jérémie DERUETTE](https://github.com/jderuette/ecoweb)
-[EthikNet](${webleger.build.host}/lp/ethikNet/820_Ethiknet.html)
+[EthikNet](${webleger.site.ethikNetUrl})

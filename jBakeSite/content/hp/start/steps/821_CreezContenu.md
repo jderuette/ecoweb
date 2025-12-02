@@ -8,4 +8,4 @@ contentImage=<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" view
 status=published
 order=821
 ~~~~~~
-Rédigez vos pages en Markdown et ajoutez vos images. Aucune base de données nécessaire
+Rédigez vos pages en Markdown et ajoutez vos images, prsonalisez les contenus grâce aux entêtes MarkDown, pesonalisez les couleurs sans faire de CSS. Aucune base de données nécessaire
