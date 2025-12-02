@@ -5,6 +5,10 @@
     margin:25px 0;
 }
 
+.lpWebLeger .lp_title strong {
+	display:block;
+}
+
 .lpWebLeger .featured_label {
 	color: white;
 	background-color: ${webleger.site.style.primary.highlight.color};
@@ -45,6 +49,9 @@
 }
 .lpWebLeger .accroche {
     margin: 30px 0;
+}
+.lpWebLeger .accroche h2 {
+	color:${webleger.site.style.primary.highlight.color};
 }
 
 .lpWebLeger .accroche.card_list {
@@ -96,6 +103,11 @@
 	color:${webleger.site.style.primary.highlight.color};
 	box-shadow:none;
 	width:unset;
+}
+
+.lpWebLeger .howTo .steps_image:hover {
+	color:${webleger.site.style.primary.color};
+	background-color:${webleger.site.style.primary.background.color};
 }
 
 .lpWebLeger .subContent {
