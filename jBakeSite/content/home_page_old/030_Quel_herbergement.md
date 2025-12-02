@@ -1,7 +1,7 @@
 title=Quel hébergement ? 
 date=2025-04-30
 type=org_openCiLife_block
-category=homepage
+category=homepageOld
 tags=
 status=published
 specificClass=mainBlock style2

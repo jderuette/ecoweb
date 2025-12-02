@@ -5,4 +5,4 @@ category=lp_webleger_pret
 status=published
 order=820
 ~~~~~~
-**Contact** : Jérémie Deruette • EthikNet
+**Contact** : Jérémie Deruette

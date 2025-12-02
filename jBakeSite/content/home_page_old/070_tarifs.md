@@ -1,7 +1,7 @@
 title=Agence EthikNet : Tarifs
 date=2025-06-25
 type=org_openCiLife_block
-category=homepage
+category=homepageOld
 tags=
 status=draft
 specificClass=mainBlock style2

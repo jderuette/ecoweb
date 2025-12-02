@@ -1,7 +1,7 @@
 title=Pour qui ?
 date=2025-06-18
 type=org_openCiLife_block
-category=homepage
+category=homepageOld
 tags=
 status=published
 specificClass=mainBlock style2

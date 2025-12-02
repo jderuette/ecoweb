@@ -2569,6 +2569,8 @@ select[multiple].input-lg {
 	font-size: 14px;
 	line-height: 1.42857143;
 	border-radius: 4px;
+	align-items: center;
+    display: inline-flex;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -4368,8 +4370,8 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 	color:${webleger.site.style.color}
 }
 
-.nav>li>a:hover,
-.nav>li>a:focus {
+.nav>li>a:hover, .nav>li>a:hover .caret, 
+.nav>li>a:focus, .nav>li>a:focus .caret {
 	text-decoration: none;
 	background-color: ${webleger.site.style.primary.background.color};
 	color: ${webleger.site.style.primary.color}

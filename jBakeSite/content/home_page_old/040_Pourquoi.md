@@ -1,7 +1,7 @@
 title=Pourquoi ?
 date=2025-05-15
 type=org_openCiLife_block
-category=homepage
+category=homepageOld
 tags=
 status=published
 specificClass=mainBlock style1

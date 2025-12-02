@@ -20,21 +20,35 @@ a.no_state:active {
   color: ${webleger.site.style.link.text-color};
 }
 
-.primary a.no_state:link, 
-.primary a.no_state:visited, 
-.primary a.no_state:hover, 
-.primary a.no_state:active {
+.btn.no_state:hover {
   color: ${webleger.site.style.primary.link.text-color};
 }
 
-.primary .btn-primary a.no_state:link, 
-.primary .btn-primary a.no_state:visited, 
-.primary .btn-primary a.no_state:hover, 
-.primary .btn-primary a.no_state:active {
-  color: ${webleger.site.style.secondary.background.color};
+.primary a.no_state:link, 
+.primary a.no_state:visited, 
+.primary a.no_state:hover, 
+.primary a.no_state:active,
+.btn-primary.no_state:link, 
+.btn-primary.no_state:visited, 
+.btn-primary.no_state:hover, 
+.btn-primary.no_state:active  {
+  color: ${webleger.site.style.primary.link.text-color};
 }
 
+.btn-primary.no_state:hover {
+  color: ${webleger.site.style.link.text-color};
+}
 
+.primary .btn.no_state:hover, .primary .btn-primary.no_state:hover  {
+  color: ${webleger.site.style.primary.link.text-color};
+}
+
+.primary .btn-primary.no_state:link, 
+.primary .btn-primary.no_state:visited, 
+.primary .btn-primary.no_state:hover, 
+.primary .btn-primary.no_state:active {
+  color: ${webleger.site.style.link.text-color};
+}
 
 .featured_label {
 	color: ${webleger.site.style.alternate.color};
