@@ -26,7 +26,8 @@
 	color:${webleger.site.style.background.color};
 }
 .primary .impact_img svg {
-	background-color:${webleger.site.style.primary.highlight.color};
+	background-color:${webleger.site.style.primary.color};
+	color:${webleger.site.style.primary.background.color};
 }
 
 #preHeader_blocks {
@@ -42,6 +43,10 @@
 }
 #footer_blocks .block {
 	text-align:left;
+}
+
+#footer_blocks .block .blockTitle {
+	font-size:150%;
 }
 
 @media screen and (min-width: 640px) {

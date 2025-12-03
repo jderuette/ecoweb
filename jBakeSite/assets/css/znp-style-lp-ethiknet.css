@@ -1,6 +1,6 @@
 /** Custom style for LP-Ethiknet **/
 
-.lpEthikNet h1, .lpEthikNet h2 {
+.lpEthikNet .pageContent h1, .lpEthikNet .pageContent h2 {
 	text-align: center;
 	letter-spacing: 0.025em;
 	font-weight: 750;
