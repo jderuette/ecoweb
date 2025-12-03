@@ -21,6 +21,14 @@
     border-radius:15px;
 }
 
+.impact_img svg {
+	background-color:${webleger.site.style.color};
+	color:${webleger.site.style.background.color};
+}
+.primary .impact_img svg {
+	background-color:${webleger.site.style.primary.highlight.color};
+}
+
 #preHeader_blocks {
 	display: flex;
 	flex-direction: column-reverse;
@@ -33,7 +41,7 @@
 	margin : 0px;
 }
 #footer_blocks .block {
-	text-align:center;
+	text-align:left;
 }
 
 @media screen and (min-width: 640px) {
@@ -44,6 +52,7 @@
 	#preHeader_blocks {
 		flex-direction: row-reverse;
 		justify-content: flex-start;
+		gap:30px;
 	}
 	.preHeader .blockContent {
 		margin-left: 25px;
