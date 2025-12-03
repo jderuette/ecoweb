@@ -6,7 +6,6 @@ category=global
 status=published
 specificClass=Documentation
 displayDate=false
-menu={"parent":{"title":"WebLegé"}}
 order=700
 ~~~~~~
 La documentation de WebLègé pour mieux utiliser l'outils de création de site qui vous aide à l'éco-conveption.
