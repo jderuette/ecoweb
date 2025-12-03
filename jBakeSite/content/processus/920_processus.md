@@ -13,19 +13,19 @@ order=920
 
 ## Principales étapes d'un site Web
 
-Voici les principales étapes de création d'un site Web. Il est courant que les étapes précédentes soient répetée en cours de route du processus (identification de nouveau contenu qui peuvent avoir un impact sur la conception générale du site par exemple).
+Voici les principales étapes de création d'un site Web. Il est courant que les étapes précédentes soient répétée en cours de route du processus (identification de nouveau contenu qui peuvent avoir un impact sur la conception générale du site par exemple).
 
 ### Conception (design)
 
 - conception de la partie graphique (logo, style des icones)
 - conception des couleurs principales du site
 - conception de la structure générale du site
-- conception de la naviguation sur le site (UX Design).
+- conception de la navigation sur le site (UX Design).
 
 ### Contenues
 
 - Rédaction des contenus textuels.
-- Création et/ou recherche d'icones ou images.
+- Création et/ou recherche d’icônes ou images.
 
 ### aspect annexe au site
 

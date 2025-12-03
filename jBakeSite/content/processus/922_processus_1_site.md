@@ -27,7 +27,7 @@ après acceptation du devis :
 
 ### Livraison
 
-Je vous fourni votre site pret à être déployé.
+Je vous fourni votre site prêt à être déployé.
 Si vous choisissez l'offre avec hébergement j'effectue l'hébergement de votre site.
 
 ## Pour les modifications
@@ -35,8 +35,7 @@ Si vous choisissez l'offre avec hébergement j'effectue l'hébergement de votre 
 Si vous avez des modifications à effectuer, vous mes les demandez je vous fait un devis (en heures) après acceptation je réalise les modifications.
 Les modifications peuvent être : 
 
-- modification d'un contenu (infos de contacts, horraires,....)
-- ajout de contenu dans une structure déja prévu (actualité, évènnements,...)
+- modification d'un contenu (infos de contacts, horaires,....)
+- ajout de contenu dans une structure déjà prévu (actualité, événements,...)
 - ajout de page de contenus "général"
 - modifications de design du site.
-

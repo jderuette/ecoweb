@@ -6,7 +6,7 @@ status=published
 displayDate=false
 displayTitle=false
 displayBreadcrumb=false
-menu={"parent":{"title":"WebLegé"}}
+menu={"parent":{"title":"WebLeger"}}
 lang=en_EN
 order=001
 ~~~~~~
