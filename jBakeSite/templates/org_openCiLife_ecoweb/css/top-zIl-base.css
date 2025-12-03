@@ -20,21 +20,35 @@ a.no_state:active {
   color: ${webleger.site.style.link.text-color};
 }
 
-.primary a.no_state:link, 
-.primary a.no_state:visited, 
-.primary a.no_state:hover, 
-.primary a.no_state:active {
+.btn.no_state:hover {
   color: ${webleger.site.style.primary.link.text-color};
 }
 
-.primary .btn-primary a.no_state:link, 
-.primary .btn-primary a.no_state:visited, 
-.primary .btn-primary a.no_state:hover, 
-.primary .btn-primary a.no_state:active {
-  color: ${webleger.site.style.secondary.background.color};
+.primary a.no_state:link, 
+.primary a.no_state:visited, 
+.primary a.no_state:hover, 
+.primary a.no_state:active,
+.btn-primary.no_state:link, 
+.btn-primary.no_state:visited, 
+.btn-primary.no_state:hover, 
+.btn-primary.no_state:active  {
+  color: ${webleger.site.style.primary.link.text-color};
 }
 
+.btn-primary.no_state:hover {
+  color: ${webleger.site.style.link.text-color};
+}
 
+.primary .btn.no_state:hover, .primary .btn-primary.no_state:hover  {
+  color: ${webleger.site.style.primary.link.text-color};
+}
+
+.primary .btn-primary.no_state:link, 
+.primary .btn-primary.no_state:visited, 
+.primary .btn-primary.no_state:hover, 
+.primary .btn-primary.no_state:active {
+  color: ${webleger.site.style.link.text-color};
+}
 
 .featured_label {
 	color: ${webleger.site.style.alternate.color};
@@ -129,15 +143,11 @@ img {
 #go_to_top {
 	position: -webkit-sticky;
 	position: fixed;
-	bottom: 100px;
-	right: 50px;
+	bottom: 50px;
+	right: 20px;
 	opacity: 0.5;
-	width: 50px;
-	height: 50px;
-}
-
-code {
-	white-space: break-spaces;
+	width: 30px;
+	height: 30px;
 }
 
 .contentHidden {
@@ -193,6 +203,12 @@ code {
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (min-width: 640px) {
+	#go_to_top {
+		bottom: 100px;
+		right: 50px;
+		width: 50px;
+		height: 50px;
+	}
 	#footer {
 		margin-left: -20px;
     	margin-right: -20px;

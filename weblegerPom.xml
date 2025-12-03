@@ -182,6 +182,7 @@
 					<configuration>
 						<outputDirectory>${jbake.inputDirectory}</outputDirectory>
 						<escapeString>\</escapeString>
+						<propertiesEncoding>ISO-8859-1</propertiesEncoding>
 						<resources>
 							<resource>
 								<directory>${project.basedir}/jBakeSite</directory>
