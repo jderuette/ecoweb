@@ -8,17 +8,18 @@ specificClass=EthikNet
 contentImage=images/circular-arrow.svg
 displayDate=false
 menu={"parent":{"title":"Processus"}}
-order=922
+order=924
 ~~~~~~
 
 ## Etapes
 ### préliminaires
 
-1. un échange de15 minutes pour vérifier que votre besoin est compatible avec cette offre.
+1. un échange de 15 minutes pour vérifier que votre besoin est compatible avec cette offre.
 1. rédaction d'un devis
 
 ### Réalisation
-après acceptation du devis : 
+
+Après acceptation du devis : 
 
 1. 1 entretient d'1 heure environ pour définir le contenu du site
 1. livraison de votre site sur un environnement de tests

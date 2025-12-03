@@ -1,7 +1,8 @@
-title=A l'heure
+title=Processus
 date=2019-03-30
 type=org_openCiLife_post
-category=EthikNet, processus, global
+includeContent={"type":"org_openCiLife_post", "category":"processus", "display":{"type":"card", "content":"link"}}
+category=EthikNet
 status=published
 exerpt=Processus
 specificClass=EthikNet
@@ -22,7 +23,7 @@ Voici les principales étapes de création d'un site Web. Il est courant que les
 - conception de la structure générale du site
 - conception de la navigation sur le site (UX Design).
 
-### Contenues
+### Contenus
 
 - Rédaction des contenus textuels.
 - Création et/ou recherche d’icônes ou images.
