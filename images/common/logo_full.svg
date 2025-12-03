@@ -30,4 +30,10 @@
         font-size="80" fill="#2e7d32" font-family="sans-serif" font-weight="700">
     WL
   </text>
+
+  <!-- Nom -->
+  <text x="130" y="245" text-anchor="middle"
+        font-size="24" fill="#1b5e20" font-family="sans-serif">
+    WebLeger
+  </text>
 </svg>
