@@ -21,6 +21,8 @@
 	background-color:#eaf3ee;
 	border:1px solid white;
 	border-radius:20px;
+	display: flex;
+ 	align-items: center;
 	color:${webleger.site.style.primary.highlight.color};
 	padding: 5px 20px;
 }
