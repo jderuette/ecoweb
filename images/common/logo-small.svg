@@ -1,0 +1,11 @@
+<svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(20,8)">
+    <!-- Left wing (deep green) -->
+    <path d="M60 15 C20 35, 10 75, 55 100 C45 70, 45 40, 60 15Z"
+          fill="#2E7D32" stroke="#1B5220" stroke-width="3"/>
+
+    <!-- Right wing (premium gold/ochre) -->
+    <path d="M60 15 C100 35, 110 75, 65 100 C75 70, 75 40, 60 15Z"
+          fill="#FFC857" stroke="#D6A63B" stroke-width="3"/>
+  </g>
+</svg>

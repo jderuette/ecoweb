@@ -1,47 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://jderuette.github.io/ecoweb/index.html</loc>
-        <lastmod>2025-10-16</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/index.html</loc>
+        <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/en/index.html</loc>
-        <lastmod>2025-10-16</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/site_info/99900_infos.html</loc>
+        <lastmod>2025-10-01</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/en/articles/100_blogs.html</loc>
-        <lastmod>2025-10-15</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/processus/924_processus_1_site.html</loc>
+        <lastmod>2019-03-30</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/articles/210_article_exemple.html</loc>
-        <lastmod>2020-02-10</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/processus/922_a_l_heure.html</loc>
+        <lastmod>2019-03-30</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/articles/100_blogs.html</loc>
-        <lastmod>2019-03-16</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/processus/920_processus.html</loc>
+        <lastmod>2019-03-30</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/footer/contact.html</loc>
-        <lastmod>2025-12-03</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/footer/098_contact.html</loc>
+        <lastmod>2025-12-04</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/en/home_page/010_why.html</loc>
-        <lastmod>2025-09-16</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/footer/094_services.html</loc>
+        <lastmod>2025-12-04</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/preHeader/086_choix_langue.html</loc>
-        <lastmod>2025-07-07</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/footer/090_accroche_produit.html</loc>
+        <lastmod>2025-12-04</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/preHeader/084_contact_telephone.html</loc>
-        <lastmod>2025-07-07</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/title/822_pageTitle.html</loc>
+        <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/preHeader/080_contact_email.html</loc>
-        <lastmod>2025-07-07</lastmod>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/parlons_projet/list/820_informations_contact.html</loc>
+        <lastmod>2025-11-14</lastmod>
     </url>
     <url>
-        <loc>https://jderuette.github.io/ecoweb/home_page/110_bienvenue.html</loc>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/tarif/list/821_tarif_pack_heures.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/parlons_projet/829_parlons_projet.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/tarif/list/820_tarif_forfait.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/offre_lancement/830_offre_lancement.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/tarif/825_tarif.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/hebergement/list/821_hebergement_dedie.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/services/list/823_service_developpement_custom.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/hebergement/list/820_hebergement_mutualise.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/services/list/822_service_formation_support.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/hebergement/826_hebergement.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/services/list/821_service_hebergement.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/827_reduction_premiers_clients.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/services/list/820_service_creation_site_web.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/826_referencement_google.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/services/823_services.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/825_pack_heure.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/propulse_par_webleger/828_propulse_par_webleger.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/824_abonnement_mensuel.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/pourquoi_ethiknet/list/823_fiable_et_local.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/823_forfait_1000.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/pourquoi_ethiknet/list/822_simple.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/822_eco_conception.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/pourquoi_ethiknet/list/821_ultra_rapide.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/821_autonome_modification.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/pourquoi_ethiknet/list/820_eco_concu.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/faq_item/820_delais.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/pourquoi_ethiknet/827_pourquoi_ethiknet.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/faq/829_faq.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/parlons_projet/list/infos_contact/823_localisation.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/parlons_projet/list/infos_contact/822_disponibilitees.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/title/accroche/827_accroche_hebergement.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/parlons_projet/list/infos_contact/821_telephone.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/title/accroche/826_accroche_rapide.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/parlons_projet/list/infos_contact/820_email.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/parlons_projet/list/821_formulaire_contact.html</loc>
+        <lastmod>2025-11-14</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/title/accroche/825_accroche_prix.html</loc>
+        <lastmod>2025-11-07</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/site_info/99901_componentInfos.html</loc>
+        <lastmod>2025-10-01</lastmod>
+    </url>
+    <url>
+        <loc>https://ethiknet.github.io/ethiknet/home_page/110_bienvenue.html</loc>
         <lastmod>2019-01-27</lastmod>
     </url>
 </urlset>
